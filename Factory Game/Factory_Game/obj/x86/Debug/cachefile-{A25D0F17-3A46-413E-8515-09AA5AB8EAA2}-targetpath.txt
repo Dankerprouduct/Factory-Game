@@ -1,0 +1,13 @@
+Content\Tiles\DryTile1.xnb
+Content\Tiles\DryTile2.xnb
+Content\Tiles\DryTile3.xnb
+Content\Tiles\Granite1.xnb
+Content\Tiles\Granite2.xnb
+Content\Tiles\Granite3.xnb
+Content\Tiles\Grass1.xnb
+Content\Tiles\Grass2.xnb
+Content\Tiles\Grass3.xnb
+Content\Tiles\Water1.xnb
+Content\Sprites\TempPlayer.xnb
+Content\Tiles\BlankTile.xnb
+Content\Fonts\Font1.xnb
