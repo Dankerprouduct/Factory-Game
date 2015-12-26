@@ -15,14 +15,17 @@ namespace Factory_Game
 {
     public class Player : GameObject
     {
-
+        public float j = 1; 
         Vector2 lastPosition; 
         // input
         KeyboardState keyboardState;
+        KeyboardState oldKeboardState;
 
+        public bool canBreak; 
         public bool jumping;
-        public Rectangle rect; 
-
+        public Rectangle rect;
+        public bool colliding;
+        Rectangle tileBounds; 
         public Player(Vector2 startPosition)
         {
             position = startPosition;
@@ -36,6 +39,12 @@ namespace Factory_Game
         {
             keyboardState = Keyboard.GetState();
             Movement();
+
+            if(keyboardState.IsKeyDown(Keys.B) && oldKeboardState.IsKeyUp(Keys.B))
+            {
+                canBreak = !canBreak;
+            }
+            oldKeboardState = keyboardState; 
             
         }
         public enum Direction
@@ -64,27 +73,41 @@ namespace Factory_Game
             {
                 position.Y -= 10;
                 velocity.Y = -5;
-                jumping = true; 
+                jumping = true;
+                
             }
             if (jumping)
             {
                 float i = 1;
                 velocity.Y += .15f * i;
+                
             }
             if (!jumping)
             {
-                velocity.Y = 0; 
+                
+                velocity.Y = 1; 
             }
-            position.Y += 1; 
 
-            lastPosition = position; 
+
+
+            if (rect.Intersects(tileBounds))
+            {
+                jumping = false; 
+            }
+            else
+            {
+                jumping = true; 
+            }
+
         }
-
+        
 
         public void Collision(Rectangle bounds) 
         {
-            jumping = false;
 
+            tileBounds = bounds;
+
+            jumping = false;
 
             Vector2 debth = RectangleExtensions.GetIntersectionDepth(rect, bounds); 
             
@@ -103,15 +126,19 @@ namespace Factory_Game
                 }
             }
 
+            
         }
 
+
+
+
         
-
-
-
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture, position, Color.White); 
+            int previous = (int)position.Y;
+            int averagePosY = (int)Math.Floor(position.Y + previous) / 2;
+            spriteBatch.Draw(texture, new Vector2(position.X, averagePosY), Color.White);
+            
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,11 @@ namespace Factory_Game
         bool alive = true;
         Rectangle bounds;
         Rectangle secBounds;
-        int durability; 
+        int durability;
+        bool canBreak = false;
+        KeyboardState keyboardState;
+        KeyboardState oldKeyboardState;
+        bool draw = true;  
         public Tile()
         {
             durability = 10; 
@@ -49,15 +54,24 @@ namespace Factory_Game
             
         }
 
-        public void Update(GameTime gameTime, Player player)
+        public void Update(GameTime gameTime, Player player, Game1 game)
         {
+
+
             if (alive)
             {
                 if (bounds.Intersects(player.rect) && index != 0)
                 {
                     player.Collision(bounds);
+                    player.j = 1;
+                    // alive = false; 
+                    if (player.canBreak)
+                    {
+                        alive = false; 
+                    }
                     
                 }
+
                 
                 if(durability <= 0)
                 {
@@ -69,11 +83,28 @@ namespace Factory_Game
             {
                 index = 0; 
             }
+            Rectangle drawRect;
+            drawRect = new Rectangle(player.rect.X - (game.WIDTH / 2) - 96,
+                player.rect.Y - (game.HEIGHT / 2) - 128,
+                player.rect.X + game.WIDTH + 200,
+                player.rect.Y + game.HEIGHT + 350);
+            
+            if (bounds.Intersects(drawRect))
+            {
+                draw = true; 
+            }
+            else
+            {
+                draw = false; 
+            }
             
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(tiles[index], position, Color.White); 
+            if (draw)
+            {
+                spriteBatch.Draw(tiles[index], position, Color.White);
+            }
         }
     }
 }

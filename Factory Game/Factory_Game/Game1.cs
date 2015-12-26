@@ -23,11 +23,14 @@ namespace Factory_Game
         public Player player;
 
         TileMap tileMap;
-        int[,] mapSize = new int[25, 25];
+        int[,] mapSize = new int[600, 200];
+        int seed = 932480; 
 
-        Camera camera;
+        public Camera camera;
 
-        GUI gui = new GUI(); 
+        GUI gui = new GUI();
+
+
         public Game1()
         {
             HEIGHT = (WIDTH / 16) * 9;
@@ -36,6 +39,7 @@ namespace Factory_Game
             graphics.PreferredBackBufferWidth = WIDTH;
             IsMouseVisible = true; 
             Content.RootDirectory = "Content";
+
         }
 
 
@@ -52,10 +56,10 @@ namespace Factory_Game
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            player = new Player(new Vector2(0, -50)); 
+            player = new Player(new Vector2(50, -50)); 
             player.LoadContent(Content);
 
-            tileMap = new TileMap(mapSize);
+            tileMap = new TileMap(mapSize, seed);
             tileMap.LoadContent(Content);
 
             gui.LoadContnent(Content); 
@@ -71,6 +75,7 @@ namespace Factory_Game
         protected override void Update(GameTime gameTime)
         {
 
+            
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
             camera.Update(gameTime, this); 
@@ -84,7 +89,7 @@ namespace Factory_Game
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Coral);
 
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend,
                 null, null, null, null,

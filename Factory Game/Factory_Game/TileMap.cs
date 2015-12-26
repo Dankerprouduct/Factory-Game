@@ -15,7 +15,7 @@ namespace Factory_Game
         private int[,] mapAttributes;
         private int[,] mapSize;
         private Random random;
-
+        int seed;
         private List<int> tileTypes = new List<int>()
         {
             8,
@@ -29,9 +29,10 @@ namespace Factory_Game
         KeyboardState keyboardState;
         KeyboardState oldKeyoardState;
 
-        
-        public TileMap(int[,] size)
+        Game1 gme; 
+        public TileMap(int[,] size, int sed)
         {
+            seed = sed; 
             mapSize = size;
             mapAttributes = mapSize;
             Console.WriteLine("Map Size: " + mapSize.Length);
@@ -54,7 +55,51 @@ namespace Factory_Game
                     mapCount++;
                 }
             }
-            PreGeneration();
+
+            MapGeneration(size.GetLength(0), size.GetLength(1));
+
+            Final(); 
+        }
+
+        void MapGeneration(int width, int height)
+        {
+            float[,] preGenMap = WhiteNoise(width, height);
+
+            float[,] postGenMap = GeneratePerlinNoise(preGenMap, 5);
+
+            
+            for (int x = 0; x < width; x++)
+            {
+                for(int y = 0; y < height; y++)
+                {
+                   // Console.WriteLine(postGenMap[x,y]);
+
+                    if (postGenMap[x,y] <= .3f && postGenMap[x,y] >= .0f)
+                    {
+                        mapAttributes[x, y] = 0; 
+                    }
+                    if (postGenMap[x, y] <= .6f && postGenMap[x, y] >= .3f)
+                    {
+                        mapAttributes[x, y] = 2;
+                        if (postGenMap[x, y] <= .4f && postGenMap[x, y] >= .3f)
+                        {
+                            mapAttributes[x, y] = 3; 
+                        }
+                    }
+                    if (postGenMap[x, y] <= .7f && postGenMap[x, y] >= .6f)
+                    {
+                        mapAttributes[x, y] = 4;
+                        if (postGenMap[x, y] <= .65f && postGenMap[x, y] >= .6f)
+                        {
+                            mapAttributes[x, y] = 5;
+                        }
+                    }
+                    if (postGenMap[x, y] <= .9f && postGenMap[x, y] >= .7f)
+                    {
+                        mapAttributes[x, y] = 0;
+                    }
+                }
+            }
 
         }
 
@@ -84,104 +129,108 @@ namespace Factory_Game
             Final();
         }
 
-        private void PreGeneration()
+        
+        public float[,] WhiteNoise(int width, int height)
         {
-                        
-            random = new Random();
-            // was 80 - 120 
-            int range = (mapSize.Length / 49) * 3;
-            Console.WriteLine(range);
-            for (int i = 0; i < range; i++)
+            Random random = new Random(seed);
+
+            float[,] noise = new float[width, height]; 
+
+            for(int x = 0; x < width; x++)
             {
-                float percentComplete = (i / range) * 100;
-                Console.WriteLine(i + "/" + range + " Loaded");
-                Thread.Sleep(100);
-                random = new Random();
-                int tileWidth = random.Next(0, mapAttributes.GetLength(0));
-
-                int tileHeight = random.Next(0, mapAttributes.GetLength(1));
-
-                int maxOffset = random.Next(3, 4);
-                int index = random.Next(0, tileTypes.Count);
-                int climax = tileTypes[index];
-
-                // tileWidth = 4;
-                //  tileHeight = 4; 
-
-                mapAttributes[tileWidth, tileHeight] = climax - maxOffset + 1;
-                ///////////////////////////
-
-                while (maxOffset > 0)
+                for(int y = 0; y < height; y++)
                 {
-                    // horizontal & verticle
-                    if ((tileHeight - maxOffset < mapAttributes.GetLength(1)) && ((tileHeight - maxOffset >= 0)))
-                    {
-                        mapAttributes[tileWidth, tileHeight - maxOffset] = climax;
-                    }
-
-                    if ((tileHeight + maxOffset < mapAttributes.GetLength(1)) && (tileHeight + maxOffset >= 0))
-                    {
-                        mapAttributes[tileWidth, tileHeight + maxOffset] = climax;
-                    }
-
-                    if ((tileWidth - maxOffset < mapAttributes.GetLength(0)) && ((tileWidth - maxOffset >= 0)))
-                    {
-                        mapAttributes[tileWidth - maxOffset, tileHeight] = climax;
-                    }
-
-                    if ((tileWidth + maxOffset < mapAttributes.GetLength(0)) && ((tileWidth + maxOffset >= 0)))
-                    {
-                        mapAttributes[tileWidth + maxOffset, tileHeight] = climax;
-                    }
-                    
-                    // diagnals
-                    //  mapAttributes[tileWidth - maxOffset, tileHeight - maxOffset] = climax;s
-                    //  mapAttributes[tileWidth + maxOffset, tileHeight - maxOffset] = climax;
-                    //   mapAttributes[tileWidth - maxOffset, tileHeight + maxOffset] = climax;
-                    //   mapAttributes[tileWidth + maxOffset, tileHeight + maxOffset] = climax;
-
-                    if ((tileWidth - maxOffset < mapAttributes.GetLength(0) && (tileHeight - maxOffset < mapAttributes.GetLength(0) &&
-                        (tileWidth - maxOffset >= 0) && (tileHeight - maxOffset >= 0))))
-                    {
-                        mapAttributes[tileWidth - maxOffset, tileHeight - maxOffset] = climax;
-                    }
-
-                    if ((tileWidth + maxOffset < mapAttributes.GetLength(0) && (tileHeight - maxOffset < mapAttributes.GetLength(0) &&
-                        (tileWidth + maxOffset >= 0) && (tileHeight - maxOffset >= 0))))
-                    {
-                        mapAttributes[tileWidth + maxOffset, tileHeight - maxOffset] = climax;
-                    }
-
-                    if ((tileWidth - maxOffset < mapAttributes.GetLength(0) && (tileHeight + maxOffset < mapAttributes.GetLength(0) &&
-                        (tileWidth - maxOffset >= 0) && (tileHeight + maxOffset >= 0))))
-                    {
-                        mapAttributes[tileWidth - maxOffset, tileHeight + maxOffset] = climax;
-                    }
-
-                    if ((tileWidth + maxOffset < mapAttributes.GetLength(0) && (tileHeight + maxOffset < mapAttributes.GetLength(0) &&
-                        (tileWidth + maxOffset >= 0) && (tileHeight + maxOffset >= 0))))
-                    {
-                        mapAttributes[tileWidth + maxOffset, tileHeight + maxOffset] = climax;
-                    }
-                    //middle section
-
-
-                    maxOffset--;
-                    climax--;
-
-                    if (climax <= 0)
-                    {
-
-                        // random between dirt min- dirt max
-                        index = random.Next(0, tileTypes.Count);
-                        climax = tileTypes[index];
-
-                    }
+                    noise[x, y] = (float)random.NextDouble() % 1; 
                 }
+            }
+            return noise; 
+        }
 
-                ///////////////////
+        float[,] GenerateSmoothNoise(float[,] baseNoise, int octave)
+        {
+            
+            
+            int width = baseNoise.GetLength(0);
+            int height = baseNoise.GetLength(1);
+
+            float[,] smoothNoise = new float[width, height]; 
+
+            int samplePeriod = 1 << octave;
+
+            float sampleFrequency = 1.0f / samplePeriod; 
+            
+            for(int x = 0; x < width; x++)
+            {
+                int sample1 = (x / samplePeriod) * samplePeriod;
+                int sample2 = (sample1 + samplePeriod) % width;
+                float horizonalBlend = (x - sample1) * sampleFrequency; 
+
+                for(int y = 0; y < height; y++)
+                {
+                    int sampley1 = (y / samplePeriod) * samplePeriod;
+                    int sampley2 = (sampley1 + samplePeriod) % height;
+                    float verticleBlend = (y - sampley1) * sampleFrequency;
+
+
+                    float top = Interpolate(baseNoise[sample1, sampley1], baseNoise[sample2, sampley1], horizonalBlend);
+
+                    float bottotm = Interpolate(baseNoise[sample1, sampley2], baseNoise[sample2, sampley2], horizonalBlend);
+
+                    smoothNoise[x, y] = Interpolate(top, bottotm, verticleBlend); 
+                }
+            }
+            return smoothNoise; 
+        }
+
+        float[,] GeneratePerlinNoise(float[,] baseNoise, int OctaveCount)
+        {
+            int width = baseNoise.GetLength(0);
+            int height = baseNoise.GetLength(1);
+
+            float[][,] smoothNoise = new float[OctaveCount][,];
+              
+
+            float persistence = 0.5f; 
+
+            for(int i = 0; i < OctaveCount; i++)
+            {
+                smoothNoise[i] = GenerateSmoothNoise(baseNoise, i); 
+               
             }
 
+            float[,] perlinNoise = new float[width, height];
+            float amplitude = 12;
+            float totalAmp = 0.0f; 
+
+
+            for(int octave = OctaveCount - 1; octave > 0; octave--)
+            {
+                amplitude *= persistence;
+                totalAmp += amplitude; 
+
+                for(int x = 0; x < width; x++)
+                {
+                    for(int y = 0; y < height; y++)
+                    {
+                        perlinNoise[x, y] += smoothNoise[octave][x, y] * amplitude; 
+                    }
+                }
+            }
+
+            for(int x = 0; x < width; x++)
+            {
+                for(int y = 0; y < height; y++)
+                {
+                    perlinNoise[x, y] /= totalAmp; 
+                }
+            }
+
+            return perlinNoise; 
+        }
+
+        float Interpolate(float x0, float x1, float alpha)
+        {
+            return x0 * (1 - alpha) + alpha * x1; 
         }
 
 
@@ -193,9 +242,9 @@ namespace Factory_Game
 
             foreach(Tile ti in tiles)
             {
-                ti.Update(gameTime, game.player); 
+                ti.Update(gameTime, game.player, game); 
             }
-
+            gme = game; 
         }
 
         void Final()
@@ -219,11 +268,12 @@ namespace Factory_Game
 
         public void Draw(SpriteBatch spriteBatch, Player player)
         {
-
+            
             foreach(Tile ti in tiles)
             {
                 ti.Draw(spriteBatch); 
             }
+            
 
         }
     }
