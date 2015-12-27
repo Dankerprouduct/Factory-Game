@@ -75,15 +75,15 @@ namespace Factory_Game
                 tilePos = "Tile Position " + ((player.rect.X / 32) - 2).ToString() + " " + (player.rect.Y / 32).ToString();
                 entitys = "Entitys " + tileManagement.tileObjects.Count;
 
-                dT1 = player.inventory.dT1.ToString();
-                dT2 = player.inventory.dT2.ToString();
-                dT3 = player.inventory.dT3.ToString();
-                gT1 = player.inventory.gT1.ToString();
-                gT2 = player.inventory.gT2.ToString();
-                gT3 = player.inventory.gT3.ToString();
-                gR1 = player.inventory.gR1.ToString();
-                gR2 = player.inventory.gR2.ToString();
-                gR3 = player.inventory.gT3.ToString();
+                dT1 = player.inventory.itemIndex[0].ToString();
+                dT2 = player.inventory.itemIndex[1].ToString();
+                dT3 = player.inventory.itemIndex[2].ToString();
+                gT1 = player.inventory.itemIndex[3].ToString();
+                gT2 = player.inventory.itemIndex[4].ToString();
+                gT3 = player.inventory.itemIndex[5].ToString();
+                gR1 = player.inventory.itemIndex[6].ToString();
+                gR2 = player.inventory.itemIndex[7].ToString();
+                gR3 = player.inventory.itemIndex[8].ToString();
 
                 frameCounter++;
                 frameTime += gameTime.ElapsedGameTime.TotalMilliseconds;

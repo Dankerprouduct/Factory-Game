@@ -66,17 +66,17 @@ namespace Factory_Game
                     }
                 case Tile.TileType.Grass1:
                     {
-
+                        objectTexture = content.Load<Texture2D>("TileObjects/DryTile1Item");
                         break;
                     }
                 case Tile.TileType.Grass2:
                     {
-
+                        objectTexture = content.Load<Texture2D>("TileObjects/DryTile1Item");
                         break;
                     }
                 case Tile.TileType.Grass3:
                     {
-
+                        objectTexture = content.Load<Texture2D>("TileObjects/DryTile1Item");
                         break; 
                     }
                 default:

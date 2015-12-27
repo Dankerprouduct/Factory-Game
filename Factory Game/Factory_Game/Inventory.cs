@@ -14,32 +14,25 @@ namespace Factory_Game
 {
     public class Inventory
     {
-        public int dT1;
-        public int dT2;
-        public int dT3;
-        public int gT1;
-        public int gT2;
-        public int gT3;
-        public int gR1;
-        public int gR2;
-        public int gR3;
-        public int selectedItem = 1;
+
+        public int selectedItem = 0;
+        public List<int> itemIndex = new List<int>(); 
         KeyboardState keyboardState;
         KeyboardState oldKeyboardState;
 
         // TODO move all g craps to just a list of types 
         public Inventory()
         {
-            dT1 = 0;
-            dT2 = 0;
-            dT3 = 0;
-            gT1 = 0;
-            gT2 = 0;
-            gT3 = 0;
-            gR1 = 0;
-            gR2 = 0;
-            gR3 = 0; 
-            
+            itemIndex.Add(0); //  Dirt Tile 1 
+            itemIndex.Add(0); //  Dirt Tile 2
+            itemIndex.Add(0); //  Dirt Tile 3
+            itemIndex.Add(0); //  Granite Tile 1
+            itemIndex.Add(0); //  Granite Tile 2
+            itemIndex.Add(0); //  Granite Tile 3
+            itemIndex.Add(0); //  Grass Tile 1
+            itemIndex.Add(0); //  Grass Tile 2
+            itemIndex.Add(0); //  Grass Tile 3
+               
         }
         public void Update(GameTime gameTime)
         {
@@ -49,53 +42,10 @@ namespace Factory_Game
             {
                 
                 selectedItem++; 
-                if(selectedItem > 9)
+                if(selectedItem > 8)
                 {
-                    selectedItem = 1; 
+                    selectedItem = 0; 
                     
-                }
-                switch (selectedItem)
-                {
-                    case 1:
-                        {
-                            if(dT1 > 0)
-                            {
-                              //  dT1--; 
-                            }
-                            break;
-                        }
-                    case 2:
-                        {
-                            break;
-                        }
-                    case 3:
-                        {
-                            break;
-                        }
-                    case 4:
-                        {
-                            break;
-                        }
-                    case 5:
-                        {
-                            break; 
-                        }
-                    case 6:
-                        {
-                            break;
-                        }
-                    case 7:
-                        {
-                            break;
-                        }
-                    case 8:
-                        {
-                            break;
-                        }
-                    case 9:
-                        {
-                            break;
-                        }
                 }
             }
 
@@ -107,47 +57,47 @@ namespace Factory_Game
             {
                 case Tile.TileType.DryTile1:
                     {
-                        dT1 += ammount; 
+                        itemIndex[0] += ammount; 
                         break; 
                     }
                 case Tile.TileType.DryTile2:
                     {
-                        dT2 += ammount;
+                        itemIndex[1] += ammount;
                         break;
                     }
                 case Tile.TileType.DryTile3:
                     {
-                        dT3 += ammount;
+                        itemIndex[2] += ammount;
                         break; 
                     }
                 case Tile.TileType.Granite1:
                     {
-                        gT1 += ammount;
+                        itemIndex[3] += ammount;
                         break;
                     }
                 case Tile.TileType.Granite2:
                     {
-                        gT2 += ammount;
+                        itemIndex[4] += ammount;
                         break; 
                     }
                 case Tile.TileType.Granite3:
                     {
-                        gT3 += ammount;
+                        itemIndex[5] += ammount;
                         break; 
                     }
                 case Tile.TileType.Grass1:
                     {
-                        gR1 += ammount;
+                        itemIndex[6] += ammount;
                         break;
                     }
                 case Tile.TileType.Grass2:
                     {
-                        gR2 += ammount;
+                        itemIndex[7] += ammount;
                         break;
                     }
                 case Tile.TileType.Grass3:
                     {
-                        gR3 += ammount;
+                        itemIndex[8] += ammount;
                         break; 
                     }
             }

@@ -28,6 +28,8 @@ namespace Factory_Game
         public Tile[,] tile; 
         Game1 gme;
         int mapCount = 0;
+        public Vector2 playerStart; 
+        
         public TileMap(int[,] size, int sed)
         {
             seed = sed; 
@@ -126,7 +128,7 @@ namespace Factory_Game
             double rand2 = randomizer.NextDouble() + 2;
             double rand3 = randomizer.NextDouble() + 3;
 
-            float peakheight = 1;
+            float peakheight = 25;
             float flatness = 100.3234f;
             int offset = 50;
 
@@ -148,9 +150,20 @@ namespace Factory_Game
             {
                 for (int y = 0; y < mapAttributes.GetLength(1); y++)
                 {
+                    
                     if (y < Math.Abs(terrainContour[x]))
                     {
                         mapAttributes[x, y] = 0; 
+                    }
+                    if(y == Math.Abs(terrainContour[x]) && mapAttributes[x, y] != 0)
+                    {
+                        mapAttributes[x, y] = 7;
+                    }
+                    if(y == Math.Abs(terrainContour[x]) && x == mapAttributes.GetLength(0) / 2)
+                    {
+                        Console.WriteLine(x  + " " + y );
+                        playerStart = new Vector2(x * 32, y * 32 - 64); 
+                         
                     }
                 }
             }

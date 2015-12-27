@@ -26,7 +26,7 @@ namespace Factory_Game
         // 4200 1200
         int[,] mapSize = new int[200, 200];
         // 932480
-        int seed = 194858; 
+        int seed = 123412; 
 
         public Camera camera;
 
@@ -60,11 +60,14 @@ namespace Factory_Game
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            player = new Player(new Vector2(50, -50)); 
-            player.LoadContent(Content);
+            
 
             tileMap = new TileMap(mapSize, seed);
             tileMap.LoadContent(Content);
+
+            player = new Player(tileMap.playerStart);
+            player.LoadContent(Content);
+
             tileObjectManagement = new TileObjectManagement(this); 
             gui.LoadContnent(Content); 
         }

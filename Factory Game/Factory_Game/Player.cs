@@ -138,7 +138,14 @@ namespace Factory_Game
             {
                 if (mouseState.RightButton == ButtonState.Pressed)
                 {
-                    tileMap.ChangeTile(xCord, yCord, inventory.selectedItem);
+                    if (inventory.itemIndex[inventory.selectedItem] > 0)
+                    {
+                        if (tileMap.tile[xCord, yCord].index == 0)
+                        {
+                            tileMap.ChangeTile(xCord, yCord, inventory.selectedItem);
+                            inventory.itemIndex[inventory.selectedItem]--;
+                        } 
+                    }
                 }
                 if (mouseState.LeftButton == ButtonState.Pressed)
                 {
