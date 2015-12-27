@@ -88,7 +88,7 @@ namespace Factory_Game
             {
                 tileObjectManagement.Update(gameTime);
             }
-            gui.Update(gameTime, player); 
+            gui.Update(gameTime, player, tileObjectManagement); 
             tileMap.Update(gameTime, this); 
             base.Update(gameTime);
         }

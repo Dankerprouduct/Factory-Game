@@ -22,7 +22,8 @@ namespace Factory_Game
         string velocity;
         string colliding;
         string fps;
-        string tilePos; 
+        string tilePos;
+        string entitys; 
 
         int frameCounter;
         double frameTime;
@@ -38,7 +39,7 @@ namespace Factory_Game
             
         }
 
-        public void Update(GameTime gameTime, Player player)
+        public void Update(GameTime gameTime, Player player, TileObjectManagement tileManagement)
         {
             playerPos = "Position " + player.CurrentBounds().ToString();
             inAir = "In Air " + player.jumping.ToString();
@@ -47,6 +48,7 @@ namespace Factory_Game
             colliding = "Colliding " + player.colliding.ToString();
             fps = "fps " + frames.ToString();
             tilePos = "Tile Position " + ((player.rect.X / 32) - 2).ToString() + " " + (player.rect.Y / 32).ToString();
+            entitys = "Entitys " + tileManagement.tileObjects.Count; 
             frameCounter++;
             frameTime += gameTime.ElapsedGameTime.TotalMilliseconds; 
             if(frameTime >= 1000)
@@ -63,8 +65,8 @@ namespace Factory_Game
             spriteBatch.DrawString(font, inAir, new Vector2(10, 25), Color.White);
             spriteBatch.DrawString(font, canBreak, new Vector2(10, 40), Color.White);
             spriteBatch.DrawString(font, velocity, new Vector2(10, 55), Color.White);
-            spriteBatch.DrawString(font, tilePos, new Vector2(10, 70), Color.White); 
-            
+            spriteBatch.DrawString(font, tilePos, new Vector2(10, 70), Color.White);
+            spriteBatch.DrawString(font, entitys, new Vector2(10, 85), Color.White);
         }
 
     }

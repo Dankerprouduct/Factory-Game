@@ -20,7 +20,7 @@ namespace Factory_Game
         Rectangle bounds;
         float durability;
         bool draw = true;
-        Vector2 worldPosition; 
+        Vector2 worldPosition;
 
         public enum TileType
         {
@@ -124,6 +124,8 @@ namespace Factory_Game
         }
         public void UpdateIndex(int indx)
         {
+            durability = 10;
+            alive = true; 
             index = indx;
             switch (index)
             {
@@ -194,7 +196,7 @@ namespace Factory_Game
                     if (bounds.Intersects(player.rect) && index != 0)
                     {
                         player.Collision(bounds);
-                        player.j = 1f;
+                      //  player.j = 1f;
                         // alive = false; 
                         if (player.canBreak)
                         {
@@ -212,12 +214,15 @@ namespace Factory_Game
                         }
                     }
 
-                    if (durability <= 0)
+                    if (alive)
                     {
+                        if (durability <= 0)
+                        {
 
-                       // worldPosition = Vector2.Transform(position, Matrix.Invert(game.camera.rawTransform)); 
-                        game.tileObjectManagement.AddTileObject(new Vector2(position.X + (bounds.Width /4), position.Y + (bounds.Height / 4)), tileType);
-                        alive = false;
+                            // worldPosition = Vector2.Transform(position, Matrix.Invert(game.camera.rawTransform)); 
+                            game.tileObjectManagement.AddTileObject(new Vector2(position.X + (bounds.Width / 4), position.Y + (bounds.Height / 4)), tileType);
+                            alive = false;
+                        }
                     }
                 }
             }
@@ -228,6 +233,7 @@ namespace Factory_Game
 
             
         }
+
         public void Draw(SpriteBatch spriteBatch)
         {
             

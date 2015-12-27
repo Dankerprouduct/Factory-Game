@@ -15,7 +15,7 @@ namespace Factory_Game
 {
     public class Player : GameObject
     {
-        public float j = 1; 
+      //  public float j = 1; 
         // input
         KeyboardState keyboardState;
         KeyboardState oldKeboardState;
@@ -53,11 +53,6 @@ namespace Factory_Game
             MouseMovement(game.camera, game.tileMap);
             oldKeboardState = keyboardState; 
             
-        }
-        public enum Direction
-        {
-            Horizontal,
-            Vertical
         }
         void Movement()
         {
@@ -104,7 +99,7 @@ namespace Factory_Game
             if (jumping)
             {
                 float i = 1;
-                velocity.Y += .15f * i;
+                velocity.Y += .25f * i;
                 
             }
             if (!jumping)
@@ -135,17 +130,19 @@ namespace Factory_Game
             //  Console.WriteLine(worldPosition.X);
             //   Console.WriteLine(worldPosition.Y); 
             xCord = Convert.ToInt32(worldPosition.X) / 32;
-            yCord = Convert.ToInt32(worldPosition.Y) / 32; 
+            yCord = Convert.ToInt32(worldPosition.Y) / 32;
 
-            if(mouseState.RightButton == ButtonState.Pressed)
+            if (xCord < tileMap.tile.GetLength(0) && xCord >= 0 && yCord < tileMap.tile.GetLength(1) && yCord >=0)
             {
-                tileMap.ChangeTile(xCord, yCord, 0); 
+                if (mouseState.RightButton == ButtonState.Pressed)
+                {
+                    tileMap.ChangeTile(xCord, yCord, 4);
+                }
+                if (mouseState.LeftButton == ButtonState.Pressed)
+                {
+                    tileMap.DamageTile(xCord, yCord, 10f);
+                }
             }
-            if (mouseState.LeftButton == ButtonState.Pressed)
-            {
-                tileMap.DamageTile(xCord, yCord, 10f);
-            }
-
         }
 
         public void Collision(Rectangle bounds) 
@@ -164,7 +161,7 @@ namespace Factory_Game
 
                 if(absDebthy < absDebthX)
                 {
-                    position = new Vector2(position.X, position.Y + debth.Y);
+                    position = new Vector2(position.X, position.Y + debth.Y + 1);
                 }
                 else
                 {
@@ -175,15 +172,13 @@ namespace Factory_Game
             
         }
 
-
-
-
+               
         
         public void Draw(SpriteBatch spriteBatch)
         {
             int previous = (int)position.Y;
             int averagePosY = (int)Math.Floor(position.Y + previous) / 2;
-            spriteBatch.Draw(texture, new Vector2(position.X, averagePosY), Color.White);
+            spriteBatch.Draw(texture, new Vector2(position.X, position.Y), Color.White);
             
         }
     }

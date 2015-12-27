@@ -46,10 +46,10 @@ namespace Factory_Game
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            foreach(TileObject tiObject in tileObjects)
+
+            foreach(TileObject ti in tileObjects)
             {
-                tiObject.Draw(spriteBatch);
-               // Console.WriteLine("drawing"); 
+                ti.Draw(spriteBatch); 
             }
         }
     }

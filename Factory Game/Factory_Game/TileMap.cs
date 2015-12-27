@@ -12,7 +12,7 @@ namespace Factory_Game
 {
     public class TileMap
     {
-        private int[,] mapAttributes;
+        public int[,] mapAttributes;
       //  private int[,] mapSize;
         int seed;
         private List<int> tileTypes = new List<int>()

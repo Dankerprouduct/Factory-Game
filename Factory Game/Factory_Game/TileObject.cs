@@ -20,7 +20,10 @@ namespace Factory_Game
         Rectangle tileBounds;
         public Rectangle rect;
         public bool alive;
-        public Vector2 velocity; 
+        public Vector2 velocity;
+        float currentTime = 0;
+        int counter = 1;
+        float countDuration = 10f; 
         public TileObject(Vector2 pos, Tile.TileType typ)
         {
             position = pos; 
@@ -86,8 +89,8 @@ namespace Factory_Game
             rect = new Rectangle((int)position.X, (int)position.Y, objectTexture.Width, objectTexture.Height);
             position += velocity; 
             int i = 1;
-            velocity.Y += i * .15f; 
-
+            velocity.Y += i * .15f;
+            DeathTimer(gameTime);
         }
         public void Collision(Rectangle bounds)
         {
@@ -112,9 +115,23 @@ namespace Factory_Game
             }
             
         }
+        void DeathTimer(GameTime gameTime)
+        {
+            
+            currentTime += (float)gameTime.ElapsedGameTime.TotalSeconds; //Time passed since last Update() 
+
+            if (currentTime >= countDuration)
+            {
+                counter++;
+                currentTime -= countDuration; // "use up" the time
+                                              //any actions to perform
+                alive = false; 
+            }
+        }
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(objectTexture, position, Color.White); 
+            spriteBatch.Draw(objectTexture, position, Color.White);
+
         }
     }
 }
