@@ -13,8 +13,7 @@ namespace Factory_Game
     public class TileMap
     {
         private int[,] mapAttributes;
-        private int[,] mapSize;
-        private Random random;
+      //  private int[,] mapSize;
         int seed;
         private List<int> tileTypes = new List<int>()
         {
@@ -22,68 +21,79 @@ namespace Factory_Game
             2,
             5,
         };
-        // lists
-        private List<Tile> tiles = new List<Tile>();
         List<Vector2> nTilePosition = new List<Vector2>();
         List<int> nTileValue = new List<int>(); 
         KeyboardState keyboardState;
         KeyboardState oldKeyoardState;
-
-        Game1 gme; 
+        public Tile[,] tile; 
+        Game1 gme;
+        int mapCount = 0;
         public TileMap(int[,] size, int sed)
         {
             seed = sed; 
-            mapSize = size;
-            mapAttributes = mapSize;
-            Console.WriteLine("Map Size: " + mapSize.Length);
+       //     mapSize = size;
+            mapAttributes = size;
             Console.WriteLine("Map Attribute Size: " + mapAttributes.Length);
-            random = new Random();
 
-            Console.WriteLine("map size" + mapSize.Length.ToString());
+            tile = new Tile[size.GetLength(0), size.GetLength(1)]; 
+        }
 
-            int range = random.Next(5, 15);
+        
 
+        void VectorToList(int x, int y)
+        {
+            nTilePosition.Add(new Vector2(x * 32, y * 32)); 
+        }
+        void ValueToList(int x, int y)
+        {
+            int i;
+            i = mapAttributes[x, y];
+            nTileValue.Add(i); 
+        }
+        public void LoadContent(ContentManager content)
+        {
 
-            int mapCount = 0;
-
-            for (int x = 0; x < mapSize.GetLength(0); x++)
+            for (int x = 0; x < mapAttributes.GetLength(0); x++)
             {
-                for (int y = 0; y < mapSize.GetLength(1); y++)
+                for (int y = 0; y < mapAttributes.GetLength(1); y++)
                 {
-                    mapSize[x, y] = mapCount;
+               ///     mapSize[x, y] = mapCount;
                     mapAttributes[x, y] = 0;
                     mapCount++;
+                    tile[x, y] = new Tile(); 
+                    tile[x, y].LoadContent(content); 
                 }
             }
 
-            MapGeneration(size.GetLength(0), size.GetLength(1));
+            MapGeneration(mapAttributes.GetLength(0), mapAttributes.GetLength(1));
 
-            Final(); 
+            GenerateHills(mapAttributes.GetLength(0), mapAttributes.GetLength(1));
+            Final();
         }
+
+        #region // noise 
 
         void MapGeneration(int width, int height)
         {
             float[,] preGenMap = WhiteNoise(width, height);
 
-            float[,] postGenMap = GeneratePerlinNoise(preGenMap, 5);
+            float[,] postGenMap = GeneratePerlinNoise(preGenMap, 6);
 
-            
+
             for (int x = 0; x < width; x++)
             {
-                for(int y = 0; y < height; y++)
+                for (int y = 0; y < height; y++)
                 {
-                   // Console.WriteLine(postGenMap[x,y]);
-
-                    if (postGenMap[x,y] <= .3f && postGenMap[x,y] >= .0f)
+                    if (postGenMap[x, y] <= .3f && postGenMap[x, y] >= .0f)
                     {
-                        mapAttributes[x, y] = 0; 
+                        mapAttributes[x, y] = 0;
                     }
                     if (postGenMap[x, y] <= .6f && postGenMap[x, y] >= .3f)
                     {
                         mapAttributes[x, y] = 2;
                         if (postGenMap[x, y] <= .4f && postGenMap[x, y] >= .3f)
                         {
-                            mapAttributes[x, y] = 3; 
+                            mapAttributes[x, y] = 3;
                         }
                     }
                     if (postGenMap[x, y] <= .7f && postGenMap[x, y] >= .6f)
@@ -101,35 +111,50 @@ namespace Factory_Game
                 }
             }
 
+            
+            
         }
 
-        void VectorToList(int x, int y)
+        void GenerateHills(int width, int height)
         {
-            nTilePosition.Add(new Vector2(x * 32, y * 32)); 
-        }
-        void ValueToList(int x, int y)
-        {
-            int i;
-            i = mapAttributes[x, y];
-            nTileValue.Add(i); 
-        }
-        public void LoadContent(ContentManager content)
-        {
+            Random randomizer = new Random(seed);
+            int[] terrainContour = new int[width * height];
 
-            foreach (int i in mapSize)
+            //Make Random Numbers
+            double rand1 = randomizer.NextDouble() + 1;
+            double rand2 = randomizer.NextDouble() + 2;
+            double rand3 = randomizer.NextDouble() + 3;
+
+            float peakheight = 25;
+            float flatness = 100.3234f;
+            int offset = 50;
+
+            //Generate basic terrain sine
+            for (int x = 0; x < width; x++)
             {
-                tiles.Add(new Tile());
+
+                double height2 = peakheight / rand1 * Math.Sin((float)x / flatness * rand1 + rand1);
+                height2 += peakheight / rand2 * Math.Sin((float)x / flatness * rand2 + rand2);
+                height2 += peakheight / rand3 * Math.Sin((float)x / flatness * rand3 + rand3);
+
+                height2 += offset;
+
+                terrainContour[x] = (int)height2;
+
             }
 
-            foreach (Tile ti in tiles)
+            for (int x = 0; x < mapAttributes.GetLength(0); x++)
             {
-                ti.LoadContent(content);
+                for (int y = 0; y < mapAttributes.GetLength(1); y++)
+                {
+                    if (y < Math.Abs(terrainContour[x]))
+                    {
+                        mapAttributes[x, y] = 0; 
+                    }
+                }
             }
-
-            Final();
         }
 
-        
         public float[,] WhiteNoise(int width, int height)
         {
             Random random = new Random(seed);
@@ -199,7 +224,7 @@ namespace Factory_Game
             }
 
             float[,] perlinNoise = new float[width, height];
-            float amplitude = 12;
+            float amplitude = 1;
             float totalAmp = 0.0f; 
 
 
@@ -232,7 +257,7 @@ namespace Factory_Game
         {
             return x0 * (1 - alpha) + alpha * x1; 
         }
-
+        #endregion
 
         public void Update(GameTime gameTime, Game1 game)
         {
@@ -240,38 +265,71 @@ namespace Factory_Game
 
             oldKeyoardState = keyboardState;
 
-            foreach(Tile ti in tiles)
+
+
+            for (int x = (int)(game.camera.center.X - (int)(game.WIDTH / 2)) / 32; x < (((game.camera.center.X) + (game.WIDTH)) / 32); x++)
             {
-                ti.Update(gameTime, game.player, game); 
+                for (int y = (int)((game.camera.center.Y) - (int)(game.HEIGHT / 2)) / 32; y < (((game.camera.center.Y) + (game.HEIGHT)) / 32); y++)
+                {
+                    int X = Math.Abs(x);
+                    int Y = Math.Abs(y);
+
+                    //tiles[tile[X, Y]].Draw(spriteBatch);
+                    if (X < tile.GetLength(0) && Y < tile.GetLength(1))
+                    {
+                        tile[X, Y].Update(gameTime,game.player, game);
+                    }
+                }
             }
             gme = game; 
         }
 
         void Final()
         {
-            for(int x = 0; x < mapSize.GetLength(0); x++)
+            for(int x = 0; x < mapAttributes.GetLength(0); x++)
             {
-                for(int y = 0; y < mapSize.GetLength(1); y++)
+                for(int y = 0; y < mapAttributes.GetLength(1); y++)
                 {
                     VectorToList(x, y);
                     ValueToList(x, y); 
                 }
             }
 
-            for(int i = 0; i < tiles.Count; i++)
+            int i = 0; 
+            for (int x = 0; x < mapAttributes.GetLength(0); x++)
             {
-                tiles[i].position = nTilePosition[i];
-                tiles[i].index = nTileValue[i]; 
-                tiles[i].Final(); 
+                for (int y = 0; y < mapAttributes.GetLength(1); y++)
+                {
+                    tile[x, y].position = nTilePosition[i];
+                    tile[x,y].index = nTileValue[i];
+                    tile[x,y].Final();
+                    i++; 
+                }
             }
         }
 
         public void Draw(SpriteBatch spriteBatch, Player player)
         {
-            
-            foreach(Tile ti in tiles)
+            /*
+            foreach (Tile ti in tiles)
             {
-                ti.Draw(spriteBatch); 
+                ti.Draw(spriteBatch);
+            }
+            */
+            for (int x = (int)(gme.camera.center.X - (int)(gme.WIDTH / 2)) / 32; x < (((gme.camera.center.X) + (gme.WIDTH)) / 32); x++)
+            {
+                for(int y = (int)((gme.camera.center.Y) - (int)(gme.HEIGHT / 2)) / 32; y < (((gme.camera.center.Y) + (gme.HEIGHT)) / 32); y++)
+                {
+                    int X = Math.Abs(x);
+                    int Y = Math.Abs(y); 
+
+                    //tiles[tile[X, Y]].Draw(spriteBatch);
+                    if(X < tile.GetLength(0) && Y < tile.GetLength(1))
+                    {
+                        tile[X, Y].Draw(spriteBatch);
+                    }
+                    
+                }
             }
             
 

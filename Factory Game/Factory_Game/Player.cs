@@ -16,7 +16,6 @@ namespace Factory_Game
     public class Player : GameObject
     {
         public float j = 1; 
-        Vector2 lastPosition; 
         // input
         KeyboardState keyboardState;
         KeyboardState oldKeboardState;
@@ -29,7 +28,8 @@ namespace Factory_Game
         public Player(Vector2 startPosition)
         {
             position = startPosition;
-            speed = 3f; 
+            // regular = 3 
+            speed = 3; 
         }
         public void LoadContent(ContentManager content)
         {
@@ -71,7 +71,9 @@ namespace Factory_Game
 
             if (keyboardState.IsKeyDown(Keys.Space) && !jumping)
             {
+              //  position = new Vector2(0, 0); 
                 position.Y -= 10;
+                // regular 5
                 velocity.Y = -5;
                 jumping = true;
                 

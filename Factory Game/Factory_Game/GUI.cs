@@ -22,6 +22,7 @@ namespace Factory_Game
         string velocity;
         string colliding;
         string fps;
+        string tilePos; 
 
         int frameCounter;
         double frameTime;
@@ -44,8 +45,8 @@ namespace Factory_Game
             canBreak = "Can Break " + player.canBreak.ToString();
             velocity = "Velocity " + player.velocity.ToString();
             colliding = "Colliding " + player.colliding.ToString();
-            fps = "fps " + frames.ToString(); 
-
+            fps = "fps " + frames.ToString();
+            tilePos = "Tile Position " + ((player.rect.X / 32) - 2).ToString() + " " + (player.rect.Y / 32).ToString();
             frameCounter++;
             frameTime += gameTime.ElapsedGameTime.TotalMilliseconds; 
             if(frameTime >= 1000)
@@ -62,7 +63,8 @@ namespace Factory_Game
             spriteBatch.DrawString(font, inAir, new Vector2(10, 25), Color.White);
             spriteBatch.DrawString(font, canBreak, new Vector2(10, 40), Color.White);
             spriteBatch.DrawString(font, velocity, new Vector2(10, 55), Color.White);
-            spriteBatch.DrawString(font, fps, new Vector2(10, 70), Color.White); 
+            spriteBatch.DrawString(font, tilePos, new Vector2(10, 70), Color.White); 
+            
         }
 
     }
