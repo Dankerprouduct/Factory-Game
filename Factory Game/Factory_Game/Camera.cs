@@ -15,12 +15,12 @@ namespace Factory_Game
     public class Camera
     {
         public Matrix transform;
-        Matrix rawTransform;
+        public Matrix rawTransform;
         public Vector2 center;
         Viewport view;
         Game1 gme;
         float scale = 1f;
-        float speed = 1; 
+        float speed = 1f; 
         public BoundingFrustum frustrum;
         public Camera(Viewport vPort)
         {

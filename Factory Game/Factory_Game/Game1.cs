@@ -22,8 +22,9 @@ namespace Factory_Game
 
         public Player player;
 
-        TileMap tileMap;
-        int[,] mapSize = new int[4200, 1200];
+        public TileMap tileMap;
+        // 4200 1200
+        int[,] mapSize = new int[200, 200];
         // 932480
         int seed = 194858; 
 
@@ -31,8 +32,9 @@ namespace Factory_Game
 
         GUI gui = new GUI();
 
-        KeyboardState keyboardState; 
+        KeyboardState keyboardState;
 
+        public TileObjectManagement tileObjectManagement;
         public Game1()
         {
             HEIGHT = (WIDTH / 16) * 9;
@@ -51,8 +53,7 @@ namespace Factory_Game
             camera = new Camera(GraphicsDevice.Viewport); 
             base.Initialize();
         }
-
-
+        
         protected override void LoadContent()
         {
             keyboardState = new KeyboardState(); 
@@ -64,17 +65,15 @@ namespace Factory_Game
 
             tileMap = new TileMap(mapSize, seed);
             tileMap.LoadContent(Content);
-
+            tileObjectManagement = new TileObjectManagement(this); 
             gui.LoadContnent(Content); 
         }
-
-
+        
         protected override void UnloadContent()
         {
 
         }
-
-
+        
         protected override void Update(GameTime gameTime)
         {
 
@@ -84,14 +83,16 @@ namespace Factory_Game
                 this.Exit();
             }
             camera.Update(gameTime, this); 
-            player.Update(gameTime);
-
+            player.Update(gameTime, this);
+            if (tileObjectManagement.tileObjects.Count > 0)
+            {
+                tileObjectManagement.Update(gameTime);
+            }
             gui.Update(gameTime, player); 
             tileMap.Update(gameTime, this); 
             base.Update(gameTime);
         }
-
-
+        
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
@@ -100,8 +101,9 @@ namespace Factory_Game
                 null, null, null, null,
                 camera.transform); 
 
-            tileMap.Draw(spriteBatch, player); 
+            tileMap.Draw(spriteBatch, player);
 
+            tileObjectManagement.Draw(spriteBatch);
             player.Draw(spriteBatch); 
 
             spriteBatch.End();

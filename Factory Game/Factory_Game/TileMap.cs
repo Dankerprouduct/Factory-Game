@@ -50,6 +50,7 @@ namespace Factory_Game
             i = mapAttributes[x, y];
             nTileValue.Add(i); 
         }
+        
         public void LoadContent(ContentManager content)
         {
 
@@ -306,6 +307,14 @@ namespace Factory_Game
                     i++; 
                 }
             }
+        }
+        public void ChangeTile(int x, int y, int id)
+        {
+            tile[x, y].UpdateIndex(id); 
+        }
+        public void DamageTile(int x, int y, float ammount)
+        {
+            tile[x, y].DamageTile(ammount);
         }
 
         public void Draw(SpriteBatch spriteBatch, Player player)

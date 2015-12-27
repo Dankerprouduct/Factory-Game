@@ -11,3 +11,9 @@ Content\Tiles\Water1.xnb
 Content\Sprites\TempPlayer.xnb
 Content\Tiles\BlankTile.xnb
 Content\Fonts\Font1.xnb
+Content\TileObjects\DryTile1Item.xnb
+Content\TileObjects\DryTile2Item.xnb
+Content\TileObjects\DryTile3Item.xnb
+Content\TileObjects\Granite1Item.xnb
+Content\TileObjects\Granite2Item.xnb
+Content\TileObjects\Granite3Item.xnb

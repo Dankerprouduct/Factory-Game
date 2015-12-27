@@ -24,7 +24,12 @@ namespace Factory_Game
         public bool jumping;
         public Rectangle rect;
         public bool colliding;
-        Rectangle tileBounds; 
+        Rectangle tileBounds;
+        MouseState mouseState;
+        Vector2 mousePosition;
+        Vector2 worldPosition;
+        int xCord;
+        int yCord;
         public Player(Vector2 startPosition)
         {
             position = startPosition;
@@ -35,15 +40,17 @@ namespace Factory_Game
         {
             texture = content.Load<Texture2D>("Sprites/TempPlayer");
         }
-        public void Update(GameTime gameTime)
+        public void Update(GameTime gameTime, Game1 game)
         {
             keyboardState = Keyboard.GetState();
             Movement();
-
+            
             if(keyboardState.IsKeyDown(Keys.B) && oldKeboardState.IsKeyUp(Keys.B))
             {
                 canBreak = !canBreak;
             }
+            
+            MouseMovement(game.camera, game.tileMap);
             oldKeboardState = keyboardState; 
             
         }
@@ -76,7 +83,23 @@ namespace Factory_Game
                 // regular 5
                 velocity.Y = -5;
                 jumping = true;
-                
+
+
+            }
+            if (canBreak)
+            {
+                if (keyboardState.IsKeyDown(Keys.Space))
+                {
+                    velocity.Y = -speed;
+                }
+                else
+                {
+                    velocity.Y = 0; 
+                }
+            }
+            else
+            {
+
             }
             if (jumping)
             {
@@ -103,6 +126,27 @@ namespace Factory_Game
 
         }
         
+        void MouseMovement(Camera camera, TileMap tileMap)
+        {
+            mouseState = Mouse.GetState();
+            mousePosition = new Vector2(mouseState.X, mouseState.Y);
+            worldPosition = Vector2.Transform(mousePosition, Matrix.Invert(camera.rawTransform));
+
+            //  Console.WriteLine(worldPosition.X);
+            //   Console.WriteLine(worldPosition.Y); 
+            xCord = Convert.ToInt32(worldPosition.X) / 32;
+            yCord = Convert.ToInt32(worldPosition.Y) / 32; 
+
+            if(mouseState.RightButton == ButtonState.Pressed)
+            {
+                tileMap.ChangeTile(xCord, yCord, 0); 
+            }
+            if (mouseState.LeftButton == ButtonState.Pressed)
+            {
+                tileMap.DamageTile(xCord, yCord, 10f);
+            }
+
+        }
 
         public void Collision(Rectangle bounds) 
         {

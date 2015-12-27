@@ -12,18 +12,20 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Factory_Game
 {
-    class TileObject
+    public class TileObject
     {
-        Vector2 position;
+        public Vector2 position;
         Texture2D objectTexture;
         Tile.TileType type;
         Rectangle tileBounds;
-        Rectangle rect;
+        public Rectangle rect;
+        public bool alive;
+        public Vector2 velocity; 
         public TileObject(Vector2 pos, Tile.TileType typ)
         {
             position = pos; 
-            type = typ; 
-
+            type = typ;
+            alive = true; 
         }
         public void LoadContent(ContentManager content)
         {
@@ -81,10 +83,15 @@ namespace Factory_Game
 
         public void Update(GameTime gameTime)
         {
-            
+            rect = new Rectangle((int)position.X, (int)position.Y, objectTexture.Width, objectTexture.Height);
+            position += velocity; 
+            int i = 1;
+            velocity.Y += i * .15f; 
+
         }
         public void Collision(Rectangle bounds)
         {
+            
             tileBounds = bounds;
 
             Vector2 debth = RectangleExtensions.GetIntersectionDepth(rect, bounds);
@@ -103,6 +110,7 @@ namespace Factory_Game
                     position = new Vector2(position.X + debth.X, position.Y);
                 }
             }
+            
         }
         public void Draw(SpriteBatch spriteBatch)
         {

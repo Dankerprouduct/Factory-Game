@@ -18,8 +18,10 @@ namespace Factory_Game
         // alive - in renderbox
         bool alive = true;
         Rectangle bounds;
-        int durability;
-        bool draw = true;  
+        float durability;
+        bool draw = true;
+        Vector2 worldPosition; 
+
         public enum TileType
         {
             BlankTile, 
@@ -33,7 +35,7 @@ namespace Factory_Game
             Grass2, 
             Grass3
         }
-        TileType tileType; 
+        private TileType tileType; 
         public Tile()
         {
             tileType = new TileType(); 
@@ -178,6 +180,10 @@ namespace Factory_Game
                     }
             }
         }
+        public void DamageTile(float amount)
+        {
+            durability -= amount; 
+        }
         public void Update(GameTime gameTime, Player player, Game1 game)
         {
 
@@ -196,10 +202,21 @@ namespace Factory_Game
                         }
 
                     }
-
+                    for(int i = 0; i < game.tileObjectManagement.tileObjects.Count; i++)
+                    {
+                        if (bounds.Intersects(game.tileObjectManagement.tileObjects[i].rect) && index != 0)
+                        {
+                            game.tileObjectManagement.tileObjects[i].velocity.Y = 0;
+                            game.tileObjectManagement.tileObjects[i].position.Y -= 2;
+                          //  Console.WriteLine("i tried");
+                        }
+                    }
 
                     if (durability <= 0)
                     {
+
+                       // worldPosition = Vector2.Transform(position, Matrix.Invert(game.camera.rawTransform)); 
+                        game.tileObjectManagement.AddTileObject(new Vector2(position.X + (bounds.Width /4), position.Y + (bounds.Height / 4)), tileType);
                         alive = false;
                     }
                 }
