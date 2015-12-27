@@ -32,11 +32,11 @@ namespace Factory_Game
             Console.WriteLine(tileObjects.Count); 
         }
         
-        public void Update(GameTime gameTime)
+        public void Update(GameTime gameTime, Game1 game)
         {
             for(int i = 0; i < tileObjects.Count; i++)
             {
-                tileObjects[i].Update(gameTime);
+                tileObjects[i].Update(gameTime, game.player);
                 if (!tileObjects[i].alive)
                 {
                     tileObjects.RemoveAt(i);

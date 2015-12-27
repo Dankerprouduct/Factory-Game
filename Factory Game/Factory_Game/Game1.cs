@@ -86,7 +86,7 @@ namespace Factory_Game
             player.Update(gameTime, this);
             if (tileObjectManagement.tileObjects.Count > 0)
             {
-                tileObjectManagement.Update(gameTime);
+                tileObjectManagement.Update(gameTime, this);
             }
             gui.Update(gameTime, player, tileObjectManagement); 
             tileMap.Update(gameTime, this); 

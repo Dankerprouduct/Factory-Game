@@ -30,8 +30,10 @@ namespace Factory_Game
         Vector2 worldPosition;
         int xCord;
         int yCord;
+        public Inventory inventory; 
         public Player(Vector2 startPosition)
         {
+            inventory = new Inventory(); 
             position = startPosition;
             // regular = 3 
             speed = 3; 
@@ -49,7 +51,7 @@ namespace Factory_Game
             {
                 canBreak = !canBreak;
             }
-            
+            inventory.Update(gameTime);
             MouseMovement(game.camera, game.tileMap);
             oldKeboardState = keyboardState; 
             
@@ -136,7 +138,7 @@ namespace Factory_Game
             {
                 if (mouseState.RightButton == ButtonState.Pressed)
                 {
-                    tileMap.ChangeTile(xCord, yCord, 4);
+                    tileMap.ChangeTile(xCord, yCord, inventory.selectedItem);
                 }
                 if (mouseState.LeftButton == ButtonState.Pressed)
                 {

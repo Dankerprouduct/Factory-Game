@@ -23,7 +23,7 @@ namespace Factory_Game
         public Vector2 velocity;
         float currentTime = 0;
         int counter = 1;
-        float countDuration = 10f; 
+        float countDuration = 25f; 
         public TileObject(Vector2 pos, Tile.TileType typ)
         {
             position = pos; 
@@ -79,18 +79,34 @@ namespace Factory_Game
 
                         break; 
                     }
+                default:
+                    {
+                        objectTexture = content.Load<Texture2D>("TileObjects/DryTile1Item");
+                        break;
+                    }
+
 
             }
             rect = new Rectangle((int)position.X, (int)position.Y, objectTexture.Width, objectTexture.Height); 
         }
 
-        public void Update(GameTime gameTime)
+        public void Update(GameTime gameTime, Player player)
         {
             rect = new Rectangle((int)position.X, (int)position.Y, objectTexture.Width, objectTexture.Height);
             position += velocity; 
             int i = 1;
             velocity.Y += i * .15f;
+            PlayerCollision(player); 
             DeathTimer(gameTime);
+        }
+        public void PlayerCollision(Player player)
+        {
+            if (rect.Intersects(player.rect))
+            {
+                player.inventory.AddToInventory(this.type, 1); 
+
+                this.alive = false; 
+            }
         }
         public void Collision(Rectangle bounds)
         {

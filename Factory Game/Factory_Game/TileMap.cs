@@ -126,7 +126,7 @@ namespace Factory_Game
             double rand2 = randomizer.NextDouble() + 2;
             double rand3 = randomizer.NextDouble() + 3;
 
-            float peakheight = 25;
+            float peakheight = 1;
             float flatness = 100.3234f;
             int offset = 50;
 
