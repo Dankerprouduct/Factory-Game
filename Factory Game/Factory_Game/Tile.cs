@@ -25,6 +25,8 @@ namespace Factory_Game
         TimeSpan time = TimeSpan.FromMilliseconds(500);
         TimeSpan lastTime;
 
+        QuarryDrill quarryDrill; 
+
         bool madeQuarry; 
 
         public enum TileType
@@ -54,6 +56,8 @@ namespace Factory_Game
         private TileType tileType;
         TileProperty tileProperty;
 
+        ContentManager contentManager; 
+
         int xPos;
         int yPos; 
         public Tile()
@@ -64,6 +68,7 @@ namespace Factory_Game
         }
         public void LoadContent(ContentManager content)
         {
+            contentManager = content; 
             tiles.Add(content.Load<Texture2D>("Tiles/BlankTile")); // 0
             tiles.Add(content.Load<Texture2D>("Tiles/DryTile1")); // 1
             tiles.Add(content.Load<Texture2D>("Tiles/DryTile2")); // 2
@@ -322,23 +327,32 @@ namespace Factory_Game
                         if (bounds.Intersects(game.tileObjectManagement.tileObjects[i].rect) && index != 0)
                         {
                             game.tileObjectManagement.tileObjects[i].velocity.Y = 0;
-                            game.tileObjectManagement.tileObjects[i].position.Y -= 1;
+                            game.tileObjectManagement.tileObjects[i].position.Y -= 2;
                           //  Console.WriteLine("i tried");
                         }
-                        if (bounds.Intersects(game.tileObjectManagement.tileObjects[i].rect) && index != 11)
+                        else if (bounds.Intersects(game.tileObjectManagement.tileObjects[i].rect) && index != 11)
                         {
                             game.tileObjectManagement.tileObjects[i].velocity.Y = 0;
-                            game.tileObjectManagement.tileObjects[i].position.Y -= 1;
+                            game.tileObjectManagement.tileObjects[i].position.Y -= 2;
                             //  Console.WriteLine("i tried");
                         }
-                        if (bounds.Intersects(game.tileObjectManagement.tileObjects[i].rect) && index != 12)
+                        else if (bounds.Intersects(game.tileObjectManagement.tileObjects[i].rect) && index != 12)
                         {
                             game.tileObjectManagement.tileObjects[i].velocity.Y = 0;
-                            game.tileObjectManagement.tileObjects[i].position.Y -= 1;
+                            game.tileObjectManagement.tileObjects[i].position.Y -= 2;
                             //  Console.WriteLine("i tried");
                         }
                     }
-
+                    if (game.drills.Count > 0)
+                    {
+                        for (int i = 0; i < game.drills.Count; i++)
+                        {
+                            if (bounds.Intersects(game.drills[i].rect))
+                            {
+                                durability = 0; 
+                            }
+                        }
+                    }
                     if (alive)
                     {
                         if (durability <= 0)
@@ -351,7 +365,7 @@ namespace Factory_Game
 
                         if(tileType == TileType.QuarryBlock)
                         {
-                            Quarry(tileMap, gameTime); 
+                            Quarry(tileMap, gameTime, game); 
                         }
 
                     }
@@ -362,18 +376,21 @@ namespace Factory_Game
                 index = 0; 
             }
 
-            
+            if (madeQuarry)
+            {
+                quarryDrill.Update(gameTime); 
+            }
         }
 
-        public void Quarry(TileMap tileMap, GameTime gameTime)
+        public void Quarry(TileMap tileMap, GameTime gameTime, Game1 game)
         {
             if (!madeQuarry)
             {
-
+                
                 int offSet = 3; 
                 int searchRadius = 50; 
                 Console.WriteLine("Making Quarry");
-                int height = 5;
+                int height = 8;
                 #region 
                 if (tileMap.tile[xPos - 1, yPos].tileType == TileType.MarkerBlock)
                 {
@@ -402,6 +419,12 @@ namespace Factory_Game
                     {
                         tileMap.tile[xPos - x - 1, yPos - height].UpdateIndex(TileType.ConstructionBlock);
                     }
+                    quarryDrill = new QuarryDrill(new Vector2((xPos - 2) * 32, ((yPos + 1) - height) * 32),
+                             new Vector2((xPos - offSet + 1) * 32, ((yPos + 1) - height) * 32));
+                    quarryDrill.LoadContent(contentManager);
+                    game.drills.Add(quarryDrill);
+                    madeQuarry = true;
+
 
                 }
                 else if (tileMap.tile[xPos + 1, yPos].tileType == TileType.MarkerBlock)
@@ -430,11 +453,16 @@ namespace Factory_Game
                     {
                         tileMap.tile[xPos + x + 1, yPos - height].UpdateIndex(TileType.ConstructionBlock);
                     }
-
+                    quarryDrill = new QuarryDrill(new Vector2((xPos + 2) * 32, ((yPos + 1) - height) * 32),
+                          new Vector2((xPos + offSet - 1) * 32, ((yPos + 1) - height) * 32));
+                    quarryDrill.LoadContent(contentManager);
+                    game.drills.Add(quarryDrill);
+                    madeQuarry = true;
                 }
                 #endregion
 
-                madeQuarry = true; 
+                
+                
             }
         }
 
@@ -445,6 +473,12 @@ namespace Factory_Game
             {
                 spriteBatch.Draw(tiles[index], position, Color.White);
                 //Console.WriteLine("Drawing!"); 
+
+                if (madeQuarry)
+                {
+                    quarryDrill.Draw(spriteBatch); 
+                }
+
             }
         }
     }

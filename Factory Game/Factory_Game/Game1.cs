@@ -24,9 +24,9 @@ namespace Factory_Game
 
         public TileMap tileMap;
         // 4200 1200
-        int[,] mapSize = new int[200, 100];
+        int[,] mapSize = new int[250, 250];
         // 932480
-        int seed = 9879087; 
+        int seed = 0; 
 
         public Camera camera;
 
@@ -34,6 +34,7 @@ namespace Factory_Game
 
         KeyboardState keyboardState;
 
+        public List<QuarryDrill> drills = new List<QuarryDrill>(); 
         public TileObjectManagement tileObjectManagement;
         public Game1()
         {

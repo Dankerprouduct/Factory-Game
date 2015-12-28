@@ -178,13 +178,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Tiles\MarkerBlock.png">
-      <Name>MarkerBlock</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Tiles\ConstructionDrillBit.png">
       <Name>ConstructionDrillBit</Name>
       <Importer>TextureImporter</Importer>
@@ -206,6 +199,13 @@
   <ItemGroup>
     <Compile Include="TileObjects\QuarryBlockItem.png">
       <Name>QuarryBlockItem</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Tiles\MarkerBlock.png">
+      <Name>MarkerBlock</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

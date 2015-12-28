@@ -23,7 +23,8 @@ namespace Factory_Game
         public Vector2 velocity;
         float currentTime = 0;
         int counter = 1;
-        float countDuration = 25f; 
+        float countDuration = 25f;
+
         public TileObject(Vector2 pos, Tile.TileType typ)
         {
             position = pos; 
@@ -162,7 +163,8 @@ namespace Factory_Game
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(objectTexture, position, Color.White);
-
+            
+            
         }
     }
 }
