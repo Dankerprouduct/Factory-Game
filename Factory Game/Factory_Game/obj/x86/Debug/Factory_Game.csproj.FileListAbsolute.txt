@@ -34,3 +34,14 @@ C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\F
 C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\Granite2Item.xnb
 C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\Granite3Item.xnb
 C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Fonts\DarkGrayBack.xnb
+C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\Grass1Item.xnb
+C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\Grass2Item.xnb
+C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\Grass3Item.xnb
+C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\MarkerBlockItem.xnb
+C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\ConstructionBlock.xnb
+C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\ConstructionBlockItem.xnb
+C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\MarkerBlock.xnb
+C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\ConstructionDrillBit.xnb
+C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\ConstructionTube.xnb
+C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\QuarryBlock.xnb
+C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\QuarryBlockItem.xnb

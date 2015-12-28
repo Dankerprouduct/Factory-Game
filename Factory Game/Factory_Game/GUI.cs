@@ -25,16 +25,7 @@ namespace Factory_Game
         string tilePos;
         string entitys;
 
-        public string dT1;
-        public string dT2;
-        public string dT3;
-        public string gT1;
-        public string gT2;
-        public string gT3;
-        public string gR1;
-        public string gR2;
-        public string gR3;
-
+        public string tileType; 
 
         int frameCounter;
         double frameTime;
@@ -74,16 +65,7 @@ namespace Factory_Game
                 fps = "fps " + frames.ToString();
                 tilePos = "Tile Position " + ((player.rect.X / 32) - 2).ToString() + " " + (player.rect.Y / 32).ToString();
                 entitys = "Entitys " + tileManagement.tileObjects.Count;
-
-                dT1 = player.inventory.itemIndex[0].ToString();
-                dT2 = player.inventory.itemIndex[1].ToString();
-                dT3 = player.inventory.itemIndex[2].ToString();
-                gT1 = player.inventory.itemIndex[3].ToString();
-                gT2 = player.inventory.itemIndex[4].ToString();
-                gT3 = player.inventory.itemIndex[5].ToString();
-                gR1 = player.inventory.itemIndex[6].ToString();
-                gR2 = player.inventory.itemIndex[7].ToString();
-                gR3 = player.inventory.itemIndex[8].ToString();
+                tileType = "Tile Type " + player.inventory.tileType.ToString() + " " + player.inventory.itemIndex[player.inventory.selectedItem].ToString(); 
 
                 frameCounter++;
                 frameTime += gameTime.ElapsedGameTime.TotalMilliseconds;
@@ -100,7 +82,7 @@ namespace Factory_Game
         {
             if (showDebug)
             {
-                spriteBatch.Draw(backGround, new Rectangle(0, 0, 450, 300), Color.White);
+                spriteBatch.Draw(backGround, new Rectangle(0, 0, 450, 150), Color.White);
 
                 spriteBatch.DrawString(font, playerPos, new Vector2(10, 10), Color.White);
                 spriteBatch.DrawString(font, inAir, new Vector2(10, 25), Color.White);
@@ -108,16 +90,7 @@ namespace Factory_Game
                 spriteBatch.DrawString(font, velocity, new Vector2(10, 55), Color.White);
                 spriteBatch.DrawString(font, tilePos, new Vector2(10, 70), Color.White);
                 spriteBatch.DrawString(font, entitys, new Vector2(10, 85), Color.White);
-
-                spriteBatch.DrawString(font, "Dry Tile 1     " + dT1, new Vector2(10, 100), Color.White);
-                spriteBatch.DrawString(font, "Dry Tile 2     " + dT2, new Vector2(10, 115), Color.White);
-                spriteBatch.DrawString(font, "Dry Tile 3     " + dT3, new Vector2(10, 130), Color.White);
-                spriteBatch.DrawString(font, "Granite Tile 1 " + gT1, new Vector2(10, 145), Color.White);
-                spriteBatch.DrawString(font, "Granite Tile 2 " + gT2, new Vector2(10, 160), Color.White);
-                spriteBatch.DrawString(font, "Granite Tile 3 " + gT3, new Vector2(10, 175), Color.White);
-                spriteBatch.DrawString(font, "Grass Tile 1   " + gR1, new Vector2(10, 190), Color.White);
-                spriteBatch.DrawString(font, "Grass Tile 2   " + gR2, new Vector2(10, 205), Color.White);
-                spriteBatch.DrawString(font, "Grass Tile 3   " + gR3, new Vector2(10, 220), Color.White);
+                spriteBatch.DrawString(font, tileType, new Vector2(10, 100), Color.White);
             }
         }
 

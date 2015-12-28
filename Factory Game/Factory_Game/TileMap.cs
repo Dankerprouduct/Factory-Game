@@ -291,7 +291,7 @@ namespace Factory_Game
                     //tiles[tile[X, Y]].Draw(spriteBatch);
                     if (X < tile.GetLength(0) && Y < tile.GetLength(1))
                     {
-                        tile[X, Y].Update(gameTime,game.player, game);
+                        tile[X, Y].Update(gameTime,game.player, game, this);
                     }
                 }
             }
@@ -321,9 +321,10 @@ namespace Factory_Game
                 }
             }
         }
-        public void ChangeTile(int x, int y, int id)
+        public void ChangeTile(int x, int y, Tile.TileType type)
         {
-            tile[x, y].UpdateIndex(id); 
+            tile[x, y].UpdateIndex(type);
+            Console.WriteLine("changing to "+type.ToString());
         }
         public void DamageTile(int x, int y, float ammount)
         {

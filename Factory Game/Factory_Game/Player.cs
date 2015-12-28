@@ -142,8 +142,9 @@ namespace Factory_Game
                     {
                         if (tileMap.tile[xCord, yCord].index == 0)
                         {
-                            tileMap.ChangeTile(xCord, yCord, inventory.selectedItem);
+                            tileMap.ChangeTile(xCord, yCord, inventory.tileType);
                             inventory.itemIndex[inventory.selectedItem]--;
+                            Console.WriteLine("sent type " + inventory.tileType.ToString()); 
                         } 
                     }
                 }

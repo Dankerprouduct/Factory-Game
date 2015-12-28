@@ -24,9 +24,9 @@ namespace Factory_Game
 
         public TileMap tileMap;
         // 4200 1200
-        int[,] mapSize = new int[200, 200];
+        int[,] mapSize = new int[200, 100];
         // 932480
-        int seed = 123412; 
+        int seed = 9879087; 
 
         public Camera camera;
 
@@ -41,6 +41,7 @@ namespace Factory_Game
             graphics = new GraphicsDeviceManager(this);
             graphics.PreferredBackBufferHeight = HEIGHT;
             graphics.PreferredBackBufferWidth = WIDTH;
+         //   graphics.ToggleFullScreen(); 
             IsMouseVisible = true; 
             Content.RootDirectory = "Content";
             
@@ -101,7 +102,7 @@ namespace Factory_Game
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend,
-                null, null, null, null,
+                SamplerState.PointClamp, null, null, null,
                 camera.transform); 
 
             tileMap.Draw(spriteBatch, player);

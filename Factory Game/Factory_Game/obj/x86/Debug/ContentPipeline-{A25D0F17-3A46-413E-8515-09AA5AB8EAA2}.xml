@@ -181,6 +181,105 @@
       <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Fonts\DarkGrayBack.xnb</Output>
       <Time>2015-12-27T01:22:18.499066-05:00</Time>
     </Item>
+    <Item>
+      <Source>TileObjects\Grass1Item.png</Source>
+      <Name>TileObjects\Grass1Item</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\Grass1Item.xnb</Output>
+      <Time>2015-12-27T15:06:09.8427857-05:00</Time>
+    </Item>
+    <Item>
+      <Source>TileObjects\Grass2Item.png</Source>
+      <Name>TileObjects\Grass2Item</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\Grass2Item.xnb</Output>
+      <Time>2015-12-27T15:06:09.8758086-05:00</Time>
+    </Item>
+    <Item>
+      <Source>TileObjects\Grass3Item.png</Source>
+      <Name>TileObjects\Grass3Item</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\Grass3Item.xnb</Output>
+      <Time>2015-12-27T15:06:09.8838143-05:00</Time>
+    </Item>
+    <Item>
+      <Source>TileObjects\MarkerBlockItem.png</Source>
+      <Name>TileObjects\MarkerBlockItem</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\MarkerBlockItem.xnb</Output>
+      <Time>2015-12-27T15:06:09.8928487-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\ConstructionBlock.png</Source>
+      <Name>Tiles\ConstructionBlock</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\ConstructionBlock.xnb</Output>
+      <Time>2015-12-27T15:15:20.9250753-05:00</Time>
+    </Item>
+    <Item>
+      <Source>TileObjects\ConstructionBlockItem.png</Source>
+      <Name>TileObjects\ConstructionBlockItem</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\ConstructionBlockItem.xnb</Output>
+      <Time>2015-12-27T15:15:36.7539006-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\MarkerBlock.png</Source>
+      <Name>Tiles\MarkerBlock</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\MarkerBlock.xnb</Output>
+      <Time>2015-12-27T15:21:52.9932473-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\ConstructionDrillBit.png</Source>
+      <Name>Tiles\ConstructionDrillBit</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\ConstructionDrillBit.xnb</Output>
+      <Time>2015-12-27T18:47:43.3168547-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\ConstructionTube.png</Source>
+      <Name>Tiles\ConstructionTube</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\ConstructionTube.xnb</Output>
+      <Time>2015-12-27T18:47:43.3228597-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\QuarryBlock.png</Source>
+      <Name>Tiles\QuarryBlock</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\QuarryBlock.xnb</Output>
+      <Time>2015-12-27T19:03:36.6413368-05:00</Time>
+    </Item>
+    <Item>
+      <Source>TileObjects\QuarryBlockItem.png</Source>
+      <Name>TileObjects\QuarryBlockItem</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\QuarryBlockItem.xnb</Output>
+      <Time>2015-12-27T19:04:07.6596582-05:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{A25D0F17-3A46-413E-8515-09AA5AB8EAA2}</ContentProjectGUID>
@@ -188,10 +287,10 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_GameContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_GameContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

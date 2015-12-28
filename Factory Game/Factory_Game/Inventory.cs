@@ -19,42 +19,214 @@ namespace Factory_Game
         public List<int> itemIndex = new List<int>(); 
         KeyboardState keyboardState;
         KeyboardState oldKeyboardState;
-
+        public Tile.TileType tileType; 
         // TODO move all g craps to just a list of types 
         public Inventory()
         {
-            itemIndex.Add(0); //  Dirt Tile 1 
-            itemIndex.Add(0); //  Dirt Tile 2
-            itemIndex.Add(0); //  Dirt Tile 3
-            itemIndex.Add(0); //  Granite Tile 1
-            itemIndex.Add(0); //  Granite Tile 2
-            itemIndex.Add(0); //  Granite Tile 3
-            itemIndex.Add(0); //  Grass Tile 1
-            itemIndex.Add(0); //  Grass Tile 2
-            itemIndex.Add(0); //  Grass Tile 3
-               
+            tileType = new Tile.TileType();
+            selectedItem = 0;
+            tileType = Tile.TileType.DryTile1; 
+            itemIndex.Add(100); //  Dirt Tile 1 
+            itemIndex.Add(100); //  Dirt Tile 2
+            itemIndex.Add(100); //  Dirt Tile 3
+            itemIndex.Add(100); //  Granite Tile 1
+            itemIndex.Add(100); //  Granite Tile 2
+            itemIndex.Add(100); //  Granite Tile 3
+            itemIndex.Add(100); //  Grass Tile 1
+            itemIndex.Add(100); //  Grass Tile 2
+            itemIndex.Add(100); //  Grass Tile 3
+            itemIndex.Add(100); //  Construction Block 
+            itemIndex.Add(100); //  Marker Block; 
+            itemIndex.Add(100); //  Quarry Block
         }
         public void Update(GameTime gameTime)
         {
             keyboardState = Keyboard.GetState();
-
-            if(keyboardState.IsKeyDown(Keys.E) && oldKeyboardState.IsKeyUp(Keys.E))
+            //  itemIndex[9] += 1; 
+            if (keyboardState.IsKeyDown(Keys.E) && oldKeyboardState.IsKeyUp(Keys.E))
             {
-                
-                selectedItem++; 
-                if(selectedItem > 8)
+                selectedItem++;
+
+                if (selectedItem <= itemIndex.Count - 1)
                 {
-                    selectedItem = 0; 
-                    
+
+                    switch (selectedItem)
+                    {
+
+                        case 0:
+                            {
+                                tileType = Tile.TileType.DryTile1;
+
+                                break;
+                            }
+                        case 1:
+                            {
+                                tileType = Tile.TileType.DryTile2;
+
+                                break;
+                            }
+                        case 2:
+                            {
+                                tileType = Tile.TileType.DryTile3;
+                                break;
+                            }
+                        case 3:
+                            {
+                                tileType = Tile.TileType.Granite1;
+                                break;
+                            }
+                        case 4:
+                            {
+                                tileType = Tile.TileType.Granite2;
+                                break;
+                            }
+                        case 5:
+                            {
+                                tileType = Tile.TileType.Granite3;
+                                break;
+                            }
+                        case 6:
+                            {
+                                tileType = Tile.TileType.Grass1;
+                                break;
+                            }
+                        case 7:
+                            {
+                                tileType = Tile.TileType.Grass2;
+                                break;
+                            }
+                        case 8:
+                            {
+                                tileType = Tile.TileType.Grass3;
+                                break;
+                            }
+                        case 9:
+                            {
+                                tileType = Tile.TileType.ConstructionBlock;
+                                break;
+                            }
+                        case 10:
+                            {
+                                tileType = Tile.TileType.MarkerBlock;
+                                break;
+                            }
+                        case 11:
+                            {
+                                tileType = Tile.TileType.QuarryBlock;
+                                break;
+
+                            }
+                    }
+
                 }
+                else
+                {
+                    selectedItem = 0;
+                    tileType = Tile.TileType.DryTile1;
+                }
+
+
+
+
+                
+            }
+            if (keyboardState.IsKeyDown(Keys.Q) && oldKeyboardState.IsKeyUp(Keys.Q))
+            {
+                selectedItem--;
+
+                if (selectedItem < 0)
+                {
+                    selectedItem = itemIndex.Count;
+                }
+
+                if (selectedItem <= itemIndex.Count - 1)
+                {
+
+                    switch (selectedItem)
+                    {
+
+                        case 0:
+                            {
+                                tileType = Tile.TileType.DryTile1;
+
+                                break;
+                            }
+                        case 1:
+                            {
+                                tileType = Tile.TileType.DryTile2;
+
+                                break;
+                            }
+                        case 2:
+                            {
+                                tileType = Tile.TileType.DryTile3;
+                                break;
+                            }
+                        case 3:
+                            {
+                                tileType = Tile.TileType.Granite1;
+                                break;
+                            }
+                        case 4:
+                            {
+                                tileType = Tile.TileType.Granite2;
+                                break;
+                            }
+                        case 5:
+                            {
+                                tileType = Tile.TileType.Granite3;
+                                break;
+                            }
+                        case 6:
+                            {
+                                tileType = Tile.TileType.Grass1;
+                                break;
+                            }
+                        case 7:
+                            {
+                                tileType = Tile.TileType.Grass2;
+                                break;
+                            }
+                        case 8:
+                            {
+                                tileType = Tile.TileType.Grass3;
+                                break;
+                            }
+                        case 9:
+                            {
+                                tileType = Tile.TileType.ConstructionBlock;
+                                break;
+                            }
+                        case 10:
+                            {
+                                tileType = Tile.TileType.MarkerBlock;
+                                break;
+                            }
+                        case 11:
+                            {
+                                tileType = Tile.TileType.QuarryBlock;
+                                break;
+
+                            }
+                    }
+
+                }
+                else
+                {
+                    selectedItem = 0;
+                    tileType = Tile.TileType.DryTile1;
+                }
+                
             }
 
-            oldKeyboardState = keyboardState; 
+            oldKeyboardState = keyboardState;
         }
         public void AddToInventory(Tile.TileType type, int ammount)
         {
+            
             switch (type)
             {
+                
                 case Tile.TileType.DryTile1:
                     {
                         itemIndex[0] += ammount; 
@@ -98,6 +270,21 @@ namespace Factory_Game
                 case Tile.TileType.Grass3:
                     {
                         itemIndex[8] += ammount;
+                        break; 
+                    }
+                case Tile.TileType.ConstructionBlock:
+                    {
+                        itemIndex[9] += ammount;
+                        break;
+                    }
+                case Tile.TileType.MarkerBlock:
+                    {
+                        itemIndex[10] += ammount;
+                        break;
+                    }
+                case Tile.TileType.QuarryBlock:
+                    {
+                        itemIndex[11] += ammount;
                         break; 
                     }
             }

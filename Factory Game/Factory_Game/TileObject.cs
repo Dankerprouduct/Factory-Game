@@ -66,17 +66,32 @@ namespace Factory_Game
                     }
                 case Tile.TileType.Grass1:
                     {
-                        objectTexture = content.Load<Texture2D>("TileObjects/DryTile1Item");
+                        objectTexture = content.Load<Texture2D>("TileObjects/Grass1Item");
                         break;
                     }
                 case Tile.TileType.Grass2:
                     {
-                        objectTexture = content.Load<Texture2D>("TileObjects/DryTile1Item");
+                        objectTexture = content.Load<Texture2D>("TileObjects/Grass2Item");
                         break;
                     }
                 case Tile.TileType.Grass3:
                     {
-                        objectTexture = content.Load<Texture2D>("TileObjects/DryTile1Item");
+                        objectTexture = content.Load<Texture2D>("TileObjects/Grass3Item");
+                        break; 
+                    }
+                case Tile.TileType.ConstructionBlock:
+                    {
+                        objectTexture = content.Load<Texture2D>("TileObjects/ConstructionBlockItem");
+                        break;
+                    }
+                case Tile.TileType.MarkerBlock:
+                    {
+                        objectTexture = content.Load<Texture2D>("TileObjects/MarkerBlockItem");
+                        break;
+                    }
+                case Tile.TileType.QuarryBlock:
+                    {
+                        objectTexture = content.Load<Texture2D>("TileObjects/QuarryBlockItem");
                         break; 
                     }
                 default:

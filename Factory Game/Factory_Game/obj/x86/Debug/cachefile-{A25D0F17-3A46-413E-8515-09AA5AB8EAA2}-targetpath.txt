@@ -18,3 +18,14 @@ Content\TileObjects\Granite1Item.xnb
 Content\TileObjects\Granite2Item.xnb
 Content\TileObjects\Granite3Item.xnb
 Content\Fonts\DarkGrayBack.xnb
+Content\TileObjects\Grass1Item.xnb
+Content\TileObjects\Grass2Item.xnb
+Content\TileObjects\Grass3Item.xnb
+Content\TileObjects\MarkerBlockItem.xnb
+Content\Tiles\ConstructionBlock.xnb
+Content\TileObjects\ConstructionBlockItem.xnb
+Content\Tiles\MarkerBlock.xnb
+Content\Tiles\ConstructionDrillBit.xnb
+Content\Tiles\ConstructionTube.xnb
+Content\Tiles\QuarryBlock.xnb
+Content\TileObjects\QuarryBlockItem.xnb
