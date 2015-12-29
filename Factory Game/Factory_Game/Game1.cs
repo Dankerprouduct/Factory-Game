@@ -26,7 +26,7 @@ namespace Factory_Game
         // 4200 1200
         int[,] mapSize = new int[250, 250];
         // 932480
-        int seed = 0; 
+        int seed = 9890132; 
 
         public Camera camera;
 
@@ -34,7 +34,7 @@ namespace Factory_Game
 
         KeyboardState keyboardState;
 
-        public List<QuarryDrill> drills = new List<QuarryDrill>(); 
+        public QuarryManagement quarryManagement; 
         public TileObjectManagement tileObjectManagement;
         public Game1()
         {
@@ -42,7 +42,7 @@ namespace Factory_Game
             graphics = new GraphicsDeviceManager(this);
             graphics.PreferredBackBufferHeight = HEIGHT;
             graphics.PreferredBackBufferWidth = WIDTH;
-         //   graphics.ToggleFullScreen(); 
+         // graphics.ToggleFullScreen(); 
             IsMouseVisible = true; 
             Content.RootDirectory = "Content";
             
@@ -61,8 +61,7 @@ namespace Factory_Game
             keyboardState = new KeyboardState(); 
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
-            
+                       
 
             tileMap = new TileMap(mapSize, seed);
             tileMap.LoadContent(Content);
@@ -70,7 +69,8 @@ namespace Factory_Game
             player = new Player(tileMap.playerStart);
             player.LoadContent(Content);
 
-            tileObjectManagement = new TileObjectManagement(this); 
+            tileObjectManagement = new TileObjectManagement(this);
+            quarryManagement = new QuarryManagement(); 
             gui.LoadContnent(Content); 
         }
         
@@ -94,7 +94,9 @@ namespace Factory_Game
                 tileObjectManagement.Update(gameTime, this);
             }
             gui.Update(gameTime, player, tileObjectManagement); 
-            tileMap.Update(gameTime, this); 
+            tileMap.Update(gameTime, this);
+            quarryManagement.Update(gameTime, this); 
+
             base.Update(gameTime);
         }
         

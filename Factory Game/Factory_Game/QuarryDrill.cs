@@ -9,48 +9,80 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
-
+using System.Threading; 
 namespace Factory_Game
 {
     public class QuarryDrill
     {
-        Vector2 startPositionX;
-        Vector2 endPositionX;
+
         Texture2D drillTexture;
         Texture2D tubeTexture;
-        TimeSpan time = TimeSpan.FromMilliseconds(500); 
+        TimeSpan time = TimeSpan.FromMilliseconds(100); 
         TimeSpan lastTime;
-        bool nextLayer;
-        public Rectangle rect; 
-        public QuarryDrill(Vector2 startPosX, Vector2 endPosX)
+        public Rectangle rect;
+        Vector2 position; 
+        int height;
+        int width;
+        int x = 0;
+        int y = 0; 
+        Vector2[,] quarryPositions;
+        public Tile tile;
+        public bool alive;  
+        public QuarryDrill(int xPos, int yPos, int xxPos, int yyPos, int hight, TileMap tileMap, Tile mTile)
         {
-            startPositionX = startPosX;
-            endPositionX = endPosX;
-            Console.WriteLine("A Quarry Drill has been created" + " " + startPositionX);
+            tile = mTile; 
+            width = Math.Abs(xPos - xxPos - 1);
+            height = Math.Abs(yPos - tileMap.tile.GetLength(1));
+
+            quarryPositions = new Vector2[width, height]; 
+
+            for(int x = 0; x < width; x++)
+            {
+                for(int y = 0; y < height; y++)
+                {
+                    quarryPositions[x, y] = new Vector2((xPos + x) * 32, (yPos + y - hight) * 32);
+                   // Console.WriteLine(quarryPositions[x, y]); 
+                }
+            }
+
+            //start x = xpos * 32 
+            // x = xpos + i * 32
+            
+            Console.WriteLine("width "+width);
+            Console.WriteLine("height " +height);
+            position = quarryPositions[1, 1]; 
         }
         public void LoadContent(ContentManager content)
         {
             drillTexture = content.Load<Texture2D>("Tiles/ConstructionDrillBit");
             tubeTexture = content.Load<Texture2D>("Tiles/ConstructionTube");
-            rect = new Rectangle((int)startPositionX.X, (int)startPositionX.Y, drillTexture.Width, drillTexture.Height);
+           
         }
         public void Update(GameTime gameTime)
         {
-            rect = new Rectangle((int)startPositionX.X, (int)startPositionX.Y, drillTexture.Width, drillTexture.Height);
-            if (lastTime + time < gameTime.TotalGameTime)
+            alive = tile.alive; 
+            if(lastTime + time < gameTime.TotalGameTime)
             {
-                Console.WriteLine(startPositionX); 
+                position = quarryPositions[x, y];
+                x++;
+                if (x >= width)
+                {
+                    y++;
+                    x = 0;
+                    if(y >= height)
+                    {
+                        y = 0; 
+                    }
+                }
                 lastTime = gameTime.TotalGameTime;
             }
-            startPositionX = Vector2.Lerp(startPositionX, endPositionX, .05f); 
-            if(startPositionX.X >= endPositionX.X - .05f)
-            {
-                endPositionX.Y += 32; 
-            }
+
+            rect = new Rectangle((int)position.X, (int)position.Y, drillTexture.Width, drillTexture.Height);
+
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(drillTexture, startPositionX, Color.White);
+            spriteBatch.Draw(drillTexture, position, Color.White);
            // Console.WriteLine("drawing"); 
         }
     }

@@ -83,6 +83,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="QuarryDrill.cs" />
+    <Compile Include="QuarryManagement.cs" />
     <Compile Include="RectangleExtensions.cs" />
     <Compile Include="Tile.cs" />
     <Compile Include="TileMap.cs" />

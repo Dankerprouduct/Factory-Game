@@ -16,13 +16,13 @@ namespace Factory_Game
         public Vector2 position;
         public int index;
         // alive - in renderbox
-        bool alive = true;
+        public bool alive = true;
         Rectangle bounds;
         float durability;
         bool draw = true;
         Vector2 worldPosition;
 
-        TimeSpan time = TimeSpan.FromMilliseconds(500);
+        TimeSpan time = TimeSpan.FromMilliseconds(1000);
         TimeSpan lastTime;
 
         QuarryDrill quarryDrill; 
@@ -53,8 +53,8 @@ namespace Factory_Game
             CanPass,
             CantPass
         }
-        private TileType tileType;
-        TileProperty tileProperty;
+        public TileType tileType;
+        public TileProperty tileProperty;
 
         ContentManager contentManager; 
 
@@ -298,6 +298,7 @@ namespace Factory_Game
                 
                 
             }
+            Console.WriteLine("Updated Tile Type to " + tileType);
         }
         public void DamageTile(float amount)
         {
@@ -343,11 +344,11 @@ namespace Factory_Game
                             //  Console.WriteLine("i tried");
                         }
                     }
-                    if (game.drills.Count > 0)
+                    if (game.quarryManagement.drills.Count > 0)
                     {
-                        for (int i = 0; i < game.drills.Count; i++)
+                        for (int i = 0; i < game.quarryManagement.drills.Count; i++)
                         {
-                            if (bounds.Intersects(game.drills[i].rect))
+                            if (bounds.Intersects(game.quarryManagement.drills[i].rect))
                             {
                                 durability = 0; 
                             }
@@ -363,7 +364,7 @@ namespace Factory_Game
                             alive = false;
                         }
 
-                        if(tileType == TileType.QuarryBlock)
+                        if(this.tileType == TileType.QuarryBlock)
                         {
                             Quarry(tileMap, gameTime, game); 
                         }
@@ -373,13 +374,23 @@ namespace Factory_Game
             }
             if (!alive)
             {
-                index = 0; 
+                index = 0;
+                tileType = TileType.BlankTile; 
             }
 
-            if (madeQuarry)
+            if(tileType == TileType.QuarryBlock)
             {
-                quarryDrill.Update(gameTime); 
+                if (madeQuarry)
+                {
+                    if(lastTime + time < gameTime.TotalGameTime)
+                    {
+                        Console.WriteLine("Quarry Updated");
+                        lastTime = gameTime.TotalGameTime;
+                    }
+                    quarryDrill.Update(gameTime);
+                }
             }
+            
         }
 
         public void Quarry(TileMap tileMap, GameTime gameTime, Game1 game)
@@ -419,10 +430,10 @@ namespace Factory_Game
                     {
                         tileMap.tile[xPos - x - 1, yPos - height].UpdateIndex(TileType.ConstructionBlock);
                     }
-                    quarryDrill = new QuarryDrill(new Vector2((xPos - 2) * 32, ((yPos + 1) - height) * 32),
-                             new Vector2((xPos - offSet + 1) * 32, ((yPos + 1) - height) * 32));
+                    quarryDrill = new QuarryDrill(xPos - 2, yPos + 1, xPos - offSet + 1, yPos - 1, height, tileMap, this);
+
                     quarryDrill.LoadContent(contentManager);
-                    game.drills.Add(quarryDrill);
+                    game.quarryManagement.drills.Add(quarryDrill); 
                     madeQuarry = true;
 
 
@@ -453,10 +464,10 @@ namespace Factory_Game
                     {
                         tileMap.tile[xPos + x + 1, yPos - height].UpdateIndex(TileType.ConstructionBlock);
                     }
-                    quarryDrill = new QuarryDrill(new Vector2((xPos + 2) * 32, ((yPos + 1) - height) * 32),
-                          new Vector2((xPos + offSet - 1) * 32, ((yPos + 1) - height) * 32));
+                    quarryDrill = new QuarryDrill(xPos + 2, yPos + 1, xPos + offSet - 1, yPos - 1,height, tileMap, this);
+
                     quarryDrill.LoadContent(contentManager);
-                    game.drills.Add(quarryDrill);
+                    game.quarryManagement.drills.Add(quarryDrill);
                     madeQuarry = true;
                 }
                 #endregion
@@ -474,11 +485,13 @@ namespace Factory_Game
                 spriteBatch.Draw(tiles[index], position, Color.White);
                 //Console.WriteLine("Drawing!"); 
 
-                if (madeQuarry)
+                if (this.tileType == TileType.QuarryBlock)
                 {
-                    quarryDrill.Draw(spriteBatch); 
+                    if (madeQuarry)
+                    {
+                        quarryDrill.Draw(spriteBatch);
+                    }
                 }
-
             }
         }
     }

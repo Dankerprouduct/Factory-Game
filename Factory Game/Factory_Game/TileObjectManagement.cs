@@ -29,7 +29,7 @@ namespace Factory_Game
             {
                 tO.LoadContent(content); 
             }
-            Console.WriteLine(tileObjects.Count); 
+       //     Console.WriteLine(tileObjects.Count); 
         }
         
         public void Update(GameTime gameTime, Game1 game)
