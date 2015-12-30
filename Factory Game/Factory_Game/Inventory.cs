@@ -19,10 +19,22 @@ namespace Factory_Game
         public List<int> itemIndex = new List<int>(); 
         KeyboardState keyboardState;
         KeyboardState oldKeyboardState;
-        public Tile.TileType tileType; 
+        public Tile.TileType tileType;
+        bool showInventory; 
+        List<Item> myInventory = new List<Item>();
+
+        Texture2D inventoryTexture; 
+        int inventorySize; // only multiples of 2
+        int width;
+        int height;
+        int offSet = 5;  
         // TODO move all g craps to just a list of types 
         public Inventory()
         {
+            inventorySize = 20;
+            width = inventorySize / 2;
+            height = inventorySize / 2; 
+
             tileType = new Tile.TileType();
             selectedItem = 0;
             tileType = Tile.TileType.DryTile1; 
@@ -39,10 +51,20 @@ namespace Factory_Game
             itemIndex.Add(100); //  Marker Block; 
             itemIndex.Add(100); //  Quarry Block
         }
+        public void LoadContent(ContentManager content)
+        {
+            inventoryTexture = content.Load<Texture2D>("Fonts/DarkGrayBack"); 
+        }
         public void Update(GameTime gameTime)
         {
             keyboardState = Keyboard.GetState();
             //  itemIndex[9] += 1; 
+            if(keyboardState.IsKeyDown(Keys.G) && oldKeyboardState.IsKeyUp(Keys.G))
+            {
+                showInventory = !showInventory; 
+            }
+
+            #region // old inventory
             if (keyboardState.IsKeyDown(Keys.E) && oldKeyboardState.IsKeyUp(Keys.E))
             {
                 selectedItem++;
@@ -126,9 +148,9 @@ namespace Factory_Game
                 }
 
 
-
-
                 
+
+
             }
             if (keyboardState.IsKeyDown(Keys.Q) && oldKeyboardState.IsKeyUp(Keys.Q))
             {
@@ -217,76 +239,35 @@ namespace Factory_Game
                     tileType = Tile.TileType.DryTile1;
                 }
                 
+
             }
+            #endregion
+
 
             oldKeyboardState = keyboardState;
         }
-        public void AddToInventory(Tile.TileType type, int ammount)
+        public void AddToInventory(Item item)
         {
+
+            myInventory.Add(item); 
             
-            switch (type)
+        }
+        
+        public void Draw(SpriteBatch spriteBatch, Player player)
+        {
+
+            if (showInventory)
             {
-                
-                case Tile.TileType.DryTile1:
+                for (int x = 0; x < width; x++)
+                {
+                    for (int y = 0; y < height; y++)
                     {
-                        itemIndex[0] += ammount; 
-                        break; 
+
+                        spriteBatch.Draw(inventoryTexture, new Vector2(((32 + offSet) * x + player.position.X) + 64,
+                            (((32 + offSet) * y  + player.position.Y) - height * 32) - 32), Color.White); 
+
                     }
-                case Tile.TileType.DryTile2:
-                    {
-                        itemIndex[1] += ammount;
-                        break;
-                    }
-                case Tile.TileType.DryTile3:
-                    {
-                        itemIndex[2] += ammount;
-                        break; 
-                    }
-                case Tile.TileType.Granite1:
-                    {
-                        itemIndex[3] += ammount;
-                        break;
-                    }
-                case Tile.TileType.Granite2:
-                    {
-                        itemIndex[4] += ammount;
-                        break; 
-                    }
-                case Tile.TileType.Granite3:
-                    {
-                        itemIndex[5] += ammount;
-                        break; 
-                    }
-                case Tile.TileType.Grass1:
-                    {
-                        itemIndex[6] += ammount;
-                        break;
-                    }
-                case Tile.TileType.Grass2:
-                    {
-                        itemIndex[7] += ammount;
-                        break;
-                    }
-                case Tile.TileType.Grass3:
-                    {
-                        itemIndex[8] += ammount;
-                        break; 
-                    }
-                case Tile.TileType.ConstructionBlock:
-                    {
-                        itemIndex[9] += ammount;
-                        break;
-                    }
-                case Tile.TileType.MarkerBlock:
-                    {
-                        itemIndex[10] += ammount;
-                        break;
-                    }
-                case Tile.TileType.QuarryBlock:
-                    {
-                        itemIndex[11] += ammount;
-                        break; 
-                    }
+                }
             }
         }
     }

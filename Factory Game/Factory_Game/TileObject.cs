@@ -24,12 +24,15 @@ namespace Factory_Game
         float currentTime = 0;
         int counter = 1;
         float countDuration = 25f;
-
+        ItemDatabase dataBase;
+        Item item; 
         public TileObject(Vector2 pos, Tile.TileType typ)
         {
+            dataBase = new ItemDatabase(); 
             position = pos; 
             type = typ;
-            alive = true; 
+            alive = true;
+
         }
         public void LoadContent(ContentManager content)
         {
@@ -37,61 +40,73 @@ namespace Factory_Game
             {
                 case Tile.TileType.DryTile1:
                     {
+                        item = dataBase.items[1]; 
                         objectTexture = content.Load<Texture2D>("TileObjects/DryTile1Item");
                         break;
                     }
                 case Tile.TileType.DryTile2:
                     {
+                        item = dataBase.items[2];
                         objectTexture = content.Load<Texture2D>("TileObjects/DryTile2Item");
                         break;
                     }
                 case Tile.TileType.DryTile3:
                     {
+                        item = dataBase.items[3];
                         objectTexture = content.Load<Texture2D>("TileObjects/DryTile3Item");
                         break; 
                     }
                 case Tile.TileType.Granite1:
                     {
+                        item = dataBase.items[4];
                         objectTexture = content.Load<Texture2D>("TileObjects/Granite1Item");
                         break;
                     }
                 case Tile.TileType.Granite2:
                     {
+                        item = dataBase.items[5];
                         objectTexture = content.Load<Texture2D>("TileObjects/Granite2Item");
                         break; 
                     }
                 case Tile.TileType.Granite3:
                     {
+                        item = dataBase.items[6];
                         objectTexture = content.Load<Texture2D>("TileObjects/Granite3Item");
                         break;
                     }
                 case Tile.TileType.Grass1:
                     {
+                        item = dataBase.items[7];
                         objectTexture = content.Load<Texture2D>("TileObjects/Grass1Item");
                         break;
                     }
                 case Tile.TileType.Grass2:
                     {
+                        item = dataBase.items[8];
                         objectTexture = content.Load<Texture2D>("TileObjects/Grass2Item");
                         break;
                     }
                 case Tile.TileType.Grass3:
                     {
+                        item = dataBase.items[9];
                         objectTexture = content.Load<Texture2D>("TileObjects/Grass3Item");
                         break; 
                     }
                 case Tile.TileType.ConstructionBlock:
                     {
+                        item = dataBase.items[11];
                         objectTexture = content.Load<Texture2D>("TileObjects/ConstructionBlockItem");
                         break;
                     }
                 case Tile.TileType.MarkerBlock:
                     {
+                        item = dataBase.items[12];
                         objectTexture = content.Load<Texture2D>("TileObjects/MarkerBlockItem");
                         break;
                     }
                 case Tile.TileType.QuarryBlock:
                     {
+                        item = dataBase.items[15];
                         objectTexture = content.Load<Texture2D>("TileObjects/QuarryBlockItem");
                         break; 
                     }
@@ -119,7 +134,7 @@ namespace Factory_Game
         {
             if (rect.Intersects(player.rect))
             {
-                player.inventory.AddToInventory(this.type, 1); 
+                player.inventory.AddToInventory(item); 
 
                 this.alive = false; 
             }

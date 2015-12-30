@@ -7,7 +7,7 @@ namespace Factory_Game
 {
     public class ItemDatabase
     {
-        List<Item> items = new List<Item>(); 
+        public List<Item> items = new List<Item>(); 
 
         public ItemDatabase()
         {
@@ -21,6 +21,12 @@ namespace Factory_Game
             items.Add(new Item(Tile.TileType.Grass1, "Grass 1", "Grass", 7));
             items.Add(new Item(Tile.TileType.Grass2, "Grass 2", "Grass", 8));
             items.Add(new Item(Tile.TileType.Grass3, "Grass 3", "Grass", 9));
+            items.Add(new Item(Tile.TileType.Water, "Water", "Water", 10));
+            items.Add(new Item(Tile.TileType.ConstructionBlock, "Construction Block", "Construction Block", 11));
+            items.Add(new Item(Tile.TileType.MarkerBlock, "Marker", "Place to designate machines", 12));
+            items.Add(new Item(Tile.TileType.ConstructionDrillBit, "Drill Bit", "Drill Bit", 13));
+            items.Add(new Item(Tile.TileType.ConstructionTube, "Construction Tube", "Construction Tube", 14)); 
+            items.Add(new Item(Tile.TileType.QuarryBlock, "Quarry Block", "Place next to Marker", 15));
         }
     }
 }

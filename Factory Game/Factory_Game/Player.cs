@@ -41,6 +41,7 @@ namespace Factory_Game
         public void LoadContent(ContentManager content)
         {
             texture = content.Load<Texture2D>("Sprites/TempPlayer");
+            inventory.LoadContent(content); 
         }
         public void Update(GameTime gameTime, Game1 game)
         {
@@ -123,6 +124,11 @@ namespace Factory_Game
 
         }
         
+        /// <summary>
+        /// Tile and Inventory interaction 
+        /// </summary>
+        /// <param name="camera"></param>
+        /// <param name="tileMap"></param>
         void MouseMovement(Camera camera, TileMap tileMap)
         {
             mouseState = Mouse.GetState();
@@ -189,7 +195,7 @@ namespace Factory_Game
             int previous = (int)position.Y;
             int averagePosY = (int)Math.Floor(position.Y + previous) / 2;
             spriteBatch.Draw(texture, new Vector2(position.X, position.Y), Color.White);
-            
+            inventory.Draw(spriteBatch, this); 
         }
     }
 }

@@ -17,14 +17,14 @@ namespace Factory_Game
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        public int WIDTH = 1080;
+        public int WIDTH = 1500;
         public int HEIGHT;
 
         public Player player;
 
         public TileMap tileMap;
         // 4200 1200
-        int[,] mapSize = new int[250, 250];
+        int[,] mapSize = new int[300, 300];
         // 932480
         int seed = 9890132; 
 
@@ -42,10 +42,10 @@ namespace Factory_Game
             graphics = new GraphicsDeviceManager(this);
             graphics.PreferredBackBufferHeight = HEIGHT;
             graphics.PreferredBackBufferWidth = WIDTH;
-         // graphics.ToggleFullScreen(); 
+           // graphics.ToggleFullScreen(); 
             IsMouseVisible = true; 
             Content.RootDirectory = "Content";
-            
+                       
         }
 
 

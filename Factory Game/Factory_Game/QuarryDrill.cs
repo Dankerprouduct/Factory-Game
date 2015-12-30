@@ -83,7 +83,6 @@ namespace Factory_Game
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(drillTexture, position, Color.White);
-           // Console.WriteLine("drawing"); 
         }
     }
 }
