@@ -21,19 +21,34 @@ namespace Factory_Game
         KeyboardState oldKeyboardState;
         public Tile.TileType tileType;
         bool showInventory; 
-        List<Item> myInventory = new List<Item>();
-
+        public List<Item> inventory = new List<Item>();
+        public List<Item> slots = new List<Item>(); 
         Texture2D inventoryTexture; 
         int inventorySize; // only multiples of 2
         int width;
         int height;
-        int offSet = 5;  
+        int offSet = 5;
+        int inventoryCount;
+        SpriteFont font;
+        ItemDatabase database;
+        public enum InventoryType
+        {
+            PlayerInventory,
+            StorageInventory
+        }
+        public InventoryType inventoryType; 
         // TODO move all g craps to just a list of types 
         public Inventory()
         {
-            inventorySize = 20;
-            width = inventorySize / 2;
-            height = inventorySize / 2; 
+            inventoryType = new InventoryType(); 
+            width = 5;
+            height = 5;
+            inventoryCount = 0; 
+            for(int i = 0; i < width * height; i++)
+            {
+                slots.Add(new Item());
+                inventory.Add(new Item()); 
+            }
 
             tileType = new Tile.TileType();
             selectedItem = 0;
@@ -50,20 +65,27 @@ namespace Factory_Game
             itemIndex.Add(100); //  Construction Block 
             itemIndex.Add(100); //  Marker Block; 
             itemIndex.Add(100); //  Quarry Block
+
+
+
         }
         public void LoadContent(ContentManager content)
         {
-            inventoryTexture = content.Load<Texture2D>("Fonts/DarkGrayBack"); 
+            database = new ItemDatabase(content);
+            inventoryTexture = content.Load<Texture2D>("Fonts/DarkGrayBack");
+            font = content.Load<SpriteFont>("Fonts/InventoryFont");
         }
         public void Update(GameTime gameTime)
         {
             keyboardState = Keyboard.GetState();
             //  itemIndex[9] += 1; 
-            if(keyboardState.IsKeyDown(Keys.G) && oldKeyboardState.IsKeyUp(Keys.G))
+            if (inventoryType == InventoryType.PlayerInventory)
             {
-                showInventory = !showInventory; 
+                if (keyboardState.IsKeyDown(Keys.G) && oldKeyboardState.IsKeyUp(Keys.G))
+                {
+                    showInventory = !showInventory;
+                }
             }
-
             #region // old inventory
             if (keyboardState.IsKeyDown(Keys.E) && oldKeyboardState.IsKeyUp(Keys.E))
             {
@@ -246,10 +268,42 @@ namespace Factory_Game
 
             oldKeyboardState = keyboardState;
         }
-        public void AddToInventory(Item item)
+        public void AddToInventory(Item item, int ammount)
         {
 
-            myInventory.Add(item); 
+            for (int g = 0; g < ammount; g++)
+            {
+                inventoryCount = inventoryCount + 1;
+
+                for (int i = 0; i < inventory.Count; i++)
+                {
+                    if (inventory[i].itemID == item.itemID)
+                    {
+                        inventory[i].stackCount++;
+
+                        break;
+                    }
+                    else if (inventory[i].tileName == null)
+                    {
+
+                        for (int j = 0; j < database.items.Count; j++)
+                        {
+                            if (database.items[j].tileType == item.tileType)
+                            {
+                                inventory[i] = database.items[j];
+
+                            }
+
+                        }
+
+                        break;
+                    }
+
+                }
+
+            }
+
+        //    inventory.Add(item); 
             
         }
         
@@ -258,16 +312,30 @@ namespace Factory_Game
 
             if (showInventory)
             {
-                for (int x = 0; x < width; x++)
+                int i = 0; 
+
+                for(int y = 0; y < height; y++)
                 {
-                    for (int y = 0; y < height; y++)
+                    for(int x = 0; x < width; x++)
                     {
+                        Rectangle slotRect = new Rectangle(((32 + offSet) * x) + (int)player.position.X + 100,((32 + offSet) * y) + (int)player.position.Y - 100, 32, 32);
 
-                        spriteBatch.Draw(inventoryTexture, new Vector2(((32 + offSet) * x + player.position.X) + 64,
-                            (((32 + offSet) * y  + player.position.Y) - height * 32) - 32), Color.White); 
+                        slots[i] = inventory[i];
 
+                        spriteBatch.Draw(inventoryTexture, slotRect, Color.White); 
+                        if(slots[i].tileName != null)
+                        {
+                            spriteBatch.Draw(slots[i].texture, new Vector2(slotRect.X + (slotRect.Width / 4),
+                                slotRect.Y + (slotRect.Height / 4)), Color.White);
+                            spriteBatch.DrawString(font, slots[i].stackCount.ToString(), new Vector2(slotRect.X, slotRect.Y), Color.White); 
+                        }
+
+                        i++;
                     }
+
+                    
                 }
+
             }
         }
     }

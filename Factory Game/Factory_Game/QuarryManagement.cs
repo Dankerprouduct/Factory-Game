@@ -35,7 +35,7 @@ namespace Factory_Game
                 if (drills[i].tile.tileType != Tile.TileType.QuarryBlock)
                 {
                     drills.RemoveAt(i);
-                    Console.WriteLine("removed quarry");
+
                 }
 
             }

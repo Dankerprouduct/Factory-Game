@@ -29,7 +29,6 @@ namespace Factory_Game
             {
                 tO.LoadContent(content); 
             }
-       //     Console.WriteLine(tileObjects.Count); 
         }
         
         public void Update(GameTime gameTime, Game1 game)
@@ -39,9 +38,7 @@ namespace Factory_Game
                 tileObjects[i].Update(gameTime, game.player);
                 if (!tileObjects[i].alive)
                 {
-                    tileObjects.RemoveAt(i);
-                    Console.WriteLine("Removed Tile Object"); 
-                }
+                    tileObjects.RemoveAt(i);                }
             }
         }
         public void Draw(SpriteBatch spriteBatch)

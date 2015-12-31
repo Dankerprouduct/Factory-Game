@@ -30,18 +30,23 @@ namespace Factory_Game
         Vector2 worldPosition;
         int xCord;
         int yCord;
-        public Inventory inventory; 
+        public Inventory inventory;
+        public ItemDatabase itemDatabase;  
         public Player(Vector2 startPosition)
         {
-            inventory = new Inventory(); 
+            inventory = new Inventory();
+            inventory.inventoryType = Inventory.InventoryType.PlayerInventory; 
             position = startPosition;
             // regular = 3 
             speed = 3; 
+            
         }
         public void LoadContent(ContentManager content)
         {
+            itemDatabase = new ItemDatabase(content); 
             texture = content.Load<Texture2D>("Sprites/TempPlayer");
-            inventory.LoadContent(content); 
+            inventory.LoadContent(content);
+            inventory.AddToInventory(itemDatabase.items[12], 999); 
         }
         public void Update(GameTime gameTime, Game1 game)
         {
@@ -150,7 +155,6 @@ namespace Factory_Game
                         {
                             tileMap.ChangeTile(xCord, yCord, inventory.tileType);
                             inventory.itemIndex[inventory.selectedItem]--;
-                            Console.WriteLine("sent type " + inventory.tileType.ToString()); 
                         } 
                     }
                 }

@@ -48,9 +48,7 @@ namespace Factory_Game
             //start x = xpos * 32 
             // x = xpos + i * 32
             
-            Console.WriteLine("width "+width);
-            Console.WriteLine("height " +height);
-            position = quarryPositions[1, 1]; 
+            position = quarryPositions[0, 0]; 
         }
         public void LoadContent(ContentManager content)
         {

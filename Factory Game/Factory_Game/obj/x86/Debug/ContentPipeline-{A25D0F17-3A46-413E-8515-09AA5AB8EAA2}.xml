@@ -280,6 +280,15 @@
       <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\QuarryBlockItem.xnb</Output>
       <Time>2015-12-27T19:04:07.6596582-05:00</Time>
     </Item>
+    <Item>
+      <Source>Fonts\InventoryFont.spritefont</Source>
+      <Name>Fonts\InventoryFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Fonts\InventoryFont.xnb</Output>
+      <Time>2015-12-30T18:47:58.5550062-05:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{A25D0F17-3A46-413E-8515-09AA5AB8EAA2}</ContentProjectGUID>

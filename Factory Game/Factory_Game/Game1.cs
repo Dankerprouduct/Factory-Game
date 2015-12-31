@@ -26,7 +26,7 @@ namespace Factory_Game
         // 4200 1200
         int[,] mapSize = new int[300, 300];
         // 932480
-        int seed = 9890132; 
+        int seed = 5789865; 
 
         public Camera camera;
 
@@ -36,6 +36,9 @@ namespace Factory_Game
 
         public QuarryManagement quarryManagement; 
         public TileObjectManagement tileObjectManagement;
+
+        public float _fps = 0;
+
         public Game1()
         {
             HEIGHT = (WIDTH / 16) * 9;
@@ -87,13 +90,17 @@ namespace Factory_Game
             {
                 this.Exit();
             }
+
+            // Update
+            _fps = (int)Math.Ceiling((1 / (float)gameTime.ElapsedGameTime.TotalSeconds));
+
             camera.Update(gameTime, this); 
             player.Update(gameTime, this);
             if (tileObjectManagement.tileObjects.Count > 0)
             {
                 tileObjectManagement.Update(gameTime, this);
             }
-            gui.Update(gameTime, player, tileObjectManagement); 
+            gui.Update(gameTime, player, tileObjectManagement, this); 
             tileMap.Update(gameTime, this);
             quarryManagement.Update(gameTime, this); 
 

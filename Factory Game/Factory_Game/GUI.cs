@@ -47,7 +47,7 @@ namespace Factory_Game
             
         }
 
-        public void Update(GameTime gameTime, Player player, TileObjectManagement tileManagement)
+        public void Update(GameTime gameTime, Player player, TileObjectManagement tileManagement, Game1 game)
         {
             keyboardState = Keyboard.GetState();
             if (keyboardState.IsKeyDown(Keys.L) && oldKeyboardState.IsKeyUp(Keys.L))
@@ -62,19 +62,11 @@ namespace Factory_Game
                 canBreak = "Can Break " + player.canBreak.ToString();
                 velocity = "Velocity " + player.velocity.ToString();
                 colliding = "Colliding " + player.colliding.ToString();
-                fps = "fps " + frames.ToString();
+                fps = "fps " + game._fps.ToString();
                 tilePos = "Tile Position " + ((player.rect.X / 32) - 2).ToString() + " " + (player.rect.Y / 32).ToString();
                 entitys = "Entitys " + tileManagement.tileObjects.Count;
                 tileType = "Tile Type " + player.inventory.tileType.ToString() + " " + player.inventory.itemIndex[player.inventory.selectedItem].ToString(); 
 
-                frameCounter++;
-                frameTime += gameTime.ElapsedGameTime.TotalMilliseconds;
-                if (frameTime >= 1000)
-                {
-                    frames = frameCounter;
-                    frameTime = 0;
-                    frameCounter = 0;
-                }
 
             }
         }
@@ -91,6 +83,7 @@ namespace Factory_Game
                 spriteBatch.DrawString(font, tilePos, new Vector2(10, 70), Color.White);
                 spriteBatch.DrawString(font, entitys, new Vector2(10, 85), Color.White);
                 spriteBatch.DrawString(font, tileType, new Vector2(10, 100), Color.White);
+                spriteBatch.DrawString(font, fps, new Vector2(10, 115), Color.White); 
             }
         }
 

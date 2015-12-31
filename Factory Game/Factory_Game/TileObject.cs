@@ -28,7 +28,7 @@ namespace Factory_Game
         Item item; 
         public TileObject(Vector2 pos, Tile.TileType typ)
         {
-            dataBase = new ItemDatabase(); 
+            
             position = pos; 
             type = typ;
             alive = true;
@@ -36,6 +36,7 @@ namespace Factory_Game
         }
         public void LoadContent(ContentManager content)
         {
+            dataBase = new ItemDatabase(content);
             switch (type)
             {
                 case Tile.TileType.DryTile1:
@@ -134,7 +135,7 @@ namespace Factory_Game
         {
             if (rect.Intersects(player.rect))
             {
-                player.inventory.AddToInventory(item); 
+                player.inventory.AddToInventory(item, 1); 
 
                 this.alive = false; 
             }

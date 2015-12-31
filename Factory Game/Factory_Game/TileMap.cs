@@ -161,7 +161,6 @@ namespace Factory_Game
                     }
                     if(y == Math.Abs(terrainContour[x]) && x == mapAttributes.GetLength(0) / 2)
                     {
-                        Console.WriteLine(x  + " " + y );
                         playerStart = new Vector2(x * 32, y * 32 - 64); 
                          
                     }
@@ -324,7 +323,6 @@ namespace Factory_Game
         public void ChangeTile(int x, int y, Tile.TileType type)
         {
             tile[x, y].UpdateIndex(type);
-            Console.WriteLine("changing to "+type.ToString());
         }
         public void DamageTile(int x, int y, float ammount)
         {

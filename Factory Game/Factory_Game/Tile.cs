@@ -298,7 +298,6 @@ namespace Factory_Game
                 
                 
             }
-            Console.WriteLine("Updated Tile Type to " + tileType);
         }
         public void DamageTile(float amount)
         {
@@ -384,7 +383,6 @@ namespace Factory_Game
                 {
                     if(lastTime + time < gameTime.TotalGameTime)
                     {
-                        Console.WriteLine("Quarry Updated");
                         lastTime = gameTime.TotalGameTime;
                     }
                     quarryDrill.Update(gameTime);
@@ -400,7 +398,6 @@ namespace Factory_Game
                 
                 int offSet = 3; 
                 int searchRadius = 50; 
-                Console.WriteLine("Making Quarry");
                 int height = 8;
                 #region 
                 if (tileMap.tile[xPos - 1, yPos].tileType == TileType.MarkerBlock)
