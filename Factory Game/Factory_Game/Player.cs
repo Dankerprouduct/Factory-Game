@@ -150,6 +150,7 @@ namespace Factory_Game
                 {
                     if (mouseState.RightButton == ButtonState.Pressed)
                     {
+                        /*
                         if (inventory.itemIndex[inventory.selectedItem] > 0)
                         {
                             if (tileMap.tile[xCord, yCord].index == 0)
@@ -158,6 +159,21 @@ namespace Factory_Game
                                 inventory.itemIndex[inventory.selectedItem]--;
                             }
                         }
+                        */
+                        if(inventory.inventory[inventory.selectedItem].count > 0)
+                        {
+                            // only place if on blank tile 
+                            if (tileMap.tile[xCord, yCord].index == 0)
+                            {
+                                tileMap.ChangeTile(xCord, yCord, inventory.inventory[inventory.selectedItem].item.tileType);
+                                inventory.inventory[inventory.selectedItem].count--; 
+                                if(inventory.inventory[inventory.selectedItem].count <= 0)
+                                {
+                                    inventory.RemoveItem(inventory.inventory[inventory.selectedItem].item); 
+                                }
+                            }
+                        }
+
                     }
                     if (mouseState.LeftButton == ButtonState.Pressed)
                     {

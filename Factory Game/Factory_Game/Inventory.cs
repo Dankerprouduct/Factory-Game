@@ -311,7 +311,20 @@ namespace Factory_Game
 
             }
 
-        }       
+        }   
+        public void RemoveItem(Item item)
+        {
+            for (int i = 0; i < inventory.Count; i++)
+            {
+                if (inventory[i].item.tileType == item.tileType)
+                {
+                    inventory[i] = new ItemStack();
+                    break;
+                }
+            }
+
+
+        }    
         public void Draw(SpriteBatch spriteBatch, Player player)
         {
 
@@ -337,11 +350,17 @@ namespace Factory_Game
                             
                             if (slotRect.Contains(point))
                             {
-                                Console.WriteLine(slots[i].item.tileName);
+                                //Console.WriteLine(slots[i].item.tileName);
                                 Rectangle toolTipBox = new Rectangle(slotRect.X - 150 + 16, slotRect.Y - 325, 300, 300);
                                 spriteBatch.Draw(inventoryTexture, toolTipBox, Color.White); 
                                 spriteBatch.DrawString(font, slots[i].item.tileName , new Vector2(toolTipBox.X, toolTipBox.Y), Color.White);
                                 spriteBatch.DrawString(font, slots[i].item.tileDescription, new Vector2(toolTipBox.X, toolTipBox.Y + 20), Color.White);
+
+                                if(mouseState.LeftButton == ButtonState.Pressed)
+                                {
+                                    selectedItem = i;
+                                    Console.WriteLine(selectedItem); 
+                                }
                             }
                         }
 
