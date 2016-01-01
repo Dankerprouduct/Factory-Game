@@ -16,7 +16,8 @@ namespace Factory_Game
     public class TileObjectManagement
     {
         public List<TileObject> tileObjects = new List<TileObject>();
-        ContentManager content; 
+        ContentManager content;
+        KeyboardState keyboardState;
         public TileObjectManagement(Game1 game)
         {
             content = game.Content; 
@@ -33,12 +34,23 @@ namespace Factory_Game
         
         public void Update(GameTime gameTime, Game1 game)
         {
+            keyboardState = Keyboard.GetState();
+
+            if (keyboardState.IsKeyDown(Keys.R))
+            {
+                for(int i = 0; i < tileObjects.Count; i++)
+                {
+                    tileObjects.RemoveAt(i); 
+                }
+            }
+
             for(int i = 0; i < tileObjects.Count; i++)
             {
                 tileObjects[i].Update(gameTime, game.player);
                 if (!tileObjects[i].alive)
                 {
-                    tileObjects.RemoveAt(i);                }
+                    tileObjects.RemoveAt(i);
+                }
             }
         }
         public void Draw(SpriteBatch spriteBatch)

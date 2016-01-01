@@ -20,9 +20,9 @@ namespace Factory_Game
         KeyboardState keyboardState;
         KeyboardState oldKeyboardState;
         public Tile.TileType tileType;
-        bool showInventory; 
-        public List<Item> inventory = new List<Item>();
-        public List<Item> slots = new List<Item>(); 
+        public bool showInventory; 
+        public List<ItemStack> inventory = new List<ItemStack>();
+        public List<ItemStack> slots = new List<ItemStack>(); 
         Texture2D inventoryTexture; 
         int inventorySize; // only multiples of 2
         int width;
@@ -31,6 +31,12 @@ namespace Factory_Game
         int inventoryCount;
         SpriteFont font;
         ItemDatabase database;
+        MouseState mouseState;
+        MouseState oldMouseState; 
+        Vector2 mousePosition;
+        Vector2 worldPosition;
+        Point point; 
+
         public enum InventoryType
         {
             PlayerInventory,
@@ -40,31 +46,32 @@ namespace Factory_Game
         // TODO move all g craps to just a list of types 
         public Inventory()
         {
+            
             inventoryType = new InventoryType(); 
-            width = 5;
-            height = 5;
+            width = 20;
+            height = 1;
             inventoryCount = 0; 
             for(int i = 0; i < width * height; i++)
             {
-                slots.Add(new Item());
-                inventory.Add(new Item()); 
+                slots.Add(new ItemStack());
+                inventory.Add(new ItemStack()); 
             }
 
             tileType = new Tile.TileType();
             selectedItem = 0;
             tileType = Tile.TileType.DryTile1; 
-            itemIndex.Add(100); //  Dirt Tile 1 
-            itemIndex.Add(100); //  Dirt Tile 2
-            itemIndex.Add(100); //  Dirt Tile 3
-            itemIndex.Add(100); //  Granite Tile 1
-            itemIndex.Add(100); //  Granite Tile 2
-            itemIndex.Add(100); //  Granite Tile 3
-            itemIndex.Add(100); //  Grass Tile 1
-            itemIndex.Add(100); //  Grass Tile 2
-            itemIndex.Add(100); //  Grass Tile 3
-            itemIndex.Add(100); //  Construction Block 
-            itemIndex.Add(100); //  Marker Block; 
-            itemIndex.Add(100); //  Quarry Block
+            itemIndex.Add(10000); //  Dirt Tile 1 
+            itemIndex.Add(10000); //  Dirt Tile 2
+            itemIndex.Add(10000); //  Dirt Tile 3
+            itemIndex.Add(10000); //  Granite Tile 1
+            itemIndex.Add(10000); //  Granite Tile 2
+            itemIndex.Add(10000); //  Granite Tile 3
+            itemIndex.Add(10000); //  Grass Tile 1
+            itemIndex.Add(10000); //  Grass Tile 2
+            itemIndex.Add(10000); //  Grass Tile 3
+            itemIndex.Add(10000); //  Construction Block 
+            itemIndex.Add(10000); //  Marker Block; 
+            itemIndex.Add(10000); //  Quarry Block
 
 
 
@@ -75,10 +82,14 @@ namespace Factory_Game
             inventoryTexture = content.Load<Texture2D>("Fonts/DarkGrayBack");
             font = content.Load<SpriteFont>("Fonts/InventoryFont");
         }
-        public void Update(GameTime gameTime)
+        public void Update(GameTime gameTime, Game1 game)
         {
+            mouseState = Mouse.GetState();
+            
+            mousePosition = new Vector2(mouseState.X, mouseState.Y);
+            worldPosition = Vector2.Transform(mousePosition, Matrix.Invert(game.camera.rawTransform));
+            point = new Point((int)worldPosition.X, (int)worldPosition.Y); 
             keyboardState = Keyboard.GetState();
-            //  itemIndex[9] += 1; 
             if (inventoryType == InventoryType.PlayerInventory)
             {
                 if (keyboardState.IsKeyDown(Keys.G) && oldKeyboardState.IsKeyUp(Keys.G))
@@ -267,46 +278,40 @@ namespace Factory_Game
 
 
             oldKeyboardState = keyboardState;
+            oldMouseState = mouseState;
         }
+
         public void AddToInventory(Item item, int ammount)
         {
 
-            for (int g = 0; g < ammount; g++)
+            for (int i = 0; i < inventory.Count; i++)
             {
-                inventoryCount = inventoryCount + 1;
 
-                for (int i = 0; i < inventory.Count; i++)
+                ////////////////////
+                if(inventory[i].item.tileType == item.tileType && inventory[i].count < 10)
                 {
-                    if (inventory[i].itemID == item.itemID)
-                    {
-                        inventory[i].stackCount++;
-
-                        break;
-                    }
-                    else if (inventory[i].tileName == null)
-                    {
-
-                        for (int j = 0; j < database.items.Count; j++)
-                        {
-                            if (database.items[j].tileType == item.tileType)
-                            {
-                                inventory[i] = database.items[j];
-
-                            }
-
-                        }
-
-                        break;
-                    }
-
+                    inventory[i].count++;
+                    break;
                 }
+                else if(inventory[i].item.tileName == null)
+                {
+
+                    for (int j = 0; j < database.items.Count; j++)
+                    {
+                        if (database.items[j].tileType == item.tileType)
+                        {
+                            inventory[i].item = database.items[j];
+                            
+                            break;
+                        }
+                    }
+                    break;
+                }
+                ////////////////////
 
             }
 
-        //    inventory.Add(item); 
-            
-        }
-        
+        }       
         public void Draw(SpriteBatch spriteBatch, Player player)
         {
 
@@ -318,16 +323,26 @@ namespace Factory_Game
                 {
                     for(int x = 0; x < width; x++)
                     {
-                        Rectangle slotRect = new Rectangle(((32 + offSet) * x) + (int)player.position.X + 100,((32 + offSet) * y) + (int)player.position.Y - 100, 32, 32);
+                        Rectangle slotRect = new Rectangle(((32 + offSet) * x) + (int)player.position.X - (width * 32) / 2,((32 + offSet) * y) + (int)player.position.Y - 64, 32, 32);
 
                         slots[i] = inventory[i];
 
                         spriteBatch.Draw(inventoryTexture, slotRect, Color.White); 
-                        if(slots[i].tileName != null)
+                        if(slots[i].item.tileName != null)
                         {
-                            spriteBatch.Draw(slots[i].texture, new Vector2(slotRect.X + (slotRect.Width / 4),
+                            spriteBatch.Draw(slots[i].item.texture, new Vector2(slotRect.X + (slotRect.Width / 4),
                                 slotRect.Y + (slotRect.Height / 4)), Color.White);
-                            spriteBatch.DrawString(font, slots[i].stackCount.ToString(), new Vector2(slotRect.X, slotRect.Y), Color.White); 
+                            spriteBatch.DrawString(font, slots[i].count.ToString(), new Vector2(slotRect.X, slotRect.Y), Color.White);
+
+                            
+                            if (slotRect.Contains(point))
+                            {
+                                Console.WriteLine(slots[i].item.tileName);
+                                Rectangle toolTipBox = new Rectangle(slotRect.X - 150 + 16, slotRect.Y - 325, 300, 300);
+                                spriteBatch.Draw(inventoryTexture, toolTipBox, Color.White); 
+                                spriteBatch.DrawString(font, slots[i].item.tileName , new Vector2(toolTipBox.X, toolTipBox.Y), Color.White);
+                                spriteBatch.DrawString(font, slots[i].item.tileDescription, new Vector2(toolTipBox.X, toolTipBox.Y + 20), Color.White);
+                            }
                         }
 
                         i++;

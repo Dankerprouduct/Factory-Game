@@ -26,7 +26,7 @@ namespace Factory_Game
         // 4200 1200
         int[,] mapSize = new int[300, 300];
         // 932480
-        int seed = 5789865; 
+        int seed = 4231; 
 
         public Camera camera;
 

@@ -14,7 +14,6 @@ namespace Factory_Game
         public string tileName;
         public string tileDescription;
         public int itemID;
-        public int stackCount = 1; 
         public Texture2D texture; 
         public Item()
         {
@@ -27,7 +26,6 @@ namespace Factory_Game
             tileName = name;
             tileDescription = description;
             itemID = id;
-
             switch (type)
             {
                 case Tile.TileType.BlankTile:

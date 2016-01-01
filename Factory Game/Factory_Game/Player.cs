@@ -46,7 +46,6 @@ namespace Factory_Game
             itemDatabase = new ItemDatabase(content); 
             texture = content.Load<Texture2D>("Sprites/TempPlayer");
             inventory.LoadContent(content);
-            inventory.AddToInventory(itemDatabase.items[12], 999); 
         }
         public void Update(GameTime gameTime, Game1 game)
         {
@@ -57,7 +56,7 @@ namespace Factory_Game
             {
                 canBreak = !canBreak;
             }
-            inventory.Update(gameTime);
+            inventory.Update(gameTime, game);
             MouseMovement(game.camera, game.tileMap);
             oldKeboardState = keyboardState; 
             
@@ -136,31 +135,34 @@ namespace Factory_Game
         /// <param name="tileMap"></param>
         void MouseMovement(Camera camera, TileMap tileMap)
         {
-            mouseState = Mouse.GetState();
-            mousePosition = new Vector2(mouseState.X, mouseState.Y);
-            worldPosition = Vector2.Transform(mousePosition, Matrix.Invert(camera.rawTransform));
-
-            //  Console.WriteLine(worldPosition.X);
-            //   Console.WriteLine(worldPosition.Y); 
-            xCord = Convert.ToInt32(worldPosition.X) / 32;
-            yCord = Convert.ToInt32(worldPosition.Y) / 32;
-
-            if (xCord < tileMap.tile.GetLength(0) && xCord >= 0 && yCord < tileMap.tile.GetLength(1) && yCord >=0)
+            if (!inventory.showInventory)
             {
-                if (mouseState.RightButton == ButtonState.Pressed)
+                mouseState = Mouse.GetState();
+                mousePosition = new Vector2(mouseState.X, mouseState.Y);
+                worldPosition = Vector2.Transform(mousePosition, Matrix.Invert(camera.rawTransform));
+
+                //  Console.WriteLine(worldPosition.X);
+                //   Console.WriteLine(worldPosition.Y); 
+                xCord = Convert.ToInt32(worldPosition.X) / 32;
+                yCord = Convert.ToInt32(worldPosition.Y) / 32;
+
+                if (xCord < tileMap.tile.GetLength(0) && xCord >= 0 && yCord < tileMap.tile.GetLength(1) && yCord >= 0)
                 {
-                    if (inventory.itemIndex[inventory.selectedItem] > 0)
+                    if (mouseState.RightButton == ButtonState.Pressed)
                     {
-                        if (tileMap.tile[xCord, yCord].index == 0)
+                        if (inventory.itemIndex[inventory.selectedItem] > 0)
                         {
-                            tileMap.ChangeTile(xCord, yCord, inventory.tileType);
-                            inventory.itemIndex[inventory.selectedItem]--;
-                        } 
+                            if (tileMap.tile[xCord, yCord].index == 0)
+                            {
+                                tileMap.ChangeTile(xCord, yCord, inventory.tileType);
+                                inventory.itemIndex[inventory.selectedItem]--;
+                            }
+                        }
                     }
-                }
-                if (mouseState.LeftButton == ButtonState.Pressed)
-                {
-                    tileMap.DamageTile(xCord, yCord, 10f);
+                    if (mouseState.LeftButton == ButtonState.Pressed)
+                    {
+                        tileMap.DamageTile(xCord, yCord, 10f);
+                    }
                 }
             }
         }
