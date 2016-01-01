@@ -57,14 +57,14 @@ namespace Factory_Game
                 inventory.Add(new ItemStack()); 
             }
 
+
             tileType = new Tile.TileType();
             selectedItem = 0;
             tileType = Tile.TileType.DryTile1; 
             itemIndex.Add(10000); //  Dirt Tile 1 
             itemIndex.Add(10000); //  Dirt Tile 2
             itemIndex.Add(10000); //  Dirt Tile 3
-            itemIndex.Add(10000); //  Granite Tile 1
-            itemIndex.Add(10000); //  Granite Tile 2
+            itemIndex.Add(10000); //  Granite Tile 11
             itemIndex.Add(10000); //  Granite Tile 3
             itemIndex.Add(10000); //  Grass Tile 1
             itemIndex.Add(10000); //  Grass Tile 2
@@ -79,6 +79,10 @@ namespace Factory_Game
         public void LoadContent(ContentManager content)
         {
             database = new ItemDatabase(content);
+            AddToInventory(database.items[12], 50);
+            AddToInventory(database.items[15], 50);
+
+
             inventoryTexture = content.Load<Texture2D>("Fonts/DarkGrayBack");
             font = content.Load<SpriteFont>("Fonts/InventoryFont");
         }
@@ -284,31 +288,34 @@ namespace Factory_Game
         public void AddToInventory(Item item, int ammount)
         {
 
-            for (int i = 0; i < inventory.Count; i++)
+            for (int a = 0; a < ammount; a++)
             {
-
-                ////////////////////
-                if(inventory[i].item.tileType == item.tileType && inventory[i].count < 10)
-                {
-                    inventory[i].count++;
-                    break;
-                }
-                else if(inventory[i].item.tileName == null)
+                for (int i = 0; i < inventory.Count; i++)
                 {
 
-                    for (int j = 0; j < database.items.Count; j++)
+                    ////////////////////
+                    if (inventory[i].item.tileType == item.tileType && inventory[i].count < 100)
                     {
-                        if (database.items[j].tileType == item.tileType)
-                        {
-                            inventory[i].item = database.items[j];
-                            
-                            break;
-                        }
+                        inventory[i].count++;
+                        break;
                     }
-                    break;
-                }
-                ////////////////////
+                    else if (inventory[i].item.tileName == null)
+                    {
 
+                        for (int j = 0; j < database.items.Count; j++)
+                        {
+                            if (database.items[j].tileType == item.tileType)
+                            {
+                                inventory[i].item = database.items[j];
+
+                                break;
+                            }
+                        }
+                        break;
+                    }
+                    ////////////////////
+
+                }
             }
 
         }   

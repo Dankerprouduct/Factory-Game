@@ -56,7 +56,7 @@ namespace Factory_Game
             tubeTexture = content.Load<Texture2D>("Tiles/ConstructionTube");
            
         }
-        public void Update(GameTime gameTime)
+        public void Update(GameTime gameTime, Game1 game)
         {
             alive = tile.alive; 
             if(lastTime + time < gameTime.TotalGameTime)
@@ -73,6 +73,23 @@ namespace Factory_Game
                     }
                 }
                 lastTime = gameTime.TotalGameTime;
+
+                #region // Loading All Tiles around drill
+                for (int x = (int)(position.X - (int)(500)) / 32; x < (((position.X) + (500)) / 32); x++)
+                {
+                    for (int y = (int)((position.Y) - (int)(500)) / 32; y < (((position.Y) + (500)) / 32); y++)
+                    {
+                        int X = Math.Abs(x);
+                        int Y = Math.Abs(y);
+
+                        //tiles[tile[X, Y]].Draw(spriteBatch);
+                        if (X < game.tileMap.tile.GetLength(0) && Y < game.tileMap.tile.GetLength(1))
+                        {
+                            game.tileMap.tile[X, Y].Update(gameTime, game.player, game, game.tileMap);
+                        }
+                    }
+                }
+#endregion
             }
 
             rect = new Rectangle((int)position.X, (int)position.Y, drillTexture.Width, drillTexture.Height);
@@ -80,7 +97,16 @@ namespace Factory_Game
         }
         public void Draw(SpriteBatch spriteBatch)
         {
+            for (int i = 1; i < y; i++)
+            {
+                spriteBatch.Draw(tubeTexture, new Vector2(position.X, position.Y - (32 * i)), Color.White);
+            }
+            if (y > 0)
+            {
+                spriteBatch.Draw(tubeTexture, new Vector2(position.X, quarryPositions[0, 0].Y), Color.White);
+            }
             spriteBatch.Draw(drillTexture, position, Color.White);
+
         }
     }
 }

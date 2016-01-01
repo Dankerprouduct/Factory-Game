@@ -117,7 +117,9 @@ namespace Factory_Game
 
             tileMap.Draw(spriteBatch, player);
 
+            quarryManagement.Draw(spriteBatch, this); 
             tileObjectManagement.Draw(spriteBatch);
+
             player.Draw(spriteBatch); 
 
             spriteBatch.End();

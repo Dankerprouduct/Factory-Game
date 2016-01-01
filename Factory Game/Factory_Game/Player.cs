@@ -36,6 +36,7 @@ namespace Factory_Game
         {
             inventory = new Inventory();
             inventory.inventoryType = Inventory.InventoryType.PlayerInventory; 
+            
             position = startPosition;
             // regular = 3 
             speed = 3; 

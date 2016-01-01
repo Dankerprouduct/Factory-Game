@@ -42,7 +42,13 @@ namespace Factory_Game
         }
         public void Draw(SpriteBatch spriteBatch, Game1 gme)
         {
-
+            foreach (QuarryDrill qDrill in drills)
+            {
+                if (qDrill.tile.tileType == Tile.TileType.QuarryBlock)
+                {
+                    qDrill.tile.Draw(spriteBatch);
+                }
+            }
         }
     }
 }

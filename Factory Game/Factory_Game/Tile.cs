@@ -385,7 +385,7 @@ namespace Factory_Game
                     {
                         lastTime = gameTime.TotalGameTime;
                     }
-                    quarryDrill.Update(gameTime);
+                    quarryDrill.Update(gameTime, game);
                 }
             }
             
@@ -397,7 +397,7 @@ namespace Factory_Game
             {
                 
                 int offSet = 3; 
-                int searchRadius = 50; 
+                int searchRadius = 100; 
                 int height = 8;
                 #region 
                 if (tileMap.tile[xPos - 1, yPos].tileType == TileType.MarkerBlock)
