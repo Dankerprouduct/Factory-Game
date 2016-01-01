@@ -16,7 +16,8 @@ namespace Factory_Game
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-
+        
+        // 1500
         public int WIDTH = 1500;
         public int HEIGHT;
 
@@ -26,7 +27,7 @@ namespace Factory_Game
         // 4200 1200
         int[,] mapSize = new int[300, 300];
         // 932480
-        int seed = 4231; 
+        int seed = 920656787; 
 
         public Camera camera;
 

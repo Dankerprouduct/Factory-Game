@@ -17,14 +17,15 @@ namespace Factory_Game
 
         Texture2D drillTexture;
         Texture2D tubeTexture;
-        TimeSpan time = TimeSpan.FromMilliseconds(100); 
+        TimeSpan time = TimeSpan.FromMilliseconds(250); 
         TimeSpan lastTime;
         public Rectangle rect;
         Vector2 position; 
         int height;
         int width;
         int x = 0;
-        int y = 0; 
+        int y = 0;
+        int chunkRadius = 800; 
         Vector2[,] quarryPositions;
         public Tile tile;
         public bool alive;  
@@ -61,7 +62,7 @@ namespace Factory_Game
             alive = tile.alive; 
             if(lastTime + time < gameTime.TotalGameTime)
             {
-                position = quarryPositions[x, y];
+                position = Vector2.Lerp(position, quarryPositions[x, y], 1f);
                 x++;
                 if (x >= width)
                 {
@@ -75,9 +76,9 @@ namespace Factory_Game
                 lastTime = gameTime.TotalGameTime;
 
                 #region // Loading All Tiles around drill
-                for (int x = (int)(position.X - (int)(500)) / 32; x < (((position.X) + (500)) / 32); x++)
+                for (int x = (int)(position.X - (int)(chunkRadius)) / 32; x < (((position.X) + (chunkRadius)) / 32); x++)
                 {
-                    for (int y = (int)((position.Y) - (int)(500)) / 32; y < (((position.Y) + (500)) / 32); y++)
+                    for (int y = (int)((position.Y) - (int)(chunkRadius)) / 32; y < (((position.Y) + (chunkRadius)) / 32); y++)
                     {
                         int X = Math.Abs(x);
                         int Y = Math.Abs(y);
@@ -100,8 +101,8 @@ namespace Factory_Game
             for (int i = 1; i < y; i++)
             {
                 spriteBatch.Draw(tubeTexture, new Vector2(position.X, position.Y - (32 * i)), Color.White);
-            }
-            if (y > 0)
+            }            if (y > 0)
+
             {
                 spriteBatch.Draw(tubeTexture, new Vector2(position.X, quarryPositions[0, 0].Y), Color.White);
             }

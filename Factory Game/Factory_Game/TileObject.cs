@@ -122,13 +122,14 @@ namespace Factory_Game
             rect = new Rectangle((int)position.X, (int)position.Y, objectTexture.Width, objectTexture.Height); 
         }
 
-        public void Update(GameTime gameTime, Player player)
+        public void Update(GameTime gameTime, Player player, QuarryManagement management)
         {
             rect = new Rectangle((int)position.X, (int)position.Y, objectTexture.Width, objectTexture.Height);
             position += velocity; 
             int i = 1;
             velocity.Y += i * .15f;
-            PlayerCollision(player); 
+            PlayerCollision(player);
+            DrillCollision(management); 
             DeathTimer(gameTime);
         }
         public void PlayerCollision(Player player)
@@ -138,6 +139,17 @@ namespace Factory_Game
                 player.inventory.AddToInventory(item, 1); 
 
                 this.alive = false; 
+            }
+        }
+        public void DrillCollision(QuarryManagement management)
+        {
+            foreach(QuarryDrill qDrill in management.drills)
+            {
+                if (qDrill.rect.Intersects(rect))
+                {
+                    qDrill.tile.inventory.AddToInventory(item, 1);
+                    alive = false; 
+                }
             }
         }
         public void Collision(Rectangle bounds)

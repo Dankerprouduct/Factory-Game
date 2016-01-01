@@ -65,7 +65,6 @@ namespace Factory_Game
                 fps = "fps " + game._fps.ToString();
                 tilePos = "Tile Position " + ((player.rect.X / 32) - 2).ToString() + " " + (player.rect.Y / 32).ToString();
                 entitys = "Entitys " + tileManagement.tileObjects.Count;
-                tileType = "Tile Type " + player.inventory.tileType.ToString() + " " + player.inventory.itemIndex[player.inventory.selectedItem].ToString(); 
 
 
             }
@@ -82,7 +81,6 @@ namespace Factory_Game
                 spriteBatch.DrawString(font, velocity, new Vector2(10, 55), Color.White);
                 spriteBatch.DrawString(font, tilePos, new Vector2(10, 70), Color.White);
                 spriteBatch.DrawString(font, entitys, new Vector2(10, 85), Color.White);
-                spriteBatch.DrawString(font, tileType, new Vector2(10, 100), Color.White);
                 spriteBatch.DrawString(font, fps, new Vector2(10, 115), Color.White); 
             }
         }

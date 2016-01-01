@@ -12,6 +12,7 @@ namespace Factory_Game
     public class Tile
     {
         KeyboardState keyboardState;
+        KeyboardState oldKeyboardState; 
         public List<Texture2D> tiles = new List<Texture2D>();
         public Vector2 position;
         public int index;
@@ -56,7 +57,9 @@ namespace Factory_Game
         public TileType tileType;
         public TileProperty tileProperty;
 
-        ContentManager contentManager; 
+        ContentManager contentManager;
+
+        public Inventory inventory; 
 
         int xPos;
         int yPos; 
@@ -85,6 +88,8 @@ namespace Factory_Game
             tiles.Add(content.Load<Texture2D>("Tiles/ConstructionDrillBit")); // 13
             tiles.Add(content.Load<Texture2D>("Tiles/ConstructionTube")); // 14
             tiles.Add(content.Load<Texture2D>("Tiles/QuarryBlock")); // 15
+
+            
         }
         public void Final()
         {
@@ -110,6 +115,10 @@ namespace Factory_Game
                 tileProperty = TileProperty.CanPass;
             }
             else if(index == 14)
+            {
+                tileProperty = TileProperty.CanPass; 
+            }
+            else if(index == 15)
             {
                 tileProperty = TileProperty.CanPass; 
             }
@@ -291,13 +300,15 @@ namespace Factory_Game
                 case TileType.QuarryBlock:
                     {
                         tileType = TileType.QuarryBlock;
-                        tileProperty = TileProperty.CantPass; 
+                        tileProperty = TileProperty.CanPass; 
                         index = 15; 
                         break;
                     }
                 
                 
             }
+
+            
         }
         public void DamageTile(float amount)
         {
@@ -305,7 +316,7 @@ namespace Factory_Game
         }
         public void Update(GameTime gameTime, Player player, Game1 game, TileMap tileMap)
         {
-
+           
             if (alive)
             {
                 if (draw)
@@ -321,7 +332,15 @@ namespace Factory_Game
                         }
 
                     }
-
+                    if(bounds.Intersects(player.rect) && tileType == TileType.QuarryBlock)
+                    {
+                        keyboardState = Keyboard.GetState();
+                        if (keyboardState.IsKeyDown(Keys.F) && oldKeyboardState.IsKeyUp(Keys.F))
+                        {
+                            inventory.showInventory = !inventory.showInventory; 
+                        }
+                        oldKeyboardState = keyboardState;
+                    }
                     for (int i = 0; i < game.tileObjectManagement.tileObjects.Count; i++)
                     {
                         if (bounds.Intersects(game.tileObjectManagement.tileObjects[i].rect) && index != 0)
@@ -399,6 +418,9 @@ namespace Factory_Game
                 int offSet = 3; 
                 int searchRadius = 100; 
                 int height = 8;
+                inventory = new Inventory();
+                inventory.LoadContent(contentManager);
+                inventory.inventoryType = Inventory.InventoryType.StorageInventory; 
                 #region 
                 if (tileMap.tile[xPos - 1, yPos].tileType == TileType.MarkerBlock)
                 {
@@ -474,7 +496,7 @@ namespace Factory_Game
             }
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, Player player)
         {
             
             if (draw)
@@ -486,6 +508,7 @@ namespace Factory_Game
                 {
                     if (madeQuarry)
                     {
+                        inventory.Draw(spriteBatch, player); 
                         quarryDrill.Draw(spriteBatch);
                     }
                 }

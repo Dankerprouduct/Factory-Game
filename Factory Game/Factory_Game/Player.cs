@@ -10,7 +10,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
-
 namespace Factory_Game
 {
     public class Player : GameObject
@@ -19,7 +18,7 @@ namespace Factory_Game
         // input
         KeyboardState keyboardState;
         KeyboardState oldKeboardState;
-
+        
         public bool canBreak; 
         public bool jumping;
         public Rectangle rect;
@@ -30,6 +29,8 @@ namespace Factory_Game
         Vector2 worldPosition;
         int xCord;
         int yCord;
+        // .25; 
+        float gravity = .15f; 
         public Inventory inventory;
         public ItemDatabase itemDatabase;  
         public Player(Vector2 startPosition)
@@ -107,7 +108,7 @@ namespace Factory_Game
             if (jumping)
             {
                 float i = 1;
-                velocity.Y += .25f * i;
+                velocity.Y += gravity * i;
                 
             }
             if (!jumping)

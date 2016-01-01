@@ -61,19 +61,6 @@ namespace Factory_Game
             tileType = new Tile.TileType();
             selectedItem = 0;
             tileType = Tile.TileType.DryTile1; 
-            itemIndex.Add(10000); //  Dirt Tile 1 
-            itemIndex.Add(10000); //  Dirt Tile 2
-            itemIndex.Add(10000); //  Dirt Tile 3
-            itemIndex.Add(10000); //  Granite Tile 11
-            itemIndex.Add(10000); //  Granite Tile 3
-            itemIndex.Add(10000); //  Grass Tile 1
-            itemIndex.Add(10000); //  Grass Tile 2
-            itemIndex.Add(10000); //  Grass Tile 3
-            itemIndex.Add(10000); //  Construction Block 
-            itemIndex.Add(10000); //  Marker Block; 
-            itemIndex.Add(10000); //  Quarry Block
-
-
 
         }
         public void LoadContent(ContentManager content)
@@ -81,7 +68,6 @@ namespace Factory_Game
             database = new ItemDatabase(content);
             AddToInventory(database.items[12], 50);
             AddToInventory(database.items[15], 50);
-
 
             inventoryTexture = content.Load<Texture2D>("Fonts/DarkGrayBack");
             font = content.Load<SpriteFont>("Fonts/InventoryFont");
@@ -101,185 +87,7 @@ namespace Factory_Game
                     showInventory = !showInventory;
                 }
             }
-            #region // old inventory
-            if (keyboardState.IsKeyDown(Keys.E) && oldKeyboardState.IsKeyUp(Keys.E))
-            {
-                selectedItem++;
-
-                if (selectedItem <= itemIndex.Count - 1)
-                {
-
-                    switch (selectedItem)
-                    {
-
-                        case 0:
-                            {
-                                tileType = Tile.TileType.DryTile1;
-
-                                break;
-                            }
-                        case 1:
-                            {
-                                tileType = Tile.TileType.DryTile2;
-
-                                break;
-                            }
-                        case 2:
-                            {
-                                tileType = Tile.TileType.DryTile3;
-                                break;
-                            }
-                        case 3:
-                            {
-                                tileType = Tile.TileType.Granite1;
-                                break;
-                            }
-                        case 4:
-                            {
-                                tileType = Tile.TileType.Granite2;
-                                break;
-                            }
-                        case 5:
-                            {
-                                tileType = Tile.TileType.Granite3;
-                                break;
-                            }
-                        case 6:
-                            {
-                                tileType = Tile.TileType.Grass1;
-                                break;
-                            }
-                        case 7:
-                            {
-                                tileType = Tile.TileType.Grass2;
-                                break;
-                            }
-                        case 8:
-                            {
-                                tileType = Tile.TileType.Grass3;
-                                break;
-                            }
-                        case 9:
-                            {
-                                tileType = Tile.TileType.ConstructionBlock;
-                                break;
-                            }
-                        case 10:
-                            {
-                                tileType = Tile.TileType.MarkerBlock;
-                                break;
-                            }
-                        case 11:
-                            {
-                                tileType = Tile.TileType.QuarryBlock;
-                                break;
-
-                            }
-                    }
-
-                }
-                else
-                {
-                    selectedItem = 0;
-                    tileType = Tile.TileType.DryTile1;
-                }
-
-
-                
-
-
-            }
-            if (keyboardState.IsKeyDown(Keys.Q) && oldKeyboardState.IsKeyUp(Keys.Q))
-            {
-                selectedItem--;
-
-                if (selectedItem < 0)
-                {
-                    selectedItem = itemIndex.Count;
-                }
-
-                if (selectedItem <= itemIndex.Count - 1)
-                {
-
-                    switch (selectedItem)
-                    {
-
-                        case 0:
-                            {
-                                tileType = Tile.TileType.DryTile1;
-
-                                break;
-                            }
-                        case 1:
-                            {
-                                tileType = Tile.TileType.DryTile2;
-
-                                break;
-                            }
-                        case 2:
-                            {
-                                tileType = Tile.TileType.DryTile3;
-                                break;
-                            }
-                        case 3:
-                            {
-                                tileType = Tile.TileType.Granite1;
-                                break;
-                            }
-                        case 4:
-                            {
-                                tileType = Tile.TileType.Granite2;
-                                break;
-                            }
-                        case 5:
-                            {
-                                tileType = Tile.TileType.Granite3;
-                                break;
-                            }
-                        case 6:
-                            {
-                                tileType = Tile.TileType.Grass1;
-                                break;
-                            }
-                        case 7:
-                            {
-                                tileType = Tile.TileType.Grass2;
-                                break;
-                            }
-                        case 8:
-                            {
-                                tileType = Tile.TileType.Grass3;
-                                break;
-                            }
-                        case 9:
-                            {
-                                tileType = Tile.TileType.ConstructionBlock;
-                                break;
-                            }
-                        case 10:
-                            {
-                                tileType = Tile.TileType.MarkerBlock;
-                                break;
-                            }
-                        case 11:
-                            {
-                                tileType = Tile.TileType.QuarryBlock;
-                                break;
-
-                            }
-                    }
-
-                }
-                else
-                {
-                    selectedItem = 0;
-                    tileType = Tile.TileType.DryTile1;
-                }
-                
-
-            }
-            #endregion
-
+            
 
             oldKeyboardState = keyboardState;
             oldMouseState = mouseState;

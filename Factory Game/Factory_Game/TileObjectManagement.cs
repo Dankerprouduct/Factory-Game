@@ -46,7 +46,7 @@ namespace Factory_Game
 
             for(int i = 0; i < tileObjects.Count; i++)
             {
-                tileObjects[i].Update(gameTime, game.player);
+                tileObjects[i].Update(gameTime, game.player, game.quarryManagement);
                 if (!tileObjects[i].alive)
                 {
                     tileObjects.RemoveAt(i);

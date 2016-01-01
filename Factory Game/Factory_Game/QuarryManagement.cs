@@ -46,7 +46,7 @@ namespace Factory_Game
             {
                 if (qDrill.tile.tileType == Tile.TileType.QuarryBlock)
                 {
-                    qDrill.tile.Draw(spriteBatch);
+                    qDrill.tile.Draw(spriteBatch, gme.player);
                 }
             }
         }

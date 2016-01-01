@@ -347,7 +347,7 @@ namespace Factory_Game
                     //tiles[tile[X, Y]].Draw(spriteBatch);
                     if(X < tile.GetLength(0) && Y < tile.GetLength(1))
                     {
-                        tile[X, Y].Draw(spriteBatch);
+                        tile[X, Y].Draw(spriteBatch, player);
                     }
                     
                 }
