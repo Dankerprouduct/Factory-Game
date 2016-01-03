@@ -28,7 +28,8 @@ namespace Factory_Game
 
         QuarryDrill quarryDrill; 
 
-        bool madeQuarry; 
+        bool madeQuarry;
+        public Item tempItem;
 
         public enum TileType
         {
@@ -47,7 +48,12 @@ namespace Factory_Game
             MarkerBlock,
             ConstructionTube,
             ConstructionDrillBit,
-            QuarryBlock
+            QuarryBlock,
+            ItemPipeNorth,
+            ItemPipeEast, 
+            ItemPipeSouth, 
+            ItemPipeWest,
+            ItemStorage
         }
         public enum TileProperty
         {
@@ -332,15 +338,27 @@ namespace Factory_Game
                         }
 
                     }
-                    if(bounds.Intersects(player.rect) && tileType == TileType.QuarryBlock)
+                    if (tileType == TileType.QuarryBlock)
                     {
-                        keyboardState = Keyboard.GetState();
-                        if (keyboardState.IsKeyDown(Keys.F) && oldKeyboardState.IsKeyUp(Keys.F))
+
+                        if (bounds.Intersects(player.rect))
                         {
-                            inventory.showInventory = !inventory.showInventory; 
+                            keyboardState = Keyboard.GetState();
+                            if (keyboardState.IsKeyDown(Keys.F) && oldKeyboardState.IsKeyUp(Keys.F))
+                            {
+                                inventory.showInventory = !inventory.showInventory;
+                            }
+                            oldKeyboardState = keyboardState;
                         }
-                        oldKeyboardState = keyboardState;
+                        else
+                        {
+                            if (madeQuarry)
+                            {
+                                inventory.showInventory = false;
+                            }
+                        }
                     }
+
                     for (int i = 0; i < game.tileObjectManagement.tileObjects.Count; i++)
                     {
                         if (bounds.Intersects(game.tileObjectManagement.tileObjects[i].rect) && index != 0)
@@ -419,8 +437,9 @@ namespace Factory_Game
                 int searchRadius = 100; 
                 int height = 8;
                 inventory = new Inventory();
+                inventory.inventoryType = Inventory.InventoryType.StorageInventory;
                 inventory.LoadContent(contentManager);
-                inventory.inventoryType = Inventory.InventoryType.StorageInventory; 
+                
                 #region 
                 if (tileMap.tile[xPos - 1, yPos].tileType == TileType.MarkerBlock)
                 {
@@ -496,6 +515,95 @@ namespace Factory_Game
             }
         }
 
+        public void ItemPipe(TileMap tileMap)
+        {
+            switch (tileType)
+            {
+                case TileType.ItemPipeNorth:
+                    {
+                        // TODO: change tempitem to a global varible to be accessed by other pipes
+                        Tile checkedTile = tileMap.tile[xPos, yPos - 1]; 
+                        if (checkedTile.tileType == TileType.QuarryBlock)
+                        {
+                            tempItem = checkedTile.inventory.inventory[0].item;
+                            checkedTile.inventory.RemoveItem(tempItem);
+                        }
+                        else if (checkedTile.tileType == TileType.ItemPipeNorth)
+                        {
+                            tempItem = checkedTile.tempItem; 
+                            checkedTile.inventory.RemoveItem(tempItem); 
+                        }
+                        else if(checkedTile.tileType == TileType.ItemStorage)
+                        {
+                            tempItem = checkedTile.inventory.inventory[0].item;
+                            checkedTile.inventory.RemoveItem(tempItem); 
+                        }
+                        break;
+                    }
+                case TileType.ItemPipeEast:
+                    {
+                        Tile checkedTile = tileMap.tile[xPos - 1, yPos]; 
+                        if(checkedTile.tileType == TileType.QuarryBlock)
+                        {
+                            tempItem = checkedTile.inventory.inventory[0].item;
+                            checkedTile.inventory.RemoveItem(tempItem); 
+                        }
+                        else if(checkedTile.tileType == TileType.ItemPipeEast)
+                        {
+                            tempItem = checkedTile.tempItem; 
+                            checkedTile.inventory.RemoveItem(tempItem); 
+                        }
+                        else if(checkedTile.tileType == TileType.ItemStorage)
+                        {
+                            tempItem = checkedTile.inventory.inventory[0].item;
+                            checkedTile.inventory.RemoveItem(tempItem); 
+                        }
+                        break; 
+                    }
+                case TileType.ItemPipeSouth:
+                    {
+                        Tile checkedTile = tileMap.tile[xPos, yPos + 1]; 
+                    
+                        if(checkedTile.tileType == TileType.QuarryBlock)
+                        {
+                            tempItem = checkedTile.inventory.inventory[0].item;
+                            checkedTile.inventory.RemoveItem(tempItem); 
+                        }
+                        else if(checkedTile.tileType == TileType.ItemPipeSouth)
+                        {
+                            tempItem = checkedTile.tempItem; 
+                            checkedTile.inventory.RemoveItem(tempItem);
+                        }
+                        else if(checkedTile.tileType == TileType.ItemPipeSouth)
+                        {
+                            tempItem = checkedTile.inventory.inventory[0].item;
+                            checkedTile.inventory.RemoveItem(tempItem); 
+                        }
+                        break;
+                    }
+                case TileType.ItemPipeWest:
+                    {
+                        Tile checkedTile = tileMap.tile[xPos - 1, yPos];
+                        if (checkedTile.tileType == TileType.QuarryBlock)
+                        {
+                            tempItem = checkedTile.inventory.inventory[0].item;
+                            checkedTile.inventory.RemoveItem(tempItem); 
+                        }
+                        else if(checkedTile.tileType == TileType.ItemPipeWest)
+                        {
+                            tempItem = checkedTile.tempItem; 
+                            checkedTile.inventory.RemoveItem(tempItem); 
+                        }
+                        else if(checkedTile.tileType == TileType.ItemStorage)
+                        {
+                            tempItem = checkedTile.inventory.inventory[0].item;
+                            checkedTile.inventory.RemoveItem(tempItem); 
+                        }
+                        break; 
+                    }
+            }
+        }
+        
         public void Draw(SpriteBatch spriteBatch, Player player)
         {
             

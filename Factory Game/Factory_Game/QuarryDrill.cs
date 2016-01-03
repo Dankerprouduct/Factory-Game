@@ -25,7 +25,7 @@ namespace Factory_Game
         int width;
         int x = 0;
         int y = 0;
-        int chunkRadius = 800; 
+        int chunkRadius = 55; 
         Vector2[,] quarryPositions;
         public Tile tile;
         public bool alive;  
@@ -53,6 +53,7 @@ namespace Factory_Game
         }
         public void LoadContent(ContentManager content)
         {
+            chunkRadius = chunkRadius * 32; 
             drillTexture = content.Load<Texture2D>("Tiles/ConstructionDrillBit");
             tubeTexture = content.Load<Texture2D>("Tiles/ConstructionTube");
            

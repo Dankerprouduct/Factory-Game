@@ -16,14 +16,14 @@ namespace Factory_Game
     {
 
         public int selectedItem = 0;
-        public List<int> itemIndex = new List<int>(); 
+        public List<int> itemIndex = new List<int>();
         KeyboardState keyboardState;
         KeyboardState oldKeyboardState;
         public Tile.TileType tileType;
-        public bool showInventory; 
+        public bool showInventory;
         public List<ItemStack> inventory = new List<ItemStack>();
-        public List<ItemStack> slots = new List<ItemStack>(); 
-        Texture2D inventoryTexture; 
+        public List<ItemStack> slots = new List<ItemStack>();
+        Texture2D inventoryTexture;
         int inventorySize; // only multiples of 2
         int width;
         int height;
@@ -32,35 +32,35 @@ namespace Factory_Game
         SpriteFont font;
         ItemDatabase database;
         MouseState mouseState;
-        MouseState oldMouseState; 
+        MouseState oldMouseState;
         Vector2 mousePosition;
         Vector2 worldPosition;
-        Point point; 
+        Point point;
 
         public enum InventoryType
         {
             PlayerInventory,
             StorageInventory
         }
-        public InventoryType inventoryType; 
-        // TODO move all g craps to just a list of types 
+        public InventoryType inventoryType;
+
         public Inventory()
         {
-            
-            inventoryType = new InventoryType(); 
+
+            inventoryType = new InventoryType();
             width = 20;
             height = 1;
-            inventoryCount = 0; 
-            for(int i = 0; i < width * height; i++)
+            inventoryCount = 0;
+            for (int i = 0; i < width * height; i++)
             {
                 slots.Add(new ItemStack());
-                inventory.Add(new ItemStack()); 
+                inventory.Add(new ItemStack());
             }
 
 
             tileType = new Tile.TileType();
             selectedItem = 0;
-            tileType = Tile.TileType.DryTile1; 
+            tileType = Tile.TileType.DryTile1;
 
         }
         public void LoadContent(ContentManager content)
@@ -71,14 +71,20 @@ namespace Factory_Game
 
             inventoryTexture = content.Load<Texture2D>("Fonts/DarkGrayBack");
             font = content.Load<SpriteFont>("Fonts/InventoryFont");
+
+            if (inventoryType == InventoryType.StorageInventory)
+            {
+                width = 3;
+                height = 3;
+            }
         }
         public void Update(GameTime gameTime, Game1 game)
         {
             mouseState = Mouse.GetState();
-            
+
             mousePosition = new Vector2(mouseState.X, mouseState.Y);
             worldPosition = Vector2.Transform(mousePosition, Matrix.Invert(game.camera.rawTransform));
-            point = new Point((int)worldPosition.X, (int)worldPosition.Y); 
+            point = new Point((int)worldPosition.X, (int)worldPosition.Y);
             keyboardState = Keyboard.GetState();
             if (inventoryType == InventoryType.PlayerInventory)
             {
@@ -87,7 +93,7 @@ namespace Factory_Game
                     showInventory = !showInventory;
                 }
             }
-            
+
 
             oldKeyboardState = keyboardState;
             oldMouseState = mouseState;
@@ -102,7 +108,7 @@ namespace Factory_Game
                 {
 
                     ////////////////////
-                    if (inventory[i].item.tileType == item.tileType && inventory[i].count < 100)
+                    if (inventory[i].item.tileType == item.tileType && inventory[i].count < 500)
                     {
                         inventory[i].count++;
                         break;
@@ -126,7 +132,8 @@ namespace Factory_Game
                 }
             }
 
-        }   
+        }
+        // TODO: Change remove item to take out of stack if stacked
         public void RemoveItem(Item item)
         {
             for (int i = 0; i < inventory.Count; i++)
@@ -139,52 +146,96 @@ namespace Factory_Game
             }
 
 
-        }    
+        }
         public void Draw(SpriteBatch spriteBatch, Player player)
         {
 
             if (showInventory)
             {
-                int i = 0; 
 
-                for(int y = 0; y < height; y++)
+                if (inventoryType == InventoryType.PlayerInventory)
                 {
-                    for(int x = 0; x < width; x++)
+                    int i = 0;
+
+                    for (int y = 0; y < height; y++)
                     {
-                        Rectangle slotRect = new Rectangle(((32 + offSet) * x) + (int)player.position.X - (width * 32) / 2,((32 + offSet) * y) + (int)player.position.Y - 64, 32, 32);
-
-                        slots[i] = inventory[i];
-
-                        spriteBatch.Draw(inventoryTexture, slotRect, Color.White); 
-                        if(slots[i].item.tileName != null)
+                        for (int x = 0; x < width; x++)
                         {
-                            spriteBatch.Draw(slots[i].item.texture, new Vector2(slotRect.X + (slotRect.Width / 4),
-                                slotRect.Y + (slotRect.Height / 4)), Color.White);
-                            spriteBatch.DrawString(font, slots[i].count.ToString(), new Vector2(slotRect.X, slotRect.Y), Color.White);
+                            Rectangle slotRect = new Rectangle(((32 + offSet) * x) + (int)player.position.X - (width * 32) / 2, ((32 + offSet) * y) + (int)player.position.Y - 64, 32, 32);
 
-                            
-                            if (slotRect.Contains(point))
+                            slots[i] = inventory[i];
+
+                            spriteBatch.Draw(inventoryTexture, slotRect, Color.White);
+                            if (slots[i].item.tileName != null)
                             {
-                                //Console.WriteLine(slots[i].item.tileName);
-                                Rectangle toolTipBox = new Rectangle(slotRect.X - 150 + 16, slotRect.Y - 325, 300, 300);
-                                spriteBatch.Draw(inventoryTexture, toolTipBox, Color.White); 
-                                spriteBatch.DrawString(font, slots[i].item.tileName , new Vector2(toolTipBox.X, toolTipBox.Y), Color.White);
-                                spriteBatch.DrawString(font, slots[i].item.tileDescription, new Vector2(toolTipBox.X, toolTipBox.Y + 20), Color.White);
+                                spriteBatch.Draw(slots[i].item.texture, new Vector2(slotRect.X + (slotRect.Width / 4),
+                                    slotRect.Y + (slotRect.Height / 4)), Color.White);
+                                spriteBatch.DrawString(font, slots[i].count.ToString(), new Vector2(slotRect.X, slotRect.Y), Color.White);
 
-                                if(mouseState.LeftButton == ButtonState.Pressed)
+
+                                if (slotRect.Contains(point))
                                 {
-                                    selectedItem = i;
-                                    Console.WriteLine(selectedItem); 
+                                    //Console.WriteLine(slots[i].item.tileName);
+                                    Rectangle toolTipBox = new Rectangle(slotRect.X - 150 + 16, slotRect.Y - 325, 300, 300);
+                                    spriteBatch.Draw(inventoryTexture, toolTipBox, Color.White);
+                                    spriteBatch.DrawString(font, slots[i].item.tileName, new Vector2(toolTipBox.X, toolTipBox.Y), Color.White);
+                                    spriteBatch.DrawString(font, slots[i].item.tileDescription, new Vector2(toolTipBox.X, toolTipBox.Y + 20), Color.White);
+
+                                    if (mouseState.LeftButton == ButtonState.Pressed)
+                                    {
+                                        selectedItem = i;
+                                        Console.WriteLine(selectedItem);
+                                    }
                                 }
                             }
+
+                            i++;
                         }
 
-                        i++;
+
                     }
 
-                    
                 }
+                else if (inventoryType == InventoryType.StorageInventory)
+                {
+                    int i = 0;
 
+                    for (int y = 0; y < height; y++)
+                    {
+                        for (int x = 0; x < width; x++)
+                        {
+                            Rectangle slotRect = new Rectangle(((32 + offSet) * x) + (int)player.position.X - (width * 32) / 2, ((32 + offSet) * y) + (int)player.position.Y - 192, 32, 32);
+
+                            slots[i] = inventory[i];
+
+                            spriteBatch.Draw(inventoryTexture, slotRect, Color.White);
+                            if (slots[i].item.tileName != null)
+                            {
+                                spriteBatch.Draw(slots[i].item.texture, new Vector2(slotRect.X + (slotRect.Width / 4),
+                                    slotRect.Y + (slotRect.Height / 4)), Color.White);
+                                spriteBatch.DrawString(font, slots[i].count.ToString(), new Vector2(slotRect.X, slotRect.Y), Color.White);
+
+
+                                if (slotRect.Contains(point))
+                                {
+                                    //Console.WriteLine(slots[i].item.tileName);
+                                    Rectangle toolTipBox = new Rectangle(slotRect.X - 150 + 16, slotRect.Y - 325, 300, 300);
+                                    spriteBatch.Draw(inventoryTexture, toolTipBox, Color.White);
+                                    spriteBatch.DrawString(font, slots[i].item.tileName, new Vector2(toolTipBox.X, toolTipBox.Y), Color.White);
+                                    spriteBatch.DrawString(font, slots[i].item.tileDescription, new Vector2(toolTipBox.X, toolTipBox.Y + 20), Color.White);
+
+                                    if (mouseState.LeftButton == ButtonState.Pressed)
+                                    {
+                                        selectedItem = i;
+                                        Console.WriteLine(selectedItem);
+                                    }
+                                }
+                            }
+
+                            i++;
+                        }
+                    }
+                }
             }
         }
     }
