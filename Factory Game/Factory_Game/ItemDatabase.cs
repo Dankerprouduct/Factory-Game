@@ -28,6 +28,10 @@ namespace Factory_Game
             items.Add(new Item(Tile.TileType.ConstructionDrillBit, "Drill Bit", "Drill Bit", 13, content));
             items.Add(new Item(Tile.TileType.ConstructionTube, "Construction Tube", "Construction Tube", 14, content)); 
             items.Add(new Item(Tile.TileType.QuarryBlock, "Quarry Block", "Place next to Marker", 15, content));
+            items.Add(new Item(Tile.TileType.ItemPipeNorth, "Item Pipe", "Item Pipe facing Nort", 16, content));
+            items.Add(new Item(Tile.TileType.ItemPipeEast, "Item Pipe", "Item Pipe facing East", 17, content));
+            items.Add(new Item(Tile.TileType.ItemPipeSouth, "Item Pipe", "Item Pipe facing South", 18, content));
+            items.Add(new Item(Tile.TileType.ItemPipeWest, "Item Pipe", "ItemPipe facing West", 19, content)); 
         }
     }
 }

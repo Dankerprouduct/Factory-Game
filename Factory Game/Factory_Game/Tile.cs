@@ -94,10 +94,14 @@ namespace Factory_Game
             tiles.Add(content.Load<Texture2D>("Tiles/ConstructionDrillBit")); // 13
             tiles.Add(content.Load<Texture2D>("Tiles/ConstructionTube")); // 14
             tiles.Add(content.Load<Texture2D>("Tiles/QuarryBlock")); // 15
-
+            tiles.Add(content.Load<Texture2D>("Tiles/NorthTube")); //16
+            tiles.Add(content.Load<Texture2D>("Tiles/EastTube")); // 17
+            tiles.Add(content.Load<Texture2D>("Tiles/SouthTube")); //18
+            tiles.Add(content.Load<Texture2D>("Tiles/WestTube")); //19
             
         }
-        public void Final()
+
+        public void Final() //This is where everything is finalized from tileMap
         {
             xPos = Convert.ToInt32(position.X / 32);
             yPos = Convert.ToInt32(position.Y / 32); 
@@ -127,6 +131,22 @@ namespace Factory_Game
             else if(index == 15)
             {
                 tileProperty = TileProperty.CanPass; 
+            }
+            else if(index == 16)
+            {
+                tileProperty = TileProperty.CanPass;
+            }
+            else if(index == 17)
+            {
+                tileProperty = TileProperty.CanPass;
+            }
+            else if(index == 18)
+            {
+                tileProperty = TileProperty.CanPass; 
+            }
+            else if(index == 19)
+            {
+                tileProperty = TileProperty.CanPass;
             }
             else
             {
@@ -195,10 +215,30 @@ namespace Factory_Game
                         tileType = TileType.MarkerBlock;
                         break;
                     }
+                case 16:
+                    {
+                        tileType = TileType.ItemPipeNorth;
+                        break;
+                    }
+                case 17:
+                    {
+                        tileType = TileType.ItemPipeEast;
+                        break;
+                    }
+                case 18:
+                    {
+                        tileType = TileType.ItemPipeSouth;
+                        break;
+                    }
+                case 19:
+                    {
+                        tileType = TileType.ItemPipeWest;
+                        break;
+                    }
             }
 
         }
-        public void UpdateIndex(TileType tiType)
+        public void UpdateIndex(TileType tiType) // This is where Tiles are updated if changed
         {
             durability = 10;
             alive = true;
@@ -310,7 +350,34 @@ namespace Factory_Game
                         index = 15; 
                         break;
                     }
-                
+                case TileType.ItemPipeNorth:
+                    {
+                        tileType = TileType.ItemPipeNorth;
+                        tileProperty = TileProperty.CanPass;
+                        index = 16;
+                        break;
+                    }
+                case TileType.ItemPipeEast:
+                    {
+                        tileType = TileType.ItemPipeEast;
+                        tileProperty = TileProperty.CanPass;
+                        index = 17;
+                        break;
+                    }
+                case TileType.ItemPipeSouth:
+                    {
+                        tileType = TileType.ItemPipeNorth;
+                        tileProperty = TileProperty.CanPass;
+                        index = 18;
+                        break; 
+                    }
+                case TileType.ItemPipeWest:
+                    {
+                        tileType = TileType.ItemPipeWest;
+                        tileProperty = TileProperty.CanPass;
+                        index = 19;
+                        break; 
+                    }
                 
             }
 
