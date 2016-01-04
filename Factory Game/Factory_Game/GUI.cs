@@ -62,7 +62,7 @@ namespace Factory_Game
                 canBreak = "Can Break " + player.canBreak.ToString();
                 velocity = "Velocity " + player.velocity.ToString();
                 colliding = "Colliding " + player.colliding.ToString();
-                fps = "fps " + game._fps.ToString();
+                fps = "fps " + player._fps.ToString();
                 tilePos = "Tile Position " + ((player.rect.X / 32) - 2).ToString() + " " + (player.rect.Y / 32).ToString();
                 entitys = "Entitys " + tileManagement.tileObjects.Count;
 

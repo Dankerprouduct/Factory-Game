@@ -60,13 +60,12 @@ namespace Factory_Game
 
             tileType = new Tile.TileType();
             selectedItem = 0;
-            tileType = Tile.TileType.DryTile1;
+           // tileType = Tile.TileType.DryTile1;
 
         }
         public void LoadContent(ContentManager content)
         {
             database = new ItemDatabase(content);
-
 
             inventoryTexture = content.Load<Texture2D>("Fonts/DarkGrayBack");
             font = content.Load<SpriteFont>("Fonts/InventoryFont");
@@ -107,24 +106,28 @@ namespace Factory_Game
                 {
 
                     ////////////////////
-                    if (inventory[i].item.tileType == item.tileType && inventory[i].count < 500)
-                    {
-                        inventory[i].count++;
-                        break;
-                    }
-                    else if (inventory[i].item.tileName == null)
-                    {
 
-                        for (int j = 0; j < database.items.Count; j++)
+                    if (item != null)
+                    {
+                        if (inventory[i].item.tileType == item.tileType && inventory[i].count < 500)
                         {
-                            if (database.items[j].tileType == item.tileType)
-                            {
-                                inventory[i].item = database.items[j];
-
-                                break;
-                            }
+                            inventory[i].count++;
+                            break;
                         }
-                        break;
+                        else if (inventory[i].item.tileName == null)
+                        {
+
+                            for (int j = 0; j < database.items.Count; j++)
+                            {
+                                if (database.items[j].tileType == item.tileType)
+                                {
+                                    inventory[i].item = database.items[j];
+
+                                    break;
+                                }
+                            }
+                            break;
+                        }
                     }
                     ////////////////////
 
@@ -132,7 +135,7 @@ namespace Factory_Game
             }
 
         }
-        // TODO: Change remove item to take out of stack if stacked
+
         public void RemoveItem(Item item)
         {
             for (int i = 0; i < inventory.Count; i++)
@@ -191,7 +194,6 @@ namespace Factory_Game
                                     if (mouseState.LeftButton == ButtonState.Pressed)
                                     {
                                         selectedItem = i;
-                                        Console.WriteLine(selectedItem);
                                     }
                                 }
                             }

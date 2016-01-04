@@ -38,3 +38,5 @@ Content\Tiles\EastTube.xnb
 Content\Tiles\NorthTube.xnb
 Content\Tiles\SouthTube.xnb
 Content\Tiles\WestTube.xnb
+Content\Tiles\StorageCrate.xnb
+Content\TileObjects\StorageCrateItem.xnb

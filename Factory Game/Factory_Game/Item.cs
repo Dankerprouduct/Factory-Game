@@ -123,6 +123,11 @@ namespace Factory_Game
                         texture = content.Load<Texture2D>("TileObjects/WestTubeItem");
                         break;
                     }
+                case Tile.TileType.StorageCrate:
+                    {
+                        texture = content.Load<Texture2D>("TileObjects/StorageCrateItem");
+                        break;
+                    }
 
 
 

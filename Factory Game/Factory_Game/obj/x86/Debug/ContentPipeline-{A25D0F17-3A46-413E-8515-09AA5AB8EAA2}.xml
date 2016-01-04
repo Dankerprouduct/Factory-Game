@@ -332,7 +332,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\EastTube.xnb</Output>
-      <Time>2016-01-03T20:39:25.6923322-05:00</Time>
+      <Time>2016-01-04T03:10:49.7966252-05:00</Time>
     </Item>
     <Item>
       <Source>Tiles\NorthTube.png</Source>
@@ -341,7 +341,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\NorthTube.xnb</Output>
-      <Time>2016-01-03T20:39:25.7033396-05:00</Time>
+      <Time>2016-01-04T03:10:49.8046467-05:00</Time>
     </Item>
     <Item>
       <Source>Tiles\SouthTube.png</Source>
@@ -350,7 +350,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\SouthTube.xnb</Output>
-      <Time>2016-01-03T20:39:25.711346-05:00</Time>
+      <Time>2016-01-04T03:10:49.8116291-05:00</Time>
     </Item>
     <Item>
       <Source>Tiles\WestTube.png</Source>
@@ -359,7 +359,25 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\WestTube.xnb</Output>
-      <Time>2016-01-03T20:39:25.7193513-05:00</Time>
+      <Time>2016-01-04T03:10:49.8306402-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\StorageCrate.png</Source>
+      <Name>Tiles\StorageCrate</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\StorageCrate.xnb</Output>
+      <Time>2016-01-04T03:58:51.9232488-05:00</Time>
+    </Item>
+    <Item>
+      <Source>TileObjects\StorageCrateItem.png</Source>
+      <Name>TileObjects\StorageCrateItem</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\StorageCrateItem.xnb</Output>
+      <Time>2016-01-04T03:59:08.3846045-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

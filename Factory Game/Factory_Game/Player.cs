@@ -32,7 +32,8 @@ namespace Factory_Game
         // .25; 
         float gravity = .15f; 
         public Inventory inventory;
-        public ItemDatabase itemDatabase;  
+        public ItemDatabase itemDatabase;
+        public float _fps = 0;
         public Player(Vector2 startPosition)
         {
             inventory = new Inventory();
@@ -54,13 +55,14 @@ namespace Factory_Game
             inventory.AddToInventory(itemDatabase.items[17], 20);
             inventory.AddToInventory(itemDatabase.items[18], 20);
             inventory.AddToInventory(itemDatabase.items[19], 20);
+            inventory.AddToInventory(itemDatabase.items[20], 20);
         }
         public void Update(GameTime gameTime, Game1 game)
         {
             keyboardState = Keyboard.GetState();
             Movement();
-            
-            if(keyboardState.IsKeyDown(Keys.B) && oldKeboardState.IsKeyUp(Keys.B))
+            _fps = (int)Math.Ceiling((1 / (float)gameTime.ElapsedGameTime.TotalSeconds));
+            if (keyboardState.IsKeyDown(Keys.B) && oldKeboardState.IsKeyUp(Keys.B))
             {
                 canBreak = !canBreak;
             }

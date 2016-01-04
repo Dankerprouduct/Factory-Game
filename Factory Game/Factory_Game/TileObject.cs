@@ -135,6 +135,12 @@ namespace Factory_Game
                         objectTexture = content.Load<Texture2D>("TileObjects/WestTubeItem");
                         break;
                     }
+                case Tile.TileType.StorageCrate:
+                    {
+                        item = dataBase.items[20];
+                        objectTexture = content.Load<Texture2D>("TileObjects/StorageCrateItem");
+                        break;  
+                    }
                 default:
                     {
                         objectTexture = content.Load<Texture2D>("TileObjects/DryTile1Item");
