@@ -46,3 +46,11 @@ C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\F
 C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\obj\x86\Debug\Factory_Game.exe
 C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\obj\x86\Debug\Factory_Game.pdb
+C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\EastTubeItem.xnb
+C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\SouthTubeItem.xnb
+C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\WestTubeItem.xnb
+C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\NorthTubeItem.xnb
+C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\EastTube.xnb
+C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\NorthTube.xnb
+C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\SouthTube.xnb
+C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\WestTube.xnb

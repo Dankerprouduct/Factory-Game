@@ -48,6 +48,12 @@ namespace Factory_Game
             itemDatabase = new ItemDatabase(content); 
             texture = content.Load<Texture2D>("Sprites/TempPlayer");
             inventory.LoadContent(content);
+            inventory.AddToInventory(itemDatabase.items[12], 20);
+            inventory.AddToInventory(itemDatabase.items[15], 20);
+            inventory.AddToInventory(itemDatabase.items[16], 20);
+            inventory.AddToInventory(itemDatabase.items[17], 20);
+            inventory.AddToInventory(itemDatabase.items[18], 20);
+            inventory.AddToInventory(itemDatabase.items[19], 20);
         }
         public void Update(GameTime gameTime, Game1 game)
         {
@@ -92,18 +98,21 @@ namespace Factory_Game
             }
             if (canBreak)
             {
+                speed = 12;
                 if (keyboardState.IsKeyDown(Keys.Space))
                 {
                     velocity.Y = -speed;
+                    
                 }
                 else
                 {
+                    
                     velocity.Y = 0; 
                 }
             }
             else
             {
-
+                speed = 3;
             }
             if (jumping)
             {
@@ -152,27 +161,14 @@ namespace Factory_Game
                 {
                     if (mouseState.RightButton == ButtonState.Pressed)
                     {
-                        /*
-                        if (inventory.itemIndex[inventory.selectedItem] > 0)
-                        {
-                            if (tileMap.tile[xCord, yCord].index == 0)
-                            {
-                                tileMap.ChangeTile(xCord, yCord, inventory.tileType);
-                                inventory.itemIndex[inventory.selectedItem]--;
-                            }
-                        }
-                        */
+
                         if(inventory.inventory[inventory.selectedItem].count > 0)
                         {
                             // only place if on blank tile 
                             if (tileMap.tile[xCord, yCord].index == 0)
                             {
                                 tileMap.ChangeTile(xCord, yCord, inventory.inventory[inventory.selectedItem].item.tileType);
-                                inventory.inventory[inventory.selectedItem].count--; 
-                                if(inventory.inventory[inventory.selectedItem].count <= 0)
-                                {
-                                    inventory.RemoveItem(inventory.inventory[inventory.selectedItem].item); 
-                                }
+                                inventory.RemoveItem(inventory.inventory[inventory.selectedItem].item);
                             }
                         }
 

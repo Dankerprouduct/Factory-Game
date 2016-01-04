@@ -66,8 +66,7 @@ namespace Factory_Game
         public void LoadContent(ContentManager content)
         {
             database = new ItemDatabase(content);
-            AddToInventory(database.items[12], 50);
-            AddToInventory(database.items[15], 50);
+
 
             inventoryTexture = content.Load<Texture2D>("Fonts/DarkGrayBack");
             font = content.Load<SpriteFont>("Fonts/InventoryFont");
@@ -140,7 +139,15 @@ namespace Factory_Game
             {
                 if (inventory[i].item.tileType == item.tileType)
                 {
-                    inventory[i] = new ItemStack();
+                    if (inventory[i].count >= 0)
+                    {
+                        inventory[i].count--;
+                        if(inventory[i].count == 0)
+                        {
+                            inventory[i] = new ItemStack(); 
+                        }
+                    }
+
                     break;
                 }
             }

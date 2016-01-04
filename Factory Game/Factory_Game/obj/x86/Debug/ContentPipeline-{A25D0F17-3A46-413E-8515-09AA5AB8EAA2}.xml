@@ -289,6 +289,78 @@
       <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Fonts\InventoryFont.xnb</Output>
       <Time>2015-12-30T18:47:58.5550062-05:00</Time>
     </Item>
+    <Item>
+      <Source>TileObjects\EastTubeItem.png</Source>
+      <Name>TileObjects\EastTubeItem</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\EastTubeItem.xnb</Output>
+      <Time>2016-01-03T20:38:55.1361036-05:00</Time>
+    </Item>
+    <Item>
+      <Source>TileObjects\SouthTubeItem.png</Source>
+      <Name>TileObjects\SouthTubeItem</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\SouthTubeItem.xnb</Output>
+      <Time>2016-01-03T20:38:55.2201665-05:00</Time>
+    </Item>
+    <Item>
+      <Source>TileObjects\WestTubeItem.png</Source>
+      <Name>TileObjects\WestTubeItem</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\WestTubeItem.xnb</Output>
+      <Time>2016-01-03T20:38:55.233195-05:00</Time>
+    </Item>
+    <Item>
+      <Source>TileObjects\NorthTubeItem.png</Source>
+      <Name>TileObjects\NorthTubeItem</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\NorthTubeItem.xnb</Output>
+      <Time>2016-01-03T20:39:10.0673935-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\EastTube.png</Source>
+      <Name>Tiles\EastTube</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\EastTube.xnb</Output>
+      <Time>2016-01-03T20:39:25.6923322-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\NorthTube.png</Source>
+      <Name>Tiles\NorthTube</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\NorthTube.xnb</Output>
+      <Time>2016-01-03T20:39:25.7033396-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\SouthTube.png</Source>
+      <Name>Tiles\SouthTube</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\SouthTube.xnb</Output>
+      <Time>2016-01-03T20:39:25.711346-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\WestTube.png</Source>
+      <Name>Tiles\WestTube</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\WestTube.xnb</Output>
+      <Time>2016-01-03T20:39:25.7193513-05:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{A25D0F17-3A46-413E-8515-09AA5AB8EAA2}</ContentProjectGUID>

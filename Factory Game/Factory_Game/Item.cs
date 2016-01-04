@@ -103,6 +103,27 @@ namespace Factory_Game
                         texture = content.Load<Texture2D>("TileObjects/QuarryBlockItem");
                         break;
                     }
+                case Tile.TileType.ItemPipeNorth:
+                    {
+                        texture = content.Load<Texture2D>("TileObjects/NorthTubeItem");
+                        break;
+                    }
+                case Tile.TileType.ItemPipeEast:
+                    {
+                        texture = content.Load<Texture2D>("TileObjects/EastTubeItem");
+                        break;
+                    }
+                case Tile.TileType.ItemPipeSouth:
+                    {
+                        texture = content.Load<Texture2D>("TileObjects/SouthTubeItem");
+                        break;
+                    }
+                case Tile.TileType.ItemPipeWest:
+                    {
+                        texture = content.Load<Texture2D>("TileObjects/WestTubeItem");
+                        break;
+                    }
+
 
 
             }

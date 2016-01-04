@@ -30,3 +30,11 @@ Content\TileObjects\QuarryBlockItem.xnb
 Content\Tiles\MarkerBlock.xnb
 Content\Fonts\Font1.xnb
 Content\Fonts\InventoryFont.xnb
+Content\TileObjects\EastTubeItem.xnb
+Content\TileObjects\SouthTubeItem.xnb
+Content\TileObjects\WestTubeItem.xnb
+Content\TileObjects\NorthTubeItem.xnb
+Content\Tiles\EastTube.xnb
+Content\Tiles\NorthTube.xnb
+Content\Tiles\SouthTube.xnb
+Content\Tiles\WestTube.xnb
