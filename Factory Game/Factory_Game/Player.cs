@@ -30,7 +30,7 @@ namespace Factory_Game
         int xCord;
         int yCord;
         // .25; 
-        float gravity = .15f; 
+        float gravity = .05f; 
         public Inventory inventory;
         public ItemDatabase itemDatabase;
         public float _fps = 0;
@@ -49,13 +49,13 @@ namespace Factory_Game
             itemDatabase = new ItemDatabase(content); 
             texture = content.Load<Texture2D>("Sprites/TempPlayer");
             inventory.LoadContent(content);
-            inventory.AddToInventory(itemDatabase.items[12], 20);
-            inventory.AddToInventory(itemDatabase.items[15], 20);
-            inventory.AddToInventory(itemDatabase.items[16], 20);
-            inventory.AddToInventory(itemDatabase.items[17], 20);
-            inventory.AddToInventory(itemDatabase.items[18], 20);
-            inventory.AddToInventory(itemDatabase.items[19], 20);
-            inventory.AddToInventory(itemDatabase.items[20], 20);
+            inventory.AddToInventory(itemDatabase.items[12], 200);
+            inventory.AddToInventory(itemDatabase.items[15], 200);
+            inventory.AddToInventory(itemDatabase.items[16], 200);
+            inventory.AddToInventory(itemDatabase.items[17], 200);
+            inventory.AddToInventory(itemDatabase.items[18], 200);
+            inventory.AddToInventory(itemDatabase.items[19], 200);
+            inventory.AddToInventory(itemDatabase.items[20], 200);
         }
         public void Update(GameTime gameTime, Game1 game)
         {

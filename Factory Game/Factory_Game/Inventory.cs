@@ -40,7 +40,8 @@ namespace Factory_Game
         public enum InventoryType
         {
             PlayerInventory,
-            StorageInventory
+            StorageInventory,
+            TubeInventory
         }
         public InventoryType inventoryType;
 
@@ -74,6 +75,11 @@ namespace Factory_Game
             {
                 width = 3;
                 height = 3;
+            }
+            else if(inventoryType == InventoryType.TubeInventory)
+            {
+                width = 3;
+                height = 1; 
             }
         }
         public void Update(GameTime gameTime, Game1 game)

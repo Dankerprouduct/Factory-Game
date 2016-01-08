@@ -29,7 +29,8 @@ namespace Factory_Game
         QuarryDrill quarryDrill; 
 
         bool madeQuarry;
-        bool madeStorage; 
+        bool madeStorage;
+        bool madeItemPipe; 
         public Item tempItem;
 
         public enum TileType
@@ -559,7 +560,8 @@ namespace Factory_Game
             {
                 
                 int offSet = 3; 
-                int searchRadius = 100; 
+                // 100
+                int searchRadius = 500; 
                 int height = 8;
                 inventory = new Inventory();
                 inventory.inventoryType = Inventory.InventoryType.StorageInventory;
@@ -642,33 +644,44 @@ namespace Factory_Game
 
         public void ItemPipe(TileMap tileMap, GameTime gameTime)
         {
+            if (!madeItemPipe)
+            {
+                inventory = new Inventory();
+                inventory.inventoryType = Inventory.InventoryType.TubeInventory; 
+                inventory.LoadContent(contentManager); 
+                madeItemPipe = true; 
+            }
+
             switch (tileType)
             {
                 case TileType.ItemPipeNorth:
                     {
-                        // TODO: change tempitem to a global varible to be accessed by other pipes
                         Tile checkedTile = tileMap.tile[xPos, yPos - 1]; 
                         if (checkedTile.tileType == TileType.QuarryBlock)
                         {
-                            tempItem = checkedTile.inventory.inventory[0].item;
-                            checkedTile.inventory.RemoveItem(tempItem);
-                            if(tempItem != null)
+                            //tempItem = checkedTile.inventory.inventory[0].item;
+                            if (checkedTile.inventory.inventory[0].item.tileName != null)
                             {
-
+                                inventory.AddToInventory(checkedTile.inventory.inventory[0].item, 1);
+                                checkedTile.inventory.RemoveItem(checkedTile.inventory.inventory[0].item);
                             }
+
                         }
                         else if (checkedTile.tileType == TileType.ItemPipeNorth)
                         {
-                            if (checkedTile.tempItem != null)
+                            if (checkedTile.inventory.inventory[0].item.tileName != null)
                             {
-                                tempItem = checkedTile.tempItem;
-                                checkedTile.inventory.RemoveItem(tempItem);
+                                inventory.AddToInventory(checkedTile.inventory.inventory[0].item, 1);
+                                checkedTile.inventory.RemoveItem(checkedTile.inventory.inventory[0].item); 
                             }
                         }
                         else if(checkedTile.tileType == TileType.StorageCrate)
                         {
-                            tempItem = checkedTile.inventory.inventory[0].item;
-                            checkedTile.inventory.RemoveItem(tempItem); 
+                            if(checkedTile.inventory.inventory[0].item.tileName != null)
+                            {
+                                inventory.AddToInventory(checkedTile.inventory.inventory[0].item, 1);
+                                checkedTile.inventory.RemoveItem(checkedTile.inventory.inventory[0].item); 
+                            }
                         }
                         break;
                     }
@@ -677,25 +690,27 @@ namespace Factory_Game
                         Tile checkedTile = tileMap.tile[xPos - 1, yPos]; 
                         if(checkedTile.tileType == TileType.QuarryBlock)
                         {
-                            tempItem = checkedTile.inventory.inventory[0].item;
-                            checkedTile.inventory.RemoveItem(tempItem);
-                            if (tempItem != null)
+                            if (checkedTile.inventory.inventory[0].item.tileName != null)
                             {
-                                Console.WriteLine("Got Item");
+                                inventory.AddToInventory(checkedTile.inventory.inventory[0].item, 1);
+                                checkedTile.inventory.RemoveItem(checkedTile.inventory.inventory[0].item);
                             }
                         }
                         else if(checkedTile.tileType == TileType.ItemPipeEast)
                         {
-                            if (checkedTile.tempItem != null)
+                            if (checkedTile.inventory.inventory[0].item.tileName != null)
                             {
-                                tempItem = checkedTile.tempItem;
-                                checkedTile.inventory.RemoveItem(tempItem);
+                                inventory.AddToInventory(checkedTile.inventory.inventory[0].item, 1);
+                                checkedTile.inventory.RemoveItem(checkedTile.inventory.inventory[0].item);
                             }
                         }
                         else if(checkedTile.tileType == TileType.StorageCrate)
                         {
-                            tempItem = checkedTile.inventory.inventory[0].item;
-                            checkedTile.inventory.RemoveItem(tempItem); 
+                            if (checkedTile.inventory.inventory[0].item.tileName != null)
+                            {
+                                inventory.AddToInventory(checkedTile.inventory.inventory[0].item, 1);
+                                checkedTile.inventory.RemoveItem(checkedTile.inventory.inventory[0].item);
+                            }
                         }
                         break; 
                     }
@@ -705,25 +720,27 @@ namespace Factory_Game
                     
                         if(checkedTile.tileType == TileType.QuarryBlock)
                         {
-                            tempItem = checkedTile.inventory.inventory[0].item;
-                            checkedTile.inventory.RemoveItem(tempItem);
-                            if (tempItem != null)
+                            if (checkedTile.inventory.inventory[0].item.tileName != null)
                             {
-                                Console.WriteLine("Got Item");
+                                inventory.AddToInventory(checkedTile.inventory.inventory[0].item, 1);
+                                checkedTile.inventory.RemoveItem(checkedTile.inventory.inventory[0].item);
                             }
                         }
                         else if(checkedTile.tileType == TileType.ItemPipeSouth)
                         {
-                            if (checkedTile.tempItem != null)
+                            if (checkedTile.inventory.inventory[0].item.tileName != null)
                             {
-                                tempItem = checkedTile.tempItem;
-                                checkedTile.inventory.RemoveItem(tempItem);
+                                inventory.AddToInventory(checkedTile.inventory.inventory[0].item, 1);
+                                checkedTile.inventory.RemoveItem(checkedTile.inventory.inventory[0].item);
                             }
                         }
                         else if(checkedTile.tileType == TileType.StorageCrate)
                         {
-                            tempItem = checkedTile.inventory.inventory[0].item;
-                            checkedTile.inventory.RemoveItem(tempItem); 
+                            if (checkedTile.inventory.inventory[0].item.tileName != null)
+                            {
+                                inventory.AddToInventory(checkedTile.inventory.inventory[0].item, 1);
+                                checkedTile.inventory.RemoveItem(checkedTile.inventory.inventory[0].item);
+                            }
                         }
                         break;
                     }
@@ -732,35 +749,27 @@ namespace Factory_Game
                         Tile checkedTile = tileMap.tile[xPos + 1, yPos];
                         if (checkedTile.tileType == TileType.QuarryBlock)
                         {
-                            tempItem = checkedTile.inventory.inventory[0].item;
-                            if(tempItem.tileName == null)
+                            if (checkedTile.inventory.inventory[0].item.tileName != null)
                             {
-                                tempItem = new Item(); 
-                            }
-
-                            
-                            if (lastTime + time < gameTime.TotalGameTime)
-                            {
-                                checkedTile.inventory.RemoveItem(tempItem);
-                                lastTime = gameTime.TotalGameTime;
-                            }
-                            if (tempItem != null)
-                            {
-                                Console.WriteLine("Got Item :" + tempItem.tileName);
+                                inventory.AddToInventory(checkedTile.inventory.inventory[0].item, 1);
+                                checkedTile.inventory.RemoveItem(checkedTile.inventory.inventory[0].item);
                             }
                         }
                         else if(checkedTile.tileType == TileType.ItemPipeWest)
                         {
-                            if (checkedTile.tempItem != null)
+                            if (checkedTile.inventory.inventory[0].item.tileName != null)
                             {
-                                tempItem = checkedTile.tempItem;
-                               // checkedTile.inventory.RemoveItem(tempItem);
+                                inventory.AddToInventory(checkedTile.inventory.inventory[0].item, 1);
+                                checkedTile.inventory.RemoveItem(checkedTile.inventory.inventory[0].item);
                             }
                         }
                         else if(checkedTile.tileType == TileType.StorageCrate)
                         {
-                            tempItem = checkedTile.inventory.inventory[0].item;
-                            checkedTile.inventory.RemoveItem(tempItem); 
+                            if (checkedTile.inventory.inventory[0].item.tileName != null)
+                            {
+                                inventory.AddToInventory(checkedTile.inventory.inventory[0].item, 1);
+                                checkedTile.inventory.RemoveItem(checkedTile.inventory.inventory[0].item);
+                            }
                         }
                         break; 
                     }
@@ -783,42 +792,29 @@ namespace Factory_Game
             checkedTile = tileMap.tile[xPos, yPos + 1]; 
             if(checkedTile.tileType == TileType.ItemPipeSouth)
             {
-                
-                if (lastTime + time < gameTime.TotalGameTime)
-                {
-                    inventory.AddToInventory(checkedTile.tempItem, 1);
-                    lastTime = gameTime.TotalGameTime;
-                }
+                inventory.AddToInventory(checkedTile.inventory.inventory[0].item, 1);
+                checkedTile.inventory.RemoveItem(checkedTile.inventory.inventory[0].item);
             }
             // South
             checkedTile = tileMap.tile[xPos, yPos - 1]; 
             if(checkedTile.tileType == TileType.ItemPipeSouth)
             {
-                if (lastTime + time < gameTime.TotalGameTime)
-                {
-                    inventory.AddToInventory(checkedTile.tempItem, 1);
-                    lastTime = gameTime.TotalGameTime;
-                }
+                inventory.AddToInventory(checkedTile.inventory.inventory[0].item, 1);
+                checkedTile.inventory.RemoveItem(checkedTile.inventory.inventory[0].item);
             }
             // East
             checkedTile = tileMap.tile[xPos + 1, yPos];
             if(checkedTile.tileType == TileType.ItemPipeWest)
             {
-                if (lastTime + time < gameTime.TotalGameTime)
-                {
-                    inventory.AddToInventory(checkedTile.tempItem, 1);
-                    lastTime = gameTime.TotalGameTime;
-                }
+                inventory.AddToInventory(checkedTile.inventory.inventory[0].item, 1);
+                checkedTile.inventory.RemoveItem(checkedTile.inventory.inventory[0].item);
             }
             // West
             checkedTile = tileMap.tile[xPos - 1, yPos];
             if(checkedTile.tileType == TileType.ItemPipeEast)
             {
-                if (lastTime + time < gameTime.TotalGameTime)
-                {
-                    inventory.AddToInventory(checkedTile.tempItem, 1);
-                    lastTime = gameTime.TotalGameTime;
-                }
+                inventory.AddToInventory(checkedTile.inventory.inventory[0].item, 1);
+                checkedTile.inventory.RemoveItem(checkedTile.inventory.inventory[0].item);
 
             }
 

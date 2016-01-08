@@ -17,6 +17,7 @@ namespace Factory_Game
 
         Texture2D drillTexture;
         Texture2D tubeTexture;
+        // 250
         TimeSpan time = TimeSpan.FromMilliseconds(250); 
         TimeSpan lastTime;
         public Rectangle rect;

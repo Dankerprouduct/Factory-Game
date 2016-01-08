@@ -25,7 +25,7 @@ namespace Factory_Game
 
         public TileMap tileMap;
         // 4200 1200
-        int[,] mapSize = new int[300, 300];
+        int[,] mapSize = new int[1000, 500];
         // 932480
         int seed = 920656787; 
 
