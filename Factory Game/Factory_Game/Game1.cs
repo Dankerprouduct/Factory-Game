@@ -18,7 +18,7 @@ namespace Factory_Game
         SpriteBatch spriteBatch;
         
         // 1500
-        public int WIDTH = 1500;
+        public int WIDTH = 1080;
         public int HEIGHT;
 
         public Player player;
