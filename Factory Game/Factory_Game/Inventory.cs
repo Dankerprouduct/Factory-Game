@@ -224,10 +224,12 @@ namespace Factory_Game
                             slots[i] = inventory[i];
 
                             spriteBatch.Draw(inventoryTexture, slotRect, Color.White);
-                            if (slots[i].item.tileName != null)
+                            if (slots[i].item.tileName != null && slots[i].item.tileType != Tile.TileType.BlankTile)
                             {
+
+
                                 spriteBatch.Draw(slots[i].item.texture, new Vector2(slotRect.X + (slotRect.Width / 4),
-                                    slotRect.Y + (slotRect.Height / 4)), Color.White);
+                                        slotRect.Y + (slotRect.Height / 4)), Color.White);
                                 spriteBatch.DrawString(font, slots[i].count.ToString(), new Vector2(slotRect.X, slotRect.Y), Color.White);
 
 

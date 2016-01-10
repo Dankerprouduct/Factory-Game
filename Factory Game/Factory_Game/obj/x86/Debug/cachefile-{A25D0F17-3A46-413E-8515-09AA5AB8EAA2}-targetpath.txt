@@ -28,8 +28,6 @@ Content\Tiles\ConstructionTube.xnb
 Content\Tiles\QuarryBlock.xnb
 Content\TileObjects\QuarryBlockItem.xnb
 Content\Tiles\MarkerBlock.xnb
-Content\Fonts\Font1.xnb
-Content\Fonts\InventoryFont.xnb
 Content\TileObjects\EastTubeItem.xnb
 Content\TileObjects\SouthTubeItem.xnb
 Content\TileObjects\WestTubeItem.xnb
@@ -40,3 +38,5 @@ Content\Tiles\SouthTube.xnb
 Content\Tiles\WestTube.xnb
 Content\Tiles\StorageCrate.xnb
 Content\TileObjects\StorageCrateItem.xnb
+Content\Fonts\Font1.xnb
+Content\Fonts\InventoryFont.xnb

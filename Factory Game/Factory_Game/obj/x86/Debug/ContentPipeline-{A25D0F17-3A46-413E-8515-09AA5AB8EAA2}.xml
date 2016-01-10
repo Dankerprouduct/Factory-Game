@@ -7,7 +7,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\DryTile1.xnb</Output>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\DryTile1.xnb</Output>
       <Time>2015-12-24T12:44:07.2352671-05:00</Time>
     </Item>
     <Item>
@@ -16,7 +16,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\DryTile2.xnb</Output>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\DryTile2.xnb</Output>
       <Time>2015-12-24T12:44:07.2977689-05:00</Time>
     </Item>
     <Item>
@@ -25,7 +25,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\DryTile3.xnb</Output>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\DryTile3.xnb</Output>
       <Time>2015-12-24T12:44:07.3289689-05:00</Time>
     </Item>
     <Item>
@@ -34,7 +34,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\Granite1.xnb</Output>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\Granite1.xnb</Output>
       <Time>2015-12-24T12:44:07.3445954-05:00</Time>
     </Item>
     <Item>
@@ -43,7 +43,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\Granite2.xnb</Output>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\Granite2.xnb</Output>
       <Time>2015-12-24T12:44:07.375894-05:00</Time>
     </Item>
     <Item>
@@ -52,7 +52,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\Granite3.xnb</Output>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\Granite3.xnb</Output>
       <Time>2015-12-24T12:44:07.4070952-05:00</Time>
     </Item>
     <Item>
@@ -61,7 +61,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\Grass1.xnb</Output>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\Grass1.xnb</Output>
       <Time>2015-12-24T12:44:07.4383461-05:00</Time>
     </Item>
     <Item>
@@ -70,7 +70,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\Grass2.xnb</Output>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\Grass2.xnb</Output>
       <Time>2015-12-24T12:44:07.4695966-05:00</Time>
     </Item>
     <Item>
@@ -79,7 +79,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\Grass3.xnb</Output>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\Grass3.xnb</Output>
       <Time>2015-12-24T12:44:07.4852219-05:00</Time>
     </Item>
     <Item>
@@ -88,7 +88,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\Water1.xnb</Output>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\Water1.xnb</Output>
       <Time>2015-12-24T12:44:07.5164957-05:00</Time>
     </Item>
     <Item>
@@ -97,7 +97,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Sprites\TempPlayer.xnb</Output>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Sprites\TempPlayer.xnb</Output>
       <Time>2015-12-24T13:26:25.3951641-05:00</Time>
     </Item>
     <Item>
@@ -106,7 +106,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\BlankTile.xnb</Output>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\BlankTile.xnb</Output>
       <Time>2015-12-24T23:43:36.1663627-05:00</Time>
     </Item>
     <Item>
@@ -115,7 +115,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Fonts\DarkGrayBack.xnb</Output>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Fonts\DarkGrayBack.xnb</Output>
       <Time>2015-12-27T01:22:18.499066-05:00</Time>
     </Item>
     <Item>
@@ -124,7 +124,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\DryTile1Item.xnb</Output>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\DryTile1Item.xnb</Output>
       <Time>2015-12-26T21:14:55.9595596-05:00</Time>
     </Item>
     <Item>
@@ -133,7 +133,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\DryTile2Item.xnb</Output>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\DryTile2Item.xnb</Output>
       <Time>2015-12-26T21:14:55.9705942-05:00</Time>
     </Item>
     <Item>
@@ -142,7 +142,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\DryTile3Item.xnb</Output>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\DryTile3Item.xnb</Output>
       <Time>2015-12-26T21:14:55.9926287-05:00</Time>
     </Item>
     <Item>
@@ -151,7 +151,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\Granite1Item.xnb</Output>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\Granite1Item.xnb</Output>
       <Time>2015-12-26T21:14:56.000634-05:00</Time>
     </Item>
     <Item>
@@ -160,7 +160,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\Granite2Item.xnb</Output>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\Granite2Item.xnb</Output>
       <Time>2015-12-26T21:14:56.0086396-05:00</Time>
     </Item>
     <Item>
@@ -169,7 +169,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\Granite3Item.xnb</Output>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\Granite3Item.xnb</Output>
       <Time>2015-12-26T21:14:56.015645-05:00</Time>
     </Item>
     <Item>
@@ -178,7 +178,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\Grass1Item.xnb</Output>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\Grass1Item.xnb</Output>
       <Time>2015-12-27T15:06:09.8427857-05:00</Time>
     </Item>
     <Item>
@@ -187,7 +187,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\Grass2Item.xnb</Output>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\Grass2Item.xnb</Output>
       <Time>2015-12-27T15:06:09.8758086-05:00</Time>
     </Item>
     <Item>
@@ -196,7 +196,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\Grass3Item.xnb</Output>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\Grass3Item.xnb</Output>
       <Time>2015-12-27T15:06:09.8838143-05:00</Time>
     </Item>
     <Item>
@@ -205,7 +205,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\MarkerBlockItem.xnb</Output>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\MarkerBlockItem.xnb</Output>
       <Time>2015-12-27T15:06:09.8928487-05:00</Time>
     </Item>
     <Item>
@@ -214,7 +214,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\ConstructionBlock.xnb</Output>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\ConstructionBlock.xnb</Output>
       <Time>2015-12-27T15:15:20.9250753-05:00</Time>
     </Item>
     <Item>
@@ -223,7 +223,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\ConstructionBlockItem.xnb</Output>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\ConstructionBlockItem.xnb</Output>
       <Time>2015-12-27T15:15:36.7539006-05:00</Time>
     </Item>
     <Item>
@@ -232,7 +232,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\ConstructionDrillBit.xnb</Output>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\ConstructionDrillBit.xnb</Output>
       <Time>2015-12-27T18:47:43.3168547-05:00</Time>
     </Item>
     <Item>
@@ -241,7 +241,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\ConstructionTube.xnb</Output>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\ConstructionTube.xnb</Output>
       <Time>2015-12-27T18:47:43.3228597-05:00</Time>
     </Item>
     <Item>
@@ -250,7 +250,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\QuarryBlock.xnb</Output>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\QuarryBlock.xnb</Output>
       <Time>2015-12-27T19:03:36.6413368-05:00</Time>
     </Item>
     <Item>
@@ -259,7 +259,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\QuarryBlockItem.xnb</Output>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\QuarryBlockItem.xnb</Output>
       <Time>2015-12-27T19:04:07.6596582-05:00</Time>
     </Item>
     <Item>
@@ -268,26 +268,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\MarkerBlock.xnb</Output>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\MarkerBlock.xnb</Output>
       <Time>2015-12-27T21:58:43.6303397-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Fonts\Font1.spritefont</Source>
-      <Name>Fonts\Font1</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Fonts\Font1.xnb</Output>
-      <Time>2015-12-25T13:34:42.4635324-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Fonts\InventoryFont.spritefont</Source>
-      <Name>Fonts\InventoryFont</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Fonts\InventoryFont.xnb</Output>
-      <Time>2015-12-30T18:47:58.5550062-05:00</Time>
     </Item>
     <Item>
       <Source>TileObjects\EastTubeItem.png</Source>
@@ -295,7 +277,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\EastTubeItem.xnb</Output>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\EastTubeItem.xnb</Output>
       <Time>2016-01-03T20:38:55.1361036-05:00</Time>
     </Item>
     <Item>
@@ -304,7 +286,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\SouthTubeItem.xnb</Output>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\SouthTubeItem.xnb</Output>
       <Time>2016-01-03T20:38:55.2201665-05:00</Time>
     </Item>
     <Item>
@@ -313,7 +295,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\WestTubeItem.xnb</Output>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\WestTubeItem.xnb</Output>
       <Time>2016-01-03T20:38:55.233195-05:00</Time>
     </Item>
     <Item>
@@ -322,7 +304,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\NorthTubeItem.xnb</Output>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\NorthTubeItem.xnb</Output>
       <Time>2016-01-03T20:39:10.0673935-05:00</Time>
     </Item>
     <Item>
@@ -331,7 +313,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\EastTube.xnb</Output>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\EastTube.xnb</Output>
       <Time>2016-01-04T03:10:49.7966252-05:00</Time>
     </Item>
     <Item>
@@ -340,7 +322,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\NorthTube.xnb</Output>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\NorthTube.xnb</Output>
       <Time>2016-01-04T03:10:49.8046467-05:00</Time>
     </Item>
     <Item>
@@ -349,7 +331,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\SouthTube.xnb</Output>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\SouthTube.xnb</Output>
       <Time>2016-01-04T03:10:49.8116291-05:00</Time>
     </Item>
     <Item>
@@ -358,7 +340,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\WestTube.xnb</Output>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\WestTube.xnb</Output>
       <Time>2016-01-04T03:10:49.8306402-05:00</Time>
     </Item>
     <Item>
@@ -367,7 +349,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\StorageCrate.xnb</Output>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\StorageCrate.xnb</Output>
       <Time>2016-01-04T03:58:51.9232488-05:00</Time>
     </Item>
     <Item>
@@ -376,8 +358,26 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\StorageCrateItem.xnb</Output>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\StorageCrateItem.xnb</Output>
       <Time>2016-01-04T03:59:08.3846045-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Fonts\Font1.spritefont</Source>
+      <Name>Fonts\Font1</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Fonts\Font1.xnb</Output>
+      <Time>2015-12-25T13:34:42.4635324-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Fonts\InventoryFont.spritefont</Source>
+      <Name>Fonts\InventoryFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Fonts\InventoryFont.xnb</Output>
+      <Time>2015-12-30T18:47:58.5550062-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -386,10 +386,10 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_GameContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_GameContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
@@ -418,7 +418,7 @@
       </Assembly>
       <Assembly>
         <Key>C:\WINDOWS\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2015-12-11T05:29:24.7732718-05:00</Value>
+        <Value>2016-01-09T23:48:43.3945231-05:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

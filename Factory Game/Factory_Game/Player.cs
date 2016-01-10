@@ -30,7 +30,7 @@ namespace Factory_Game
         int xCord;
         int yCord;
         // .25; 
-        float gravity = .05f; 
+        float gravity = .25f; 
         public Inventory inventory;
         public ItemDatabase itemDatabase;
         public float _fps = 0;

@@ -55,7 +55,6 @@ namespace Factory_Game
             ItemPipeEast, 
             ItemPipeSouth, 
             ItemPipeWest,
-            ItemStorage,
             StorageCrate
         }
         public enum TileProperty
@@ -656,6 +655,7 @@ namespace Factory_Game
             {
                 case TileType.ItemPipeNorth:
                     {
+                        // checks south tile
                         Tile checkedTile = tileMap.tile[xPos, yPos - 1]; 
                         if (checkedTile.tileType == TileType.QuarryBlock)
                         {
@@ -792,29 +792,42 @@ namespace Factory_Game
             checkedTile = tileMap.tile[xPos, yPos + 1]; 
             if(checkedTile.tileType == TileType.ItemPipeSouth)
             {
-                inventory.AddToInventory(checkedTile.inventory.inventory[0].item, 1);
-                checkedTile.inventory.RemoveItem(checkedTile.inventory.inventory[0].item);
+                // error
+                if (checkedTile.inventory.inventory[0].item != null && checkedTile.inventory.inventory[0].item.tileType != TileType.BlankTile)
+                {
+                    inventory.AddToInventory(checkedTile.inventory.inventory[0].item, 1);
+                    checkedTile.inventory.RemoveItem(checkedTile.inventory.inventory[0].item);
+                }
             }
             // South
             checkedTile = tileMap.tile[xPos, yPos - 1]; 
-            if(checkedTile.tileType == TileType.ItemPipeSouth)
+            if(checkedTile.tileType == TileType.ItemPipeNorth)
             {
-                inventory.AddToInventory(checkedTile.inventory.inventory[0].item, 1);
-                checkedTile.inventory.RemoveItem(checkedTile.inventory.inventory[0].item);
+                if (checkedTile.inventory.inventory[0].item != null && checkedTile.inventory.inventory[0].item.tileType != TileType.BlankTile)
+                {
+                    inventory.AddToInventory(checkedTile.inventory.inventory[0].item, 1);
+                    checkedTile.inventory.RemoveItem(checkedTile.inventory.inventory[0].item);
+                }
             }
             // East
             checkedTile = tileMap.tile[xPos + 1, yPos];
             if(checkedTile.tileType == TileType.ItemPipeWest)
             {
-                inventory.AddToInventory(checkedTile.inventory.inventory[0].item, 1);
-                checkedTile.inventory.RemoveItem(checkedTile.inventory.inventory[0].item);
+                if (checkedTile.inventory.inventory[0].item != null && checkedTile.inventory.inventory[0].item.tileType != TileType.BlankTile)
+                {
+                    inventory.AddToInventory(checkedTile.inventory.inventory[0].item, 1);
+                    checkedTile.inventory.RemoveItem(checkedTile.inventory.inventory[0].item);
+                }
             }
             // West
             checkedTile = tileMap.tile[xPos - 1, yPos];
-            if(checkedTile.tileType == TileType.ItemPipeEast)
+            if(checkedTile.inventory.inventory[0].item != null && checkedTile.inventory.inventory[0].item.tileType != TileType.BlankTile)
             {
-                inventory.AddToInventory(checkedTile.inventory.inventory[0].item, 1);
-                checkedTile.inventory.RemoveItem(checkedTile.inventory.inventory[0].item);
+                if (checkedTile.inventory.inventory[0].item != null)
+                {
+                    inventory.AddToInventory(checkedTile.inventory.inventory[0].item, 1);
+                    checkedTile.inventory.RemoveItem(checkedTile.inventory.inventory[0].item);
+                }
 
             }
 
