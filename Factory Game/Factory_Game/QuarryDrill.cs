@@ -26,7 +26,7 @@ namespace Factory_Game
         int width;
         int x = 0;
         int y = 0;
-        int chunkRadius = 55; 
+        int chunkRadius = 5; 
         Vector2[,] quarryPositions;
         public Tile tile;
         public bool alive;  

@@ -379,6 +379,15 @@
       <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Fonts\InventoryFont.xnb</Output>
       <Time>2015-12-30T18:47:58.5550062-05:00</Time>
     </Item>
+    <Item>
+      <Source>Fonts\Font2.spritefont</Source>
+      <Name>Fonts\Font2</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Fonts\Font2.xnb</Output>
+      <Time>2016-01-12T12:23:10.735491-05:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{A25D0F17-3A46-413E-8515-09AA5AB8EAA2}</ContentProjectGUID>

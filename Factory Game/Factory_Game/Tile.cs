@@ -21,13 +21,12 @@ namespace Factory_Game
         Rectangle bounds;
         float durability;
         bool draw = true;
-        Vector2 worldPosition;
 
         TimeSpan time = TimeSpan.FromMilliseconds(1000);
         TimeSpan lastTime;
 
-        QuarryDrill quarryDrill; 
-
+        QuarryDrill quarryDrill;
+        SpriteFont font; 
         bool madeQuarry;
         bool madeStorage;
         bool madeItemPipe; 
@@ -101,7 +100,8 @@ namespace Factory_Game
             tiles.Add(content.Load<Texture2D>("Tiles/SouthTube")); //18
             tiles.Add(content.Load<Texture2D>("Tiles/WestTube")); //19
             tiles.Add(content.Load<Texture2D>("Tiles/StorageCrate")); // 20
-            
+
+            font = content.Load<SpriteFont>("Fonts/Font2"); 
         }
 
         public void Final() //This is where everything is finalized from tileMap
@@ -509,6 +509,10 @@ namespace Factory_Game
                         {
                             inventory.Update(gameTime, game);
                         }
+                        if (madeQuarry)
+                        {
+                            inventory.Update(gameTime, game); 
+                        }
                         if(this.tileType == TileType.QuarryBlock)
                         {
                             Quarry(tileMap, gameTime, game); 
@@ -565,12 +569,12 @@ namespace Factory_Game
                 
                 int offSet = 3; 
                 // 100
-                int searchRadius = 500; 
+                int searchRadius = 10; 
                 int height = 8;
                 inventory = new Inventory();
                 inventory.inventoryType = Inventory.InventoryType.StorageInventory;
                 inventory.LoadContent(contentManager);
-                
+                inventory.inventoryType = Inventory.InventoryType.StorageInventory;
                 #region 
                 if (tileMap.tile[xPos - 1, yPos].tileType == TileType.MarkerBlock)
                 {
@@ -876,7 +880,7 @@ namespace Factory_Game
             {
                 spriteBatch.Draw(tiles[index], position, Color.White);
                 //Console.WriteLine("Drawing!"); 
-
+               //spriteBatch.DrawString(font, (position.X / 32).ToString(), position, Color.White); 
                 if (this.tileType == TileType.QuarryBlock)
                 {
                     if (madeQuarry)

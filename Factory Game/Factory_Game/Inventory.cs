@@ -100,6 +100,7 @@ namespace Factory_Game
             {
                 PushToBottom(); 
             }
+            
 
             oldKeyboardState = keyboardState;
             oldMouseState = mouseState;
@@ -227,6 +228,8 @@ namespace Factory_Game
                                     {
                                         selectedItem = i;
                                     }
+                                    
+
                                 }
                             }
 
@@ -269,7 +272,16 @@ namespace Factory_Game
 
                                     if (mouseState.LeftButton == ButtonState.Pressed)
                                     {
+
+                                        Console.WriteLine("Moving Item");
                                         selectedItem = i;
+                                        player.inventory.AddToInventory(inventory[selectedItem].item, inventory[selectedItem].count);
+
+                                        for (int ic = 0; ic < inventory[selectedItem].count; ic++)
+                                        {
+                                            RemoveItem(inventory[selectedItem].item);
+                                        }
+
                                     }
                                 }
                             }

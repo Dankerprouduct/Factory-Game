@@ -27,6 +27,7 @@ namespace Factory_Game
         // 4200 1200
         int[,] mapSize = new int[200, 200];
         // 932480
+        // 234561 spawns in flat plane
         int seed = 234561; 
 
         public Camera camera;
