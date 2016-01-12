@@ -14,10 +14,11 @@ namespace Factory_Game
         public string tileName;
         public string tileDescription;
         public int itemID;
-        public Texture2D texture; 
+        public Texture2D texture;
+        public int sValue; 
         public Item()
         {
-
+            sValue = 0; 
         }
 
         public Item(Tile.TileType type, string name, string description, int id, ContentManager content)
@@ -26,6 +27,7 @@ namespace Factory_Game
             tileName = name;
             tileDescription = description;
             itemID = id;
+            sValue = 1; 
             switch (type)
             {
                 case Tile.TileType.BlankTile:

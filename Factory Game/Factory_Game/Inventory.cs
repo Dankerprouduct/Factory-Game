@@ -24,11 +24,10 @@ namespace Factory_Game
         public List<ItemStack> inventory = new List<ItemStack>();
         public List<ItemStack> slots = new List<ItemStack>();
         Texture2D inventoryTexture;
-        int inventorySize; // only multiples of 2
         int width;
         int height;
         int offSet = 5;
-        int inventoryCount;
+        public int inventoryCount;
         SpriteFont font;
         ItemDatabase database;
         MouseState mouseState;
@@ -97,7 +96,10 @@ namespace Factory_Game
                     showInventory = !showInventory;
                 }
             }
-
+            if(inventoryType == InventoryType.StorageInventory)
+            {
+                PushToBottom(); 
+            }
 
             oldKeyboardState = keyboardState;
             oldMouseState = mouseState;
@@ -118,6 +120,7 @@ namespace Factory_Game
                         if (inventory[i].item.tileType == item.tileType && inventory[i].count < 500)
                         {
                             inventory[i].count++;
+                            inventoryCount++; 
                             break;
                         }
                         else if (inventory[i].item.tileName == null)
@@ -128,7 +131,7 @@ namespace Factory_Game
                                 if (database.items[j].tileType == item.tileType)
                                 {
                                     inventory[i].item = database.items[j];
-
+                                    inventoryCount++; 
                                     break;
                                 }
                             }
@@ -141,7 +144,29 @@ namespace Factory_Game
             }
 
         }
+        public void PushToBottom()
+        {
 
+            bool flag = true;
+            ItemStack temp;
+            int numLength = inventory.Count;
+            //sorting an array
+            for (int i = 1; (i <= (numLength - 1)) && flag; i++)
+            {
+                flag = false;
+                for (int j = 0; j < (numLength - 1); j++)
+                {
+                    if (inventory[j + 1].item.sValue > inventory[j].item.sValue)
+                    {
+                        temp = inventory[j];
+                        inventory[j] = inventory[j + 1];
+                        inventory[j + 1] = temp;
+                        flag = true;
+                    }
+                }
+            }
+
+        }
         public void RemoveItem(Item item)
         {
             for (int i = 0; i < inventory.Count; i++)
@@ -151,6 +176,7 @@ namespace Factory_Game
                     if (inventory[i].count >= 0)
                     {
                         inventory[i].count--;
+                        inventoryCount--; 
                         if(inventory[i].count == 0)
                         {
                             inventory[i] = new ItemStack(); 
@@ -244,7 +270,6 @@ namespace Factory_Game
                                     if (mouseState.LeftButton == ButtonState.Pressed)
                                     {
                                         selectedItem = i;
-                                        Console.WriteLine(selectedItem);
                                     }
                                 }
                             }

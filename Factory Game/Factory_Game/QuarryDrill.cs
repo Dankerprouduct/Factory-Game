@@ -103,8 +103,8 @@ namespace Factory_Game
             for (int i = 1; i < y; i++)
             {
                 spriteBatch.Draw(tubeTexture, new Vector2(position.X, position.Y - (32 * i)), Color.White);
-            }            if (y > 0)
-
+            }
+            if (y > 0)
             {
                 spriteBatch.Draw(tubeTexture, new Vector2(position.X, quarryPositions[0, 0].Y), Color.White);
             }

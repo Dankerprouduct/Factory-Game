@@ -25,12 +25,6 @@ namespace Factory_Game
         string tilePos;
         string entitys;
 
-        public string tileType; 
-
-        int frameCounter;
-        double frameTime;
-        int frames;
-
         Texture2D backGround;
         bool showDebug;
         KeyboardState keyboardState;

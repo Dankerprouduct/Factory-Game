@@ -42,7 +42,6 @@ C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\F
 C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Microsoft.Xna.Framework.Graphics.xml
 C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Microsoft.Xna.Framework.GamerServices.xml
 C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Microsoft.Xna.Framework.Input.Touch.xml
-C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\obj\x86\Debug\Factory_Game.csprojResolveAssemblyReference.cache
 C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\obj\x86\Debug\Factory_Game.exe
 C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\obj\x86\Debug\Factory_Game.pdb
@@ -56,3 +55,8 @@ C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\F
 C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\WestTube.xnb
 C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\StorageCrate.xnb
 C:\Users\David\documents\visual studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\StorageCrateItem.xnb
+C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\obj\x86\Debug\Factory_Game.csprojResolveAssemblyReference.cache
+C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Factory_Game.exe.manifest
+C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Factory_Game.application
+C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\obj\x86\Debug\Factory_Game.exe.manifest
+C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\obj\x86\Debug\Factory_Game.application

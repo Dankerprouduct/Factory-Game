@@ -18,7 +18,7 @@ namespace Factory_Game
         SpriteBatch spriteBatch;
         
         // 1500
-        public int WIDTH = 1080;
+        public int WIDTH = 1280;
         public int HEIGHT;
 
         public Player player;
@@ -27,7 +27,7 @@ namespace Factory_Game
         // 4200 1200
         int[,] mapSize = new int[200, 200];
         // 932480
-        int seed = 4; 
+        int seed = 234561; 
 
         public Camera camera;
 
