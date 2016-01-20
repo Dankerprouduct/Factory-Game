@@ -34,6 +34,8 @@ namespace Factory_Game
         public Inventory inventory;
         public ItemDatabase itemDatabase;
         public float _fps = 0;
+        public Tile tempTile; 
+        
         public Player(Vector2 startPosition)
         {
             inventory = new Inventory();
@@ -56,6 +58,8 @@ namespace Factory_Game
             inventory.AddToInventory(itemDatabase.items[18], 200);
             inventory.AddToInventory(itemDatabase.items[19], 200);
             inventory.AddToInventory(itemDatabase.items[20], 200);
+            inventory.AddToInventory(itemDatabase.items[11], 200);
+            inventory.AddToInventory(itemDatabase.items[6], 200);
         }
         public void Update(GameTime gameTime, Game1 game)
         {
@@ -65,6 +69,13 @@ namespace Factory_Game
             if (keyboardState.IsKeyDown(Keys.B) && oldKeboardState.IsKeyUp(Keys.B))
             {
                 canBreak = !canBreak;
+               // inventory.AddToInventory(itemDatabase.items[11], 200);
+            }
+            if (keyboardState.IsKeyDown(Keys.V) && oldKeboardState.IsKeyUp(Keys.V))
+            {
+                
+                 inventory.AddToInventory(itemDatabase.items[11], 200);
+                 inventory.AddToInventory(itemDatabase.items[6], 200);
             }
             inventory.Update(gameTime, game);
             MouseMovement(game.camera, game.tileMap);
@@ -209,9 +220,7 @@ namespace Factory_Game
 
             
         }
-
-               
-        
+                      
         public void Draw(SpriteBatch spriteBatch)
         {
             int previous = (int)position.Y;

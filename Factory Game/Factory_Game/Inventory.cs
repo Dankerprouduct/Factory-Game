@@ -28,6 +28,7 @@ namespace Factory_Game
         int height;
         int offSet = 5;
         public int inventoryCount;
+        public int maxInventoryCount; 
         SpriteFont font;
         ItemDatabase database;
         MouseState mouseState;
@@ -57,6 +58,7 @@ namespace Factory_Game
                 inventory.Add(new ItemStack());
             }
 
+            maxInventoryCount = (width * height) * 500; 
 
             tileType = new Tile.TileType();
             selectedItem = 0;
@@ -100,8 +102,12 @@ namespace Factory_Game
             {
                 PushToBottom(); 
             }
-            
+            else if(inventoryType == InventoryType.TubeInventory)
+            {
+                PushToBottom(); 
+            }
 
+            
             oldKeyboardState = keyboardState;
             oldMouseState = mouseState;
         }
@@ -219,16 +225,29 @@ namespace Factory_Game
                                 if (slotRect.Contains(point))
                                 {
                                     //Console.WriteLine(slots[i].item.tileName);
-                                    Rectangle toolTipBox = new Rectangle(slotRect.X - 150 + 16, slotRect.Y - 325, 300, 300);
+                                    Rectangle toolTipBox = new Rectangle(slotRect.X - 150 + 16, slotRect.Y - 325 , 300, 300);
                                     spriteBatch.Draw(inventoryTexture, toolTipBox, Color.White);
                                     spriteBatch.DrawString(font, slots[i].item.tileName, new Vector2(toolTipBox.X, toolTipBox.Y), Color.White);
                                     spriteBatch.DrawString(font, slots[i].item.tileDescription, new Vector2(toolTipBox.X, toolTipBox.Y + 20), Color.White);
 
                                     if (mouseState.LeftButton == ButtonState.Pressed)
                                     {
+                                        selectedItem = i; 
+                                        Console.WriteLine("Moving Item");
                                         selectedItem = i;
+
+                                        if (player.tempTile != null)
+                                        {
+                                            player.tempTile.inventory.AddToInventory(inventory[selectedItem].item, inventory[selectedItem].count);
+
+                                            for (int ic = 0; ic < inventory[selectedItem].count; ic++)
+                                            {
+                                                RemoveItem(inventory[selectedItem].item);
+                                            }
+                                        }
+
                                     }
-                                    
+
 
                                 }
                             }
@@ -248,7 +267,7 @@ namespace Factory_Game
                     {
                         for (int x = 0; x < width; x++)
                         {
-                            Rectangle slotRect = new Rectangle(((32 + offSet) * x) + (int)player.position.X - (width * 32) / 2, ((32 + offSet) * y) + (int)player.position.Y - 192, 32, 32);
+                            Rectangle slotRect = new Rectangle(((32 + offSet) * x) + (int)player.position.X - (width * 32) / 2 , ((32 + offSet) * y) + (int)player.position.Y - 192, 32, 32);
 
                             slots[i] = inventory[i];
 

@@ -18,18 +18,22 @@ namespace Factory_Game
         Texture2D drillTexture;
         Texture2D tubeTexture;
         // 250
-        TimeSpan time = TimeSpan.FromMilliseconds(250); 
+        TimeSpan time = TimeSpan.FromMilliseconds(50);
         TimeSpan lastTime;
         public Rectangle rect;
-        Vector2 position; 
+        public Vector2 position; 
         int height;
         int width;
         int x = 0;
         int y = 0;
-        int chunkRadius = 5; 
+        public int X;
+        public int Y; 
+        public int chunkRadius = 1; 
         Vector2[,] quarryPositions;
         public Tile tile;
-        public bool alive;  
+        public bool alive;
+        public Game1 game2;
+        public GameTime gameTime2; 
         public QuarryDrill(int xPos, int yPos, int xxPos, int yyPos, int hight, TileMap tileMap, Tile mTile)
         {
             tile = mTile; 
@@ -61,7 +65,9 @@ namespace Factory_Game
         }
         public void Update(GameTime gameTime, Game1 game)
         {
-            alive = tile.alive; 
+            alive = tile.alive;
+            gameTime2 = gameTime;
+            game2 = game; 
             if(lastTime + time < gameTime.TotalGameTime)
             {
                 position = Vector2.Lerp(position, quarryPositions[x, y], 1f);
@@ -75,15 +81,16 @@ namespace Factory_Game
                         y = 0; 
                     }
                 }
-                lastTime = gameTime.TotalGameTime;
 
+                lastTime = gameTime.TotalGameTime;
+                /*
                 #region // Loading All Tiles around drill
                 for (int x = (int)(position.X - (int)(chunkRadius)) / 32; x < (((position.X) + (chunkRadius)) / 32); x++)
                 {
                     for (int y = (int)((position.Y) - (int)(chunkRadius)) / 32; y < (((position.Y) + (chunkRadius)) / 32); y++)
                     {
-                        int X = Math.Abs(x);
-                        int Y = Math.Abs(y);
+                        X = Math.Abs(x);
+                        Y = Math.Abs(y);
 
                         //tiles[tile[X, Y]].Draw(spriteBatch);
                         if (X < game.tileMap.tile.GetLength(0) && Y < game.tileMap.tile.GetLength(1))
@@ -92,10 +99,12 @@ namespace Factory_Game
                         }
                     }
                 }
-#endregion
+                #endregion
+                */
             }
 
             rect = new Rectangle((int)position.X, (int)position.Y, drillTexture.Width, drillTexture.Height);
+
 
         }
         public void Draw(SpriteBatch spriteBatch)

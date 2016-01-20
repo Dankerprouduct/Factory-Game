@@ -388,6 +388,60 @@
       <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Fonts\Font2.xnb</Output>
       <Time>2016-01-12T12:23:10.735491-05:00</Time>
     </Item>
+    <Item>
+      <Source>Tiles\CoalBlock.png</Source>
+      <Name>Tiles\CoalBlock</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\CoalBlock.xnb</Output>
+      <Time>2016-01-19T07:42:33.6405385-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\CopperTile1.png</Source>
+      <Name>Tiles\CopperTile1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\CopperTile1.xnb</Output>
+      <Time>2016-01-19T07:42:33.7725983-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\IronBlock.png</Source>
+      <Name>Tiles\IronBlock</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\IronBlock.xnb</Output>
+      <Time>2016-01-19T07:42:33.7921467-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\Platform1.png</Source>
+      <Name>Tiles\Platform1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\Platform1.xnb</Output>
+      <Time>2016-01-19T07:42:33.7941655-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\SandTile1.png</Source>
+      <Name>Tiles\SandTile1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\SandTile1.xnb</Output>
+      <Time>2016-01-19T07:42:33.7941655-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\UraniumBlock.png</Source>
+      <Name>Tiles\UraniumBlock</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\UraniumBlock.xnb</Output>
+      <Time>2016-01-19T07:42:33.7941655-05:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{A25D0F17-3A46-413E-8515-09AA5AB8EAA2}</ContentProjectGUID>

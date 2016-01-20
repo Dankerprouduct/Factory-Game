@@ -31,7 +31,7 @@ namespace Factory_Game
                 tO.LoadContent(content); 
             }
         }
-        
+
         public void Update(GameTime gameTime, Game1 game)
         {
             keyboardState = Keyboard.GetState();
@@ -53,6 +53,7 @@ namespace Factory_Game
                 }
             }
         }
+
         public void Draw(SpriteBatch spriteBatch)
         {
 

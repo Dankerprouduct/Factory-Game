@@ -102,9 +102,12 @@ namespace Factory_Game
                     if (postGenMap[x, y] <= .7f && postGenMap[x, y] >= .6f)
                     {
                         mapAttributes[x, y] = 4;
+                       // GenerateOre(x, y); 
                         if (postGenMap[x, y] <= .65f && postGenMap[x, y] >= .6f)
                         {
                             mapAttributes[x, y] = 5;
+                          //  GenerateOre(x, y); 
+
                         }
                     }
                     if (postGenMap[x, y] <= .9f && postGenMap[x, y] >= .7f)
@@ -153,21 +156,70 @@ namespace Factory_Game
                     
                     if (y < Math.Abs(terrainContour[x]))
                     {
+                        // sets blank tiles
                         mapAttributes[x, y] = 0; 
                     }
                     if(y == Math.Abs(terrainContour[x]) && mapAttributes[x, y] != 0)
                     {
+                        // sets grass
                         mapAttributes[x, y] = 7;
                     }
+                    
                     if(y == Math.Abs(terrainContour[x]) && x == mapAttributes.GetLength(0) / 2)
                     {
                         playerStart = new Vector2(x * 32, y * 32 - 64); 
                          
+                        
                     }
                 }
             }
         }
 
+        void GenerateOre(int x, int y)
+        {
+            Random random = new Random(seed);
+            int mapWidth = mapAttributes.GetLength(0);
+            int mapHeight = mapAttributes.GetLength(1);
+            int debth;
+            //debth = random.Next(x - mapAttributes.GetLength(1), mapAttributes.GetLength(1)); 
+            int oreX = x;
+            int oreY = y;
+
+
+            
+                if (mapAttributes[oreX, oreY] == 4)
+            {
+                for(int i = 0; i < 5; i++)
+                {
+
+                    mapAttributes[x, y] = 21;
+
+                    if (x - i < mapAttributes.GetLength(0) && x - i >= 0 && y - i < mapAttributes.GetLength(1) && y - i >= 0)
+                    {
+                        mapAttributes[x - i, y - i] = 21;
+                    }
+                    if (x + i < mapAttributes.GetLength(0) && x + i >= 0 && y + i < mapAttributes.GetLength(1) && y + i >= 0)
+                    {
+                        mapAttributes[x + i, y + i] = 21;
+                    }
+                    if (x + i < mapAttributes.GetLength(0) && x + i >= 0 && y - i < mapAttributes.GetLength(1) && y - i >= 0)
+                    {
+                        mapAttributes[x + i, y - i] = 21;
+                    }
+                    if (x - i < mapAttributes.GetLength(0) && x - i >= 0 && y + i < mapAttributes.GetLength(1) && y + i >= 0)
+                    {
+                        mapAttributes[x - i, y + i] = 21;
+                    }
+
+                }
+            }
+            
+
+        }
+        void GennerateOreVain(int x, int y)
+        {
+
+        }
         public float[,] WhiteNoise(int width, int height)
         {
             Random random = new Random(seed);
@@ -337,7 +389,7 @@ namespace Factory_Game
                 ti.Draw(spriteBatch);
             }
             */
-            for (int x = (int)(gme.camera.center.X - (int)(gme.WIDTH / 2)) / 32; x < (((gme.camera.center.X) + (gme.WIDTH)) / 32); x++)
+            for (int x = (int)(gme.camera.center.X - gme.WIDTH / 2) / 32; x < (((gme.camera.center.X) + (gme.WIDTH)) / 32); x++)
             {
                 for(int y = (int)((gme.camera.center.Y) - (int)(gme.HEIGHT / 2)) / 32; y < (((gme.camera.center.Y) + (gme.HEIGHT)) / 32); y++)
                 {

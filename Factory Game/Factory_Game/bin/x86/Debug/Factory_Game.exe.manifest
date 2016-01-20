@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Factory_Game.exe" size="44464">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Factory_Game.exe" size="47536">
       <assemblyIdentity name="Factory_Game" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>HIXWya3HjWlPYToXQwNwBW67Lk0=</dsig:DigestValue>
+        <dsig:DigestValue>tRVGXuHyEmxuMcr6TWedywTVvk0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -321,6 +321,15 @@
       <dsig:DigestValue>JX3g0EmtMW7Nuqg4njSV9UklQmc=</dsig:DigestValue>
     </hash>
   </file>
+  <file name="Content\Tiles\CoalBlock.xnb" size="4283">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>lK63sGnXAlmLy/DXbDftidTc9oc=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="Content\Tiles\ConstructionBlock.xnb" size="4283">
     <hash>
       <dsig:Transforms>
@@ -346,6 +355,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
       <dsig:DigestValue>lsS9P4gPDkRGJe1eoKCgRWRwow8=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Tiles\CopperTile1.xnb" size="4283">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>FlcxskjJ2TFt6vxJDi/IWaaHCf4=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Tiles\DryTile1.xnb" size="4283">
@@ -438,6 +456,15 @@
       <dsig:DigestValue>8c+gwo03y6LJ7ituVHl9ktH/EcY=</dsig:DigestValue>
     </hash>
   </file>
+  <file name="Content\Tiles\IronBlock.xnb" size="4283">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>paO6s6bHnCkLTO0gjF+TcgAzmcs=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="Content\Tiles\MarkerBlock.xnb" size="4283">
     <hash>
       <dsig:Transforms>
@@ -456,6 +483,15 @@
       <dsig:DigestValue>eO2aA4CKBqSq57ixMuK503Bm9ws=</dsig:DigestValue>
     </hash>
   </file>
+  <file name="Content\Tiles\Platform1.xnb" size="4283">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>46QFmd4FQ/wEW14tKaxtmK7N/UA=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="Content\Tiles\QuarryBlock.xnb" size="4283">
     <hash>
       <dsig:Transforms>
@@ -463,6 +499,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
       <dsig:DigestValue>hB+gZF9NAGFBwMM+o2PfVIR9pHc=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Tiles\SandTile1.xnb" size="4283">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>yo+4iAUU5uhDeEustP7flviq1cw=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Tiles\SouthTube.xnb" size="4283">
@@ -481,6 +526,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
       <dsig:DigestValue>bIFDMXVqYD9D7Uoiw2t4p7l4mfc=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Tiles\UraniumBlock.xnb" size="4283">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>VEjmThhrre6Qrwg1incrTR2xclk=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Tiles\Water1.xnb" size="4283">

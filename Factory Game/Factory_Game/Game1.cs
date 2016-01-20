@@ -25,10 +25,10 @@ namespace Factory_Game
 
         public TileMap tileMap;
         // 4200 1200
-        int[,] mapSize = new int[200, 200];
+        int[,] mapSize = new int[500, 200];
         // 932480
         // 234561 spawns in flat plane
-        int seed = 234561; 
+        int seed = 6753008; 
 
         public Camera camera;
 
@@ -117,13 +117,14 @@ namespace Factory_Game
                 SamplerState.PointClamp, null, null, null,
                 camera.transform); 
 
-            tileMap.Draw(spriteBatch, player);
+            
 
             quarryManagement.Draw(spriteBatch, this); 
             tileObjectManagement.Draw(spriteBatch);
-
-            player.Draw(spriteBatch); 
-
+            tileMap.Draw(spriteBatch, player);
+            
+            player.Draw(spriteBatch);
+            
             spriteBatch.End();
 
             spriteBatch.Begin();
