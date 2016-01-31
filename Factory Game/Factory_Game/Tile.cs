@@ -23,6 +23,9 @@ namespace Factory_Game
         bool draw = true;
 
         TimeSpan time = TimeSpan.FromMilliseconds(1000);
+
+        TimeSpan time2;
+        public int inventorySpeed = 1500; 
         TimeSpan lastTime;
 
         QuarryDrill quarryDrill;
@@ -30,6 +33,7 @@ namespace Factory_Game
         public bool madeItemPipe; 
         public bool madeQuarry;
         public bool madeStorage;
+        public bool madeSmelter; 
         public Item tempItem;
 
         public enum TileType
@@ -87,6 +91,7 @@ namespace Factory_Game
         bool inInventory = false; 
         public Tile()
         {
+            time2 = TimeSpan.FromMilliseconds(inventorySpeed);
             storageTier = new StorageTier(); 
             tileProperty = new TileProperty(); 
             tileType = new TileType(); 
@@ -583,7 +588,7 @@ namespace Factory_Game
         }
         public void Update(GameTime gameTime, Player player, Game1 game, TileMap tileMap)
         {
-           
+
             if (alive)
             {
                 if (draw)
@@ -591,7 +596,7 @@ namespace Factory_Game
                     if (bounds.Intersects(player.rect) && tileProperty == TileProperty.CantPass)
                     {
                         player.Collision(bounds);
-                      //  player.j = 1f;
+                        //  player.j = 1f;
                         // alive = false; 
                         if (player.canBreak)
                         {
@@ -627,7 +632,7 @@ namespace Factory_Game
                             keyboardState = Keyboard.GetState();
                             if (keyboardState.IsKeyDown(Keys.F) && oldKeyboardState.IsKeyUp(Keys.F))
                             {
-                                inInventory = !inInventory; 
+                                inInventory = !inInventory;
                                 inventory.showInventory = !inventory.showInventory;
                                 if (inInventory)
                                 {
@@ -635,7 +640,7 @@ namespace Factory_Game
                                 }
                                 else
                                 {
-                                    player.tempTile = null; 
+                                    player.tempTile = null;
                                 }
                             }
                             oldKeyboardState = keyboardState;
@@ -655,7 +660,7 @@ namespace Factory_Game
                         {
                             game.tileObjectManagement.tileObjects[i].velocity.Y = 0;
                             game.tileObjectManagement.tileObjects[i].position.Y -= 2;
-                          //  Console.WriteLine("i tried");
+                            //  Console.WriteLine("i tried");
                         }
                         else if (bounds.Intersects(game.tileObjectManagement.tileObjects[i].rect) && index != 11)
                         {
@@ -676,7 +681,7 @@ namespace Factory_Game
                         {
                             if (bounds.Intersects(game.quarryManagement.drills[i].rect))
                             {
-                                durability = 0; 
+                                durability = 0;
                             }
                         }
                     }
@@ -696,55 +701,58 @@ namespace Factory_Game
                         }
                         if (madeQuarry)
                         {
-                            inventory.Update(gameTime, game); 
+                            inventory.Update(gameTime, game);
                         }
-                        if(this.tileType == TileType.QuarryBlock)
+                        if (this.tileType == TileType.QuarryBlock)
                         {
-                            Quarry(tileMap, gameTime, game); 
+                            Quarry(tileMap, gameTime, game);
                         }
-                        if(this.tileType == TileType.ItemPipeNorth)
+                        if (lastTime + time2 < gameTime.TotalGameTime)
                         {
-                            ItemPipe(tileMap, gameTime);
+                            if (this.tileType == TileType.ItemPipeNorth)
+                            {
+                                ItemPipe(tileMap, gameTime);
+                            }
+                            if (this.tileType == TileType.ItemPipeEast)
+                            {
+                                ItemPipe(tileMap, gameTime);
+                            }
+                            if (this.tileType == TileType.ItemPipeSouth)
+                            {
+                                ItemPipe(tileMap, gameTime);
+                            }
+                            if (this.tileType == TileType.ItemPipeWest)
+                            {
+                                ItemPipe(tileMap, gameTime);
+                            }
                         }
-                        if(this.tileType == TileType.ItemPipeEast)
+                        if (this.tileType == TileType.StorageCrate)
                         {
-                            ItemPipe(tileMap, gameTime);
+                            ItemStorage(tileMap, gameTime);
                         }
-                        if(this.tileType == TileType.ItemPipeSouth)
-                        {
-                            ItemPipe(tileMap, gameTime);
-                        }
-                        if(this.tileType == TileType.ItemPipeWest)
-                        {
-                            ItemPipe(tileMap, gameTime);
-                        }
-                        if(this.tileType == TileType.StorageCrate)
-                        {
-                            ItemStorage(tileMap, gameTime); 
-                            
-                        }
+
 
                     }
                 }
-            }
-            if (!alive)
-            {
-                index = 0;
-                tileType = TileType.BlankTile; 
-            }
-
-            if(tileType == TileType.QuarryBlock)
-            {
-                if (madeQuarry)
+                if (!alive)
                 {
-                    if(lastTime + time < gameTime.TotalGameTime)
-                    {
-                        lastTime = gameTime.TotalGameTime;
-                    }
-                    quarryDrill.Update(gameTime, game);
+                    index = 0;
+                    tileType = TileType.BlankTile;
                 }
+
+                if (tileType == TileType.QuarryBlock)
+                {
+                    if (madeQuarry)
+                    {
+                        if (lastTime + time < gameTime.TotalGameTime)
+                        {
+                            lastTime = gameTime.TotalGameTime;
+                        }
+                        quarryDrill.Update(gameTime, game);
+                    }
+                }
+
             }
-            
         }
 
 
@@ -806,6 +814,7 @@ namespace Factory_Game
 
         public void ItemPipe(TileMap tileMap, GameTime gameTime)
         {
+
             if (!madeItemPipe)
             {
                 inventory = new Inventory();
@@ -1139,6 +1148,58 @@ namespace Factory_Game
             }
         }
 
+        public void Smelter(TileMap tileMap, GameTime gameTime)
+        {
+            if (!madeSmelter)
+            {
+                inventory = new Inventory();
+                inventory.inventoryType = Inventory.InventoryType.StorageInventory;
+                inventory.LoadContent(contentManager); 
+                madeSmelter = true; 
+            }
+
+            if (madeSmelter)
+            {
+                // North
+                Tile checkedTile = tileMap.tile[xPos, yPos - 1];
+                if (checkedTile.tileType == TileType.ItemPipeSouth)
+                {
+                    if (checkedTile.madeItemPipe)
+                    {
+
+                    }
+                }
+                // South
+                checkedTile = tileMap.tile[xPos, yPos + 1];
+                if (checkedTile.tileType == TileType.ItemPipeNorth)
+                {
+                    if (checkedTile.madeItemPipe)
+                    {
+
+                    }
+                }
+                // East
+                checkedTile = tileMap.tile[xPos + 1, yPos];
+                if (checkedTile.tileType == TileType.ItemPipeWest)
+                {
+                    if (checkedTile.madeItemPipe)
+                    {
+
+                    }
+                }
+                // West
+                checkedTile = tileMap.tile[xPos - 1, yPos];
+                if (checkedTile.tileType == TileType.ItemPipeEast)
+                {
+                    if (checkedTile.madeItemPipe)
+                    {
+
+                    }
+                }
+
+            }
+
+        }
         
 
         public void Draw(SpriteBatch spriteBatch, Player player)

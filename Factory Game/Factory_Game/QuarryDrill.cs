@@ -39,6 +39,7 @@ namespace Factory_Game
             tile = mTile; 
             width = Math.Abs(xPos - xxPos - 1);
             height = Math.Abs(yPos - tileMap.tile.GetLength(1));
+            height += 7;
 
             quarryPositions = new Vector2[width, height]; 
 
