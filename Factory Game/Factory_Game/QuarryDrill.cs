@@ -84,24 +84,7 @@ namespace Factory_Game
                 }
 
                 lastTime = gameTime.TotalGameTime;
-                /*
-                #region // Loading All Tiles around drill
-                for (int x = (int)(position.X - (int)(chunkRadius)) / 32; x < (((position.X) + (chunkRadius)) / 32); x++)
-                {
-                    for (int y = (int)((position.Y) - (int)(chunkRadius)) / 32; y < (((position.Y) + (chunkRadius)) / 32); y++)
-                    {
-                        X = Math.Abs(x);
-                        Y = Math.Abs(y);
 
-                        //tiles[tile[X, Y]].Draw(spriteBatch);
-                        if (X < game.tileMap.tile.GetLength(0) && Y < game.tileMap.tile.GetLength(1))
-                        {
-                            game.tileMap.tile[X, Y].Update(gameTime, game.player, game, game.tileMap);
-                        }
-                    }
-                }
-                #endregion
-                */
             }
 
             rect = new Rectangle((int)position.X, (int)position.Y, drillTexture.Width, drillTexture.Height);

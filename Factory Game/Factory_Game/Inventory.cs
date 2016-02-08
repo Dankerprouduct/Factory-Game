@@ -79,7 +79,7 @@ namespace Factory_Game
             }
             else if(inventoryType == InventoryType.TubeInventory)
             {
-                width = 3;
+                width = 1;
                 height = 1; 
             }
         }
@@ -111,6 +111,24 @@ namespace Factory_Game
             oldKeyboardState = keyboardState;
             oldMouseState = mouseState;
         }
+
+
+        public int ItemStackCount(Item item)
+        {
+            for(int i = 0; i < inventory.Count; i++)
+            {
+                if (inventory[i].item == item)
+                {
+                    return inventory[i].count;
+                }
+                else 
+                {
+                    return 0; 
+                }
+            }
+            return 0; 
+        }
+
 
         public void AddToInventory(Item item, int ammount)
         {
@@ -198,7 +216,7 @@ namespace Factory_Game
         }
         public void Draw(SpriteBatch spriteBatch, Player player)
         {
-
+            
             if (showInventory)
             {
 

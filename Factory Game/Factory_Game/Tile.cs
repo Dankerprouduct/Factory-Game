@@ -84,7 +84,9 @@ namespace Factory_Game
 
         ContentManager contentManager;
 
-        public Inventory inventory; 
+        public Inventory inventory;
+        public Inventory outPutInventory;
+        ItemDatabase itemDatabase;
 
         int xPos;
         int yPos;
@@ -128,7 +130,8 @@ namespace Factory_Game
             tiles.Add(content.Load<Texture2D>("Tiles/SandTile1")); // 25
             tiles.Add(content.Load<Texture2D>("Tiles/UraniumBlock")); // 26
             
-            font = content.Load<SpriteFont>("Fonts/Font2"); 
+            font = content.Load<SpriteFont>("Fonts/Font2");
+            itemDatabase = new ItemDatabase(content); 
         }
 
         public void Final() //This is where everything is finalized from tileMap
@@ -654,6 +657,7 @@ namespace Factory_Game
                             }
                         }
                     }
+                    
                     for (int i = 0; i < game.tileObjectManagement.tileObjects.Count; i++)
                     {
                         if (bounds.Intersects(game.tileObjectManagement.tileObjects[i].rect) && index != 0)
@@ -1154,7 +1158,12 @@ namespace Factory_Game
             {
                 inventory = new Inventory();
                 inventory.inventoryType = Inventory.InventoryType.StorageInventory;
-                inventory.LoadContent(contentManager); 
+                inventory.LoadContent(contentManager);
+
+                outPutInventory = new Inventory();
+                outPutInventory.inventoryType = Inventory.InventoryType.StorageInventory;
+                outPutInventory.LoadContent(contentManager); 
+
                 madeSmelter = true; 
             }
 
@@ -1166,7 +1175,15 @@ namespace Factory_Game
                 {
                     if (checkedTile.madeItemPipe)
                     {
-
+                        if(checkedTile.inventory.inventoryCount > 0)
+                        {
+                            if (checkedTile.inventory.inventory[0].item.canSmelt)
+                            {
+                                Item smeltedItem = SmeltedItem(inventory.inventory[0].item); 
+                                outPutInventory.AddToInventory(smeltedItem, 1);
+                                inventory.RemoveItem(smeltedItem); 
+                            }
+                        }
                     }
                 }
                 // South
@@ -1175,7 +1192,13 @@ namespace Factory_Game
                 {
                     if (checkedTile.madeItemPipe)
                     {
-
+                        if(checkedTile.inventory.inventoryCount > 0)
+                        {
+                            if (checkedTile.inventory.inventory[0].item.canSmelt)
+                            {
+                                
+                            }
+                        }
                     }
                 }
                 // East
@@ -1184,7 +1207,13 @@ namespace Factory_Game
                 {
                     if (checkedTile.madeItemPipe)
                     {
+                        if(checkedTile.inventory.inventoryCount > 0)
+                        {
+                            if (checkedTile.inventory.inventory[0].item.canSmelt)
+                            {
 
+                            }
+                        }
                     }
                 }
                 // West
@@ -1193,7 +1222,13 @@ namespace Factory_Game
                 {
                     if (checkedTile.madeItemPipe)
                     {
+                        if (checkedTile.inventory.inventoryCount > 0)
+                        {
+                            if (checkedTile.inventory.inventory[0].item.canSmelt)
+                            {
 
+                            }
+                        }
                     }
                 }
 
@@ -1201,6 +1236,40 @@ namespace Factory_Game
 
         }
         
+        public Item SmeltedItem(Item item)
+        {
+            
+            if (item.canSmelt)
+            {
+                
+
+                switch (item.tileType)
+                {
+                    case TileType.Granite1:
+                        {                            
+                            return itemDatabase.items[1];
+                        }
+                    case TileType.Granite2:
+                        {
+                            return itemDatabase.items[2]; 
+                        }
+                    case TileType.Granite3:
+                        {
+                            return itemDatabase.items[3]; 
+                        }
+                    default:
+                        {
+                            return itemDatabase.items[1]; 
+                        }
+                    
+                }
+            }
+            else
+            {
+                Console.WriteLine("Cant Smelt"); 
+                return new Item(); 
+            }
+        }
 
         public void Draw(SpriteBatch spriteBatch, Player player)
         {
@@ -1224,6 +1293,10 @@ namespace Factory_Game
                     {
                         inventory.Draw(spriteBatch, player); 
                     }
+                }
+                if(this.tileType == TileType.ItemPipeNorth || tileType == TileType.ItemPipeEast || tileType == TileType.ItemPipeSouth || tileType == TileType.ItemPipeWest)
+                {
+                  //  inventory.Draw(spriteBatch, player); 
                 }
             }
         }

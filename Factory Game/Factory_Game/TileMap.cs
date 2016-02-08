@@ -13,6 +13,7 @@ namespace Factory_Game
     public class TileMap
     {
         public int[,] mapAttributes;
+        public bool generateFlatWorld; 
       //  private int[,] mapSize;
         int seed;
         private List<int> tileTypes = new List<int>()
@@ -30,8 +31,9 @@ namespace Factory_Game
         int mapCount = 0;
         public Vector2 playerStart; 
         
-        public TileMap(int[,] size, int sed)
+        public TileMap(int[,] size, int sed, bool GenerateFlatWorld)
         {
+            generateFlatWorld = GenerateFlatWorld; 
             seed = sed; 
        //     mapSize = size;
             mapAttributes = size;
@@ -70,7 +72,14 @@ namespace Factory_Game
 
             MapGeneration(mapAttributes.GetLength(0), mapAttributes.GetLength(1));
 
-            GenerateHills(mapAttributes.GetLength(0), mapAttributes.GetLength(1));
+            if (!generateFlatWorld)
+            {
+                GenerateHills(mapAttributes.GetLength(0), mapAttributes.GetLength(1));
+            }
+            else
+            {
+                GennerateFlatWorld(mapAttributes.GetLength(0), mapAttributes.GetLength(1));
+            }
             Final();
         }
 
@@ -174,7 +183,21 @@ namespace Factory_Game
                 }
             }
         }
+        void GennerateFlatWorld(int width, int height)
+        {
+            int halfSize = height / 2;
 
+            for (int x = 0; x < width; x++)
+            {
+                for(int y = 0; y < halfSize; y++)
+                {
+                    mapAttributes[x, y] = 0; 
+                }
+            }
+            int mapX = mapAttributes.GetLength(0) / 2;
+            int mapY = mapAttributes.GetLength(1) / 2;
+            playerStart = new Vector2(mapX * 32, mapY * 32 - 64); 
+        }
         void GenerateOre(int x, int y)
         {
             Random random = new Random(seed);

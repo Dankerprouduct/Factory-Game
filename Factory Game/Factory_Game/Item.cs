@@ -15,19 +15,23 @@ namespace Factory_Game
         public string tileDescription;
         public int itemID;
         public Texture2D texture;
-        public int sValue; 
+        public int sValue;
+        public int stackMaxCount;
+        public bool canSmelt; 
         public Item()
         {
             sValue = 0; 
         }
 
-        public Item(Tile.TileType type, string name, string description, int id, ContentManager content)
+        public Item(Tile.TileType type, string name, string description, int id,bool smelt, int stackCount,  ContentManager content)
         {
             tileType = type;
             tileName = name;
             tileDescription = description;
             itemID = id;
-            sValue = 1; 
+            sValue = 1;
+            stackMaxCount = stackCount;
+            canSmelt = smelt; 
             switch (type)
             {
                 case Tile.TileType.BlankTile:
