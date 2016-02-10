@@ -1226,7 +1226,7 @@ namespace Factory_Game
                         {
                             if (checkedTile.inventory.inventory[0].item.canSmelt)
                             {
-
+                              
                             }
                         }
                     }

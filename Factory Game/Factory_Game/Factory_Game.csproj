@@ -91,6 +91,7 @@
     <Compile Include="Camera.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="GUI.cs" />
+    <Compile Include="GUIObject.cs" />
     <Compile Include="Inventory.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="ItemDatabase.cs" />

@@ -47,3 +47,12 @@ Content\Tiles\UraniumBlock.xnb
 Content\Fonts\Font1.xnb
 Content\Fonts\InventoryFont.xnb
 Content\Fonts\Font2.xnb
+Content\Tiles\StorageBL.xnb
+Content\Tiles\StorageBR.xnb
+Content\Tiles\StorageMB.xnb
+Content\Tiles\StorageML.xnb
+Content\Tiles\StorageMM.xnb
+Content\Tiles\StorageMR.xnb
+Content\Tiles\StorageMT.xnb
+Content\Tiles\StorageTL.xnb
+Content\Tiles\StorageTR.xnb

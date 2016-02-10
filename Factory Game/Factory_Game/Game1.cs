@@ -25,7 +25,7 @@ namespace Factory_Game
 
         public TileMap tileMap;
         // 4200 1200
-        int[,] mapSize = new int[100, 100];
+        int[,] mapSize = new int[500, 500];
         // 932480
         // 234561 spawns in flat plane
         int seed = 6753008; 
@@ -68,7 +68,7 @@ namespace Factory_Game
             spriteBatch = new SpriteBatch(GraphicsDevice);
                        
 
-            tileMap = new TileMap(mapSize, seed, false);
+            tileMap = new TileMap(mapSize, seed, true);
             tileMap.LoadContent(Content);
 
             player = new Player(tileMap.playerStart);
