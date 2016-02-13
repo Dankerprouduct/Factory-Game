@@ -89,6 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Camera.cs" />
+    <Compile Include="Chunk.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="GUI.cs" />
     <Compile Include="GUIObject.cs" />

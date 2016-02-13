@@ -15,14 +15,27 @@ namespace Factory_Game
 {
     public class Chunk
     {
-        Tile[,] chunk; 
-        public Chunk(Tile[,] tiles)
-        {
-            chunk = tiles; 
-        }
-        public void LoadTiles()
-        {
+        public Tile[,] tiles;
+        public static int chunkSize = 32;
 
+        /// <summary>
+        /// This should take parameters to tell how to build chunk
+        /// </summary>
+        public Chunk()
+        {
+            //tiles = new Tile[chunkSize, chunkSize]; 
+           // chunk = tiles; 
+
+        }
+        public void BuildChunk()
+        {
+            for(int x = 0; x < tiles.GetLength(0); x++)
+            {
+                for(int y = 0; y < tiles.GetLength(1); y++)
+                {
+                   // tiles[x, y] = new Tile(true); 
+                }
+            }
         }
         public void Update(GameTime gameTime)
         {

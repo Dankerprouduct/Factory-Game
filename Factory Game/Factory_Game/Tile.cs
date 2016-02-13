@@ -91,6 +91,12 @@ namespace Factory_Game
         int xPos;
         int yPos;
         bool inInventory = false; 
+        /*
+        public Tile(bool newTile)
+        {
+
+        }
+        */
         public Tile()
         {
             time2 = TimeSpan.FromMilliseconds(inventorySpeed);

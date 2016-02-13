@@ -25,7 +25,7 @@ namespace Factory_Game
 
         public TileMap tileMap;
         // 4200 1200
-        int[,] mapSize = new int[500, 500];
+        int[,] mapSize = new int[250, 250];
         // 932480
         // 234561 spawns in flat plane
         int seed = 6753008; 

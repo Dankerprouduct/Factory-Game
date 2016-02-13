@@ -29,8 +29,10 @@ namespace Factory_Game
         public Tile[,] tile; 
         Game1 gme;
         int mapCount = 0;
-        public Vector2 playerStart; 
-        
+        public Vector2 playerStart;
+
+        //Chunk[,] chunks; 
+
         public TileMap(int[,] size, int sed, bool GenerateFlatWorld)
         {
             generateFlatWorld = GenerateFlatWorld; 
@@ -111,11 +113,11 @@ namespace Factory_Game
                     if (postGenMap[x, y] <= .7f && postGenMap[x, y] >= .6f)
                     {
                         mapAttributes[x, y] = 4;
-                       // GenerateOre(x, y); 
+
                         if (postGenMap[x, y] <= .65f && postGenMap[x, y] >= .6f)
                         {
                             mapAttributes[x, y] = 5;
-                          //  GenerateOre(x, y); 
+
 
                         }
                     }
@@ -176,8 +178,7 @@ namespace Factory_Game
                     
                     if(y == Math.Abs(terrainContour[x]) && x == mapAttributes.GetLength(0) / 2)
                     {
-                        playerStart = new Vector2(x * 32, y * 32 - 64); 
-                         
+                        playerStart = new Vector2(x * 32, y * 32 - 64);                         
                         
                     }
                 }
@@ -372,6 +373,10 @@ namespace Factory_Game
             gme = game; 
         }
 
+        /// <summary>
+        /// Assigns final values 
+        /// ie positions, id's etc
+        /// </summary>
         void Final()
         {
             for(int x = 0; x < mapAttributes.GetLength(0); x++)
@@ -391,7 +396,24 @@ namespace Factory_Game
                     tile[x, y].position = nTilePosition[i];
                     tile[x,y].index = nTileValue[i];
                     tile[x,y].Final();
-                    i++; 
+
+                    if(i % Chunk.chunkSize == 0)
+                    {
+                        //int chunkSizeX = Chunk.chunkSize - x;
+                        //int chunkSizeY = Chunk.chunkSize - y; 
+                        //Console.WriteLine(i);
+                        for(int chunkSizeX = Chunk.chunkSize - x; chunkSizeX < Chunk.chunkSize; chunkSizeX++)
+                        {
+
+                            for(int chunkSizeY = Chunk.chunkSize - y; chunkSizeY < Chunk.chunkSize; chunkSizeY++)
+                            {
+                                
+                            }
+                        }
+                        //Console.WriteLine(i); 
+                    }
+
+                    
                 }
             }
         }
