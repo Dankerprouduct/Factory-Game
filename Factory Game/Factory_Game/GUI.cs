@@ -24,7 +24,8 @@ namespace Factory_Game
         string fps;
         string tilePos;
         string entitys;
-
+        string chunkPos; 
+        
         Texture2D backGround;
         bool showDebug;
         KeyboardState keyboardState;
@@ -59,7 +60,7 @@ namespace Factory_Game
                 fps = "fps " + player._fps.ToString();
                 tilePos = "Tile Position " + ((player.rect.X / 32) - 2).ToString() + " " + (player.rect.Y / 32).ToString();
                 entitys = "Entitys " + tileManagement.tileObjects.Count;
-
+                chunkPos = "Chunk X:" + Math.Round(player.position.X / 1032);
 
             }
         }
@@ -75,7 +76,8 @@ namespace Factory_Game
                 spriteBatch.DrawString(font, velocity, new Vector2(10, 55), Color.White);
                 spriteBatch.DrawString(font, tilePos, new Vector2(10, 70), Color.White);
                 spriteBatch.DrawString(font, entitys, new Vector2(10, 85), Color.White);
-                spriteBatch.DrawString(font, fps, new Vector2(10, 115), Color.White); 
+                spriteBatch.DrawString(font, fps, new Vector2(10, 115), Color.White);
+                spriteBatch.DrawString(font, chunkPos, new Vector2(10, 130), Color.White); 
             }
         }
 

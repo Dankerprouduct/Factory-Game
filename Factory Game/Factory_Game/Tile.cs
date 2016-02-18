@@ -91,14 +91,18 @@ namespace Factory_Game
         int xPos;
         int yPos;
         bool inInventory = false; 
+        public Tile(int i)
+        {
+
+        }
         public Tile()
         {
             time2 = TimeSpan.FromMilliseconds(inventorySpeed);
             storageTier = new StorageTier(); 
             tileProperty = new TileProperty(); 
             tileType = new TileType(); 
-            durability = 10; 
-        }
+            durability = 10;         }
+
         public void LoadContent(ContentManager content)
         {
             contentManager = content; 
@@ -1270,7 +1274,11 @@ namespace Factory_Game
                 return new Item(); 
             }
         }
-
+        public void SetPosition(Vector2 pos)
+        {
+            position = pos;
+            //Console.WriteLine("Tile: Set tile Position " + position); 
+        }
         public void Draw(SpriteBatch spriteBatch, Player player)
         {
             
