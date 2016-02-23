@@ -51,6 +51,7 @@ namespace Factory_Game
                     chunk[x, y] = new Tile();
                     chunk[x, y].LoadContent(content);
                     chunk[x, y].SetPosition(new Vector2(position.X + (x * 32), position.Y + (y * 32)));
+                    chunk[x, y].Final(); 
                     //Console.WriteLine(position.X + (x * 32) + " " + position.X + (x * 32));
                     //Console.WriteLine(chunk[x, y].position); 
                     //Console.WriteLine("Loadingtile"); 
@@ -88,6 +89,18 @@ namespace Factory_Game
                     {
                         chunk[x, y].index = 0;
                     }
+                }
+            }
+        }
+
+        public void Update(GameTime gameTime, Player player)
+        {
+            for(int x = 0; x < Width; x++)
+            {
+                for(int y =0; y < Height; y++)
+                {
+                    //Console.WriteLine("chuks"); 
+                    chunk[x, y].Update(gameTime, player); 
                 }
             }
         }

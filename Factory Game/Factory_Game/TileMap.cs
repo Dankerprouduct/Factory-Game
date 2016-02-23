@@ -39,7 +39,8 @@ namespace Factory_Game
             Console.WriteLine("Map Attribute Size: " + mapAttributes.Length);
            
             tile = new Tile[size.GetLength(0), size.GetLength(1)];
-           // chunks.Add(new Chunk()); 
+            // chunks.Add(new Chunk()); 
+            MapGeneration(size.GetLength(0), size.GetLength(1));
         }
 
 
@@ -438,6 +439,7 @@ namespace Factory_Game
 
 
 
+            
             for (int x = (int)(game.camera.center.X - (int)(game.WIDTH / 2)) / 32; x < (((game.camera.center.X) + (game.WIDTH)) / 32); x++)
             {
                 for (int y = (int)((game.camera.center.Y) - (int)(game.HEIGHT / 2)) / 32; y < (((game.camera.center.Y) + (game.HEIGHT)) / 32); y++)
@@ -452,7 +454,13 @@ namespace Factory_Game
                     }
                 }
             }
+            
 
+            /*
+            for (int i = 0; i < chunks.Count; i++)
+            {
+                chunks[i].Update(gameTime, game.player);
+            }
 
             for (int i = 1; i < chunkRange; i++)
             {
@@ -512,7 +520,7 @@ namespace Factory_Game
 
                 }
             }
-
+            */
             gme = game; 
         }
 
@@ -556,7 +564,7 @@ namespace Factory_Game
                 ti.Draw(spriteBatch);
             }
             */
-            /*
+            
             for (int x = (int)(gme.camera.center.X - gme.WIDTH / 2) / 32; x < (((gme.camera.center.X) + (gme.WIDTH)) / 32); x++)
             {
                 for(int y = (int)((gme.camera.center.Y) - (int)(gme.HEIGHT / 2)) / 32; y < (((gme.camera.center.Y) + (gme.HEIGHT)) / 32); y++)
@@ -572,7 +580,7 @@ namespace Factory_Game
                     
                 }
             }
-            */
+            /*
             for (int i = 0; i < chunks.Count; i++)
             {
                // Console.WriteLine(chunks.Count); 
@@ -581,7 +589,7 @@ namespace Factory_Game
                     chunks[i].Draw(spriteBatch, player);
                 }
             }
-            
+            */
 
         }
     }

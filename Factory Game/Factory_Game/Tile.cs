@@ -312,7 +312,7 @@ namespace Factory_Game
                         break; 
                     }
             }
-
+           // Console.WriteLine("Finalized"); 
         }
         public void UpdateIndex(TileType tiType) // This is where Tiles are updated if changed
         {
@@ -592,6 +592,25 @@ namespace Factory_Game
         public void DamageTile(float amount)
         {
             durability -= amount; 
+        }
+        public void Update(GameTime gameTime, Player player)
+        {
+            // Console.WriteLine(bounds); 
+            if (bounds.Intersects(player.rect) && tileProperty == TileProperty.CantPass)
+            {
+                Console.WriteLine("collision"); 
+                player.Collision(bounds);
+            }
+            if (alive)
+            {
+                if (draw)
+                {
+                    if(bounds.Intersects(player.rect) && tileProperty == TileProperty.CantPass)
+                    {
+                        player.Collision(bounds); 
+                    }
+                }
+            }
         }
         public void Update(GameTime gameTime, Player player, Game1 game, TileMap tileMap)
         {
