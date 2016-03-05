@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Factory_Game.exe" size="56240">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Factory_Game.exe" size="54704">
       <assemblyIdentity name="Factory_Game" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>b15ynsgP71KcefeIeW6M8mU9LAw=</dsig:DigestValue>
+        <dsig:DigestValue>PAZ+e1vOPN2G1OY8VDXJHWkIAD8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -303,6 +303,15 @@
       <dsig:DigestValue>KW+J0oUld/VZFWzAd2ihBfmVpVc=</dsig:DigestValue>
     </hash>
   </file>
+  <file name="Content\TileObjects\TileObject_SpriteSheet.xnb" size="20667">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>pkpieJ2njcJW/0OB1jwlo21evbg=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="Content\TileObjects\WestTubeItem.xnb" size="1211">
     <hash>
       <dsig:Transforms>
@@ -519,6 +528,15 @@
       <dsig:DigestValue>j0Kf1NVdvGGVecxSP/xWe0rG4So=</dsig:DigestValue>
     </hash>
   </file>
+  <file name="Content\Tiles\SpriteSheet1.xnb" size="196795">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>oUYgGk5AK7EutAGQ1oeBMnSACq4=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="Content\Tiles\StorageBL.xnb" size="4283">
     <hash>
       <dsig:Transforms>
@@ -607,6 +625,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
       <dsig:DigestValue>loL02Gi/Y4M0EnoCD/we50C1spo=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Tiles\Tile_SpriteSheet.xnb" size="143547">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>gqkrLi+nHY+eGIUcHxFf8R4ilwk=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Tiles\UraniumBlock.xnb" size="4283">

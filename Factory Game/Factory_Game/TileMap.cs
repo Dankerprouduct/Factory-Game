@@ -25,7 +25,7 @@ namespace Factory_Game
         int mapCount = 0;
         public Vector2 playerStart;
 
-        List<Chunk> chunks = new List<Chunk>();
+        Chunk[,] chunks; 
 
         ContentManager contentManager; 
         public static int chunkRange = 2;
@@ -58,12 +58,21 @@ namespace Factory_Game
 
         public void LoadContent(ContentManager content)
         {
-            contentManager = content; 
+            contentManager = content;
+            chunks = new Chunk[mapAttributes.GetLength(0) / 32, mapAttributes.GetLength(1) / 32];
+            for (int x = 0; x < mapAttributes.GetLength(0) / 32; x++)
+            {
+                for (int y = 0; y < mapAttributes.GetLength(1) / 32; y++)
+                {
+                    chunks[x, y] = new Chunk();
+
+                }
+            }
             for (int x = 0; x < mapAttributes.GetLength(0); x++)
             {
                 for (int y = 0; y < mapAttributes.GetLength(1); y++)
                 {
-                    ///     mapSize[x, y] = mapCount;
+                   /// mapSize[x, y] = mapCount;
                     mapAttributes[x, y] = 0;
                     mapCount++;
                     tile[x, y] = new Tile();
@@ -75,13 +84,13 @@ namespace Factory_Game
 
             if (!generateFlatWorld)
             {
-               // GenerateHills(mapAttributes.GetLength(0), mapAttributes.GetLength(1));
+               GenerateHills(mapAttributes.GetLength(0), mapAttributes.GetLength(1));
             }
             else
             {
-               // GennerateFlatWorld(mapAttributes.GetLength(0), mapAttributes.GetLength(1));
+                GennerateFlatWorld(mapAttributes.GetLength(0), mapAttributes.GetLength(1));
             }
-           // Final();
+            Final();
         }
 
 
@@ -129,7 +138,7 @@ namespace Factory_Game
                 }
             }
 
-
+            
 
         }
 
@@ -201,51 +210,7 @@ namespace Factory_Game
             int mapY = mapAttributes.GetLength(1) / 2;
             playerStart = new Vector2(mapX * 32, mapY * 32 - 64);
         }
-        void GenerateOre(int x, int y)
-        {
-            Random random = new Random(seed);
-            int mapWidth = mapAttributes.GetLength(0);
-            int mapHeight = mapAttributes.GetLength(1);
-            int debth;
-            //debth = random.Next(x - mapAttributes.GetLength(1), mapAttributes.GetLength(1)); 
-            int oreX = x;
-            int oreY = y;
 
-
-
-            if (mapAttributes[oreX, oreY] == 4)
-            {
-                for (int i = 0; i < 5; i++)
-                {
-
-                    mapAttributes[x, y] = 21;
-
-                    if (x - i < mapAttributes.GetLength(0) && x - i >= 0 && y - i < mapAttributes.GetLength(1) && y - i >= 0)
-                    {
-                        mapAttributes[x - i, y - i] = 21;
-                    }
-                    if (x + i < mapAttributes.GetLength(0) && x + i >= 0 && y + i < mapAttributes.GetLength(1) && y + i >= 0)
-                    {
-                        mapAttributes[x + i, y + i] = 21;
-                    }
-                    if (x + i < mapAttributes.GetLength(0) && x + i >= 0 && y - i < mapAttributes.GetLength(1) && y - i >= 0)
-                    {
-                        mapAttributes[x + i, y - i] = 21;
-                    }
-                    if (x - i < mapAttributes.GetLength(0) && x - i >= 0 && y + i < mapAttributes.GetLength(1) && y + i >= 0)
-                    {
-                        mapAttributes[x - i, y + i] = 21;
-                    }
-
-                }
-            }
-
-
-        }
-        void GennerateOreVain(int x, int y)
-        {
-
-        }
         public float[,] WhiteNoise(int width, int height)
         {
             Random random = new Random(seed);
@@ -456,71 +421,6 @@ namespace Factory_Game
             }
             
 
-            /*
-            for (int i = 0; i < chunks.Count; i++)
-            {
-                chunks[i].Update(gameTime, game.player);
-            }
-
-            for (int i = 1; i < chunkRange; i++)
-            {
-                int playerChunkX = (int)Math.Ceiling(game.player.position.X / Chunk.GlobalWidth);
-                //Console.WriteLine(playerChunkX); 
-                for (int x = playerChunkX; x < playerChunkX + chunkRange; x++)
-                {
-                    int globalPos = x * Chunk.GlobalWidth;
-
-                    bool foundChunk = false; 
-
-                    for(int c = 0; c < chunks.Count; c++)
-                    {
-                        if(globalPos == chunks[c].position.X)
-                        {
-                            foundChunk = true;
-                            break; 
-                        }
-                        else
-                        {
-                            foundChunk = false; 
-                        }
-                    }
-
-                    if(!foundChunk)
-                    {
-                        // Console.WriteLine("Making new Chunk");
-                        int chunkX = playerChunkX;
-                        int chunkY;
-
-                        NoiseGen noise;
-                        noise = new NoiseGen();
-                        noise.Scale = 1;
-                        noise.Octaves = 50; 
-                        float[,] postGenMap = new float[Chunk.Width, Chunk.Height];
-                        for (int xx = 0; xx < Chunk.Width; xx++)
-                        {
-                            for (int yy = 0; yy < Chunk.Height; yy++)
-                            {
-                                // change y to globalposY whenever you figure that out
-                                postGenMap[xx, yy] = noise.GetNoise(globalPos + xx, yy, 0);
-                                
-                                
-                            }
-                        }
-
-                        Chunk newChunk = new Chunk(postGenMap, contentManager);
-                        newChunk.SetPosition(new Vector2(globalPos, 0));
-                        newChunk.LoadContent(postGenMap, contentManager);
-                        Console.WriteLine("Loading Chunk Content"); 
-                        
-                        Console.WriteLine("Set chunk position at " + globalPos +" "+ globalPos); 
-                        chunks.Add(newChunk);
-                        Console.WriteLine("chunkAdded");
-                        foundChunk = false; 
-                    }
-
-                }
-            }
-            */
             gme = game; 
         }
 
@@ -546,6 +446,40 @@ namespace Factory_Game
                     i++; 
                 }
             }
+            Console.WriteLine("Finalized Tiles");
+            nTilePosition = null;
+            nTileValue = null;
+
+
+            Console.WriteLine(mapAttributes.GetLength(0) /32);
+            Console.WriteLine(mapAttributes.GetLength(1) / 32);
+            Tile[,] tempChunk = new Tile[32, 32];
+
+            Console.WriteLine("Generating Chunks");
+            for (int x = 0; x < mapAttributes.GetLength(0) /32 ; x++)
+            {
+                for (int y = 0; y < mapAttributes.GetLength(1) / 32; y++)
+                {
+                    
+                    for (int cX = 0; cX < 32; cX++)
+                    {
+                        for (int cY = 0; cY < 32; cY++)
+                        {
+                            tempChunk[cX, cY] = tile[(x * 32) + cX, (y * 32) + cY];
+                            tempChunk[cX, cY].index = tile[(x * 32) + cX, (y * 32) + cY].index;
+                            tempChunk[cX, cY].sourceRectangle = tile[(x * 32) + cX, (y * 32) + cY].sourceRectangle;
+                        }
+                    }
+                    chunks[x, y].SetChunkPosition(x, y);
+                    chunks[x, y].SetChunks(tempChunk);
+
+                    Console.WriteLine("Chunk Set");
+                }
+            }
+
+            Console.WriteLine("Chunks Finished");
+            tile = null; 
+
         }
         public void ChangeTile(int x, int y, Tile.TileType type)
         {
@@ -564,7 +498,7 @@ namespace Factory_Game
                 ti.Draw(spriteBatch);
             }
             */
-            
+            /*
             for (int x = (int)(gme.camera.center.X - gme.WIDTH / 2) / 32; x < (((gme.camera.center.X) + (gme.WIDTH)) / 32); x++)
             {
                 for(int y = (int)((gme.camera.center.Y) - (int)(gme.HEIGHT / 2)) / 32; y < (((gme.camera.center.Y) + (gme.HEIGHT)) / 32); y++)
@@ -580,6 +514,19 @@ namespace Factory_Game
                     
                 }
             }
+            */
+
+
+            for(int x = 0; x < mapAttributes.GetLength(0) / 32; x++)
+            {
+                for(int y = 0; y < mapAttributes.GetLength(1) / 32; y++)
+                {
+                    chunks[x, y].Draw(spriteBatch, player);
+                     
+                }
+            }
+
+
             /*
             for (int i = 0; i < chunks.Count; i++)
             {

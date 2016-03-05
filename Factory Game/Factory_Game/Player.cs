@@ -84,8 +84,9 @@ namespace Factory_Game
         }
         void Movement()
         {
+            Vector2 oldVelocity; 
             rect = new Rectangle((int)position.X, (int)position.Y, texture.Width, texture.Height);
-            position += velocity;
+            position += new Vector2((int)velocity.X, (int)velocity.Y);
             if (keyboardState.IsKeyDown(Keys.D))
             {
                 velocity.X = speed;
@@ -149,7 +150,7 @@ namespace Factory_Game
             {
                 jumping = true; 
             }
-
+            oldVelocity = velocity; 
         }
         
         /// <summary>
@@ -159,6 +160,7 @@ namespace Factory_Game
         /// <param name="tileMap"></param>
         void MouseMovement(Camera camera, TileMap tileMap)
         {
+            
             if (!inventory.showInventory)
             {
                 mouseState = Mouse.GetState();
@@ -192,6 +194,7 @@ namespace Factory_Game
                     }
                 }
             }
+            
         }
 
         public void Collision(Rectangle bounds) 

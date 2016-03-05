@@ -13,7 +13,8 @@ namespace Factory_Game
     {
         KeyboardState keyboardState;
         KeyboardState oldKeyboardState; 
-        public List<Texture2D> tiles = new List<Texture2D>();
+        //public List<Texture2D> tiles = new List<Texture2D>();
+        Texture2D texture; 
         public Vector2 position;
         public int index;
         // alive - in renderbox
@@ -35,6 +36,7 @@ namespace Factory_Game
         public bool madeStorage;
         public bool madeSmelter; 
         public Item tempItem;
+        public Rectangle sourceRectangle;
 
         public enum TileType
         {
@@ -86,15 +88,11 @@ namespace Factory_Game
 
         public Inventory inventory;
         public Inventory outPutInventory;
-        ItemDatabase itemDatabase;
+       // ItemDatabase itemDatabase;
 
         int xPos;
         int yPos;
         bool inInventory = false; 
-        public Tile(int i)
-        {
-
-        }
         public Tile()
         {
             time2 = TimeSpan.FromMilliseconds(inventorySpeed);
@@ -105,37 +103,11 @@ namespace Factory_Game
 
         public void LoadContent(ContentManager content)
         {
-            contentManager = content; 
-            tiles.Add(content.Load<Texture2D>("Tiles/BlankTile")); // 0
-            tiles.Add(content.Load<Texture2D>("Tiles/DryTile1")); // 1
-            tiles.Add(content.Load<Texture2D>("Tiles/DryTile2")); // 2
-            tiles.Add(content.Load<Texture2D>("Tiles/DryTile3")); // 3 
-            tiles.Add(content.Load<Texture2D>("Tiles/Granite1")); // 4
-            tiles.Add(content.Load<Texture2D>("Tiles/Granite2")); // 5
-            tiles.Add(content.Load<Texture2D>("Tiles/Granite3")); // 6
-            tiles.Add(content.Load<Texture2D>("Tiles/Grass1"));   // 7
-            tiles.Add(content.Load<Texture2D>("Tiles/Grass2"));   // 8
-            tiles.Add(content.Load<Texture2D>("Tiles/Grass3"));   // 9
-            tiles.Add(content.Load<Texture2D>("Tiles/Water1"));   // 10
-            tiles.Add(content.Load<Texture2D>("Tiles/ConstructionBlock")); // 11
-            tiles.Add(content.Load<Texture2D>("Tiles/MarkerBlock")); // 12
-            tiles.Add(content.Load<Texture2D>("Tiles/ConstructionDrillBit")); // 13
-            tiles.Add(content.Load<Texture2D>("Tiles/ConstructionTube")); // 14
-            tiles.Add(content.Load<Texture2D>("Tiles/QuarryBlock")); // 15
-            tiles.Add(content.Load<Texture2D>("Tiles/NorthTube")); //16
-            tiles.Add(content.Load<Texture2D>("Tiles/EastTube")); // 17
-            tiles.Add(content.Load<Texture2D>("Tiles/SouthTube")); //18
-            tiles.Add(content.Load<Texture2D>("Tiles/WestTube")); //19
-            tiles.Add(content.Load<Texture2D>("Tiles/StorageCrate")); // 20
-            tiles.Add(content.Load<Texture2D>("Tiles/CoalBlock")); // 21 
-            tiles.Add(content.Load<Texture2D>("Tiles/CopperTile1")); // 22
-            tiles.Add(content.Load<Texture2D>("Tiles/IronBlock")); // 23
-            tiles.Add(content.Load<Texture2D>("Tiles/Platform1")); // 24
-            tiles.Add(content.Load<Texture2D>("Tiles/SandTile1")); // 25
-            tiles.Add(content.Load<Texture2D>("Tiles/UraniumBlock")); // 26
-            
+            contentManager = content;
+
+            texture = content.Load<Texture2D>("Tiles/SpriteSheet1"); 
             font = content.Load<SpriteFont>("Fonts/Font2");
-            itemDatabase = new ItemDatabase(content); 
+           // itemDatabase = new ItemDatabase(content); 
         }
 
         public void Final() //This is where everything is finalized from tileMap
@@ -144,181 +116,166 @@ namespace Factory_Game
             yPos = Convert.ToInt32(position.Y / 32); 
             bounds = new Rectangle((int)position.X, (int)position.Y, 32, 32);
 
-            if(index == 0)
-            {
-                alive = false;
-                tileProperty = TileProperty.CanPass; 
-            }
-            else if(index == 11)
-            {
-                tileProperty = TileProperty.CanPass; 
-            }
-            else if (index == 12)
-            {
-                tileProperty = TileProperty.CanPass;
-            }
-            else if(index == 13)
-            {
-                tileProperty = TileProperty.CanPass;
-            }
-            else if(index == 14)
-            {
-                tileProperty = TileProperty.CanPass; 
-            }
-            else if(index == 15)
-            {
-                tileProperty = TileProperty.CanPass; 
-            }
-            else if(index == 16)
-            {
-                tileProperty = TileProperty.CanPass;
-            }
-            else if(index == 17)
-            {
-                tileProperty = TileProperty.CanPass;
-            }
-            else if(index == 18)
-            {
-                tileProperty = TileProperty.CanPass; 
-            }
-            else if(index == 19)
-            {
-                tileProperty = TileProperty.CanPass;
-            }
-            else if(index == 20)
-            {
-                tileProperty = TileProperty.CanPass; 
-            }
-            else
-            {
-                tileProperty = TileProperty.CantPass; 
-            }
+            #region // Tile Properties 
             switch (index)
             {
                 case 0:
                     {
-                        tileType = TileType.BlankTile; 
+                        alive = false; 
+                        tileType = TileType.BlankTile;
+                        tileProperty = TileProperty.CanPass;
                         break;
                     }
                 case 1:
                     {
 
-                        tileType = TileType.DryTile1; 
+                        tileType = TileType.DryTile1;
+                        tileProperty = TileProperty.CantPass;
                         break; 
                     }
                 case 2:
                     {
                         tileType = TileType.DryTile2;
+                        tileProperty = TileProperty.CantPass;
                         break; 
                     }
                 case 3:
                     {
                         tileType = TileType.DryTile3;
+                        tileProperty = TileProperty.CantPass;
                         break;
                     }
                 case 4:
                     {
                         tileType = TileType.Granite1;
+                        tileProperty = TileProperty.CantPass;
                         break;
                     }
                 case 5:
                     {
                         tileType = TileType.Granite2;
+                        tileProperty = TileProperty.CantPass;
                         break; 
                     }
                 case 6:
                     {
                         tileType = TileType.Granite3;
+                        tileProperty = TileProperty.CantPass;
                         break;
                     }
                 case 7:
                     {
                         tileType = TileType.Grass1;
+                        tileProperty = TileProperty.CantPass;
                         break;
                     }
                 case 8:
                     {
                         tileType = TileType.Grass2;
+                        tileProperty = TileProperty.CantPass;
                         break;
                     }
                 case 9:
                     {
                         tileType = TileType.Grass3;
+                        tileProperty = TileProperty.CantPass; 
                         break;
                     }
                 case 11:
                     {
                         tileType = TileType.ConstructionBlock;
+                        tileProperty = TileProperty.CantPass;
                         break;
                     }
                 case 12:
                     {
                         tileType = TileType.MarkerBlock;
+                        tileProperty = TileProperty.CantPass;
                         break;
                     }
                 case 16:
                     {
                         tileType = TileType.ItemPipeNorth;
+                        tileProperty = TileProperty.CantPass;
                         break;
                     }
                 case 17:
                     {
                         tileType = TileType.ItemPipeEast;
+                        tileProperty = TileProperty.CantPass;
                         break;
                     }
                 case 18:
                     {
                         tileType = TileType.ItemPipeSouth;
+                        tileProperty = TileProperty.CantPass;
                         break;
                     }
                 case 19:
                     {
                         tileType = TileType.ItemPipeWest;
+                        tileProperty = TileProperty.CantPass; 
                         break;
                     }
                 case 20:
                     {
-                        tileType = TileType.StorageCrate; 
+                        tileType = TileType.StorageCrate;
+                        tileProperty = TileProperty.CantPass;
                         break; 
                     }
                 case 21:
                     {
                         tileType = TileType.CoalBlock;
+                        tileProperty = TileProperty.CantPass;
                         break;
                     }
                 case 22:
                     {
-                        tileType = TileType.CopperTile; 
+                        tileType = TileType.CopperTile;
+                        tileProperty = TileProperty.CantPass;
                         break; 
                     }
                 case 23:
                     {
                         tileType = TileType.IronBlock;
+                        tileProperty = TileProperty.CantPass;
                         break; 
                     }
                 case 24:
                     {
-                        tileType = TileType.SandTile; 
+                        tileType = TileType.SandTile;
+                        tileProperty = TileProperty.CantPass;
                         break; 
                     }
                 case 25:
                     {
                         tileType = TileType.Platform1;
+                        tileProperty = TileProperty.CantPass;
                         break; 
                     }
                 case 26:
                     {
-                        tileType = TileType.UraniumBlock; 
+                        tileType = TileType.UraniumBlock;
+                        tileProperty = TileProperty.CantPass; 
                         break; 
                     }
             }
+            #endregion
+           sourceRectangle = Animation.SourceRect(tileType) ; 
+            
            // Console.WriteLine("Finalized"); 
+        }
+        public void SetPosition(Vector2 pos)
+        {
+            
+            position = pos;
+           // Console.WriteLine(position);
         }
         public void UpdateIndex(TileType tiType) // This is where Tiles are updated if changed
         {
             durability = 10;
             alive = true;
-
+            Console.WriteLine("Updating Index"); 
             switch (tiType)
             {
                 case TileType.BlankTile:
@@ -586,16 +543,19 @@ namespace Factory_Game
                     }
                 
             }
-
+            sourceRectangle = Animation.SourceRect(tileType); 
             
         }
         public void DamageTile(float amount)
         {
+            Console.WriteLine("Damaging Tiles"); 
             durability -= amount; 
         }
+
+        #region // Updates
         public void Update(GameTime gameTime, Player player)
         {
-            // Console.WriteLine(bounds); 
+             Console.WriteLine(bounds); 
             if (bounds.Intersects(player.rect) && tileProperty == TileProperty.CantPass)
             {
                 Console.WriteLine("collision"); 
@@ -622,8 +582,7 @@ namespace Factory_Game
                     if (bounds.Intersects(player.rect) && tileProperty == TileProperty.CantPass)
                     {
                         player.Collision(bounds);
-                        //  player.j = 1f;
-                        // alive = false; 
+
                         if (player.canBreak)
                         {
                             alive = false;
@@ -765,6 +724,7 @@ namespace Factory_Game
                 {
                     index = 0;
                     tileType = TileType.BlankTile;
+                    sourceRectangle = Animation.SourceRect(tileType); 
                 }
 
                 if (tileType == TileType.QuarryBlock)
@@ -1175,135 +1135,16 @@ namespace Factory_Game
             }
         }
 
-        public void Smelter(TileMap tileMap, GameTime gameTime)
-        {
-            if (!madeSmelter)
-            {
-                inventory = new Inventory();
-                inventory.inventoryType = Inventory.InventoryType.StorageInventory;
-                inventory.LoadContent(contentManager);
+        #endregion 
 
-                outPutInventory = new Inventory();
-                outPutInventory.inventoryType = Inventory.InventoryType.StorageInventory;
-                outPutInventory.LoadContent(contentManager); 
 
-                madeSmelter = true; 
-            }
-
-            if (madeSmelter)
-            {
-                // North
-                Tile checkedTile = tileMap.tile[xPos, yPos - 1];
-                if (checkedTile.tileType == TileType.ItemPipeSouth)
-                {
-                    if (checkedTile.madeItemPipe)
-                    {
-                        if(checkedTile.inventory.inventoryCount > 0)
-                        {
-                            if (checkedTile.inventory.inventory[0].item.canSmelt)
-                            {
-                                Item smeltedItem = SmeltedItem(inventory.inventory[0].item); 
-                                outPutInventory.AddToInventory(smeltedItem, 1);
-                                inventory.RemoveItem(smeltedItem); 
-                            }
-                        }
-                    }
-                }
-                // South
-                checkedTile = tileMap.tile[xPos, yPos + 1];
-                if (checkedTile.tileType == TileType.ItemPipeNorth)
-                {
-                    if (checkedTile.madeItemPipe)
-                    {
-                        if(checkedTile.inventory.inventoryCount > 0)
-                        {
-                            if (checkedTile.inventory.inventory[0].item.canSmelt)
-                            {
-                                
-                            }
-                        }
-                    }
-                }
-                // East
-                checkedTile = tileMap.tile[xPos + 1, yPos];
-                if (checkedTile.tileType == TileType.ItemPipeWest)
-                {
-                    if (checkedTile.madeItemPipe)
-                    {
-                        if(checkedTile.inventory.inventoryCount > 0)
-                        {
-                            if (checkedTile.inventory.inventory[0].item.canSmelt)
-                            {
-
-                            }
-                        }
-                    }
-                }
-                // West
-                checkedTile = tileMap.tile[xPos - 1, yPos];
-                if (checkedTile.tileType == TileType.ItemPipeEast)
-                {
-                    if (checkedTile.madeItemPipe)
-                    {
-                        if (checkedTile.inventory.inventoryCount > 0)
-                        {
-                            if (checkedTile.inventory.inventory[0].item.canSmelt)
-                            {
-                              
-                            }
-                        }
-                    }
-                }
-
-            }
-
-        }
-        
-        public Item SmeltedItem(Item item)
-        {
-            
-            if (item.canSmelt)
-            {
-                
-
-                switch (item.tileType)
-                {
-                    case TileType.Granite1:
-                        {                            
-                            return itemDatabase.items[1];
-                        }
-                    case TileType.Granite2:
-                        {
-                            return itemDatabase.items[2]; 
-                        }
-                    case TileType.Granite3:
-                        {
-                            return itemDatabase.items[3]; 
-                        }
-                    default:
-                        {
-                            return itemDatabase.items[1]; 
-                        }
-                    
-                }
-            }
-            else
-            {
-                Console.WriteLine("Cant Smelt"); 
-                return new Item(); 
-            }
-        }
-        public void SetPosition(Vector2 pos)
-        {
-            position = pos;
-            //Console.WriteLine("Tile: Set tile Position " + position); 
-        }
         public void Draw(SpriteBatch spriteBatch, Player player)
         {
-            
+            draw = true;
+           // sourceRectangle = Animation.SourceRect(TileType.DryTile1);
             if (draw)
             {
-                spriteBatch.Draw(tiles[index], position, Color.White);
+                spriteBatch.Draw(texture, position, sourceRectangle,Color.White);
                 //Console.WriteLine("Drawing!"); 
                //spriteBatch.DrawString(font, (position.X / 32).ToString(), position, Color.White); 
                 if (this.tileType == TileType.QuarryBlock)

@@ -16,7 +16,7 @@ namespace Factory_Game
     {
         public Vector2 position;
         Texture2D objectTexture;
-        Tile.TileType type;
+        public Tile.TileType type;
         Rectangle tileBounds;
         public Rectangle rect;
         public bool alive;

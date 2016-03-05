@@ -1,0 +1,17 @@
+ConstructionBlockItem = 0 0 16 16
+DryTile1Item = 16 0 16 16
+DryTile2Item = 0 16 16 16
+DryTile3Item = 16 16 16 16
+EastTubeItem = 32 0 16 16
+Granite1Item = 32 16 16 16
+Granite2Item = 48 0 16 16
+Granite3Item = 48 16 16 16
+Grass1Item = 0 32 16 16
+Grass2Item = 0 48 16 16
+Grass3Item = 16 32 16 16
+MarkerBlockItem = 32 32 16 16
+NorthTubeItem = 16 48 16 16
+QuarryBlockItem = 32 48 16 16
+SouthTubeItem = 48 32 16 16
+StorageCrateItem = 48 48 16 16
+WestTubeItem = 64 0 16 16

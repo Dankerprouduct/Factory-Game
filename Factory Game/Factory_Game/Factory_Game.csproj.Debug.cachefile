@@ -35,7 +35,6 @@ Content\TileObjects\NorthTubeItem.xnb
 Content\Tiles\EastTube.xnb
 Content\Tiles\NorthTube.xnb
 Content\Tiles\SouthTube.xnb
-Content\Tiles\WestTube.xnb
 Content\Tiles\StorageCrate.xnb
 Content\TileObjects\StorageCrateItem.xnb
 Content\Tiles\CoalBlock.xnb
@@ -56,3 +55,7 @@ Content\Tiles\StorageMR.xnb
 Content\Tiles\StorageMT.xnb
 Content\Tiles\StorageTL.xnb
 Content\Tiles\StorageTR.xnb
+Content\Tiles\Tile_SpriteSheet.xnb
+Content\TileObjects\TileObject_SpriteSheet.xnb
+Content\Tiles\WestTube.xnb
+Content\Tiles\SpriteSheet1.xnb

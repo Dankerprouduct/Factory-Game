@@ -16,7 +16,7 @@ namespace Factory_Game
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        
+        // base stats 40mb
         // 1500
         public int WIDTH = 1280;
         public int HEIGHT;
@@ -25,7 +25,7 @@ namespace Factory_Game
 
         public TileMap tileMap;
         // 4200 1200
-        int[,] mapSize = new int[250, 250];
+        int[,] mapSize = new int[10 *32, 10 *32];
         // 932480
         // 234561 spawns in flat plane
         int seed = 6753008; 
@@ -63,6 +63,8 @@ namespace Factory_Game
         
         protected override void LoadContent()
         {
+            //int[,] madeupData = new int[2048, 2048]; 
+            
             keyboardState = new KeyboardState(); 
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
@@ -73,10 +75,11 @@ namespace Factory_Game
 
             player = new Player(tileMap.playerStart);
             player.LoadContent(Content);
-
+      
             tileObjectManagement = new TileObjectManagement(this);
             quarryManagement = new QuarryManagement(); 
             gui.LoadContnent(Content); 
+            
         }
         
         protected override void UnloadContent()
@@ -86,7 +89,7 @@ namespace Factory_Game
         
         protected override void Update(GameTime gameTime)
         {
-
+            
             keyboardState = Keyboard.GetState();
             if (keyboardState.IsKeyDown(Keys.Escape))
             {
@@ -105,14 +108,14 @@ namespace Factory_Game
             gui.Update(gameTime, player, tileObjectManagement, this); 
             tileMap.Update(gameTime, this);
             quarryManagement.Update(gameTime, this); 
-
+            
             base.Update(gameTime);
         }
         
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.Black);
-
+            GraphicsDevice.Clear(Color.CornflowerBlue);
+            
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend,
                 SamplerState.PointClamp, null, null, null,
                 camera.transform); 
@@ -130,6 +133,7 @@ namespace Factory_Game
             spriteBatch.Begin();
             gui.Draw(spriteBatch); 
             spriteBatch.End();
+            
             base.Draw(gameTime);
         }
     }
