@@ -27,27 +27,38 @@ namespace Factory_Game
         string chunkPos; 
         
         Texture2D backGround;
-        bool showDebug;
+        public bool showDebug;
+        public bool showChunks; 
         KeyboardState keyboardState;
-        KeyboardState oldKeyboardState; 
+        KeyboardState oldKeyboardState;
+
+        Game1 game1; 
         public GUI()
         {
 
         }
 
-        public void LoadContnent(ContentManager content)
+        public void LoadContnent(ContentManager content, GraphicsDevice graphicsDevice)
         {
             backGround = content.Load<Texture2D>("Fonts/DarkGrayBack"); 
-            font = content.Load<SpriteFont>("Fonts/Font1"); 
-            
+            font = content.Load<SpriteFont>("Fonts/Font1");
+
         }
 
         public void Update(GameTime gameTime, Player player, TileObjectManagement tileManagement, Game1 game)
         {
+            game1 = game1; 
             keyboardState = Keyboard.GetState();
             if (keyboardState.IsKeyDown(Keys.L) && oldKeyboardState.IsKeyUp(Keys.L))
             {
                 showDebug = !showDebug; 
+            }
+            if (showDebug)
+            {
+                if (keyboardState.IsKeyDown(Keys.K) && oldKeyboardState.IsKeyUp(Keys.K))
+                {
+                    showChunks = !showChunks;
+                }
             }
             oldKeyboardState = keyboardState;
             if (showDebug)
@@ -57,10 +68,17 @@ namespace Factory_Game
                 canBreak = "Can Break " + player.canBreak.ToString();
                 velocity = "Velocity " + player.velocity.ToString();
                 colliding = "Colliding " + player.colliding.ToString();
-                fps = "fps " + player._fps.ToString();
+                try
+                {
+                    fps = "fps " + Convert.ToInt32(game._fps).ToString();
+                }
+                catch(Exception ex)
+                {
+
+                }
                 tilePos = "Tile Position " + ((player.rect.X / 32) - 2).ToString() + " " + (player.rect.Y / 32).ToString();
                 entitys = "Entitys " + tileManagement.tileObjects.Count;
-                chunkPos = "Chunk X:" + Math.Round(player.position.X / 1032);
+                chunkPos = "Chunk X:" + (int)(player.position.X / 1032) + " Chunk Y:"+ (int)(player.position.Y / 1032);
 
             }
         }
@@ -77,7 +95,10 @@ namespace Factory_Game
                 spriteBatch.DrawString(font, tilePos, new Vector2(10, 70), Color.White);
                 spriteBatch.DrawString(font, entitys, new Vector2(10, 85), Color.White);
                 spriteBatch.DrawString(font, fps, new Vector2(10, 115), Color.White);
-                spriteBatch.DrawString(font, chunkPos, new Vector2(10, 130), Color.White); 
+                spriteBatch.DrawString(font, chunkPos, new Vector2(10, 130), Color.White);
+
+                
+                
             }
         }
 

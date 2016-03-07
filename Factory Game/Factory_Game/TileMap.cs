@@ -25,7 +25,7 @@ namespace Factory_Game
         int mapCount = 0;
         public Vector2 playerStart;
 
-        Chunk[,] chunks; 
+        public Chunk[,] chunks; 
 
         ContentManager contentManager; 
         public static int chunkRange = 2;
@@ -402,25 +402,51 @@ namespace Factory_Game
 
             oldKeyoardState = keyboardState;
 
-
-
-            
-            for (int x = (int)(game.camera.center.X - (int)(game.WIDTH / 2)) / 32; x < (((game.camera.center.X) + (game.WIDTH)) / 32); x++)
+            // Current Chunk
+            if (((int)game.player.position.X / 1024) < chunks.GetLength(0) && ((int)game.player.position.X / 1024) >= 0)
             {
-                for (int y = (int)((game.camera.center.Y) - (int)(game.HEIGHT / 2)) / 32; y < (((game.camera.center.Y) + (game.HEIGHT)) / 32); y++)
+                if (((int)game.player.position.Y / 1024) < chunks.GetLength(1) && ((int)game.player.position.Y / 1024) >= 0)
                 {
-                    int X = Math.Abs(x);
-                    int Y = Math.Abs(y);
-
-                    //tiles[tile[X, Y]].Draw(spriteBatch);
-                    if (X < tile.GetLength(0) && Y < tile.GetLength(1))
-                    {
-                        tile[X, Y].Update(gameTime, game.player, game, this);
-                    }
+                    chunks[((int)game.player.position.X / 1024), ((int)game.player.position.Y / 1024)].Update(gameTime, game.player, game);
                 }
-            }
-            
 
+            }
+            // Left Chunk
+            if (((int)game.player.position.X / 1024) - 1 < chunks.GetLength(0) && ((int)game.player.position.X / 1024) - 1 >= 0)
+            {
+                if (((int)game.player.position.Y / 1024) < chunks.GetLength(1) && ((int)game.player.position.Y / 1024) >= 0)
+                {
+                    chunks[((int)game.player.position.X / 1024) - 1, ((int)game.player.position.Y / 1024)].Update(gameTime, game.player, game);
+                }
+
+            }
+            // Right Chunk
+            if (((int)game.player.position.X / 1024) + 1 < chunks.GetLength(0) && ((int)game.player.position.X / 1024) + 1 > 0)
+            {
+                if (((int)game.player.position.Y / 1024) < chunks.GetLength(1) && ((int)game.player.position.Y / 1024) > 0)
+                {
+                    chunks[((int)game.player.position.X / 1024) + 1, ((int)game.player.position.Y / 1024)].Update(gameTime, game.player, game);
+                }
+
+            }
+            // Down Chunk
+            if (((int)game.player.position.X / 1024) < chunks.GetLength(0) && ((int)game.player.position.X / 1024) >= 0)
+            {
+                if (((int)game.player.position.Y / 1024) + 1 < chunks.GetLength(1) && ((int)game.player.position.Y / 1024) + 1 >= 0)
+                {
+                    chunks[((int)game.player.position.X / 1024), ((int)game.player.position.Y / 1024) + 1].Update(gameTime, game.player, game);
+                }
+
+            }
+            // Up Chunk
+            if (((int)game.player.position.X / 1024) < chunks.GetLength(0) && ((int)game.player.position.X / 1024) >= 0)
+            {
+                if (((int)game.player.position.Y / 1024) - 1 < chunks.GetLength(1) && ((int)game.player.position.Y / 1024) - 1 >= 0)
+                {
+                    chunks[((int)game.player.position.X / 1024), ((int)game.player.position.Y / 1024) - 1].Update(gameTime, game.player, game);
+                }
+
+            }
             gme = game; 
         }
 
@@ -466,8 +492,6 @@ namespace Factory_Game
                         for (int cY = 0; cY < 32; cY++)
                         {
                             tempChunk[cX, cY] = tile[(x * 32) + cX, (y * 32) + cY];
-                            tempChunk[cX, cY].index = tile[(x * 32) + cX, (y * 32) + cY].index;
-                            tempChunk[cX, cY].sourceRectangle = tile[(x * 32) + cX, (y * 32) + cY].sourceRectangle;
                         }
                     }
                     chunks[x, y].SetChunkPosition(x, y);
@@ -478,7 +502,7 @@ namespace Factory_Game
             }
 
             Console.WriteLine("Chunks Finished");
-            tile = null; 
+           // tile = null; 
 
         }
         public void ChangeTile(int x, int y, Tile.TileType type)
@@ -492,51 +516,95 @@ namespace Factory_Game
 
         public void Draw(SpriteBatch spriteBatch, Player player)
         {
-            /*
-            foreach (Tile ti in tiles)
+
+            // Current Chunk
+            if (((int)player.position.X / 1024) < chunks.GetLength(0) && ((int)player.position.X / 1024) >= 0 )
             {
-                ti.Draw(spriteBatch);
-            }
-            */
-            /*
-            for (int x = (int)(gme.camera.center.X - gme.WIDTH / 2) / 32; x < (((gme.camera.center.X) + (gme.WIDTH)) / 32); x++)
-            {
-                for(int y = (int)((gme.camera.center.Y) - (int)(gme.HEIGHT / 2)) / 32; y < (((gme.camera.center.Y) + (gme.HEIGHT)) / 32); y++)
+                if (((int)player.position.Y / 1024) < chunks.GetLength(1) && ((int)player.position.Y / 1024) >= 0)
                 {
-                    int X = Math.Abs(x);
-                    int Y = Math.Abs(y); 
-
-                    //tiles[tile[X, Y]].Draw(spriteBatch);
-                    if(X < tile.GetLength(0) && Y < tile.GetLength(1))
-                    {
-                        tile[X, Y].Draw(spriteBatch, player);
-                    }
-                    
+                    chunks[((int)player.position.X / 1024), ((int)player.position.Y / 1024)].Draw(spriteBatch, player);
+                   // Console.WriteLine(((int)player.position.X / 1024) +" "+ ((int)player.position.Y / 1024));
                 }
+
             }
-            */
 
-
-            for(int x = 0; x < mapAttributes.GetLength(0) / 32; x++)
+            // Left Chunk
+            if (((int)player.position.X / 1024) - 1 < chunks.GetLength(0) && ((int)player.position.X / 1024) - 1 >= 0)
             {
-                for(int y = 0; y < mapAttributes.GetLength(1) / 32; y++)
+                if (((int)player.position.Y / 1024) < chunks.GetLength(1) && ((int)player.position.Y / 1024) >= 0)
                 {
-                    chunks[x, y].Draw(spriteBatch, player);
-                     
+                    chunks[((int)player.position.X / 1024) - 1, ((int)player.position.Y / 1024)].Draw(spriteBatch, player);
+                   // Console.WriteLine( (int)(player.position.X / 1024) - 1+ " "+ ((int)player.position.Y / 1024));
                 }
+
             }
-
-
-            /*
-            for (int i = 0; i < chunks.Count; i++)
+            // Right Chunk
+            if (((int)player.position.X / 1024) +  1< chunks.GetLength(0) && ((int)player.position.X / 1024) + 1 >= 0)
             {
-               // Console.WriteLine(chunks.Count); 
-                if (chunks[i].chunk != null)
+                if (((int)player.position.Y / 1024)< chunks.GetLength(1) && ((int)player.position.Y / 1024) >= 0)
                 {
-                    chunks[i].Draw(spriteBatch, player);
+                    chunks[((int)player.position.X / 1024) + 1, ((int)player.position.Y / 1024)].Draw(spriteBatch, player);
+                    //Console.WriteLine(((int)player.position.X / 1024) + 1 +" "+ ((int)player.position.Y / 1024));
                 }
+
             }
-            */
+            // Down Chunk
+            if (((int)player.position.X / 1024)  < chunks.GetLength(0) && ((int)player.position.X / 1024) >= 0)
+            {
+                if (((int)player.position.Y / 1024) + 1 < chunks.GetLength(1) && ((int)player.position.Y / 1024) + 1 >= 0)
+                {
+                    chunks[((int)player.position.X / 1024), ((int)player.position.Y / 1024) + 1].Draw(spriteBatch, player);
+                    //Console.WriteLine(((int)player.position.X / 1024)  + " " + ((int)player.position.Y / 1024) + 1);
+                }
+
+            }
+            // Up Chunk
+            if (((int)player.position.X / 1024) < chunks.GetLength(0) && ((int)player.position.X / 1024) >= 0)
+            {
+                if (((int)player.position.Y / 1024) - 1 < chunks.GetLength(1) && ((int)player.position.Y / 1024) - 1 >= 0)
+                {
+                    chunks[((int)player.position.X / 1024), ((int)player.position.Y / 1024) - 1].Draw(spriteBatch, player);
+
+                }
+
+            }
+
+            // Right Down Chunk
+            if (((int)player.position.X / 1024) + 1 < chunks.GetLength(0) && ((int)player.position.X / 1024) + 1 >= 0)
+            {
+                if (((int)player.position.Y / 1024) + 1 < chunks.GetLength(1) && ((int)player.position.Y / 1024) + 1 >= 0)
+                {
+                    chunks[((int)player.position.X / 1024) + 1, ((int)player.position.Y / 1024) + 1].Draw(spriteBatch, player);
+                }
+
+            }
+            // Left Up Chunk
+            if (((int)player.position.X / 1024) - 1 < chunks.GetLength(0) && ((int)player.position.X / 1024) - 1 >= 0)
+            {
+                if (((int)player.position.Y / 1024) - 1 < chunks.GetLength(1) && ((int)player.position.Y / 1024) - 1 >= 0)
+                {
+                    chunks[((int)player.position.X / 1024) - 1, ((int)player.position.Y / 1024) - 1].Draw(spriteBatch, player);
+                }
+
+            }
+            // Right Up Chunk
+            if (((int)player.position.X / 1024) + 1 < chunks.GetLength(0) && ((int)player.position.X / 1024) + 1 >= 0)
+            {
+                if (((int)player.position.Y / 1024) - 1 < chunks.GetLength(1) && ((int)player.position.Y / 1024) - 1 >= 0)
+                {
+                    chunks[((int)player.position.X / 1024) + 1, ((int)player.position.Y / 1024) - 1].Draw(spriteBatch, player);
+                }
+
+            }
+            // Left Down Chunk
+            if (((int)player.position.X / 1024) - 1 < chunks.GetLength(0) && ((int)player.position.X / 1024) - 1 >= 0)
+            {
+                if (((int)player.position.Y / 1024) + 1 < chunks.GetLength(1) && ((int)player.position.Y / 1024) + 1 >= 0)
+                {
+                    chunks[((int)player.position.X / 1024) - 1, ((int)player.position.Y / 1024) + 1].Draw(spriteBatch, player);
+                }
+
+            }
 
         }
     }

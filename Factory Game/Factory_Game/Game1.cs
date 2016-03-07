@@ -25,10 +25,10 @@ namespace Factory_Game
 
         public TileMap tileMap;
         // 4200 1200
-        int[,] mapSize = new int[10 *32, 10 *32];
+        int[,] mapSize;
         // 932480
         // 234561 spawns in flat plane
-        int seed = 6753008; 
+        int seed = 325424; 
 
         public Camera camera;
 
@@ -40,9 +40,12 @@ namespace Factory_Game
         public TileObjectManagement tileObjectManagement;
 
         public float _fps = 0;
-
+        int chunkWidth = 50;
+        int chunkHeight = 50; 
+        Texture2D rectangleTexture;
         public Game1()
         {
+            
             HEIGHT = (WIDTH / 16) * 9;
             graphics = new GraphicsDeviceManager(this);
             graphics.PreferredBackBufferHeight = HEIGHT;
@@ -56,15 +59,13 @@ namespace Factory_Game
 
         protected override void Initialize()
         {
-
+            mapSize = new int[chunkWidth * 32, chunkHeight * 32]; 
             camera = new Camera(GraphicsDevice.Viewport); 
             base.Initialize();
         }
         
         protected override void LoadContent()
         {
-            //int[,] madeupData = new int[2048, 2048]; 
-            
             keyboardState = new KeyboardState(); 
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
@@ -78,8 +79,11 @@ namespace Factory_Game
       
             tileObjectManagement = new TileObjectManagement(this);
             quarryManagement = new QuarryManagement(); 
-            gui.LoadContnent(Content); 
-            
+            gui.LoadContnent(Content, GraphicsDevice);
+
+            rectangleTexture = new Texture2D(GraphicsDevice, 1, 1);
+            rectangleTexture.SetData(new[] { Color.White });
+
         }
         
         protected override void UnloadContent()
@@ -89,15 +93,12 @@ namespace Factory_Game
         
         protected override void Update(GameTime gameTime)
         {
-            
+
             keyboardState = Keyboard.GetState();
             if (keyboardState.IsKeyDown(Keys.Escape))
             {
                 this.Exit();
             }
-
-            // Update
-            _fps = (int)Math.Ceiling((1 / (float)gameTime.ElapsedGameTime.TotalSeconds));
 
             camera.Update(gameTime, this); 
             player.Update(gameTime, this);
@@ -107,13 +108,16 @@ namespace Factory_Game
             }
             gui.Update(gameTime, player, tileObjectManagement, this); 
             tileMap.Update(gameTime, this);
-            quarryManagement.Update(gameTime, this); 
-            
+            quarryManagement.Update(gameTime, this);
+
+
+
             base.Update(gameTime);
         }
         
         protected override void Draw(GameTime gameTime)
         {
+            _fps = 1 / (float)gameTime.ElapsedGameTime.TotalSeconds;
             GraphicsDevice.Clear(Color.CornflowerBlue);
             
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend,
@@ -121,17 +125,42 @@ namespace Factory_Game
                 camera.transform); 
 
             
-
+            
             quarryManagement.Draw(spriteBatch, this); 
             tileObjectManagement.Draw(spriteBatch);
             tileMap.Draw(spriteBatch, player);
             
-            player.Draw(spriteBatch);
             
+
+
+            Rectangle r;
+            Rectangle rx;
+            if (gui.showChunks)
+            {
+
+                for (int x = (int)(player.position.X / 1024) - 1; x < (int)(player.position.X / 1024) + 2; x++)
+                {
+                    for (int y = (int)(player.position.Y / 1024) - 1; y < (int)(player.position.Y / 1024) + 2; y++)
+                    {
+
+                        r = new Rectangle(x * 1024, y * 1024, 1024, 1024);
+                        int bw = 1; // Border width
+                        spriteBatch.Draw(rectangleTexture, new Rectangle(r.Left, r.Top, bw, r.Height), Color.Red); // Left
+                        spriteBatch.Draw(rectangleTexture, new Rectangle(r.Right, r.Top, bw, r.Height), Color.Red); // Right
+                        spriteBatch.Draw(rectangleTexture, new Rectangle(r.Left, r.Top, r.Width, bw), Color.Red); // Top
+                        spriteBatch.Draw(rectangleTexture, new Rectangle(r.Left, r.Bottom, r.Width, bw), Color.Red);
+                    }
+                }
+            }
+
+            player.Draw(spriteBatch);
+
             spriteBatch.End();
 
             spriteBatch.Begin();
+
             gui.Draw(spriteBatch); 
+
             spriteBatch.End();
             
             base.Draw(gameTime);

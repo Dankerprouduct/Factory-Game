@@ -12,7 +12,8 @@ namespace Factory_Game
     {
         int chunkX;
         int chunkY; 
-        Tile[,] tiles;
+        public Tile[,] tiles;
+        
         public Chunk()
         {
             
@@ -33,12 +34,23 @@ namespace Factory_Game
                 for(int y = 0; y < 32; y++)
                 {
                     tiles[x, y] = chunk[x, y];
-                    
+                    tiles[x, y].localxPos = x;
+                    tiles[x, y].localyPos = y; 
                 }
             }
 
             Console.WriteLine("Built Chunk" + chunkX + " " + chunkY); 
 
+        }
+        public void Update(GameTime gameTime, Player player, Game1 game)
+        {
+            for(int x = 0; x < tiles.GetLength(0); x++)
+            {
+                for(int y = 0; y < tiles.GetLength(0); y++)
+                {
+                    tiles[x, y].Update(gameTime, player, game, this);
+                }
+            }
         }
         public void Draw(SpriteBatch spriteBatch, Player player)
         {

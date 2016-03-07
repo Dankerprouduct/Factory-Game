@@ -34,14 +34,15 @@ namespace Factory_Game
         public Inventory inventory;
         public ItemDatabase itemDatabase;
         public float _fps = 0;
-        public Tile tempTile; 
-        
+        public Tile tempTile;
+        Vector2 startPos;
         public Player(Vector2 startPosition)
         {
             inventory = new Inventory();
             inventory.inventoryType = Inventory.InventoryType.PlayerInventory; 
             
             position = startPosition;
+            startPos = startPosition; 
             // regular = 3 
             speed = 3; 
             
@@ -77,6 +78,13 @@ namespace Factory_Game
                  inventory.AddToInventory(itemDatabase.items[11], 200);
                  inventory.AddToInventory(itemDatabase.items[6], 200);
             }
+            if (keyboardState.IsKeyDown(Keys.O) && oldKeboardState.IsKeyUp(Keys.O))
+            {
+                velocity = Vector2.Zero; 
+                position = startPos;
+
+            }
+
             inventory.Update(gameTime, game);
             MouseMovement(game.camera, game.tileMap);
             oldKeboardState = keyboardState; 
@@ -87,6 +95,10 @@ namespace Factory_Game
             Vector2 oldVelocity; 
             rect = new Rectangle((int)position.X, (int)position.Y, texture.Width, texture.Height);
             position += new Vector2((int)velocity.X, (int)velocity.Y);
+            if(velocity.Y >= 30)
+            {
+                velocity.Y = 30; 
+            }
             if (keyboardState.IsKeyDown(Keys.D))
             {
                 velocity.X = speed;

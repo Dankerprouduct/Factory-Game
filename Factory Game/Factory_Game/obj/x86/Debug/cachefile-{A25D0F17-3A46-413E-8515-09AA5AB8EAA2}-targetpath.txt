@@ -59,3 +59,4 @@ Content\Tiles\Tile_SpriteSheet.xnb
 Content\TileObjects\TileObject_SpriteSheet.xnb
 Content\Tiles\WestTube.xnb
 Content\Tiles\SpriteSheet1.xnb
+Content\RectangleTexture.xnb

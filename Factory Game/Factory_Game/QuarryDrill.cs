@@ -48,13 +48,10 @@ namespace Factory_Game
                 for(int y = 0; y < height; y++)
                 {
                     quarryPositions[x, y] = new Vector2((xPos + x) * 32, (yPos + y - hight) * 32);
-                   // Console.WriteLine(quarryPositions[x, y]); 
+
                 }
             }
 
-            //start x = xpos * 32 
-            // x = xpos + i * 32
-            
             position = quarryPositions[0, 0]; 
         }
         public void LoadContent(ContentManager content)

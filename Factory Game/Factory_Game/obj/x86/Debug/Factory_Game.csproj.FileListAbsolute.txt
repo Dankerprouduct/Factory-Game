@@ -207,3 +207,4 @@ C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\F
 C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\TileObject_SpriteSheet.xnb
 C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\WestTube.xnb
 C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\SpriteSheet1.xnb
+C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\Content\RectangleTexture.xnb

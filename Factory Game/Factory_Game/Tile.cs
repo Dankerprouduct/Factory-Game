@@ -90,8 +90,10 @@ namespace Factory_Game
         public Inventory outPutInventory;
        // ItemDatabase itemDatabase;
 
-        int xPos;
-        int yPos;
+        public int xPos;
+        public int yPos;
+        public int localxPos;
+        public int localyPos; 
         bool inInventory = false; 
         public Tile()
         {
@@ -99,7 +101,9 @@ namespace Factory_Game
             storageTier = new StorageTier(); 
             tileProperty = new TileProperty(); 
             tileType = new TileType(); 
-            durability = 10;         }
+            durability = 10;
+            SetLightLevel(1);
+        }
 
         public void LoadContent(ContentManager content)
         {
@@ -546,9 +550,12 @@ namespace Factory_Game
             sourceRectangle = Animation.SourceRect(tileType); 
             
         }
+        // 51
+        Color lightColor;
+        float lightLevel; 
         public void DamageTile(float amount)
         {
-            Console.WriteLine("Damaging Tiles"); 
+           // Console.WriteLine("Damaging Tiles"); 
             durability -= amount; 
         }
 
@@ -572,8 +579,17 @@ namespace Factory_Game
                 }
             }
         }
-        public void Update(GameTime gameTime, Player player, Game1 game, TileMap tileMap)
+        public void Update(GameTime gameTime, Player player, Game1 game, Chunk tileMap)
         {
+            if (tileMap.tiles[localxPos, localyPos].index == 0)
+            {
+                SetLightLevel(1);               
+            }
+            else if (localyPos + 1 < 32 && localyPos + 1 > 0)
+            {
+
+               // tileMap.tiles[localxPos, localyPos + 1].SetLightLevel(lightLevel - .2f);
+            }
 
             if (alive)
             {
@@ -671,6 +687,8 @@ namespace Factory_Game
                             }
                         }
                     }
+
+                    
                     if (alive)
                     {
                         if (durability <= 0)
@@ -678,9 +696,12 @@ namespace Factory_Game
 
                             // worldPosition = Vector2.Transform(position, Matrix.Invert(game.camera.rawTransform)); 
                             game.tileObjectManagement.AddTileObject(new Vector2(position.X + (bounds.Width / 4), position.Y + (bounds.Height / 4)), tileType);
+                            SetLightLevel(1); 
                             alive = false;
-                        }
 
+                            
+                        }
+                        /*
                         if (madeStorage)
                         {
                             inventory.Update(gameTime, game);
@@ -714,9 +735,10 @@ namespace Factory_Game
                         }
                         if (this.tileType == TileType.StorageCrate)
                         {
-                            ItemStorage(tileMap, gameTime);
+                             
+                             ItemStorage(tileMap, gameTime);
                         }
-
+                        */
 
                     }
                 }
@@ -735,15 +757,17 @@ namespace Factory_Game
                         {
                             lastTime = gameTime.TotalGameTime;
                         }
-                        quarryDrill.Update(gameTime, game);
+                        // comented
+                      //  quarryDrill.Update(gameTime, game);
                     }
                 }
 
             }
         }
 
+        
 
-        public void Quarry(TileMap tileMap, GameTime gameTime, Game1 game)
+        public void Quarry(Chunk tileMap, GameTime gameTime, Game1 game)
         {
             if (!madeQuarry)
             {
@@ -758,12 +782,12 @@ namespace Factory_Game
                 inventory.inventoryType = Inventory.InventoryType.StorageInventory;
                 #region 
 
-                if (tileMap.tile[xPos + 1, yPos].tileType == TileType.MarkerBlock)
+                if (tileMap.tiles[xPos + 1, yPos].tileType == TileType.MarkerBlock)
                 {
 
                     for (int i = 2; i < searchRadius; i++)
                     {
-                        if (tileMap.tile[xPos + i, yPos].tileType == TileType.MarkerBlock)
+                        if (tileMap.tiles[xPos + i, yPos].tileType == TileType.MarkerBlock)
                         {
                             offSet = i;
                             i = searchRadius;
@@ -771,23 +795,25 @@ namespace Factory_Game
                         }
 
                     }
-                    tileMap.tile[xPos + 1, yPos].UpdateIndex(TileType.ConstructionBlock);
-                    tileMap.tile[xPos + offSet, yPos].UpdateIndex(TileType.ConstructionBlock);
+                    tileMap.tiles[xPos + 1, yPos].UpdateIndex(TileType.ConstructionBlock);
+                    tileMap.tiles[xPos + offSet, yPos].UpdateIndex(TileType.ConstructionBlock);
 
                     for (int y = 1; y < height; y++)
                     {
-                        tileMap.tile[xPos + 1, yPos - y].UpdateIndex(TileType.ConstructionBlock);
-                        tileMap.tile[xPos + offSet, yPos - y].UpdateIndex(TileType.ConstructionBlock);
+                        tileMap.tiles[xPos + 1, yPos - y].UpdateIndex(TileType.ConstructionBlock);
+                        tileMap.tiles[xPos + offSet, yPos - y].UpdateIndex(TileType.ConstructionBlock);
                     }
                      
                     for (int x = 0; x < offSet; x++)
                     {
-                        tileMap.tile[xPos + x + 1, yPos - height].UpdateIndex(TileType.ConstructionBlock);
+                        tileMap.tiles[xPos + x + 1, yPos - height].UpdateIndex(TileType.ConstructionBlock);
                     }
-                    quarryDrill = new QuarryDrill(xPos + 2, yPos + 1, xPos + offSet - 1, yPos - 1,height, tileMap, this);
 
-                    quarryDrill.LoadContent(contentManager);
-                    game.quarryManagement.drills.Add(quarryDrill);
+                    // comented 
+                    //quarryDrill = new QuarryDrill(xPos + 2, yPos + 1, xPos + offSet - 1, yPos - 1,height, tileMap, this);
+
+                    //quarryDrill.LoadContent(contentManager);
+                    //game.quarryManagement.drills.Add(quarryDrill);
                    // game.quarryManagement.threads.Add(new Thread(new ThreadStart())); 
                     madeQuarry = true;
                 }
@@ -799,7 +825,7 @@ namespace Factory_Game
         }
 
 
-        public void ItemPipe(TileMap tileMap, GameTime gameTime)
+        public void ItemPipe(Chunk tileMap, GameTime gameTime)
         {
 
             if (!madeItemPipe)
@@ -815,7 +841,7 @@ namespace Factory_Game
                 case TileType.ItemPipeNorth:
                     {
                         // checks south tile
-                        Tile checkedTile = tileMap.tile[xPos, yPos + 1]; 
+                        Tile checkedTile = tileMap.tiles[xPos, yPos + 1]; 
                         if (checkedTile.tileType == TileType.QuarryBlock)
                         {
                             if (checkedTile.madeQuarry)
@@ -875,7 +901,7 @@ namespace Factory_Game
                     }
                 case TileType.ItemPipeEast:
                     {
-                        Tile checkedTile = tileMap.tile[xPos - 1, yPos]; 
+                        Tile checkedTile = tileMap.tiles[xPos - 1, yPos]; 
                         if(checkedTile.tileType == TileType.QuarryBlock)
                         {
                             if (checkedTile.madeQuarry)
@@ -931,7 +957,7 @@ namespace Factory_Game
                     }
                 case TileType.ItemPipeSouth:
                     {
-                        Tile checkedTile = tileMap.tile[xPos, yPos - 1]; 
+                        Tile checkedTile = tileMap.tiles[xPos, yPos - 1]; 
                     
                         if(checkedTile.tileType == TileType.QuarryBlock)
                         {
@@ -989,7 +1015,7 @@ namespace Factory_Game
                     }
                 case TileType.ItemPipeWest:
                     {
-                        Tile checkedTile = tileMap.tile[xPos + 1, yPos];
+                        Tile checkedTile = tileMap.tiles[xPos + 1, yPos];
 
                         if (checkedTile.tileType == TileType.QuarryBlock)
                         {
@@ -1047,7 +1073,7 @@ namespace Factory_Game
             }
         }
         
-        public void ItemStorage(TileMap tileMap, GameTime gameTime)
+        public void ItemStorage(Chunk tileMap, GameTime gameTime)
         {
             if (!madeStorage)
             {
@@ -1061,7 +1087,7 @@ namespace Factory_Game
 
             Tile checkedTile;
             // North
-            checkedTile = tileMap.tile[xPos, yPos - 1];
+            checkedTile = tileMap.tiles[xPos, yPos - 1];
             if (checkedTile.madeItemPipe)
             {
                 if (checkedTile.tileType == TileType.ItemPipeSouth)
@@ -1079,7 +1105,7 @@ namespace Factory_Game
                 }
             }
             // South
-            checkedTile = tileMap.tile[xPos, yPos + 1];
+            checkedTile = tileMap.tiles[xPos, yPos + 1];
             if (checkedTile.madeItemPipe)
             {
                 if (checkedTile.tileType == TileType.ItemPipeNorth)
@@ -1096,7 +1122,7 @@ namespace Factory_Game
                 }
             }
             // East
-            checkedTile = tileMap.tile[xPos + 1, yPos];
+            checkedTile = tileMap.tiles[xPos + 1, yPos];
             if (checkedTile.madeItemPipe)
             {
                 if (checkedTile.tileType == TileType.ItemPipeWest)
@@ -1113,7 +1139,7 @@ namespace Factory_Game
                 }
             }
             // West
-            checkedTile = tileMap.tile[xPos - 1, yPos];
+            checkedTile = tileMap.tiles[xPos - 1, yPos];
             if (checkedTile.madeItemPipe)
             {
                 if (checkedTile.tileType == TileType.ItemPipeEast)
@@ -1137,14 +1163,33 @@ namespace Factory_Game
 
         #endregion 
 
+        /// <summary>
+        /// Range from 0 - 5 
+        /// 5 being the whitest
+        /// 0 being the blackest
+        /// </summary>
+        /// <param name="level"></param>
+        public void SetLightLevel(float level)
+        {
+            if (level >= 0)
+            {
+                lightLevel = level;
+            }
+            else
+            {
+                lightLevel = 0; 
+            }
 
+            //Console.WriteLine(lightLevel);
+            lightColor = new Color(51 * lightLevel, 51 * lightLevel, 51 * lightLevel); 
+        }
         public void Draw(SpriteBatch spriteBatch, Player player)
         {
-            draw = true;
+           // draw = true;
            // sourceRectangle = Animation.SourceRect(TileType.DryTile1);
             if (draw)
             {
-                spriteBatch.Draw(texture, position, sourceRectangle,Color.White);
+                spriteBatch.Draw(texture, position, sourceRectangle, Color.White * lightLevel);
                 //Console.WriteLine("Drawing!"); 
                //spriteBatch.DrawString(font, (position.X / 32).ToString(), position, Color.White); 
                 if (this.tileType == TileType.QuarryBlock)

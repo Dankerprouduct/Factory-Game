@@ -32,7 +32,8 @@ namespace Factory_Game
                 if (qDrill.tile.tileType == Tile.TileType.QuarryBlock)
                 {
                     
-                    qDrill.tile.Update(gameTime, gme.player, gme, gme.tileMap);
+                    // comented 
+                   // qDrill.tile.Update(gameTime, gme.player, gme, gme.tileMap);
 
                     #region // Loading All Tiles around drill
                     for (int x = (int)(qDrill.position.X - (int)(qDrill.chunkRadius)) / 32; x < (((qDrill.position.X) + (qDrill.chunkRadius)) / 32); x++)
@@ -45,7 +46,8 @@ namespace Factory_Game
                             //tiles[tile[X, Y]].Draw(spriteBatch);
                             if (qDrill.X < qDrill.game2.tileMap.tile.GetLength(0) && qDrill.Y < qDrill.game2.tileMap.tile.GetLength(1))
                             {
-                                qDrill.game2.tileMap.tile[qDrill.X, qDrill.Y].Update(gameTime, qDrill.game2.player, qDrill.game2, qDrill.game2.tileMap);
+                                // commented 
+                              //  qDrill.game2.tileMap.tile[qDrill.X, qDrill.Y].Update(gameTime, qDrill.game2.player, qDrill.game2, qDrill.game2.tileMap);
                             }
                         }
                     }
