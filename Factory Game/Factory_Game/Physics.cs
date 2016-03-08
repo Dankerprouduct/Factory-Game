@@ -12,18 +12,17 @@ namespace Factory_Game
     {
 
         public Vector2 objPosition;
-
+        public Vector2 oldPosition; 
         private static float gravity = 5.5f;
+        public Vector2 acceleration;
+        public bool colliding; 
         public Physics()
         {
-
+            OldVelocity = Vector2.Zero; 
         }
 
-        public Vector2 Velocity
-        {
-            get;
-            set;
-        }
+        public Vector2 Velocity;
+
         public Vector2 OldVelocity
         {
             get;
@@ -45,11 +44,48 @@ namespace Factory_Game
             get;
             set;
         }
-
+        float terminalVelocity = 20f; 
         public Vector2 position(Vector2 pos)
         {
-            return pos + Velocity;
+            Vector2 objectPosition = pos;
+            objectPosition = pos;
+
+            objectPosition.X += Velocity.X;
+            // velocity
+            objectPosition.Y += gravity; 
+            if(Velocity.Y >= terminalVelocity)
+            {
+                Velocity.Y = terminalVelocity;
+            }
+            else if(Velocity.Y <= -terminalVelocity)
+            {
+                Velocity.Y = -terminalVelocity;
+            }
+            
+
+            return objectPosition + Velocity;
         }
+        public void Collision(float weight)
+        {
+            // y dir 
+            float force = weight * acceleration.Y;
+
+            if (colliding)
+            {
+                if (Velocity.Y <= 0)
+                {
+                    Velocity.Y += 1;
+                    gravity = 0; 
+                }
+                if(0 < Velocity.Y)
+                {
+                    gravity = 5.5f;
+                }
+            }
+
+          //  Velocity.Y = - gravity;  
+        }
+
 
         public Vector2 Acceleration(Vector2 currVelocity, Vector2 lastVelocity)    
         {
@@ -69,16 +105,9 @@ namespace Factory_Game
         {
             return friction * Newtons; 
         }
-        /// f = ma
-        /// force > forceoffriction then that object can move 
-        /// 
-        /// 
-        /// 
+        
         public Vector2 Force()
         {
-            //    float xForce = acceleration.X * gravity;
-            //    float yForce = acceleration.Y * gravity;
-
             
 
             return Vector2.Zero; 
@@ -88,6 +117,8 @@ namespace Factory_Game
         {
             objPosition = position(objPosition);
 
+            acceleration = Acceleration(Velocity, OldVelocity);
+            
             OldVelocity = Velocity; 
         }
 

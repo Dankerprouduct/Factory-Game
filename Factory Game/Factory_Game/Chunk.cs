@@ -39,7 +39,7 @@ namespace Factory_Game
                 }
             }
 
-            Console.WriteLine("Built Chunk" + chunkX + " " + chunkY); 
+         //   Console.WriteLine("Built Chunk" + chunkX + " " + chunkY); 
 
         }
         public void Update(GameTime gameTime, Player player, Game1 game)

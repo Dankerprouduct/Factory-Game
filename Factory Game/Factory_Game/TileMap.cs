@@ -402,30 +402,36 @@ namespace Factory_Game
 
             oldKeyoardState = keyboardState;
 
-            // Current Chunk
+            int xStart;
+            int yStart;
+            /// Current Chunk
             if (((int)game.player.position.X / 1024) < chunks.GetLength(0) && ((int)game.player.position.X / 1024) >= 0)
             {
                 if (((int)game.player.position.Y / 1024) < chunks.GetLength(1) && ((int)game.player.position.Y / 1024) >= 0)
                 {
                     chunks[((int)game.player.position.X / 1024), ((int)game.player.position.Y / 1024)].Update(gameTime, game.player, game);
+                    // Console.WriteLine(((int)player.position.X / 1024) +" "+ ((int)player.position.Y / 1024));
                 }
 
             }
+
             // Left Chunk
             if (((int)game.player.position.X / 1024) - 1 < chunks.GetLength(0) && ((int)game.player.position.X / 1024) - 1 >= 0)
             {
                 if (((int)game.player.position.Y / 1024) < chunks.GetLength(1) && ((int)game.player.position.Y / 1024) >= 0)
                 {
                     chunks[((int)game.player.position.X / 1024) - 1, ((int)game.player.position.Y / 1024)].Update(gameTime, game.player, game);
+                    // Console.WriteLine( (int)(player.position.X / 1024) - 1+ " "+ ((int)player.position.Y / 1024));
                 }
 
             }
             // Right Chunk
-            if (((int)game.player.position.X / 1024) + 1 < chunks.GetLength(0) && ((int)game.player.position.X / 1024) + 1 > 0)
+            if (((int)game.player.position.X / 1024) + 1 < chunks.GetLength(0) && ((int)game.player.position.X / 1024) + 1 >= 0)
             {
-                if (((int)game.player.position.Y / 1024) < chunks.GetLength(1) && ((int)game.player.position.Y / 1024) > 0)
+                if (((int)game.player.position.Y / 1024) < chunks.GetLength(1) && ((int)game.player.position.Y / 1024) >= 0)
                 {
-                    chunks[((int)game.player.position.X / 1024) + 1, ((int)game.player.position.Y / 1024)].Update(gameTime, game.player, game);
+                    chunks[((int)game.player.position.X / 1024) + 1, ((int)game.player.position.Y / 1024)].Update(gameTime,game.player, game);
+                    //Console.WriteLine(((int)player.position.X / 1024) + 1 +" "+ ((int)player.position.Y / 1024));
                 }
 
             }
@@ -435,6 +441,7 @@ namespace Factory_Game
                 if (((int)game.player.position.Y / 1024) + 1 < chunks.GetLength(1) && ((int)game.player.position.Y / 1024) + 1 >= 0)
                 {
                     chunks[((int)game.player.position.X / 1024), ((int)game.player.position.Y / 1024) + 1].Update(gameTime, game.player, game);
+                    //Console.WriteLine(((int)player.position.X / 1024)  + " " + ((int)player.position.Y / 1024) + 1
                 }
 
             }
@@ -444,6 +451,44 @@ namespace Factory_Game
                 if (((int)game.player.position.Y / 1024) - 1 < chunks.GetLength(1) && ((int)game.player.position.Y / 1024) - 1 >= 0)
                 {
                     chunks[((int)game.player.position.X / 1024), ((int)game.player.position.Y / 1024) - 1].Update(gameTime, game.player, game);
+
+                }
+
+            }
+
+            // Right Down Chunk
+            if (((int)game.player.position.X / 1024) + 1 < chunks.GetLength(0) && ((int)game.player.position.X / 1024) + 1 >= 0)
+            {
+                if (((int)game.player.position.Y / 1024) + 1 < chunks.GetLength(1) && ((int)game.player.position.Y / 1024) + 1 >= 0)
+                {
+                    chunks[((int)game.player.position.X / 1024) + 1, ((int)game.player.position.Y / 1024) + 1].Update(gameTime, game.player, game);
+                }
+
+            }
+            // Left Up Chunk
+            if (((int)game.player.position.X / 1024) - 1 < chunks.GetLength(0) && ((int)game.player.position.X / 1024) - 1 >= 0)
+            {
+                if (((int)game.player.position.Y / 1024) - 1 < chunks.GetLength(1) && ((int)game.player.position.Y / 1024) - 1 >= 0)
+                {
+                    chunks[((int)game.player.position.X / 1024) - 1, ((int)game.player.position.Y / 1024) - 1].Update(gameTime, game.player, game);
+                }
+
+            }
+            // Right Up Chunk
+            if (((int)game.player.position.X / 1024) + 1 < chunks.GetLength(0) && ((int)game.player.position.X / 1024) + 1 >= 0)
+            {
+                if (((int)game.player.position.Y / 1024) - 1 < chunks.GetLength(1) && ((int)game.player.position.Y / 1024) - 1 >= 0)
+                {
+                    chunks[((int)game.player.position.X / 1024) + 1, ((int)game.player.position.Y / 1024) - 1].Update(gameTime, game.player, game);
+                }
+
+            }
+            // Left Down Chunk
+            if (((int)game.player.position.X / 1024) - 1 < chunks.GetLength(0) && ((int)game.player.position.X / 1024) - 1 >= 0)
+            {
+                if (((int)game.player.position.Y / 1024) + 1 < chunks.GetLength(1) && ((int)game.player.position.Y / 1024) + 1 >= 0)
+                {
+                    chunks[((int)game.player.position.X / 1024) - 1, ((int)game.player.position.Y / 1024) + 1].Update(gameTime, game.player, game);
                 }
 
             }
@@ -502,12 +547,16 @@ namespace Factory_Game
             }
 
             Console.WriteLine("Chunks Finished");
-           // tile = null; 
+            tile = null; 
 
         }
         public void ChangeTile(int x, int y, Tile.TileType type)
         {
             tile[x, y].UpdateIndex(type);
+        }
+        public void ChangeTile(int chunkX, int chunkY, int x, int y, Tile.TileType type)
+        {
+            chunks[chunkX, chunkY].tiles[x, y].UpdateIndex(type); 
         }
         public void DamageTile(int x, int y, float ammount)
         {

@@ -36,6 +36,7 @@ namespace Factory_Game
         public float _fps = 0;
         public Tile tempTile;
         Vector2 startPos;
+
         public Player(Vector2 startPosition)
         {
             inventory = new Inventory();
@@ -44,7 +45,8 @@ namespace Factory_Game
             position = startPosition;
             startPos = startPosition; 
             // regular = 3 
-            speed = 3; 
+            speed = 3;
+
             
         }
         public void LoadContent(ContentManager content)
@@ -64,9 +66,10 @@ namespace Factory_Game
         }
         public void Update(GameTime gameTime, Game1 game)
         {
+
             keyboardState = Keyboard.GetState();
             Movement();
-            _fps = (int)Math.Ceiling((1 / (float)gameTime.ElapsedGameTime.TotalSeconds));
+
             if (keyboardState.IsKeyDown(Keys.B) && oldKeboardState.IsKeyUp(Keys.B))
             {
                 canBreak = !canBreak;
@@ -95,25 +98,29 @@ namespace Factory_Game
             Vector2 oldVelocity; 
             rect = new Rectangle((int)position.X, (int)position.Y, texture.Width, texture.Height);
             position += new Vector2((int)velocity.X, (int)velocity.Y);
-            if(velocity.Y >= 30)
+
+
+            if(velocity.Y >= 20)
             {
-                velocity.Y = 30; 
+                velocity.Y = 20; 
             }
             if (keyboardState.IsKeyDown(Keys.D))
             {
                 velocity.X = speed;
+
             }
-            else if(keyboardState.IsKeyDown(Keys.A))
+            else if (keyboardState.IsKeyDown(Keys.A))
             {
                 velocity.X = -speed;
+
             }
             else
             {
-                velocity.X = 0; 
+                velocity.X = 0;
             }
-
             if (keyboardState.IsKeyDown(Keys.Space) && !jumping)
             {
+                
               //  position = new Vector2(0, 0); 
                 position.Y -= 10;
                 // regular 5
@@ -156,10 +163,12 @@ namespace Factory_Game
 
             if (rect.Intersects(tileBounds))
             {
-                jumping = false; 
+                jumping = false;
+                
             }
             else
             {
+                
                 jumping = true; 
             }
             oldVelocity = velocity; 
@@ -181,10 +190,14 @@ namespace Factory_Game
 
                 //  Console.WriteLine(worldPosition.X);
                 //   Console.WriteLine(worldPosition.Y); 
-                xCord = Convert.ToInt32(worldPosition.X) / 32;
-                yCord = Convert.ToInt32(worldPosition.Y) / 32;
 
-                if (xCord < tileMap.tile.GetLength(0) && xCord >= 0 && yCord < tileMap.tile.GetLength(1) && yCord >= 0)
+                // gets the Chunk Cord
+                xCord = Convert.ToInt32(worldPosition.X) / 1024;
+                yCord = Convert.ToInt32(worldPosition.Y) / 1024;
+
+
+
+                if (xCord < tileMap.chunks.GetLength(0) && xCord >= 0 && yCord < tileMap.chunks.GetLength(1) && yCord >= 0)
                 {
                     if (mouseState.RightButton == ButtonState.Pressed)
                     {
@@ -192,9 +205,10 @@ namespace Factory_Game
                         if(inventory.inventory[inventory.selectedItem].count > 0)
                         {
                             // only place if on blank tile 
-                            if (tileMap.tile[xCord, yCord].index == 0)
+                            if (tileMap.chunks[xCord, yCord].tiles[(int)(mousePosition.X / 32), (int)(mousePosition.Y / 32)].index == 0)
                             {
-                                tileMap.ChangeTile(xCord, yCord, inventory.inventory[inventory.selectedItem].item.tileType);
+                                //tileMap.ChangeTile(xCord, yCord, inventory.inventory[inventory.selectedItem].item.tileType);
+                                tileMap.ChangeTile(xCord, yCord, (int)(mousePosition.X / 32), (int)(mousePosition.Y / 32), inventory.inventory[inventory.selectedItem].item.tileType); 
                                 inventory.RemoveItem(inventory.inventory[inventory.selectedItem].item);
                             }
                         }
@@ -202,7 +216,8 @@ namespace Factory_Game
                     }
                     if (mouseState.LeftButton == ButtonState.Pressed)
                     {
-                        tileMap.DamageTile(xCord, yCord, 10f);
+                        //tileMap.DamageTile(xCord, yCord, 10f);
+
                     }
                 }
             }
@@ -223,13 +238,16 @@ namespace Factory_Game
                 float absDebthX = Math.Abs(debth.X);
                 float absDebthy = Math.Abs(debth.Y);
 
-                if(absDebthy < absDebthX)
+                if (!jumping)
                 {
-                    position = new Vector2(position.X, position.Y + debth.Y + 1);
-                }
-                else
-                {
-                    position = new Vector2(position.X + debth.X, position.Y); 
+                    if (absDebthy < absDebthX)
+                    {
+                        position = new Vector2(position.X, position.Y + debth.Y);
+                    }
+                    else
+                    {
+                        position = new Vector2(position.X + debth.X, position.Y);
+                    }
                 }
             }
 
