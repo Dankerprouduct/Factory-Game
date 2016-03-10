@@ -562,7 +562,10 @@ namespace Factory_Game
         {
             tile[x, y].DamageTile(ammount);
         }
-
+        public void DamageTile(int chunkX, int chunkY, int x, int y, float ammount)
+        {
+            chunks[chunkX, chunkY].tiles[x, y].DamageTile(ammount); 
+        }
         public void Draw(SpriteBatch spriteBatch, Player player)
         {
 

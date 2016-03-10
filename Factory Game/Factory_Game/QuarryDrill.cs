@@ -34,11 +34,11 @@ namespace Factory_Game
         public bool alive;
         public Game1 game2;
         public GameTime gameTime2; 
-        public QuarryDrill(int xPos, int yPos, int xxPos, int yyPos, int hight, TileMap tileMap, Tile mTile)
+        public QuarryDrill(int xPos, int yPos, int xxPos, int yyPos, int hight, Chunk tileMap, Tile mTile)
         {
             tile = mTile; 
             width = Math.Abs(xPos - xxPos - 1);
-            height = Math.Abs(yPos - tileMap.tile.GetLength(1));
+            height = Math.Abs(yPos - tileMap.tiles.GetLength(1));
             height += 7;
 
             quarryPositions = new Vector2[width, height]; 

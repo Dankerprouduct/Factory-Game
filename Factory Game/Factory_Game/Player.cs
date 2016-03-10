@@ -24,9 +24,9 @@ namespace Factory_Game
         public Rectangle rect;
         public bool colliding;
         Rectangle tileBounds;
-        MouseState mouseState;
+        public MouseState mouseState;
         Vector2 mousePosition;
-        Vector2 worldPosition;
+        public Vector2 worldPosition;
         int xCord;
         int yCord;
         // .25; 
@@ -188,8 +188,6 @@ namespace Factory_Game
                 mousePosition = new Vector2(mouseState.X, mouseState.Y);
                 worldPosition = Vector2.Transform(mousePosition, Matrix.Invert(camera.rawTransform));
 
-                //  Console.WriteLine(worldPosition.X);
-                //   Console.WriteLine(worldPosition.Y); 
 
                 // gets the Chunk Cord
                 xCord = Convert.ToInt32(worldPosition.X) / 1024;
@@ -202,21 +200,22 @@ namespace Factory_Game
                     if (mouseState.RightButton == ButtonState.Pressed)
                     {
 
+
                         if(inventory.inventory[inventory.selectedItem].count > 0)
                         {
                             // only place if on blank tile 
-                            if (tileMap.chunks[xCord, yCord].tiles[(int)(mousePosition.X / 32), (int)(mousePosition.Y / 32)].index == 0)
+                            if (tileMap.chunks[xCord, yCord].tiles[(((int)worldPosition.X % 1024) / 32), (((int)worldPosition.Y % 1024) / 32)].index == 0)
                             {
                                 //tileMap.ChangeTile(xCord, yCord, inventory.inventory[inventory.selectedItem].item.tileType);
-                                tileMap.ChangeTile(xCord, yCord, (int)(mousePosition.X / 32), (int)(mousePosition.Y / 32), inventory.inventory[inventory.selectedItem].item.tileType); 
+                                tileMap.ChangeTile(xCord, yCord, (((int)worldPosition.X % 1024) / 32), (((int)worldPosition.Y % 1024) / 32), inventory.inventory[inventory.selectedItem].item.tileType); 
                                 inventory.RemoveItem(inventory.inventory[inventory.selectedItem].item);
-                            }
+                            } 
                         }
 
                     }
                     if (mouseState.LeftButton == ButtonState.Pressed)
                     {
-                        //tileMap.DamageTile(xCord, yCord, 10f);
+                        tileMap.DamageTile(xCord, yCord, (((int)worldPosition.X % 1024) / 32), (((int)worldPosition.Y % 1024) / 32), 10f);
 
                     }
                 }

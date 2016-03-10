@@ -251,7 +251,7 @@ namespace Factory_Game
                                     if (mouseState.LeftButton == ButtonState.Pressed)
                                     {
                                         selectedItem = i; 
-                                        Console.WriteLine("Moving Item");
+
                                         selectedItem = i;
 
                                         if (player.tempTile != null)

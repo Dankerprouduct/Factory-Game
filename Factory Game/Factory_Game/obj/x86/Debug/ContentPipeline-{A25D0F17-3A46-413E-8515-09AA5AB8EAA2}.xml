@@ -559,6 +559,15 @@
       <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\Content\RectangleTexture.xnb</Output>
       <Time>2016-03-05T19:06:27.9598423-05:00</Time>
     </Item>
+    <Item>
+      <Source>Tiles\Black.png</Source>
+      <Name>Tiles\Black</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\Black.xnb</Output>
+      <Time>2016-03-09T10:50:02.8474182-05:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{A25D0F17-3A46-413E-8515-09AA5AB8EAA2}</ContentProjectGUID>

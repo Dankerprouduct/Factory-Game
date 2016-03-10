@@ -20,7 +20,7 @@ namespace Factory_Game
         Viewport view;
         Game1 gme;
         float scale = 1f;
-        float speed = 1f; 
+        float speed = .05f; 
         public BoundingFrustum frustrum;
         public Camera(Viewport vPort)
         {

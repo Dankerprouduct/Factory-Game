@@ -37,7 +37,7 @@ namespace Factory_Game
         public bool madeSmelter; 
         public Item tempItem;
         public Rectangle sourceRectangle;
-
+        public float light = 1; 
         public enum TileType
         {
             BlankTile, 
@@ -93,7 +93,9 @@ namespace Factory_Game
         public int xPos;
         public int yPos;
         public int localxPos;
-        public int localyPos; 
+        public int localyPos;
+        public int chunkX;
+        public int chunkY; 
         bool inInventory = false; 
         public Tile()
         {
@@ -102,7 +104,7 @@ namespace Factory_Game
             tileProperty = new TileProperty(); 
             tileType = new TileType(); 
             durability = 10;
-            SetLightLevel(1);
+
         }
 
         public void LoadContent(ContentManager content)
@@ -279,7 +281,7 @@ namespace Factory_Game
         {
             durability = 10;
             alive = true;
-            Console.WriteLine("Updating Index"); 
+
             switch (tiType)
             {
                 case TileType.BlankTile:
@@ -552,7 +554,7 @@ namespace Factory_Game
         }
         // 51
         Color lightColor;
-        float lightLevel; 
+        public float lightLevel; 
         public void DamageTile(float amount)
         {
            // Console.WriteLine("Damaging Tiles"); 
@@ -560,41 +562,23 @@ namespace Factory_Game
         }
 
         #region // Updates
-        public void Update(GameTime gameTime, Player player)
-        {
-             Console.WriteLine(bounds); 
-            if (bounds.Intersects(player.rect) && tileProperty == TileProperty.CantPass)
-            {
-                Console.WriteLine("collision"); 
-                player.Collision(bounds);
-            }
-            if (alive)
-            {
-                if (draw)
-                {
-                    if(bounds.Intersects(player.rect) && tileProperty == TileProperty.CantPass)
-                    {
-                        player.Collision(bounds); 
-                    }
-                }
-            }
-        }
+
         public void Update(GameTime gameTime, Player player, Game1 game, Chunk tileMap)
         {
-            if (tileMap.tiles[localxPos, localyPos].index == 0)
-            {
-                SetLightLevel(1);               
-            }
-            else if (localyPos + 1 < 32 && localyPos + 1 > 0)
-            {
 
-               // tileMap.tiles[localxPos, localyPos + 1].SetLightLevel(lightLevel - .2f);
-            }
-
+            
+            
             if (alive)
             {
+                                
                 if (draw)
                 {
+
+                    if (game.tileObjectManagement.tileObjects.Count > 0)
+                    {
+                        TileEntityCollision(game);
+                    }
+
                     if (bounds.Intersects(player.rect) && tileProperty == TileProperty.CantPass)
                     {
                         player.Collision(bounds);
@@ -655,28 +639,7 @@ namespace Factory_Game
                             }
                         }
                     }
-                    
-                    for (int i = 0; i < game.tileObjectManagement.tileObjects.Count; i++)
-                    {
-                        if (bounds.Intersects(game.tileObjectManagement.tileObjects[i].rect) && index != 0)
-                        {
-                            game.tileObjectManagement.tileObjects[i].velocity.Y = 0;
-                            game.tileObjectManagement.tileObjects[i].position.Y -= 2;
-                            //  Console.WriteLine("i tried");
-                        }
-                        else if (bounds.Intersects(game.tileObjectManagement.tileObjects[i].rect) && index != 11)
-                        {
-                            game.tileObjectManagement.tileObjects[i].velocity.Y = 0;
-                            game.tileObjectManagement.tileObjects[i].position.Y -= 2;
-                            //  Console.WriteLine("i tried");
-                        }
-                        else if (bounds.Intersects(game.tileObjectManagement.tileObjects[i].rect) && index != 12)
-                        {
-                            game.tileObjectManagement.tileObjects[i].velocity.Y = 0;
-                            game.tileObjectManagement.tileObjects[i].position.Y -= 2;
-                            //  Console.WriteLine("i tried");
-                        }
-                    }
+                                       
                     if (game.quarryManagement.drills.Count > 0)
                     {
                         for (int i = 0; i < game.quarryManagement.drills.Count; i++)
@@ -696,12 +659,12 @@ namespace Factory_Game
 
                             // worldPosition = Vector2.Transform(position, Matrix.Invert(game.camera.rawTransform)); 
                             game.tileObjectManagement.AddTileObject(new Vector2(position.X + (bounds.Width / 4), position.Y + (bounds.Height / 4)), tileType);
-                            SetLightLevel(1); 
+
                             alive = false;
 
                             
                         }
-                        /*
+                        
                         if (madeStorage)
                         {
                             inventory.Update(gameTime, game);
@@ -738,7 +701,7 @@ namespace Factory_Game
                              
                              ItemStorage(tileMap, gameTime);
                         }
-                        */
+                        
 
                     }
                 }
@@ -765,9 +728,33 @@ namespace Factory_Game
             }
         }
 
-        
-
-        public void Quarry(Chunk tileMap, GameTime gameTime, Game1 game)
+        public void TileEntityCollision(Game1 game)
+        {
+            // Tile Entities
+            for (int i = 0; i < game.tileObjectManagement.tileObjects.Count; i++)
+            {
+                if (bounds.Intersects(game.tileObjectManagement.tileObjects[i].rect) && index != 0)
+                {
+                    game.tileObjectManagement.tileObjects[i].velocity.Y = 0;
+                    game.tileObjectManagement.tileObjects[i].position.Y -= 1f;
+                    //  Console.WriteLine("i tried");
+                }
+                if (bounds.Intersects(game.tileObjectManagement.tileObjects[i].rect) && index != 11)
+                {
+                    game.tileObjectManagement.tileObjects[i].velocity.Y = 0;
+                    game.tileObjectManagement.tileObjects[i].position.Y -= 1f;
+                    //  Console.WriteLine("i tried");
+                }
+                if (bounds.Intersects(game.tileObjectManagement.tileObjects[i].rect) && index != 12)
+                {
+                    game.tileObjectManagement.tileObjects[i].velocity.Y = 0;
+                    game.tileObjectManagement.tileObjects[i].position.Y -= 1f;
+                    //  Console.WriteLine("i tried");
+                }
+            }
+        }
+                                
+        public void Quarry(Chunk chunk, GameTime gameTime, Game1 game)
         {
             if (!madeQuarry)
             {
@@ -782,39 +769,61 @@ namespace Factory_Game
                 inventory.inventoryType = Inventory.InventoryType.StorageInventory;
                 #region 
 
-                if (tileMap.tiles[xPos + 1, yPos].tileType == TileType.MarkerBlock)
+                if (chunk.tiles[localxPos + 1, localyPos].tileType == TileType.MarkerBlock)
                 {
 
                     for (int i = 2; i < searchRadius; i++)
                     {
-                        if (tileMap.tiles[xPos + i, yPos].tileType == TileType.MarkerBlock)
+                        if (localxPos + i > 32)
                         {
-                            offSet = i;
-                            i = searchRadius;
-                            break;
+                            chunk = game.tileMap.chunks[chunkX + 1, chunkY];
+                            //i = 1;
+                            int newSearch = searchRadius - i;
+                            for (int nI = 0; nI < newSearch; nI++)
+                            {
+                                if (chunk.tiles[0 + nI, localyPos].tileType == TileType.MarkerBlock)
+                                {
+                                    offSet = nI;
+                                    nI = searchRadius;
+                                    Console.WriteLine(offSet); 
+                                    Console.WriteLine("Quarry Made");
+                                    break;
+                                }
+                            }
                         }
-
+                        else
+                        {
+                            if (localxPos + i < 32)
+                            {
+                                if (chunk.tiles[localxPos + i, localyPos].tileType == TileType.MarkerBlock)
+                                {
+                                    offSet = i;
+                                    i = searchRadius;
+                                    Console.WriteLine("Quarry Made");
+                                    break;
+                                }
+                            }
+                        }
                     }
-                    tileMap.tiles[xPos + 1, yPos].UpdateIndex(TileType.ConstructionBlock);
-                    tileMap.tiles[xPos + offSet, yPos].UpdateIndex(TileType.ConstructionBlock);
+                    chunk.tiles[localxPos + 1, localyPos].UpdateIndex(TileType.ConstructionBlock);
+                    chunk.tiles[localxPos + offSet, localyPos].UpdateIndex(TileType.ConstructionBlock);
 
                     for (int y = 1; y < height; y++)
                     {
-                        tileMap.tiles[xPos + 1, yPos - y].UpdateIndex(TileType.ConstructionBlock);
-                        tileMap.tiles[xPos + offSet, yPos - y].UpdateIndex(TileType.ConstructionBlock);
+                        chunk.tiles[localxPos + 1, localyPos - y].UpdateIndex(TileType.ConstructionBlock);
+                        chunk.tiles[localxPos + offSet, localyPos - y].UpdateIndex(TileType.ConstructionBlock);
                     }
                      
                     for (int x = 0; x < offSet; x++)
                     {
-                        tileMap.tiles[xPos + x + 1, yPos - height].UpdateIndex(TileType.ConstructionBlock);
+                        chunk.tiles[localxPos + x + 1, localyPos - height].UpdateIndex(TileType.ConstructionBlock);
                     }
 
                     // comented 
-                    //quarryDrill = new QuarryDrill(xPos + 2, yPos + 1, xPos + offSet - 1, yPos - 1,height, tileMap, this);
+                    quarryDrill = new QuarryDrill(localxPos + 2, localyPos + 1, localxPos + offSet - 1, localyPos - 1,height, chunk, this);
 
-                    //quarryDrill.LoadContent(contentManager);
-                    //game.quarryManagement.drills.Add(quarryDrill);
-                   // game.quarryManagement.threads.Add(new Thread(new ThreadStart())); 
+                    quarryDrill.LoadContent(contentManager);
+                    game.quarryManagement.drills.Add(quarryDrill);
                     madeQuarry = true;
                 }
                 #endregion
@@ -823,8 +832,7 @@ namespace Factory_Game
                 
             }
         }
-
-
+        
         public void ItemPipe(Chunk tileMap, GameTime gameTime)
         {
 
@@ -1160,7 +1168,7 @@ namespace Factory_Game
                 }
             }
         }
-
+        
         #endregion 
 
         /// <summary>
@@ -1169,27 +1177,47 @@ namespace Factory_Game
         /// 0 being the blackest
         /// </summary>
         /// <param name="level"></param>
-        public void SetLightLevel(float level)
-        {
-            if (level >= 0)
-            {
-                lightLevel = level;
-            }
-            else
-            {
-                lightLevel = 0; 
-            }
 
-            //Console.WriteLine(lightLevel);
-            lightColor = new Color(51 * lightLevel, 51 * lightLevel, 51 * lightLevel); 
+        public void Lighting(TileMap tileMap)
+        {
+            if (index == 0)
+            {
+                lightLevel = 0;
+            }
+            if (xPos - 1 < 32)
+            {
+                if (tileMap.chunks[chunkX, chunkY].tiles[localxPos - 1, localyPos].lightLevel > 0 && tileMap.chunks[chunkX, chunkY].tiles[localxPos - 1, localyPos].tileType != TileType.BlankTile)
+                {
+                    tileMap.chunks[chunkX, chunkY].tiles[localxPos - 1, localyPos].lightLevel = lightLevel + .25f;
+                }
+            }
+            if (xPos + 1 < 32)
+            {
+                if (tileMap.chunks[chunkX, chunkY].tiles[localxPos + 1, localyPos].lightLevel > 0 && tileMap.chunks[chunkX, chunkY].tiles[localxPos + 1, localyPos].tileType != TileType.BlankTile)
+                {
+                    tileMap.chunks[chunkX, chunkY].tiles[localxPos + 1, localyPos].lightLevel = lightLevel + .25f;
+                }
+            }
+            if (yPos + 1 < 32 && yPos - 1 > 0)
+            {
+                if (tileMap.chunks[chunkX, chunkY].tiles[localxPos, localyPos + 1].lightLevel > 0 && tileMap.chunks[chunkX, chunkY].tiles[localxPos, localyPos + 1].tileType != TileType.BlankTile)
+                {
+                    tileMap.chunks[chunkX, chunkY].tiles[localxPos, localyPos + 1].lightLevel = lightLevel + .25f;
+                }
+                if (tileMap.chunks[chunkX, chunkY].tiles[localxPos, localyPos - 1].lightLevel > 0 && tileMap.chunks[chunkX, chunkY].tiles[localxPos, localyPos - 1].tileType != TileType.BlankTile)
+                {
+                    tileMap.chunks[chunkX, chunkY].tiles[localxPos, localyPos - 1].lightLevel = lightLevel + .25f;
+                }
+            }
         }
+
         public void Draw(SpriteBatch spriteBatch, Player player)
         {
            // draw = true;
            // sourceRectangle = Animation.SourceRect(TileType.DryTile1);
             if (draw)
             {
-                spriteBatch.Draw(texture, position, sourceRectangle, Color.White * lightLevel);
+                spriteBatch.Draw(texture, position, sourceRectangle, Color.White);
                 //Console.WriteLine("Drawing!"); 
                //spriteBatch.DrawString(font, (position.X / 32).ToString(), position, Color.White); 
                 if (this.tileType == TileType.QuarryBlock)

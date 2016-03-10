@@ -28,7 +28,7 @@ namespace Factory_Game
         int[,] mapSize;
         // 932480
         // 234561 spawns in flat plane
-        int seed = 325424; 
+        int seed = 1002538; 
 
         public Camera camera;
 
@@ -106,6 +106,7 @@ namespace Factory_Game
             {
                 tileObjectManagement.Update(gameTime, this);
             }
+            
             gui.Update(gameTime, player, tileObjectManagement, this); 
             tileMap.Update(gameTime, this);
             quarryManagement.Update(gameTime, this);
@@ -117,7 +118,11 @@ namespace Factory_Game
         
         protected override void Draw(GameTime gameTime)
         {
-            _fps = 1 / (float)gameTime.ElapsedGameTime.TotalSeconds;
+            if (gui.showDebug)
+            {
+                _fps = 1 / (float)gameTime.ElapsedGameTime.TotalSeconds;
+            }
+            
             GraphicsDevice.Clear(Color.CornflowerBlue);
             
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend,
@@ -126,11 +131,15 @@ namespace Factory_Game
 
             
             
-            quarryManagement.Draw(spriteBatch, this); 
-            tileObjectManagement.Draw(spriteBatch);
+            quarryManagement.Draw(spriteBatch, this);
+
+            if (tileObjectManagement.tileObjects.Count > 0)
+            {
+                tileObjectManagement.Draw(spriteBatch);
+            }
+
             tileMap.Draw(spriteBatch, player);
-            
-            
+                    
 
 
             Rectangle r;
@@ -144,13 +153,14 @@ namespace Factory_Game
                     {
 
                         r = new Rectangle(x * 1024, y * 1024, 1024, 1024);
-                        int bw = 1; // Border width
+                        int bw = 2; // Border width
                         spriteBatch.Draw(rectangleTexture, new Rectangle(r.Left, r.Top, bw, r.Height), Color.Red); // Left
                         spriteBatch.Draw(rectangleTexture, new Rectangle(r.Right, r.Top, bw, r.Height), Color.Red); // Right
                         spriteBatch.Draw(rectangleTexture, new Rectangle(r.Left, r.Top, r.Width, bw), Color.Red); // Top
                         spriteBatch.Draw(rectangleTexture, new Rectangle(r.Left, r.Bottom, r.Width, bw), Color.Red);
                     }
                 }
+
             }
 
             player.Draw(spriteBatch);

@@ -43,12 +43,14 @@ namespace Factory_Game
                             qDrill.X = Math.Abs(x);
                             qDrill.Y = Math.Abs(y);
 
+                            /*
                             //tiles[tile[X, Y]].Draw(spriteBatch);
-                            if (qDrill.X < qDrill.game2.tileMap.tile.GetLength(0) && qDrill.Y < qDrill.game2.tileMap.tile.GetLength(1))
+                            if (qDrill.X < qDrill.game2.tileMap.chunks.GetLength(0) && qDrill.Y < qDrill.game2.tileMap.chunks.GetLength(1))
                             {
                                 // commented 
                               //  qDrill.game2.tileMap.tile[qDrill.X, qDrill.Y].Update(gameTime, qDrill.game2.player, qDrill.game2, qDrill.game2.tileMap);
                             }
+                            */
                         }
                     }
                     #endregion

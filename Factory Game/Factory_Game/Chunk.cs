@@ -5,7 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Microsoft.Xna.Framework.Media; 
+using Microsoft.Xna.Framework.Media;
+
 namespace Factory_Game
 {
     public class Chunk
@@ -13,7 +14,7 @@ namespace Factory_Game
         int chunkX;
         int chunkY; 
         public Tile[,] tiles;
-        
+        Texture2D light; 
         public Chunk()
         {
             
@@ -35,7 +36,10 @@ namespace Factory_Game
                 {
                     tiles[x, y] = chunk[x, y];
                     tiles[x, y].localxPos = x;
-                    tiles[x, y].localyPos = y; 
+                    tiles[x, y].localyPos = y;
+
+                    tiles[x, y].chunkX = chunkX;
+                    tiles[x, y].chunkY = chunkY;
                 }
             }
 
@@ -44,14 +48,18 @@ namespace Factory_Game
         }
         public void Update(GameTime gameTime, Player player, Game1 game)
         {
+           // light = game.Content.Load<Texture2D>("Tiles/Black");
             for(int x = 0; x < tiles.GetLength(0); x++)
             {
                 for(int y = 0; y < tiles.GetLength(0); y++)
                 {
                     tiles[x, y].Update(gameTime, player, game, this);
+                    
                 }
             }
+           // Lighting(); 
         }
+
         public void Draw(SpriteBatch spriteBatch, Player player)
         {
             for(int x = 0; x < tiles.GetLength(0); x++)
@@ -59,6 +67,7 @@ namespace Factory_Game
                 for (int y = 0; y < tiles.GetLength(1); y++)
                 {
                     tiles[x, y].Draw(spriteBatch, player);
+                   // spriteBatch.Draw(light, tiles[x, y].position, Color.White * tiles[x, y].light); 
                 }
             }
         }
