@@ -79,7 +79,7 @@ namespace Factory_Game
                 }
                 tilePos = "Tile Position " + ((player.rect.X % 1024) / 32).ToString() + " " + (((player.rect.Y  % 1024) / 32) + 2).ToString();
                 entitys = "Entitys " + tileManagement.tileObjects.Count;
-                chunkPos = "Chunk X:" + (int)(player.position.X / 1032) + " Chunk Y:"+ (int)(player.position.Y / 1032);
+                chunkPos = "Chunk X:" + (int)(player.position.X / 1024) + " Chunk Y:"+ (int)(player.position.Y / 1024);
                // acceleration = "Acceleration: " + player.physics.acceleration; 
             }
         }

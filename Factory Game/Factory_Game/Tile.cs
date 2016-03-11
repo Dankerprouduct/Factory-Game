@@ -97,6 +97,7 @@ namespace Factory_Game
         public int chunkX;
         public int chunkY; 
         bool inInventory = false; 
+        
         public Tile()
         {
             time2 = TimeSpan.FromMilliseconds(inventorySpeed);
@@ -677,6 +678,7 @@ namespace Factory_Game
                         {
                             Quarry(tileMap, gameTime, game);
                         }
+                        /*
                         if (lastTime + time2 < gameTime.TotalGameTime)
                         {
                             if (this.tileType == TileType.ItemPipeNorth)
@@ -696,6 +698,7 @@ namespace Factory_Game
                                 ItemPipe(tileMap, gameTime);
                             }
                         }
+                        */
                         if (this.tileType == TileType.StorageCrate)
                         {
                              
@@ -721,7 +724,7 @@ namespace Factory_Game
                             lastTime = gameTime.TotalGameTime;
                         }
                         // comented
-                      //  quarryDrill.Update(gameTime, game);
+                        quarryDrill.Update(gameTime, game);
                     }
                 }
 
@@ -758,7 +761,6 @@ namespace Factory_Game
         {
             if (!madeQuarry)
             {
-                
                 int offSet = 3; 
                 // 100
                 int searchRadius = 20; 
@@ -767,60 +769,84 @@ namespace Factory_Game
                 inventory.inventoryType = Inventory.InventoryType.StorageInventory;
                 inventory.LoadContent(contentManager);
                 inventory.inventoryType = Inventory.InventoryType.StorageInventory;
+
+                int qTileX;
+                int qTileY;
+                int qChunkX;
+                int qChunkY; 
                 #region 
 
                 if (chunk.tiles[localxPos + 1, localyPos].tileType == TileType.MarkerBlock)
                 {
-
+                    Vector2 pos;
                     for (int i = 2; i < searchRadius; i++)
                     {
-                        if (localxPos + i > 32)
+                        pos = new Vector2(position.X + (i * 32), position.Y); 
+                        qTileX = game.tileMap.FindTile(pos).tileX;
+                        qTileY = game.tileMap.FindTile(pos).tileY;
+                        qChunkX = game.tileMap.FindTile(pos).chunkX;
+                        qChunkY = game.tileMap.FindTile(pos).chunkY;
+                        Console.WriteLine("Tile X: "+qTileX+" Tile Y:" + qTileY +" ChunkX:" + qChunkX + " ChunkY:"+ qChunkY);
+                        if (game.tileMap.chunks[qChunkX, qChunkY].tiles[qTileX, qTileY].tileType == TileType.MarkerBlock)
                         {
-                            chunk = game.tileMap.chunks[chunkX + 1, chunkY];
-                            //i = 1;
-                            int newSearch = searchRadius - i;
-                            for (int nI = 0; nI < newSearch; nI++)
-                            {
-                                if (chunk.tiles[0 + nI, localyPos].tileType == TileType.MarkerBlock)
-                                {
-                                    offSet = nI;
-                                    nI = searchRadius;
-                                    Console.WriteLine(offSet); 
-                                    Console.WriteLine("Quarry Made");
-                                    break;
-                                }
-                            }
-                        }
-                        else
-                        {
-                            if (localxPos + i < 32)
-                            {
-                                if (chunk.tiles[localxPos + i, localyPos].tileType == TileType.MarkerBlock)
-                                {
-                                    offSet = i;
-                                    i = searchRadius;
-                                    Console.WriteLine("Quarry Made");
-                                    break;
-                                }
-                            }
+                             
+                            offSet = i;
+                            i = searchRadius;
+                            Console.WriteLine("Quarry Made");
+                            break;
                         }
                     }
-                    chunk.tiles[localxPos + 1, localyPos].UpdateIndex(TileType.ConstructionBlock);
-                    chunk.tiles[localxPos + offSet, localyPos].UpdateIndex(TileType.ConstructionBlock);
+
+                    qTileX = game.tileMap.FindTile(position).tileX;
+                    qTileY = game.tileMap.FindTile(position).tileY;
+                    qChunkX = game.tileMap.FindTile(position).chunkX;
+                    qChunkY = game.tileMap.FindTile(position).chunkY; 
+                    game.tileMap.chunks[qChunkX, qChunkY].tiles[qTileX + 1, qTileY].UpdateIndex(TileType.ConstructionBlock);
+
+                    pos = new Vector2(position.X + (offSet * 32), position.Y);
+                    qTileX = game.tileMap.FindTile(pos).tileX;
+                    qTileY = game.tileMap.FindTile(pos).tileY; 
+                    qChunkX = game.tileMap.FindTile(pos).chunkX;
+                    qChunkY = game.tileMap.FindTile(pos).chunkY; 
+                    game.tileMap.chunks[qChunkX, qChunkY].tiles[qTileX, qTileY].UpdateIndex(TileType.ConstructionBlock);
 
                     for (int y = 1; y < height; y++)
                     {
-                        chunk.tiles[localxPos + 1, localyPos - y].UpdateIndex(TileType.ConstructionBlock);
-                        chunk.tiles[localxPos + offSet, localyPos - y].UpdateIndex(TileType.ConstructionBlock);
+                        pos = new Vector2(position.X + (1 * 32), position.Y - (y * 32));
+                        qTileX = game.tileMap.FindTile(pos).tileX;
+                        qTileY = game.tileMap.FindTile(pos).tileY;
+                        qChunkX = game.tileMap.FindTile(pos).chunkX;
+                        qChunkY = game.tileMap.FindTile(pos).chunkY; 
+                        game.tileMap.chunks[qChunkX, qChunkY].tiles[qTileX, qTileY].UpdateIndex(TileType.ConstructionBlock);
+
+                        pos = new Vector2(position.X + (offSet * 32), position.Y - (y * 32));
+                        qTileX = game.tileMap.FindTile(pos).tileX;
+                        qTileY = game.tileMap.FindTile(pos).tileY;
+                        qChunkX = game.tileMap.FindTile(pos).chunkX;
+                        qChunkY = game.tileMap.FindTile(pos).chunkY; 
+                        game.tileMap.chunks[qChunkX, qChunkY].tiles[qTileX, qTileY].UpdateIndex(TileType.ConstructionBlock);
                     }
                      
                     for (int x = 0; x < offSet; x++)
                     {
-                        chunk.tiles[localxPos + x + 1, localyPos - height].UpdateIndex(TileType.ConstructionBlock);
+                        pos = new Vector2(position.X + ((1 + x) * 32), position.Y - (height * 32));
+                        qTileX = game.tileMap.FindTile(pos).tileX;
+                        qTileY = game.tileMap.FindTile(pos).tileY;
+                        qChunkX = game.tileMap.FindTile(pos).chunkX;
+                        qChunkY = game.tileMap.FindTile(pos).chunkY;
+                        game.tileMap.chunks[qChunkX, qChunkY].tiles[qTileX, qTileY].UpdateIndex(TileType.ConstructionBlock);
                     }
 
                     // comented 
-                    quarryDrill = new QuarryDrill(localxPos + 2, localyPos + 1, localxPos + offSet - 1, localyPos - 1,height, chunk, this);
+
+
+
+                    Vector2 position1;
+                    Vector2 position2;
+                    position1 = new Vector2(position.X + (2 * 32), position.Y + (1 * 32));
+                    position2 = new Vector2(position.X + ((offSet - 1) * 32), position.Y - (1 * 32));
+
+                    quarryDrill = new QuarryDrill(position1, position2, height, game, this); 
 
                     quarryDrill.LoadContent(contentManager);
                     game.quarryManagement.drills.Add(quarryDrill);

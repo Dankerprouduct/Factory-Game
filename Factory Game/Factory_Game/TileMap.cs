@@ -29,9 +29,18 @@ namespace Factory_Game
 
         ContentManager contentManager; 
         public static int chunkRange = 2;
+        public struct Coordinate
+        {
+            public int chunkX;
+            public int chunkY; 
+            public int tileX;
+            public int tileY;
+             
+        }
 
         public TileMap(int[,] size, int sed, bool GenerateFlatWorld)
         {
+            
             generateFlatWorld = GenerateFlatWorld;
             seed = sed;
             //     mapSize = size;
@@ -43,7 +52,8 @@ namespace Factory_Game
             MapGeneration(size.GetLength(0), size.GetLength(1));
         }
 
-
+       
+        
 
         void VectorToList(int x, int y)
         {
@@ -565,6 +575,15 @@ namespace Factory_Game
         public void DamageTile(int chunkX, int chunkY, int x, int y, float ammount)
         {
             chunks[chunkX, chunkY].tiles[x, y].DamageTile(ammount); 
+        }
+        public Coordinate FindTile(Vector2 position)
+        {
+            Coordinate coordinate; 
+            coordinate.chunkX = (int)position.X / 1024;
+            coordinate.chunkY = (int)position.Y / 1024;
+            coordinate.tileX = ((int)position.X % 1024) / 32;
+            coordinate.tileY = ((int)position.Y % 1024) / 32;
+            return coordinate; 
         }
         public void Draw(SpriteBatch spriteBatch, Player player)
         {

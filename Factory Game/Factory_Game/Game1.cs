@@ -25,7 +25,7 @@ namespace Factory_Game
 
         public TileMap tileMap;
         // 4200 1200
-        int[,] mapSize;
+        public int[,] mapSize;
         // 932480
         // 234561 spawns in flat plane
         int seed = 1002538; 
@@ -40,8 +40,8 @@ namespace Factory_Game
         public TileObjectManagement tileObjectManagement;
 
         public float _fps = 0;
-        int chunkWidth = 20;
-        int chunkHeight = 20; 
+        public int chunkWidth = 20;
+        public int chunkHeight = 20; 
         Texture2D rectangleTexture;
         public Game1()
         {
@@ -71,7 +71,7 @@ namespace Factory_Game
             spriteBatch = new SpriteBatch(GraphicsDevice);
                        
 
-            tileMap = new TileMap(mapSize, seed, false);
+            tileMap = new TileMap(mapSize, seed, true);
             tileMap.LoadContent(Content);
 
             player = new Player(tileMap.playerStart);
