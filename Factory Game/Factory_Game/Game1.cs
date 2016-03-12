@@ -118,11 +118,8 @@ namespace Factory_Game
         
         protected override void Draw(GameTime gameTime)
         {
-            if (gui.showDebug)
-            {
-                _fps = 1 / (float)gameTime.ElapsedGameTime.TotalSeconds;
-            }
-            
+
+            _fps = 1 / (float)gameTime.ElapsedGameTime.TotalSeconds;
             GraphicsDevice.Clear(Color.CornflowerBlue);
             
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend,

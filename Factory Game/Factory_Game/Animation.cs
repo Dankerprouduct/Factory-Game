@@ -25,166 +25,166 @@ namespace Factory_Game
             {
                 case Tile.TileType.BlankTile:
                     {
-                        return new Rectangle(0, 0, width, height);
+                        return new Rectangle(32, 0, width, height);
                         // 
                         break;
                     }
                 case Tile.TileType.CoalBlock:
                     {
-                        return new Rectangle(width, 0, width, height);
+                        return new Rectangle(192, 0, width, height);
                          
                         break;
                     }
                 case Tile.TileType.ConstructionBlock:
                     {
-                        return new Rectangle(0, height, width, height);
+                        return new Rectangle(64, 0, width, height);
                          
                         break;
                     }
                 case Tile.TileType.ConstructionDrillBit:
                     {
-                        return new Rectangle(width, height, width, height);
+                        return new Rectangle(64, 0, width, height);
                          
                         break;
                     }
                 case Tile.TileType.ConstructionTube:
                     {
-                        return new Rectangle(width * 2, 0, width, height);
+                        return new Rectangle(96, 0, width, height);
                          
                         break;
                     }
                 case Tile.TileType.CopperTile:
                     {
-                        return new Rectangle(width * 2, height, width, height);
+                        return new Rectangle(160, 32, width, height);
                          
                         break;
                     }
                 case Tile.TileType.DryTile1:
                     {
-                        return new Rectangle(width * 3, 0, width, height);
+                        return new Rectangle(0, 96, width, height);
                          
                         break;
                     }
                 case Tile.TileType.DryTile2:
                     {
-                        return new Rectangle(width * 3, height, width, height);
+                        return new Rectangle(32, 64, width, height);
                          
                         break;
                     }
                 case Tile.TileType.DryTile3:
                     {
-                        return new Rectangle(0, height * 2, width, height);
+                        return new Rectangle(64, 64, width, height);
                          
                         break;
                     }
                 case Tile.TileType.Granite1:
                     {
-                        return new Rectangle(width, height * 2, width, height);
+                        return new Rectangle(64, 96, width, height);
                          
                         break;
                     }
                 case Tile.TileType.Granite2:
                     {
-                        return new Rectangle(width * 2, height * 2, width, height); 
+                        return new Rectangle(96, 64, width, height); 
                         break;
                     }
                 case Tile.TileType.Granite3:
                     {
-                        return new Rectangle(width, height * 3, width, height);
+                        return new Rectangle(96, 96, width, height);
                          
                         break;
                     }
                 case Tile.TileType.Grass1:
                     {
-                        return new Rectangle(width * 2, height * 3, width, height);
+                        return new Rectangle(128, 0, width, height);
                          
                         break;
                     }
                 case Tile.TileType.Grass2:
                     {
                         // 3, 2
-                        return new Rectangle(width * 3, height * 2, width, height);
+                        return new Rectangle(160, 0, width, height);
                          
                         break;
                     }
                 case Tile.TileType.Grass3:
                     {
                         // 3, 3
-                        return new Rectangle(width * 3, height * 3, width, height);
+                        return new Rectangle(128, 32, width, height);
                          
                         break;
                     }
                 case Tile.TileType.IronBlock:
                     {
-
+                        return new Rectangle(128, 64, 32, 32);
                         break;
                     }
                 case Tile.TileType.ItemPipeEast:
                     {
-                        return new Rectangle(0, height * 3, width, height);
+                        return new Rectangle(128, 96, width, height);
                          
                         break;
                     }
                 case Tile.TileType.ItemPipeNorth:
                     {
-                        return new Rectangle(width * 4, height, width, height);
+                        return new Rectangle(192, 32, width, height);
                          
                         break;
                     }
                 case Tile.TileType.ItemPipeSouth:
                     {
-                        return new Rectangle(width * 5, height * 2, width, height);
+                        return new Rectangle(192, 64, width, height);
                          
                         break;
                     }
                 case Tile.TileType.ItemPipeWest:
                     {
                         // 1, 5 
-                        return new Rectangle(width, height * 5, width, height);
+                        return new Rectangle(160, 96, width, height);
 
                         break;
                     }
                 case Tile.TileType.MarkerBlock:
                     {
-                        return new Rectangle(width * 5, 0, width, height);
+                        return new Rectangle(96, 32, width, height);
                          
                         break;
                     }
                 case Tile.TileType.Platform1:
                     {
-                        return new Rectangle(width * 6, 0, width, height);
+                        return new Rectangle(0, 32, width, height);
                          
                         break;
                     }
                 case Tile.TileType.QuarryBlock:
                     {
                         // 5, 1
-                        return new Rectangle(width * 5, height, width, height);
+                        return new Rectangle(0, 64, width, height);
                          
                         break;
                     }
                 case Tile.TileType.SandTile:
                     {
                         // 4, 2 
-                        return new Rectangle(width * 4, height * 2, width, height);
+                        return new Rectangle(32, 96, width, height);
                          
                         break;
                     }
                 case Tile.TileType.StorageCrate:
                     {
-                        return new Rectangle(width * 7, 0, width, height);
+                        return new Rectangle(32, 160, width, height);
 
                         break;
                     }
                 case Tile.TileType.UraniumBlock:
                     {
-                        return new Rectangle(width, height * 4, width, height);
+                        return new Rectangle(160, 64, width, height);
 
                         break;
                     }
                 case Tile.TileType.Water:
                     {
-                        return new Rectangle(0, height * 5, width, height);
+                        return new Rectangle(32, 32, width, height);
                          
                         break;
                     }

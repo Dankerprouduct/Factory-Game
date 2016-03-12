@@ -72,26 +72,7 @@ namespace Factory_Game
             }
             position = quarryPositions[0, 0]; 
         }
-        public QuarryDrill(int xPos, int yPos, int xxPos, int yyPos, int hight, Chunk tileMap, Tile mTile)
-        {
-            tile = mTile; 
-            width = Math.Abs(xPos - xxPos - 1);
-            height = Math.Abs(yPos - tileMap.tiles.GetLength(1));
-            height += 7;
 
-            quarryPositions = new Vector2[width, height]; 
-
-            for(int x = 0; x < width; x++)
-            {
-                for(int y = 0; y < height; y++)
-                {
-                    quarryPositions[x, y] = new Vector2((xPos + x) * 32, (yPos + y - hight) * 32);
-
-                }
-            }
-
-            position = quarryPositions[0, 0]; 
-        }
         public void LoadContent(ContentManager content)
         {
             chunkRadius = chunkRadius * 32; 

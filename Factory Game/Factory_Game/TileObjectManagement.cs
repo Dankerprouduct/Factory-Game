@@ -36,6 +36,13 @@ namespace Factory_Game
         {
             keyboardState = Keyboard.GetState();
 
+            if(game._fps < 30)
+            {
+                if(tileObjects.Count > 0)
+                {
+                    tileObjects.RemoveAt(0); 
+                }
+            }
             if (keyboardState.IsKeyDown(Keys.R))
             {
                 for(int i = 0; i < tileObjects.Count; i++)

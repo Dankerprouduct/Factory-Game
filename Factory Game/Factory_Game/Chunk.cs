@@ -53,8 +53,10 @@ namespace Factory_Game
             {
                 for(int y = 0; y < tiles.GetLength(0); y++)
                 {
-                    tiles[x, y].Update(gameTime, player, game, this);
-                    
+                    if (tiles[x, y].alive)
+                    {
+                        tiles[x, y].Update(gameTime, player, game, this);
+                    }
                 }
             }
            // Lighting(); 

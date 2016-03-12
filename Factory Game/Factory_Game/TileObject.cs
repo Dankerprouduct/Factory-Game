@@ -182,6 +182,7 @@ namespace Factory_Game
                 }
             }
         }
+        /*
         public void Collision(Rectangle bounds)
         {
             
@@ -205,6 +206,7 @@ namespace Factory_Game
             }
             
         }
+        */
         void DeathTimer(GameTime gameTime)
         {
             

@@ -112,7 +112,7 @@ namespace Factory_Game
         {
             contentManager = content;
 
-            texture = content.Load<Texture2D>("Tiles/SpriteSheet1"); 
+            texture = content.Load<Texture2D>("Tiles/Tile_SpriteSheet"); 
             font = content.Load<SpriteFont>("Fonts/Font2");
            // itemDatabase = new ItemDatabase(content); 
         }
@@ -678,31 +678,31 @@ namespace Factory_Game
                         {
                             Quarry(tileMap, gameTime, game);
                         }
-                        /*
+                        
                         if (lastTime + time2 < gameTime.TotalGameTime)
                         {
                             if (this.tileType == TileType.ItemPipeNorth)
                             {
-                                ItemPipe(tileMap, gameTime);
+                                ItemPipe(tileMap, gameTime, game);
                             }
                             if (this.tileType == TileType.ItemPipeEast)
                             {
-                                ItemPipe(tileMap, gameTime);
+                                ItemPipe(tileMap, gameTime, game);
                             }
                             if (this.tileType == TileType.ItemPipeSouth)
                             {
-                                ItemPipe(tileMap, gameTime);
+                                ItemPipe(tileMap, gameTime, game);
                             }
                             if (this.tileType == TileType.ItemPipeWest)
                             {
-                                ItemPipe(tileMap, gameTime);
+                                ItemPipe(tileMap, gameTime, game);
                             }
                         }
-                        */
+                        
                         if (this.tileType == TileType.StorageCrate)
                         {
                              
-                             ItemStorage(tileMap, gameTime);
+                             ItemStorage(tileMap, gameTime, game);
                         }
                         
 
@@ -736,24 +736,18 @@ namespace Factory_Game
             // Tile Entities
             for (int i = 0; i < game.tileObjectManagement.tileObjects.Count; i++)
             {
-                if (bounds.Intersects(game.tileObjectManagement.tileObjects[i].rect) && index != 0)
+                
+                if (bounds.Intersects(game.tileObjectManagement.tileObjects[i].rect))
                 {
-                    game.tileObjectManagement.tileObjects[i].velocity.Y = 0;
-                    game.tileObjectManagement.tileObjects[i].position.Y -= 1f;
-                    //  Console.WriteLine("i tried");
+                    if (tileType != TileType.BlankTile || tileType != TileType.MarkerBlock || tileType != TileType.ConstructionBlock)
+                    {
+                        game.tileObjectManagement.tileObjects[i].velocity.Y = 0;
+                        game.tileObjectManagement.tileObjects[i].position.Y -= 1f;
+                        //  Console.WriteLine("i tried");
+                    }
                 }
-                if (bounds.Intersects(game.tileObjectManagement.tileObjects[i].rect) && index != 11)
-                {
-                    game.tileObjectManagement.tileObjects[i].velocity.Y = 0;
-                    game.tileObjectManagement.tileObjects[i].position.Y -= 1f;
-                    //  Console.WriteLine("i tried");
-                }
-                if (bounds.Intersects(game.tileObjectManagement.tileObjects[i].rect) && index != 12)
-                {
-                    game.tileObjectManagement.tileObjects[i].velocity.Y = 0;
-                    game.tileObjectManagement.tileObjects[i].position.Y -= 1f;
-                    //  Console.WriteLine("i tried");
-                }
+                
+
             }
         }
                                 
@@ -859,7 +853,7 @@ namespace Factory_Game
             }
         }
         
-        public void ItemPipe(Chunk tileMap, GameTime gameTime)
+        public void ItemPipe(Chunk tileMap, GameTime gameTime, Game1 game)
         {
 
             if (!madeItemPipe)
@@ -875,7 +869,19 @@ namespace Factory_Game
                 case TileType.ItemPipeNorth:
                     {
                         // checks south tile
-                        Tile checkedTile = tileMap.tiles[xPos, yPos + 1]; 
+                        Vector2 pos;
+                        pos = new Vector2(position.X, position.Y + (1 * 32));
+                        int tileX;
+                        int tileY;
+                        int chunkx;
+                        int chunky;
+
+                        tileX = game.tileMap.FindTile(pos).tileX;
+                        tileY = game.tileMap.FindTile(pos).tileY;
+                        chunkx = game.tileMap.FindTile(pos).chunkX;
+                        chunky = game.tileMap.FindTile(pos).chunkY;
+
+                        Tile checkedTile = game.tileMap.chunks[chunkx, chunky].tiles[tileX, tileY]; 
                         if (checkedTile.tileType == TileType.QuarryBlock)
                         {
                             if (checkedTile.madeQuarry)
@@ -935,7 +941,20 @@ namespace Factory_Game
                     }
                 case TileType.ItemPipeEast:
                     {
-                        Tile checkedTile = tileMap.tiles[xPos - 1, yPos]; 
+                        Vector2 pos;
+                        pos = new Vector2(position.X - (1 * 32), position.Y);
+                        int tileX;
+                        int tileY;
+                        int chunkx;
+                        int chunky;
+
+                        tileX = game.tileMap.FindTile(pos).tileX;
+                        tileY = game.tileMap.FindTile(pos).tileY;
+                        chunkx = game.tileMap.FindTile(pos).chunkX;
+                        chunky = game.tileMap.FindTile(pos).chunkY;
+
+                        Tile checkedTile = game.tileMap.chunks[chunkx, chunky].tiles[tileX, tileY];
+
                         if(checkedTile.tileType == TileType.QuarryBlock)
                         {
                             if (checkedTile.madeQuarry)
@@ -991,7 +1010,20 @@ namespace Factory_Game
                     }
                 case TileType.ItemPipeSouth:
                     {
-                        Tile checkedTile = tileMap.tiles[xPos, yPos - 1]; 
+                        Vector2 pos;
+                        pos = new Vector2(position.X, position.Y - (1 * 32));
+                        int tileX;
+                        int tileY;
+                        int chunkx;
+                        int chunky;
+
+                        tileX = game.tileMap.FindTile(pos).tileX;
+                        tileY = game.tileMap.FindTile(pos).tileY;
+                        chunkx = game.tileMap.FindTile(pos).chunkX;
+                        chunky = game.tileMap.FindTile(pos).chunkY;
+
+                        Tile checkedTile = game.tileMap.chunks[chunkx, chunky].tiles[tileX, tileY];
+
                     
                         if(checkedTile.tileType == TileType.QuarryBlock)
                         {
@@ -1049,7 +1081,20 @@ namespace Factory_Game
                     }
                 case TileType.ItemPipeWest:
                     {
-                        Tile checkedTile = tileMap.tiles[xPos + 1, yPos];
+                        Vector2 pos;
+                        pos = new Vector2(position.X + (1 * 32), position.Y);
+                        int tileX;
+                        int tileY;
+                        int chunkx;
+                        int chunky;
+
+                        tileX = game.tileMap.FindTile(pos).tileX;
+                        tileY = game.tileMap.FindTile(pos).tileY;
+                        chunkx = game.tileMap.FindTile(pos).chunkX;
+                        chunky = game.tileMap.FindTile(pos).chunkY;
+
+                        Tile checkedTile = game.tileMap.chunks[chunkx, chunky].tiles[tileX, tileY];
+
 
                         if (checkedTile.tileType == TileType.QuarryBlock)
                         {
@@ -1107,7 +1152,7 @@ namespace Factory_Game
             }
         }
         
-        public void ItemStorage(Chunk tileMap, GameTime gameTime)
+        public void ItemStorage(Chunk tileMap, GameTime gameTime, Game1 game)
         {
             if (!madeStorage)
             {
@@ -1119,9 +1164,19 @@ namespace Factory_Game
                 madeStorage = true; 
             }
 
-            Tile checkedTile;
-            // North
-            checkedTile = tileMap.tiles[xPos, yPos - 1];
+            Vector2 pos;
+            pos = new Vector2(position.X, position.Y - (1 * 32));
+            int tileX;
+            int tileY;
+            int chunkx;
+            int chunky;
+
+            tileX = game.tileMap.FindTile(pos).tileX;
+            tileY = game.tileMap.FindTile(pos).tileY;
+            chunkx = game.tileMap.FindTile(pos).chunkX;
+            chunky = game.tileMap.FindTile(pos).chunkY;
+
+            Tile checkedTile = game.tileMap.chunks[chunkx, chunky].tiles[tileX, tileY];
             if (checkedTile.madeItemPipe)
             {
                 if (checkedTile.tileType == TileType.ItemPipeSouth)
@@ -1139,7 +1194,16 @@ namespace Factory_Game
                 }
             }
             // South
-            checkedTile = tileMap.tiles[xPos, yPos + 1];
+
+            pos = new Vector2(position.X, position.Y + (1 * 32));
+
+            tileX = game.tileMap.FindTile(pos).tileX;
+            tileY = game.tileMap.FindTile(pos).tileY;
+            chunkx = game.tileMap.FindTile(pos).chunkX;
+            chunky = game.tileMap.FindTile(pos).chunkY;
+
+            checkedTile = game.tileMap.chunks[chunkx, chunky].tiles[tileX, tileY];
+
             if (checkedTile.madeItemPipe)
             {
                 if (checkedTile.tileType == TileType.ItemPipeNorth)
@@ -1156,7 +1220,16 @@ namespace Factory_Game
                 }
             }
             // East
-            checkedTile = tileMap.tiles[xPos + 1, yPos];
+
+            pos = new Vector2(position.X + (1 * 32), position.Y);
+
+            tileX = game.tileMap.FindTile(pos).tileX;
+            tileY = game.tileMap.FindTile(pos).tileY;
+            chunkx = game.tileMap.FindTile(pos).chunkX;
+            chunky = game.tileMap.FindTile(pos).chunkY;
+
+            checkedTile = game.tileMap.chunks[chunkx, chunky].tiles[tileX, tileY];
+
             if (checkedTile.madeItemPipe)
             {
                 if (checkedTile.tileType == TileType.ItemPipeWest)
@@ -1173,7 +1246,14 @@ namespace Factory_Game
                 }
             }
             // West
-            checkedTile = tileMap.tiles[xPos - 1, yPos];
+            pos = new Vector2(position.X - (1 * 32), position.Y);
+
+            tileX = game.tileMap.FindTile(pos).tileX;
+            tileY = game.tileMap.FindTile(pos).tileY;
+            chunkx = game.tileMap.FindTile(pos).chunkX;
+            chunky = game.tileMap.FindTile(pos).chunkY;
+
+            checkedTile = game.tileMap.chunks[chunkx, chunky].tiles[tileX, tileY];
             if (checkedTile.madeItemPipe)
             {
                 if (checkedTile.tileType == TileType.ItemPipeEast)

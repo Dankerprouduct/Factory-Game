@@ -16,7 +16,7 @@ namespace Factory_Game
     {
 
         public int selectedItem = 0;
-        public List<int> itemIndex = new List<int>();
+        
         KeyboardState keyboardState;
         KeyboardState oldKeyboardState;
         public Tile.TileType tileType;

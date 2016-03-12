@@ -29,7 +29,8 @@ namespace Factory_Game
         }
         public void Update(GameTime gameTime, Game1 game)
         {
-            scale = 1f; 
+            float speed = 1f;
+
             gme = game;
             center = new Vector2((game.player.position.X * scale - (game.player.CurrentBounds().Width / 2) - (game.WIDTH / 2)) * scale, (game.player.position.Y * scale - (game.player.CurrentBounds().Height / 2) - (game.HEIGHT / 2)) * scale);
 
