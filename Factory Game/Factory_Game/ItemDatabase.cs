@@ -32,7 +32,10 @@ namespace Factory_Game
             items.Add(new Item(Tile.TileType.ItemPipeEast, "Item Pipe", "Item Pipe facing East", 17,false,500, content));
             items.Add(new Item(Tile.TileType.ItemPipeSouth, "Item Pipe", "Item Pipe facing South", 18,false,500, content));
             items.Add(new Item(Tile.TileType.ItemPipeWest, "Item Pipe", "ItemPipe facing West", 19,false, 500, content));
-            items.Add(new Item(Tile.TileType.StorageCrate, "Storage Crate", "Item Storage Crate", 20,false, 500, content)); 
+            items.Add(new Item(Tile.TileType.StorageCrate, "Storage Crate", "Item Storage Crate", 20,false, 500, content));
+            items.Add(new Item(Tile.TileType.RedWire1, "Red Wire", "A High Ressistance Wire", 21, false, 500, content));
+            items.Add(new Item(Tile.TileType.GreenWire1, "Green Wir ", "A Medium Resistance Wire", 22, false, 500, content));
+            items.Add(new Item(Tile.TileType.GoldWire1, "Gold Wire", "A Low Ressistance Wire", 23, false, 500, content)); 
         }
     }
 }

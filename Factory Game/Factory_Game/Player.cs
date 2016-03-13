@@ -61,8 +61,9 @@ namespace Factory_Game
             inventory.AddToInventory(itemDatabase.items[18], 200);
             inventory.AddToInventory(itemDatabase.items[19], 200);
             inventory.AddToInventory(itemDatabase.items[20], 200);
-            inventory.AddToInventory(itemDatabase.items[11], 200);
-            inventory.AddToInventory(itemDatabase.items[6], 200);
+            inventory.AddToInventory(itemDatabase.items[21], 200);
+            inventory.AddToInventory(itemDatabase.items[22], 200);
+            inventory.AddToInventory(itemDatabase.items[23], 200); 
         }
         public void Update(GameTime gameTime, Game1 game)
         {
@@ -194,8 +195,8 @@ namespace Factory_Game
                 yCord = Convert.ToInt32(worldPosition.Y) / 1024;
 
 
-
-                if (xCord < tileMap.chunks.GetLength(0) && xCord >= 0 && yCord < tileMap.chunks.GetLength(1) && yCord >= 0)
+                
+                if (worldPosition.X / 32< tileMap.chunks.GetLength(0) * 32 && worldPosition.X / 32 >= 0 && worldPosition.Y / 32 < tileMap.chunks.GetLength(1) * 32 && worldPosition.Y / 32 >= 0)
                 {
                     if (mouseState.RightButton == ButtonState.Pressed)
                     {

@@ -66,7 +66,13 @@ namespace Factory_Game
             IronBlock,
             SandTile,
             Platform1, 
-            UraniumBlock
+            UraniumBlock,
+            RedWire1,
+            RedWire2,
+            GreenWire1,
+            GreenWire2,
+            GoldWire1,
+            GoldWire2
         }
         public enum TileProperty
         {
@@ -266,6 +272,44 @@ namespace Factory_Game
                         tileProperty = TileProperty.CantPass; 
                         break; 
                     }
+                case 27:
+                    {
+                        tileType = TileType.RedWire2;
+                        tileProperty = TileProperty.CanPass;
+                        break;
+                    }
+                case 28:
+                    {
+                        tileType = TileType.RedWire2;
+                        tileProperty = TileProperty.CanPass;
+                        break;
+                    }
+                case 29:
+                    {
+                        tileType = TileType.GreenWire2;
+                        tileProperty = TileProperty.CanPass;
+                        break;
+                    }
+                case 30:
+                    {
+                        tileType = TileType.GreenWire2;
+                        tileProperty = TileProperty.CanPass;
+                        break;
+                    }
+                case 31:
+                    {
+                        tileType = TileType.GoldWire2;
+                        tileProperty = TileProperty.CanPass;
+                        break;
+                    }
+                case 32:
+                    {
+                        tileType = TileType.GoldWire2;
+                        tileProperty = TileProperty.CanPass;
+                        break;
+                    }
+                
+
             }
             #endregion
            sourceRectangle = Animation.SourceRect(tileType) ; 
@@ -548,7 +592,68 @@ namespace Factory_Game
                         madeQuarry = false; 
                         break; 
                     }
-                
+                case TileType.RedWire1:
+                    {
+                        tileType = TileType.RedWire2;
+                        tileProperty = TileProperty.CanPass;
+                        index = 27;
+                        madeItemPipe = false;
+                        madeStorage = false;
+                        madeQuarry = false;
+                        break;
+                    }
+                case TileType.RedWire2:
+                    {
+                        tileType = TileType.RedWire2;
+                        tileProperty = TileProperty.CanPass;
+                        index = 28;
+                        madeItemPipe = false;
+                        madeStorage = false;
+                        madeQuarry = false;
+                        break;
+                    }
+                case TileType.GreenWire1:
+                    {
+                        tileType = TileType.GreenWire2;
+                        tileProperty = TileProperty.CanPass;
+                        index = 29;
+                        madeItemPipe = false;
+                        madeStorage = false;
+                        madeQuarry = false;
+                        break;
+                    }
+                case TileType.GreenWire2:
+                    {
+                        tileType = TileType.GreenWire2;
+                        tileProperty = TileProperty.CanPass;
+                        index = 30;
+                        madeItemPipe = false;
+                        madeStorage = false;
+                        madeQuarry = false;
+                        break;
+                    }
+                case TileType.GoldWire1:
+                    {
+                        tileType = TileType.GoldWire2;
+                        tileProperty = TileProperty.CanPass;
+                        index = 31;
+                        madeItemPipe = false;
+                        madeStorage = false;
+                        madeQuarry = false;
+                        break;
+                    }
+                case TileType.GoldWire2:
+                    {
+                        tileType = TileType.GoldWire2;
+                        tileProperty = TileProperty.CanPass;
+                        index = 32;
+                        madeItemPipe = false;
+                        madeStorage = false;
+                        madeQuarry = false;
+                        break;
+                    }
+
+
             }
             sourceRectangle = Animation.SourceRect(tileType); 
             
@@ -1324,6 +1429,7 @@ namespace Factory_Game
             if (draw)
             {
                 spriteBatch.Draw(texture, position, sourceRectangle, Color.White);
+               // spriteBatch.Draw()
                 //Console.WriteLine("Drawing!"); 
                //spriteBatch.DrawString(font, (position.X / 32).ToString(), position, Color.White); 
                 if (this.tileType == TileType.QuarryBlock)

@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Factory_Game.exe" size="63408">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Factory_Game.exe" size="64944">
       <assemblyIdentity name="Factory_Game" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>JEC2RsEAsFaHF4aF5/fBY55H3XM=</dsig:DigestValue>
+        <dsig:DigestValue>3yPutjJct1HO+Ws86x0cEs7S6xs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -213,6 +213,15 @@
       <dsig:DigestValue>8DG6VzkTcWUHvSI2lVdqZFgVaws=</dsig:DigestValue>
     </hash>
   </file>
+  <file name="Content\TileObjects\GoldWire2Item.xnb" size="1211">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>1lNVsO/F0YAby+13slJ6TZzWX0E=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="Content\TileObjects\Granite1Item.xnb" size="1211">
     <hash>
       <dsig:Transforms>
@@ -267,6 +276,15 @@
       <dsig:DigestValue>feD8zzZm0xgVMoWzjT7ZDh4voyk=</dsig:DigestValue>
     </hash>
   </file>
+  <file name="Content\TileObjects\GreenWire2Item.xnb" size="1211">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>/ik9wfJ76wRr+s1fJitrZSaw1JA=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="Content\TileObjects\MarkerBlockItem.xnb" size="1211">
     <hash>
       <dsig:Transforms>
@@ -292,6 +310,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
       <dsig:DigestValue>UnU3ATCwN+U9TckIx6Cw5k1UkR4=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\TileObjects\RedWire2Item.xnb" size="1211">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>p3X3GDp8KgOTvvCHIU/e+9scdrM=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\TileObjects\SouthTubeItem.xnb" size="1211">
@@ -645,13 +672,13 @@
       <dsig:DigestValue>loL02Gi/Y4M0EnoCD/we50C1spo=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Tiles\Tile_SpriteSheet.xnb" size="172219">
+  <file name="Content\Tiles\Tile_SpriteSheet.xnb" size="200891">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>n0OxJ4l2ReVyGcdR5tQSFtYBsSo=</dsig:DigestValue>
+      <dsig:DigestValue>YNm0f6goMg4BWy5QCcPZu3iLmTU=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Tiles\UraniumBlock.xnb" size="4283">

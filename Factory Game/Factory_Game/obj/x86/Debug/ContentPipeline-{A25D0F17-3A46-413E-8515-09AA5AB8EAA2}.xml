@@ -521,7 +521,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\Tile_SpriteSheet.xnb</Output>
-      <Time>2016-03-11T10:41:27.1888195-05:00</Time>
+      <Time>2016-03-12T19:25:42.0300979-05:00</Time>
     </Item>
     <Item>
       <Source>TileObjects\TileObject_SpriteSheet.png</Source>
@@ -567,6 +567,33 @@
       <Options>None</Options>
       <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\Black.xnb</Output>
       <Time>2016-03-09T10:50:02.8474182-05:00</Time>
+    </Item>
+    <Item>
+      <Source>TileObjects\GoldWire2Item.png</Source>
+      <Name>TileObjects\GoldWire2Item</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\GoldWire2Item.xnb</Output>
+      <Time>2016-03-12T19:48:19.4116195-05:00</Time>
+    </Item>
+    <Item>
+      <Source>TileObjects\GreenWire2Item.png</Source>
+      <Name>TileObjects\GreenWire2Item</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\GreenWire2Item.xnb</Output>
+      <Time>2016-03-12T19:48:19.4210984-05:00</Time>
+    </Item>
+    <Item>
+      <Source>TileObjects\RedWire2Item.png</Source>
+      <Name>TileObjects\RedWire2Item</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\RedWire2Item.xnb</Output>
+      <Time>2016-03-12T19:48:19.4296042-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

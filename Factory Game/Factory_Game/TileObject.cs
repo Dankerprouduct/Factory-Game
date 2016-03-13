@@ -141,9 +141,45 @@ namespace Factory_Game
                         objectTexture = content.Load<Texture2D>("TileObjects/StorageCrateItem");
                         break;  
                     }
+                case Tile.TileType.RedWire1:
+                    {
+                        item = dataBase.items[21];
+                        objectTexture = content.Load<Texture2D>("TileObjects/RedWire2Item");
+                        break;
+                    }
+                case Tile.TileType.RedWire2:
+                    {
+                        item = dataBase.items[21];
+                        objectTexture = content.Load<Texture2D>("TileObjects/RedWire2Item");
+                        break;
+                    }
+                case Tile.TileType.GreenWire1:
+                    {
+                        item = dataBase.items[22];
+                        objectTexture = content.Load<Texture2D>("TileObjects/GreenWire2Item");
+                        break;
+                    }
+                case Tile.TileType.GreenWire2:
+                    {
+                        item = dataBase.items[22];
+                        objectTexture = content.Load<Texture2D>("TileObjects/GreenWire2Item");
+                        break;
+                    }
+                case Tile.TileType.GoldWire1:
+                    {
+                        item = dataBase.items[23];
+                        objectTexture = content.Load<Texture2D>("TileObjects/GoldWire2Item");
+                        break;
+                    }
+                case Tile.TileType.GoldWire2:
+                    {
+                        item = dataBase.items[23];
+                        objectTexture = content.Load<Texture2D>("TileObjects/GoldWire2Item");
+                        break;
+                    }
                 default:
                     {
-                        objectTexture = content.Load<Texture2D>("TileObjects/DryTile1Item");
+                        objectTexture = content.Load<Texture2D>("TileObjects/GoldWire2Item");
                         break;
                     }
 
@@ -182,31 +218,7 @@ namespace Factory_Game
                 }
             }
         }
-        /*
-        public void Collision(Rectangle bounds)
-        {
-            
-            tileBounds = bounds;
 
-            Vector2 debth = RectangleExtensions.GetIntersectionDepth(rect, bounds);
-
-            if (debth != Vector2.Zero)
-            {
-                float absDebthX = Math.Abs(debth.X);
-                float absDebthy = Math.Abs(debth.Y);
-
-                if (absDebthy < absDebthX)
-                {
-                    position = new Vector2(position.X, position.Y + debth.Y);
-                }
-                else
-                {
-                    position = new Vector2(position.X + debth.X, position.Y);
-                }
-            }
-            
-        }
-        */
         void DeathTimer(GameTime gameTime)
         {
             

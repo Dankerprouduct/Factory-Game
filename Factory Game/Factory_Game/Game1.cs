@@ -18,7 +18,7 @@ namespace Factory_Game
         SpriteBatch spriteBatch;
         // base stats 40mb
         // 1500
-        public int WIDTH = 1280;
+        public int WIDTH = 1500;
         public int HEIGHT;
 
         public Player player;
@@ -28,7 +28,7 @@ namespace Factory_Game
         public int[,] mapSize;
         // 932480
         // 234561 spawns in flat plane
-        int seed = 1002538; 
+        int seed = 3421; 
 
         public Camera camera;
 
@@ -40,7 +40,7 @@ namespace Factory_Game
         public TileObjectManagement tileObjectManagement;
 
         public float _fps = 0;
-        public int chunkWidth = 20;
+        public int chunkWidth = 40;
         public int chunkHeight = 20; 
         Texture2D rectangleTexture;
         public Game1()
@@ -71,7 +71,7 @@ namespace Factory_Game
             spriteBatch = new SpriteBatch(GraphicsDevice);
                        
 
-            tileMap = new TileMap(mapSize, seed, true);
+            tileMap = new TileMap(mapSize, seed, false);
             tileMap.LoadContent(Content);
 
             player = new Player(tileMap.playerStart);
@@ -112,7 +112,7 @@ namespace Factory_Game
             quarryManagement.Update(gameTime, this);
 
 
-
+            
             base.Update(gameTime);
         }
         

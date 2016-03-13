@@ -134,6 +134,36 @@ namespace Factory_Game
                         texture = content.Load<Texture2D>("TileObjects/StorageCrateItem");
                         break;
                     }
+                case Tile.TileType.RedWire1:
+                    {
+                        texture = content.Load<Texture2D>("TileObjects/RedWire2Item");
+                        break;
+                    }
+                case Tile.TileType.RedWire2:
+                    {
+                        texture = content.Load<Texture2D>("TileObjects/RedWire2Item");
+                        break;
+                    }
+                case Tile.TileType.GreenWire1:
+                    {
+                        texture = content.Load<Texture2D>("TileObjects/GreenWire2Item");
+                        break;
+                    }
+                case Tile.TileType.GreenWire2:
+                    {
+                        texture = content.Load<Texture2D>("TileObjects/GreenWire2Item");
+                        break;
+                    }
+                case Tile.TileType.GoldWire1:
+                    {
+                        texture = content.Load<Texture2D>("TileObjects/GoldWire2Item");
+                        break;
+                    }
+                case Tile.TileType.GoldWire2:
+                    {
+                        texture = content.Load<Texture2D>("TileObjects/GoldWire2Item");
+                        break;
+                    }
 
 
 
