@@ -40,7 +40,7 @@ namespace Factory_Game
         public TileObjectManagement tileObjectManagement;
 
         public float _fps = 0;
-        public int chunkWidth = 40;
+        public int chunkWidth = 20;
         public int chunkHeight = 20; 
         Texture2D rectangleTexture;
         public Game1()
@@ -71,7 +71,7 @@ namespace Factory_Game
             spriteBatch = new SpriteBatch(GraphicsDevice);
                        
 
-            tileMap = new TileMap(mapSize, seed, false);
+            tileMap = new TileMap(mapSize, seed, true);
             tileMap.LoadContent(Content);
 
             player = new Player(tileMap.playerStart);
@@ -129,7 +129,7 @@ namespace Factory_Game
             
             
             quarryManagement.Draw(spriteBatch, this);
-
+            
             if (tileObjectManagement.tileObjects.Count > 0)
             {
                 tileObjectManagement.Draw(spriteBatch);
@@ -143,7 +143,6 @@ namespace Factory_Game
             Rectangle rx;
             if (gui.showChunks)
             {
-
                 for (int x = (int)(player.position.X / 1024) - 1; x < (int)(player.position.X / 1024) + 2; x++)
                 {
                     for (int y = (int)(player.position.Y / 1024) - 1; y < (int)(player.position.Y / 1024) + 2; y++)
@@ -157,6 +156,7 @@ namespace Factory_Game
                         spriteBatch.Draw(rectangleTexture, new Rectangle(r.Left, r.Bottom, r.Width, bw), Color.Red);
                     }
                 }
+                
 
             }
 

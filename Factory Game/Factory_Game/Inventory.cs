@@ -244,9 +244,15 @@ namespace Factory_Game
                                 {
                                     //Console.WriteLine(slots[i].item.tileName);
                                     Rectangle toolTipBox = new Rectangle(slotRect.X - 150 + 16, slotRect.Y - 325 , 300, 300);
-                                    spriteBatch.Draw(inventoryTexture, toolTipBox, Color.White);
-                                    spriteBatch.DrawString(font, slots[i].item.tileName, new Vector2(toolTipBox.X, toolTipBox.Y), Color.White);
+                                    //spriteBatch.Draw(inventoryTexture, toolTipBox, Color.White);
+                                    spriteBatch.Draw(inventoryTexture, toolTipBox, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 50);
+
+                                    //spriteBatch.DrawString(font, slots[i].item.tileName, new Vector2(toolTipBox.X, toolTipBox.Y), Color.White);
+                                    spriteBatch.DrawString(font, slots[i].item.tileName, new Vector2(toolTipBox.X, toolTipBox.Y), Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 51);
+
+                                    
                                     spriteBatch.DrawString(font, slots[i].item.tileDescription, new Vector2(toolTipBox.X, toolTipBox.Y + 20), Color.White);
+                                    spriteBatch.DrawString(font, slots[i].item.tileDescription, new Vector2(toolTipBox.X, toolTipBox.Y + 20), Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 52); 
 
                                     if (mouseState.LeftButton == ButtonState.Pressed)
                                     {

@@ -394,13 +394,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Tiles\Tile_SpriteSheet.png">
-      <Name>Tile_SpriteSheet</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="TileObjects\GoldWire2Item.png">
       <Name>GoldWire2Item</Name>
       <Importer>TextureImporter</Importer>
@@ -413,6 +406,13 @@
     </Compile>
     <Compile Include="TileObjects\RedWire2Item.png">
       <Name>RedWire2Item</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Tiles\Tile_SpriteSheet.png">
+      <Name>Tile_SpriteSheet</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

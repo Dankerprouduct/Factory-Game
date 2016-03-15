@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Factory_Game.exe" size="64944">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Factory_Game.exe" size="71088">
       <assemblyIdentity name="Factory_Game" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>3yPutjJct1HO+Ws86x0cEs7S6xs=</dsig:DigestValue>
+        <dsig:DigestValue>JWPCnDIC/VUTgxfTb7xm3huPUp0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -678,7 +678,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>YNm0f6goMg4BWy5QCcPZu3iLmTU=</dsig:DigestValue>
+      <dsig:DigestValue>WEp3QPVD6EU/ljBMxdxFnmAJTPw=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Tiles\UraniumBlock.xnb" size="4283">

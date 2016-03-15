@@ -28,7 +28,7 @@ namespace Factory_Game
         TimeSpan time2;
         public int inventorySpeed = 1500; 
         TimeSpan lastTime;
-
+        Game1 game1; 
         QuarryDrill quarryDrill;
         SpriteFont font; 
         public bool madeItemPipe; 
@@ -69,10 +69,13 @@ namespace Factory_Game
             UraniumBlock,
             RedWire1,
             RedWire2,
+            RedWire3,
             GreenWire1,
             GreenWire2,
+            GreenWire3,
             GoldWire1,
-            GoldWire2
+            GoldWire2,
+            GoldWire3
         }
         public enum TileProperty
         {
@@ -85,10 +88,18 @@ namespace Factory_Game
             Tier2, 
             Tier3
         }
+        public enum WireState
+        {
+            State1,
+            State2,
+            State3,
+            State4
+        }
 
         public StorageTier storageTier; 
         public TileType tileType;
         public TileProperty tileProperty;
+        public WireState wireState; 
 
         ContentManager contentManager;
 
@@ -109,7 +120,8 @@ namespace Factory_Game
             time2 = TimeSpan.FromMilliseconds(inventorySpeed);
             storageTier = new StorageTier(); 
             tileProperty = new TileProperty(); 
-            tileType = new TileType(); 
+            tileType = new TileType();
+            wireState = new WireState(); 
             durability = 10;
 
         }
@@ -274,7 +286,7 @@ namespace Factory_Game
                     }
                 case 27:
                     {
-                        tileType = TileType.RedWire2;
+                        tileType = TileType.RedWire1;
                         tileProperty = TileProperty.CanPass;
                         break;
                     }
@@ -286,25 +298,43 @@ namespace Factory_Game
                     }
                 case 29:
                     {
-                        tileType = TileType.GreenWire2;
+                        tileType = TileType.RedWire3;
                         tileProperty = TileProperty.CanPass;
                         break;
                     }
                 case 30:
                     {
-                        tileType = TileType.GreenWire2;
+                        tileType = TileType.GreenWire1;
                         tileProperty = TileProperty.CanPass;
                         break;
                     }
                 case 31:
                     {
-                        tileType = TileType.GoldWire2;
+                        tileType = TileType.GreenWire2;
                         tileProperty = TileProperty.CanPass;
                         break;
                     }
                 case 32:
                     {
+                        tileType = TileType.GreenWire3;
+                        tileProperty = TileProperty.CanPass;
+                        break;
+                    }
+                case 33:
+                    {
+                        tileType = TileType.GoldWire1;
+                        tileProperty = TileProperty.CanPass;
+                        break;
+                    }
+                case 34:
+                    {
                         tileType = TileType.GoldWire2;
+                        tileProperty = TileProperty.CanPass;
+                        break;
+                    }
+                case 35:
+                    {
+                        tileType = TileType.GoldWire3;
                         tileProperty = TileProperty.CanPass;
                         break;
                     }
@@ -314,7 +344,6 @@ namespace Factory_Game
             #endregion
            sourceRectangle = Animation.SourceRect(tileType) ; 
             
-           // Console.WriteLine("Finalized"); 
         }
         public void SetPosition(Vector2 pos)
         {
@@ -594,7 +623,7 @@ namespace Factory_Game
                     }
                 case TileType.RedWire1:
                     {
-                        tileType = TileType.RedWire2;
+                        tileType = TileType.RedWire1;
                         tileProperty = TileProperty.CanPass;
                         index = 27;
                         madeItemPipe = false;
@@ -612,11 +641,21 @@ namespace Factory_Game
                         madeQuarry = false;
                         break;
                     }
-                case TileType.GreenWire1:
+                case TileType.RedWire3:
                     {
-                        tileType = TileType.GreenWire2;
+                        tileType = TileType.RedWire3;
                         tileProperty = TileProperty.CanPass;
                         index = 29;
+                        madeItemPipe = false;
+                        madeStorage = false;
+                        madeQuarry = false;
+                        break;
+                    }
+                case TileType.GreenWire1:
+                    {
+                        tileType = TileType.GreenWire1;
+                        tileProperty = TileProperty.CanPass;
+                        index = 30;
                         madeItemPipe = false;
                         madeStorage = false;
                         madeQuarry = false;
@@ -626,7 +665,17 @@ namespace Factory_Game
                     {
                         tileType = TileType.GreenWire2;
                         tileProperty = TileProperty.CanPass;
-                        index = 30;
+                        index = 31;
+                        madeItemPipe = false;
+                        madeStorage = false;
+                        madeQuarry = false;
+                        break;
+                    }
+                case TileType.GreenWire3:
+                    {
+                        tileType = TileType.RedWire2;
+                        tileProperty = TileProperty.CanPass;
+                        index = 32;
                         madeItemPipe = false;
                         madeStorage = false;
                         madeQuarry = false;
@@ -634,9 +683,9 @@ namespace Factory_Game
                     }
                 case TileType.GoldWire1:
                     {
-                        tileType = TileType.GoldWire2;
+                        tileType = TileType.GoldWire1;
                         tileProperty = TileProperty.CanPass;
-                        index = 31;
+                        index = 33;
                         madeItemPipe = false;
                         madeStorage = false;
                         madeQuarry = false;
@@ -646,21 +695,33 @@ namespace Factory_Game
                     {
                         tileType = TileType.GoldWire2;
                         tileProperty = TileProperty.CanPass;
-                        index = 32;
+                        index = 34;
                         madeItemPipe = false;
                         madeStorage = false;
                         madeQuarry = false;
                         break;
                     }
+                case TileType.GoldWire3:
+                    {
+                        tileType = TileType.RedWire2;
+                        tileProperty = TileProperty.CanPass;
+                        index = 35;
+                        madeItemPipe = false;
+                        madeStorage = false;
+                        madeQuarry = false;
+                        break;
+                    }
+                 
 
 
             }
-            sourceRectangle = Animation.SourceRect(tileType); 
+
+
+            sourceRectangle = Animation.SourceRect(tileType);
+            
             
         }
-        // 51
-        Color lightColor;
-        public float lightLevel; 
+
         public void DamageTile(float amount)
         {
            // Console.WriteLine("Damaging Tiles"); 
@@ -672,13 +733,18 @@ namespace Factory_Game
         public void Update(GameTime gameTime, Player player, Game1 game, Chunk tileMap)
         {
 
-            
-            
+            if (tileType == TileType.RedWire1)
+            {
+                Wire(game.tileMap);
+            }
             if (alive)
             {
-                                
+                
                 if (draw)
                 {
+
+                    
+
 
                     if (game.tileObjectManagement.tileObjects.Count > 0)
                     {
@@ -1388,38 +1454,177 @@ namespace Factory_Game
         /// 0 being the blackest
         /// </summary>
         /// <param name="level"></param>
-
-        public void Lighting(TileMap tileMap)
+        
+        // wire animation
+        public void Wire(TileMap tileMap)
         {
-            if (index == 0)
+            Vector2 pos;
+            int tileX;
+            int tileY;
+            int chunkX;
+            int chunkY;
+
+            // corner
+            pos = new Vector2(position.X + (1 * 32), position.Y);
+            tileX = tileMap.FindTile(pos).tileX;
+            tileY = tileMap.FindTile(pos).tileY;
+            chunkX = tileMap.FindTile(pos).chunkX;
+            chunkY = tileMap.FindTile(pos).chunkY;
+            if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire1)
             {
-                lightLevel = 0;
-            }
-            if (xPos - 1 < 32)
-            {
-                if (tileMap.chunks[chunkX, chunkY].tiles[localxPos - 1, localyPos].lightLevel > 0 && tileMap.chunks[chunkX, chunkY].tiles[localxPos - 1, localyPos].tileType != TileType.BlankTile)
+                pos = new Vector2(position.X, position.Y + (1 * 32));
+                tileX = tileMap.FindTile(pos).tileX;
+                tileY = tileMap.FindTile(pos).tileY;
+                chunkX = tileMap.FindTile(pos).chunkX;
+                chunkY = tileMap.FindTile(pos).chunkY;
+                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire1)
                 {
-                    tileMap.chunks[chunkX, chunkY].tiles[localxPos - 1, localyPos].lightLevel = lightLevel + .25f;
+                    UpdateIndex(TileType.RedWire3);
+                    wireState = WireState.State4; 
+                }
+                else if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire2)
+                {
+                    UpdateIndex(TileType.RedWire3);
+                    wireState = WireState.State4;
                 }
             }
-            if (xPos + 1 < 32)
+            else if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire2)
             {
-                if (tileMap.chunks[chunkX, chunkY].tiles[localxPos + 1, localyPos].lightLevel > 0 && tileMap.chunks[chunkX, chunkY].tiles[localxPos + 1, localyPos].tileType != TileType.BlankTile)
+                pos = new Vector2(position.X, position.Y + (1 * 32));
+                tileX = tileMap.FindTile(pos).tileX;
+                tileY = tileMap.FindTile(pos).tileY;
+                chunkX = tileMap.FindTile(pos).chunkX;
+                chunkY = tileMap.FindTile(pos).chunkY;
+                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire1)
                 {
-                    tileMap.chunks[chunkX, chunkY].tiles[localxPos + 1, localyPos].lightLevel = lightLevel + .25f;
+                    UpdateIndex(TileType.RedWire3);
+                    wireState = WireState.State4;
+                }
+                else if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire2)
+                {
+                    UpdateIndex(TileType.RedWire3);
+                    wireState = WireState.State4;
                 }
             }
-            if (yPos + 1 < 32 && yPos - 1 > 0)
+
+
+            pos = new Vector2(position.X - (1 * 32), position.Y);
+            tileX = tileMap.FindTile(pos).tileX;
+            tileY = tileMap.FindTile(pos).tileY;
+            chunkX = tileMap.FindTile(pos).chunkX;
+            chunkY = tileMap.FindTile(pos).chunkY;
+            if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire1)
             {
-                if (tileMap.chunks[chunkX, chunkY].tiles[localxPos, localyPos + 1].lightLevel > 0 && tileMap.chunks[chunkX, chunkY].tiles[localxPos, localyPos + 1].tileType != TileType.BlankTile)
+                pos = new Vector2(position.X, position.Y + (1 * 32));
+                tileX = tileMap.FindTile(pos).tileX;
+                tileY = tileMap.FindTile(pos).tileY;
+                chunkX = tileMap.FindTile(pos).chunkX;
+
+                chunkY = tileMap.FindTile(pos).chunkY;
+                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire1)
                 {
-                    tileMap.chunks[chunkX, chunkY].tiles[localxPos, localyPos + 1].lightLevel = lightLevel + .25f;
+                    UpdateIndex(TileType.RedWire3);
+                    wireState = WireState.State1;
                 }
-                if (tileMap.chunks[chunkX, chunkY].tiles[localxPos, localyPos - 1].lightLevel > 0 && tileMap.chunks[chunkX, chunkY].tiles[localxPos, localyPos - 1].tileType != TileType.BlankTile)
+                else if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire2)
                 {
-                    tileMap.chunks[chunkX, chunkY].tiles[localxPos, localyPos - 1].lightLevel = lightLevel + .25f;
+                    UpdateIndex(TileType.RedWire3);
+                    wireState = WireState.State1;
                 }
             }
+            else if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire2)
+            {
+                pos = new Vector2(position.X, position.Y + (1 * 32));
+                tileX = tileMap.FindTile(pos).tileX;
+                tileY = tileMap.FindTile(pos).tileY;
+                chunkX = tileMap.FindTile(pos).chunkX;
+                chunkY = tileMap.FindTile(pos).chunkY;
+                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire1)
+                {
+                    UpdateIndex(TileType.RedWire3);
+                    wireState = WireState.State1;
+                }
+                else if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire2)
+                {
+                    UpdateIndex(TileType.RedWire3);
+                    wireState = WireState.State1;
+                }
+            }
+
+            // up
+            pos = new Vector2(position.X, position.Y - (1 * 32));
+            tileX = tileMap.FindTile(pos).tileX;
+            tileY = tileMap.FindTile(pos).tileY;
+            chunkX = tileMap.FindTile(pos).chunkX;
+            chunkY = tileMap.FindTile(pos).chunkY; 
+
+            if(tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire1)
+            {
+                if(tileType == TileType.RedWire1)
+                {
+                    tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].UpdateIndex(TileType.RedWire2);
+                    UpdateIndex(TileType.RedWire2);
+                    wireState = WireState.State1;
+                    tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].wireState = WireState.State1;
+                }
+            }
+            // down 
+            pos = new Vector2(position.X, position.Y + (1 * 32));
+            tileX = tileMap.FindTile(pos).tileX;
+            tileY = tileMap.FindTile(pos).tileY;
+            chunkX = tileMap.FindTile(pos).chunkX;
+            chunkY = tileMap.FindTile(pos).chunkY;
+            if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire2)
+            {
+                if (tileType == TileType.RedWire1)
+                {
+                    tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].UpdateIndex(TileType.RedWire2);
+                    UpdateIndex(TileType.RedWire2);
+                    wireState = WireState.State1;
+                    tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].wireState = WireState.State1;
+                }
+            }
+
+            // left
+            pos = new Vector2(position.X - (1 * 32), position.Y);
+            tileX = tileMap.FindTile(pos).tileX;
+            tileY = tileMap.FindTile(pos).tileY;
+            chunkX = tileMap.FindTile(pos).chunkX;
+            chunkY = tileMap.FindTile(pos).chunkY;
+            if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire2)
+            {
+
+                if(tileType == TileType.RedWire1 || tileType == TileType.RedWire2)
+                {
+                    tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType = TileType.RedWire2;
+                    tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].wireState = WireState.State2;
+
+                    UpdateIndex(TileType.RedWire2);                    
+                    wireState = WireState.State2;
+                }
+            }
+
+            // right
+            pos = new Vector2(position.X + (1 * 32), position.Y);
+            tileX = tileMap.FindTile(pos).tileX;
+            tileY = tileMap.FindTile(pos).tileY;
+            chunkX = tileMap.FindTile(pos).chunkX;
+            chunkY = tileMap.FindTile(pos).chunkY;
+            if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire2)
+            {
+
+                if (tileType == TileType.RedWire1 || tileType == TileType.RedWire2)
+                {
+                    tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType = TileType.RedWire2;
+                    tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].wireState = WireState.State2;
+
+                    UpdateIndex(TileType.RedWire2);
+                    wireState = WireState.State2;
+                }
+            }
+            
+            
+
         }
 
         public void Draw(SpriteBatch spriteBatch, Player player)
@@ -1428,10 +1633,249 @@ namespace Factory_Game
            // sourceRectangle = Animation.SourceRect(TileType.DryTile1);
             if (draw)
             {
-                spriteBatch.Draw(texture, position, sourceRectangle, Color.White);
-               // spriteBatch.Draw()
+                #region // Draw
+                if (tileType == TileType.RedWire1)
+                {
+                    switch (wireState)
+                    {
+                        case WireState.State1:
+                            {
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32,32), sourceRectangle, Color.White, 0, new Vector2(0,0), SpriteEffects.None, 0f);
+                                break;
+                            }
+                        case WireState.State2:
+                            {
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 1.5708f, new Vector2(0, 31), SpriteEffects.None, 0f);
+                                break;
+                            }
+                        case WireState.State3:
+                            {
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 3.14159f, new Vector2(31, 31), SpriteEffects.None, 0f);
+                                break;
+                            }
+                        case WireState.State4:
+                            {
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 4.71238f, new Vector2(31, 0), SpriteEffects.None, 0f);
+                                break;
+                            }
+                    }
+                }
+                else if (tileType == TileType.RedWire2)
+                {
+                    switch (wireState)
+                    {
+                        case WireState.State1:
+                            {
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 0, new Vector2(0, 0), SpriteEffects.None, 0f);
+                                break;
+                            }
+                        case WireState.State2:
+                            {
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 1.5708f, new Vector2(0, 31), SpriteEffects.None, 0f);
+                                break;
+                            }
+                        case WireState.State3:
+                            {
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 3.14159f, new Vector2(31, 31), SpriteEffects.None, 0f);
+                                break;
+                            }
+                        case WireState.State4:
+                            {
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 4.71238f, new Vector2(31, 0), SpriteEffects.None, 0f);
+                                break;
+                            }
+                    }
+                }
+                else if (tileType == TileType.RedWire3)
+                {
+                    switch (wireState)
+                    {
+                        case WireState.State1:
+                            {
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 0, new Vector2(0, 0), SpriteEffects.None, 0f);
+                                break;
+                            }
+                        case WireState.State2:
+                            {
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 1.5708f, new Vector2(0, 31), SpriteEffects.None, 0f);
+                                break;
+                            }
+                        case WireState.State3:
+                            {
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 3.14159f, new Vector2(31, 31), SpriteEffects.None, 0f);
+                                break;
+                            }
+                        case WireState.State4:
+                            {
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 4.71238f, new Vector2(31, 0), SpriteEffects.None, 0f);
+                                break;
+                            }
+                    }
+                }
+                else if(tileType == TileType.GreenWire1)
+                {
+                    switch (wireState)
+                    {
+                        case WireState.State1:
+                            {
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 0, new Vector2(0, 0), SpriteEffects.None, 0f);
+                                break;
+                            }
+                        case WireState.State2:
+                            {
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 1.5708f, new Vector2(0, 31), SpriteEffects.None, 0f);
+                                break;
+                            }
+                        case WireState.State3:
+                            {
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 3.14159f, new Vector2(31, 31), SpriteEffects.None, 0f);
+                                break;
+                            }
+                        case WireState.State4:
+                            {
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 4.71238f, new Vector2(31, 0), SpriteEffects.None, 0f);
+                                break;
+                            }
+                    }
+                }
+                else if(tileType == TileType.GreenWire2)
+                {
+                    switch (wireState)
+                    {
+                        case WireState.State1:
+                            {
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 0, new Vector2(0, 0), SpriteEffects.None, 0f);
+                                break;
+                            }
+                        case WireState.State2:
+                            {
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 1.5708f, new Vector2(0, 31), SpriteEffects.None, 0f);
+                                break;
+                            }
+                        case WireState.State3:
+                            {
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 3.14159f, new Vector2(31, 31), SpriteEffects.None, 0f);
+                                break;
+                            }
+                        case WireState.State4:
+                            {
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 4.71238f, new Vector2(31, 0), SpriteEffects.None, 0f);
+                                break;
+                            }
+                    }
+                }
+                else if(tileType == TileType.GreenWire3)
+                {
+                    switch (wireState)
+                    {
+                        case WireState.State1:
+                            {
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 0, new Vector2(0, 0), SpriteEffects.None, 0f);
+                                break;
+                            }
+                        case WireState.State2:
+                            {
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 1.5708f, new Vector2(0, 31), SpriteEffects.None, 0f);
+                                break;
+                            }
+                        case WireState.State3:
+                            {
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 3.14159f, new Vector2(31, 31), SpriteEffects.None, 0f);
+                                break;
+                            }
+                        case WireState.State4:
+                            {
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 4.71238f, new Vector2(31, 0), SpriteEffects.None, 0f);
+                                break;
+                            }
+                    }
+                }
+                else if(tileType == TileType.GoldWire1)
+                {
+                    switch (wireState)
+                    {
+                        case WireState.State1:
+                            {
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 0, new Vector2(0, 0), SpriteEffects.None, 0f);
+                                break;
+                            }
+                        case WireState.State2:
+                            {
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 1.5708f, new Vector2(0, 31), SpriteEffects.None, 0f);
+                                break;
+                            }
+                        case WireState.State3:
+                            {
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 3.14159f, new Vector2(31, 31), SpriteEffects.None, 0f);
+                                break;
+                            }
+                        case WireState.State4:
+                            {
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 4.71238f, new Vector2(31, 0), SpriteEffects.None, 0f);
+                                break;
+                            }
+                    }
+                }
+                else if(tileType == TileType.GoldWire2)
+                {
+                    switch (wireState)
+                    {
+                        case WireState.State1:
+                            {
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 0, new Vector2(0, 0), SpriteEffects.None, 0f);
+                                break;
+                            }
+                        case WireState.State2:
+                            {
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 1.5708f, new Vector2(0, 31), SpriteEffects.None, 0f);
+                                break;
+                            }
+                        case WireState.State3:
+                            {
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 3.14159f, new Vector2(31, 31), SpriteEffects.None, 0f);
+                                break;
+                            }
+                        case WireState.State4:
+                            {
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 4.71238f, new Vector2(31, 0), SpriteEffects.None, 0f);
+                                break;
+                            }
+                    }
+                }
+                else if(tileType == TileType.GoldWire3)
+                {
+                    switch (wireState)
+                    {
+                        case WireState.State1:
+                            {
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 0, new Vector2(0, 0), SpriteEffects.None, 0f);
+                                break;
+                            }
+                        case WireState.State2:
+                            {
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 1.5708f, new Vector2(0, 31), SpriteEffects.None, 0f);
+                                break;
+                            }
+                        case WireState.State3:
+                            {
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 3.14159f, new Vector2(31, 31), SpriteEffects.None, 0f);
+                                break;
+                            }
+                        case WireState.State4:
+                            {
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 4.71238f, new Vector2(31, 0), SpriteEffects.None, 0f);
+                                break;
+                            }
+                    }
+                }
+                else
+                {
+                    spriteBatch.Draw(texture, position, sourceRectangle, Color.White);
+                }
+                #endregion
+                // spriteBatch.Draw()
                 //Console.WriteLine("Drawing!"); 
-               //spriteBatch.DrawString(font, (position.X / 32).ToString(), position, Color.White); 
+                //spriteBatch.DrawString(font, (position.X / 32).ToString(), position, Color.White); 
                 if (this.tileType == TileType.QuarryBlock)
                 {
                     if (madeQuarry)
