@@ -36,7 +36,7 @@ namespace Factory_Game
         public float _fps = 0;
         public Tile tempTile;
         Vector2 startPos;
-
+        Texture2D mouseTExture; 
         public Player(Vector2 startPosition)
         {
             inventory = new Inventory();
@@ -53,17 +53,18 @@ namespace Factory_Game
         {
             itemDatabase = new ItemDatabase(content); 
             texture = content.Load<Texture2D>("Sprites/TempPlayer");
+            mouseTExture = content.Load<Texture2D>("Sprites/MouseSelection");
             inventory.LoadContent(content);
-            inventory.AddToInventory(itemDatabase.items[12], 200);
-            inventory.AddToInventory(itemDatabase.items[15], 200);
-            inventory.AddToInventory(itemDatabase.items[16], 200);
-            inventory.AddToInventory(itemDatabase.items[17], 200);
-            inventory.AddToInventory(itemDatabase.items[18], 200);
-            inventory.AddToInventory(itemDatabase.items[19], 200);
-            inventory.AddToInventory(itemDatabase.items[20], 200);
-            inventory.AddToInventory(itemDatabase.items[21], 200);
-            inventory.AddToInventory(itemDatabase.items[22], 200);
-            inventory.AddToInventory(itemDatabase.items[23], 200); 
+         //   inventory.AddToInventory(itemDatabase.items[12], 200);
+         //   inventory.AddToInventory(itemDatabase.items[15], 200);
+         //   inventory.AddToInventory(itemDatabase.items[16], 200);
+         //   inventory.AddToInventory(itemDatabase.items[17], 200);
+         //   inventory.AddToInventory(itemDatabase.items[18], 200);
+         //   inventory.AddToInventory(itemDatabase.items[19], 200);
+         //   inventory.AddToInventory(itemDatabase.items[20], 200);
+            inventory.AddToInventory(itemDatabase.items[21], 1000);
+         //   inventory.AddToInventory(itemDatabase.items[22], 200);
+         //   inventory.AddToInventory(itemDatabase.items[23], 200); 
         }
         public void Update(GameTime gameTime, Game1 game)
         {
@@ -182,13 +183,12 @@ namespace Factory_Game
         /// <param name="tileMap"></param>
         void MouseMovement(Camera camera, TileMap tileMap)
         {
-            
+            mouseState = Mouse.GetState();
+            mousePosition = new Vector2(mouseState.X, mouseState.Y);
+            worldPosition = Vector2.Transform(mousePosition, Matrix.Invert(camera.rawTransform));
             if (!inventory.showInventory)
             {
-                mouseState = Mouse.GetState();
-                mousePosition = new Vector2(mouseState.X, mouseState.Y);
-                worldPosition = Vector2.Transform(mousePosition, Matrix.Invert(camera.rawTransform));
-
+                                               
 
                 // gets the Chunk Cord
                 xCord = Convert.ToInt32(worldPosition.X) / 1024;
@@ -200,7 +200,6 @@ namespace Factory_Game
                 {
                     if (mouseState.RightButton == ButtonState.Pressed)
                     {
-
 
                         if(inventory.inventory[inventory.selectedItem].count > 0)
                         {
@@ -217,7 +216,6 @@ namespace Factory_Game
                     if (mouseState.LeftButton == ButtonState.Pressed)
                     {
                         tileMap.DamageTile(xCord, yCord, (((int)worldPosition.X % 1024) / 32), (((int)worldPosition.Y % 1024) / 32), 10f);
-
                     }
                 }
             }
@@ -259,6 +257,8 @@ namespace Factory_Game
             int previous = (int)position.Y;
             int averagePosY = (int)Math.Floor(position.Y + previous) / 2;
             spriteBatch.Draw(texture, new Vector2(position.X, position.Y), Color.White);
+            // spriteBatch.Draw(mouseTExture, new Vector2(worldPosition.X , worldPosition.Y), Color.White); 
+            //spriteBatch.Draw(mouseTExture, new Vector2((int)worldPosition.X / 32, (int)worldPosition.Y / 32), Color.White);
             inventory.Draw(spriteBatch, this); 
         }
     }

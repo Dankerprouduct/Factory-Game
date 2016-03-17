@@ -64,3 +64,4 @@ Content\Tiles\Black.xnb
 Content\TileObjects\GoldWire2Item.xnb
 Content\TileObjects\GreenWire2Item.xnb
 Content\TileObjects\RedWire2Item.xnb
+Content\Sprites\MouseSelection.xnb

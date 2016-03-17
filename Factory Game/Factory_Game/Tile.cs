@@ -70,12 +70,18 @@ namespace Factory_Game
             RedWire1,
             RedWire2,
             RedWire3,
+            RedWire4,
+            RedWire5,
             GreenWire1,
             GreenWire2,
             GreenWire3,
+            GreenWire4,
+            GreenWire5,
             GoldWire1,
             GoldWire2,
-            GoldWire3
+            GoldWire3,
+            GoldWire4,
+            GoldWire5
         }
         public enum TileProperty
         {
@@ -651,11 +657,31 @@ namespace Factory_Game
                         madeQuarry = false;
                         break;
                     }
+                case TileType.RedWire4:
+                    {
+                        tileType = TileType.RedWire4;
+                        tileProperty = TileProperty.CanPass;
+                        index = 30;
+                        madeItemPipe = false;
+                        madeStorage = false;
+                        madeQuarry = false;
+                        break;
+                    }
+                case TileType.RedWire5:
+                    {
+                        tileType = TileType.RedWire5;
+                        tileProperty = TileProperty.CanPass;
+                        index = 31;
+                        madeItemPipe = false;
+                        madeStorage = false;
+                        madeQuarry = false;
+                        break;
+                    }
                 case TileType.GreenWire1:
                     {
                         tileType = TileType.GreenWire1;
                         tileProperty = TileProperty.CanPass;
-                        index = 30;
+                        index = 32;
                         madeItemPipe = false;
                         madeStorage = false;
                         madeQuarry = false;
@@ -665,7 +691,7 @@ namespace Factory_Game
                     {
                         tileType = TileType.GreenWire2;
                         tileProperty = TileProperty.CanPass;
-                        index = 31;
+                        index = 33;
                         madeItemPipe = false;
                         madeStorage = false;
                         madeQuarry = false;
@@ -673,9 +699,29 @@ namespace Factory_Game
                     }
                 case TileType.GreenWire3:
                     {
-                        tileType = TileType.RedWire2;
+                        tileType = TileType.GreenWire3;
                         tileProperty = TileProperty.CanPass;
-                        index = 32;
+                        index = 34;
+                        madeItemPipe = false;
+                        madeStorage = false;
+                        madeQuarry = false;
+                        break;
+                    }
+                case TileType.GreenWire4:
+                    {
+                        tileType = TileType.GreenWire4;
+                        tileProperty = TileProperty.CanPass;
+                        index = 35;
+                        madeItemPipe = false;
+                        madeStorage = false;
+                        madeQuarry = false;
+                        break;
+                    }
+                case TileType.GreenWire5:
+                    {
+                        tileType = TileType.GreenWire5;
+                        tileProperty = TileProperty.CanPass;
+                        index = 36; 
                         madeItemPipe = false;
                         madeStorage = false;
                         madeQuarry = false;
@@ -685,7 +731,7 @@ namespace Factory_Game
                     {
                         tileType = TileType.GoldWire1;
                         tileProperty = TileProperty.CanPass;
-                        index = 33;
+                        index = 37;
                         madeItemPipe = false;
                         madeStorage = false;
                         madeQuarry = false;
@@ -695,7 +741,7 @@ namespace Factory_Game
                     {
                         tileType = TileType.GoldWire2;
                         tileProperty = TileProperty.CanPass;
-                        index = 34;
+                        index = 38;
                         madeItemPipe = false;
                         madeStorage = false;
                         madeQuarry = false;
@@ -703,9 +749,29 @@ namespace Factory_Game
                     }
                 case TileType.GoldWire3:
                     {
-                        tileType = TileType.RedWire2;
+                        tileType = TileType.GoldWire3;
                         tileProperty = TileProperty.CanPass;
-                        index = 35;
+                        index = 39;
+                        madeItemPipe = false;
+                        madeStorage = false;
+                        madeQuarry = false;
+                        break;
+                    }
+                case TileType.GoldWire4:
+                    {
+                        tileType = TileType.GoldWire4;
+                        tileProperty = TileProperty.CanPass;
+                        index = 40;
+                        madeItemPipe = false;
+                        madeStorage = false;
+                        madeQuarry = false;
+                        break;
+                    }
+                case TileType.GoldWire5:
+                    {
+                        tileType = TileType.GoldWire5;
+                        tileProperty = TileProperty.CanPass;
+                        index = 41;
                         madeItemPipe = false;
                         madeStorage = false;
                         madeQuarry = false;
@@ -1464,6 +1530,8 @@ namespace Factory_Game
             int chunkX;
             int chunkY;
 
+
+            #region Corners
             // corner
             pos = new Vector2(position.X + (1 * 32), position.Y);
             tileX = tileMap.FindTile(pos).tileX;
@@ -1551,6 +1619,96 @@ namespace Factory_Game
                 }
             }
 
+
+            // corner 2
+            pos = new Vector2(position.X + (1 * 32), position.Y);
+            tileX = tileMap.FindTile(pos).tileX;
+            tileY = tileMap.FindTile(pos).tileY;
+            chunkX = tileMap.FindTile(pos).chunkX;
+            chunkY = tileMap.FindTile(pos).chunkY;
+            if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire1)
+            {
+                pos = new Vector2(position.X, position.Y - (1 * 32));
+                tileX = tileMap.FindTile(pos).tileX;
+                tileY = tileMap.FindTile(pos).tileY;
+                chunkX = tileMap.FindTile(pos).chunkX;
+                chunkY = tileMap.FindTile(pos).chunkY;
+                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire1)
+                {
+                    UpdateIndex(TileType.RedWire3);
+                    wireState = WireState.State3;
+                }
+                else if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire2)
+                {
+                    UpdateIndex(TileType.RedWire3);
+                    wireState = WireState.State3;
+                }
+            }
+            else if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire2)
+            {
+                pos = new Vector2(position.X, position.Y - (1 * 32));
+                tileX = tileMap.FindTile(pos).tileX;
+                tileY = tileMap.FindTile(pos).tileY;
+                chunkX = tileMap.FindTile(pos).chunkX;
+                chunkY = tileMap.FindTile(pos).chunkY;
+                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire1)
+                {
+                    UpdateIndex(TileType.RedWire3);
+                    wireState = WireState.State3;
+                }
+                else if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire2)
+                {
+                    UpdateIndex(TileType.RedWire3);
+                    wireState = WireState.State3;
+                }
+            }
+
+
+            pos = new Vector2(position.X - (1 * 32), position.Y);
+            tileX = tileMap.FindTile(pos).tileX;
+            tileY = tileMap.FindTile(pos).tileY;
+            chunkX = tileMap.FindTile(pos).chunkX;
+            chunkY = tileMap.FindTile(pos).chunkY;
+            if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire1)
+            {
+                pos = new Vector2(position.X, position.Y - (1 * 32));
+                tileX = tileMap.FindTile(pos).tileX;
+                tileY = tileMap.FindTile(pos).tileY;
+                chunkX = tileMap.FindTile(pos).chunkX;
+
+                chunkY = tileMap.FindTile(pos).chunkY;
+                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire1)
+                {
+                    UpdateIndex(TileType.RedWire3);
+                    wireState = WireState.State2;
+                }
+                else if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire2)
+                {
+                    UpdateIndex(TileType.RedWire3);
+                    wireState = WireState.State2;
+                }
+            }
+            else if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire2)
+            {
+                pos = new Vector2(position.X, position.Y - (1 * 32));
+                tileX = tileMap.FindTile(pos).tileX;
+                tileY = tileMap.FindTile(pos).tileY;
+                chunkX = tileMap.FindTile(pos).chunkX;
+                chunkY = tileMap.FindTile(pos).chunkY;
+                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire1)
+                {
+                    UpdateIndex(TileType.RedWire3);
+                    wireState = WireState.State2;
+                }
+                else if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire2)
+                {
+                    UpdateIndex(TileType.RedWire3);
+                    wireState = WireState.State2;
+                }
+            }
+            #endregion
+
+            #region Up
             // up
             pos = new Vector2(position.X, position.Y - (1 * 32));
             tileX = tileMap.FindTile(pos).tileX;
@@ -1568,6 +1726,9 @@ namespace Factory_Game
                     tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].wireState = WireState.State1;
                 }
             }
+            #endregion
+
+            #region Down
             // down 
             pos = new Vector2(position.X, position.Y + (1 * 32));
             tileX = tileMap.FindTile(pos).tileX;
@@ -1584,7 +1745,9 @@ namespace Factory_Game
                     tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].wireState = WireState.State1;
                 }
             }
+            #endregion
 
+            #region Left
             // left
             pos = new Vector2(position.X - (1 * 32), position.Y);
             tileX = tileMap.FindTile(pos).tileX;
@@ -1594,16 +1757,19 @@ namespace Factory_Game
             if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire2)
             {
 
-                if(tileType == TileType.RedWire1 || tileType == TileType.RedWire2)
+                if(tileType == TileType.RedWire1)
                 {
                     tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType = TileType.RedWire2;
-                    tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].wireState = WireState.State2;
-
-                    UpdateIndex(TileType.RedWire2);                    
+                    UpdateIndex(TileType.RedWire2);
                     wireState = WireState.State2;
+                    tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].wireState = WireState.State2;
+                    UpdateIndex(TileType.RedWire2);
+
                 }
             }
+            #endregion
 
+            #region Right
             // right
             pos = new Vector2(position.X + (1 * 32), position.Y);
             tileX = tileMap.FindTile(pos).tileX;
@@ -1613,17 +1779,85 @@ namespace Factory_Game
             if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire2)
             {
 
-                if (tileType == TileType.RedWire1 || tileType == TileType.RedWire2)
+                if (tileType == TileType.RedWire1)
                 {
                     tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType = TileType.RedWire2;
-                    tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].wireState = WireState.State2;
-
                     UpdateIndex(TileType.RedWire2);
                     wireState = WireState.State2;
+                    tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].wireState = WireState.State2;
+                    UpdateIndex(TileType.RedWire2);
                 }
             }
-            
-            
+            #endregion
+
+            #region Cross
+            // Cross
+            pos = new Vector2(position.X + (1 * 32), position.Y);
+            tileX = tileMap.FindTile(pos).tileX;
+            tileY = tileMap.FindTile(pos).tileY;
+            chunkX = tileMap.FindTile(pos).chunkX;
+            chunkY = tileMap.FindTile(pos).chunkY;
+            if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire2)
+            {
+                pos = new Vector2(position.X, position.Y + (1 * 32));
+                tileX = tileMap.FindTile(pos).tileX;
+                tileY = tileMap.FindTile(pos).tileY;
+                chunkX = tileMap.FindTile(pos).chunkX;
+                chunkY = tileMap.FindTile(pos).chunkY;
+                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire2)
+                {
+                    pos = new Vector2(position.X, position.Y - (1 * 32));
+                    tileX = tileMap.FindTile(pos).tileX;
+                    tileY = tileMap.FindTile(pos).tileY;
+                    chunkX = tileMap.FindTile(pos).chunkX;
+                    chunkY = tileMap.FindTile(pos).chunkY;
+                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire2)
+                    {
+                        pos = new Vector2(position.X - (1 * 32), position.Y);
+                        tileX = tileMap.FindTile(pos).tileX;
+                        tileY = tileMap.FindTile(pos).tileY;
+                        chunkX = tileMap.FindTile(pos).chunkX;
+                        chunkY = tileMap.FindTile(pos).chunkY;
+
+                        if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire2)
+                        {
+                            UpdateIndex(TileType.RedWire4);
+                        }
+                    }
+                }
+            }
+            else if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire1)
+            {
+                pos = new Vector2(position.X, position.Y + (1 * 32));
+                tileX = tileMap.FindTile(pos).tileX;
+                tileY = tileMap.FindTile(pos).tileY;
+                chunkX = tileMap.FindTile(pos).chunkX;
+                chunkY = tileMap.FindTile(pos).chunkY;
+                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire1)
+                {
+                    pos = new Vector2(position.X, position.Y - (1 * 32));
+                    tileX = tileMap.FindTile(pos).tileX;
+                    tileY = tileMap.FindTile(pos).tileY;
+                    chunkX = tileMap.FindTile(pos).chunkX;
+                    chunkY = tileMap.FindTile(pos).chunkY;
+                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire1)
+                    {
+                        pos = new Vector2(position.X - (1 * 32), position.Y);
+                        tileX = tileMap.FindTile(pos).tileX;
+                        tileY = tileMap.FindTile(pos).tileY;
+                        chunkX = tileMap.FindTile(pos).chunkX;
+                        chunkY = tileMap.FindTile(pos).chunkY;
+
+                        if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire1)
+                        {
+                            UpdateIndex(TileType.RedWire4);
+                        }
+                    }
+                }
+            }
+
+            #endregion
+
 
         }
 

@@ -40,8 +40,8 @@ namespace Factory_Game
         public TileObjectManagement tileObjectManagement;
 
         public float _fps = 0;
-        public int chunkWidth = 20;
-        public int chunkHeight = 20; 
+        public int chunkWidth = 10;
+        public int chunkHeight = 10; 
         Texture2D rectangleTexture;
         public Game1()
         {
@@ -60,7 +60,8 @@ namespace Factory_Game
         protected override void Initialize()
         {
             mapSize = new int[chunkWidth * 32, chunkHeight * 32]; 
-            camera = new Camera(GraphicsDevice.Viewport); 
+            camera = new Camera(GraphicsDevice.Viewport);
+            //IsMouseVisible = false; 
             base.Initialize();
         }
         
@@ -149,7 +150,7 @@ namespace Factory_Game
                     {
 
                         r = new Rectangle(x * 1024, y * 1024, 1024, 1024);
-                        int bw = 2; // Border width
+                        int bw = 1; // Border width
                         spriteBatch.Draw(rectangleTexture, new Rectangle(r.Left, r.Top, bw, r.Height), Color.Red); // Left
                         spriteBatch.Draw(rectangleTexture, new Rectangle(r.Right, r.Top, bw, r.Height), Color.Red); // Right
                         spriteBatch.Draw(rectangleTexture, new Rectangle(r.Left, r.Top, r.Width, bw), Color.Red); // Top

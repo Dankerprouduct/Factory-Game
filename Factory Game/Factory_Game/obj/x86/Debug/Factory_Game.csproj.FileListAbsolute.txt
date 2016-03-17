@@ -212,3 +212,4 @@ C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\F
 C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\GoldWire2Item.xnb
 C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\GreenWire2Item.xnb
 C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\RedWire2Item.xnb
+C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Sprites\MouseSelection.xnb

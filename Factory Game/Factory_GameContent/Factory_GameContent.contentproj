@@ -411,6 +411,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Sprites\MouseSelection.png">
+      <Name>MouseSelection</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Tiles\Tile_SpriteSheet.png">
       <Name>Tile_SpriteSheet</Name>
       <Importer>TextureImporter</Importer>

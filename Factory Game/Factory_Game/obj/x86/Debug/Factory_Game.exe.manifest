@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Factory_Game.exe" size="71088">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Factory_Game.exe" size="74160">
       <assemblyIdentity name="Factory_Game" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>JWPCnDIC/VUTgxfTb7xm3huPUp0=</dsig:DigestValue>
+        <dsig:DigestValue>RADN0t2M3cVDTlXWq4bOW0g/cFY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -157,6 +157,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
       <dsig:DigestValue>AOxpL/uXJMpLGqjJ5gtd/FE0vmI=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Content\Sprites\MouseSelection.xnb" size="4283">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>87J70djX8+9rzEJgz5DH63tlAXo=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Sprites\TempPlayer.xnb" size="5187">
@@ -672,13 +681,13 @@
       <dsig:DigestValue>loL02Gi/Y4M0EnoCD/we50C1spo=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Tiles\Tile_SpriteSheet.xnb" size="200891">
+  <file name="Content\Tiles\Tile_SpriteSheet.xnb" size="262331">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>WEp3QPVD6EU/ljBMxdxFnmAJTPw=</dsig:DigestValue>
+      <dsig:DigestValue>45SP9qEFLDownZedhLoIdEOyTM8=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Tiles\UraniumBlock.xnb" size="4283">

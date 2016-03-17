@@ -521,7 +521,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\Tile_SpriteSheet.xnb</Output>
-      <Time>2016-03-13T11:38:27.4672589-04:00</Time>
+      <Time>2016-03-16T21:38:33.9937289-04:00</Time>
     </Item>
     <Item>
       <Source>TileObjects\TileObject_SpriteSheet.png</Source>
@@ -594,6 +594,15 @@
       <Options>None</Options>
       <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\RedWire2Item.xnb</Output>
       <Time>2016-03-12T19:48:19.4296042-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\MouseSelection.png</Source>
+      <Name>Sprites\MouseSelection</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Sprites\MouseSelection.xnb</Output>
+      <Time>2016-03-16T12:07:02.3247667-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
