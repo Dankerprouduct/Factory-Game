@@ -3,10 +3,6 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading; 
 namespace Factory_Game
 {
     public class Tile
@@ -794,14 +790,22 @@ namespace Factory_Game
             durability -= amount; 
         }
 
-        #region // Updates
+        #region  Updates
 
         public void Update(GameTime gameTime, Player player, Game1 game, Chunk tileMap)
         {
 
-            if (tileType == TileType.RedWire1)
+            if (tileType == TileType.RedWire1 || tileType == TileType.RedWire2 || tileType == TileType.RedWire3 || tileType == TileType.RedWire4 || tileType == TileType.RedWire5)
             {
-                Wire(game.tileMap);
+                Wire.WireState(this, game.tileMap); 
+            }
+            if(tileType == TileType.GreenWire1 || tileType == TileType.GreenWire2 || tileType == TileType.GreenWire3 || tileType == TileType.GreenWire4 || tileType == TileType.GreenWire5)
+            {
+                Wire.WireState(this, game.tileMap); 
+            }
+            if (tileType == TileType.GoldWire1 || tileType == TileType.GoldWire2 || tileType == TileType.GoldWire3 || tileType == TileType.GoldWire4 || tileType == TileType.GoldWire5)
+            {
+                Wire.WireState(this, game.tileMap);
             }
             if (alive)
             {
@@ -1514,351 +1518,11 @@ namespace Factory_Game
         
         #endregion 
 
-        /// <summary>
-        /// Range from 0 - 5 
-        /// 5 being the whitest
-        /// 0 being the blackest
-        /// </summary>
-        /// <param name="level"></param>
-        
-        // wire animation
-        public void Wire(TileMap tileMap)
+
+        public float Rotation(float degree)
         {
-            Vector2 pos;
-            int tileX;
-            int tileY;
-            int chunkX;
-            int chunkY;
-
-
-            #region Corners
-            // corner
-            pos = new Vector2(position.X + (1 * 32), position.Y);
-            tileX = tileMap.FindTile(pos).tileX;
-            tileY = tileMap.FindTile(pos).tileY;
-            chunkX = tileMap.FindTile(pos).chunkX;
-            chunkY = tileMap.FindTile(pos).chunkY;
-            if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire1)
-            {
-                pos = new Vector2(position.X, position.Y + (1 * 32));
-                tileX = tileMap.FindTile(pos).tileX;
-                tileY = tileMap.FindTile(pos).tileY;
-                chunkX = tileMap.FindTile(pos).chunkX;
-                chunkY = tileMap.FindTile(pos).chunkY;
-                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire1)
-                {
-                    UpdateIndex(TileType.RedWire3);
-                    wireState = WireState.State4; 
-                }
-                else if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire2)
-                {
-                    UpdateIndex(TileType.RedWire3);
-                    wireState = WireState.State4;
-                }
-            }
-            else if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire2)
-            {
-                pos = new Vector2(position.X, position.Y + (1 * 32));
-                tileX = tileMap.FindTile(pos).tileX;
-                tileY = tileMap.FindTile(pos).tileY;
-                chunkX = tileMap.FindTile(pos).chunkX;
-                chunkY = tileMap.FindTile(pos).chunkY;
-                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire1)
-                {
-                    UpdateIndex(TileType.RedWire3);
-                    wireState = WireState.State4;
-                }
-                else if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire2)
-                {
-                    UpdateIndex(TileType.RedWire3);
-                    wireState = WireState.State4;
-                }
-            }
-
-
-            pos = new Vector2(position.X - (1 * 32), position.Y);
-            tileX = tileMap.FindTile(pos).tileX;
-            tileY = tileMap.FindTile(pos).tileY;
-            chunkX = tileMap.FindTile(pos).chunkX;
-            chunkY = tileMap.FindTile(pos).chunkY;
-            if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire1)
-            {
-                pos = new Vector2(position.X, position.Y + (1 * 32));
-                tileX = tileMap.FindTile(pos).tileX;
-                tileY = tileMap.FindTile(pos).tileY;
-                chunkX = tileMap.FindTile(pos).chunkX;
-
-                chunkY = tileMap.FindTile(pos).chunkY;
-                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire1)
-                {
-                    UpdateIndex(TileType.RedWire3);
-                    wireState = WireState.State1;
-                }
-                else if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire2)
-                {
-                    UpdateIndex(TileType.RedWire3);
-                    wireState = WireState.State1;
-                }
-            }
-            else if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire2)
-            {
-                pos = new Vector2(position.X, position.Y + (1 * 32));
-                tileX = tileMap.FindTile(pos).tileX;
-                tileY = tileMap.FindTile(pos).tileY;
-                chunkX = tileMap.FindTile(pos).chunkX;
-                chunkY = tileMap.FindTile(pos).chunkY;
-                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire1)
-                {
-                    UpdateIndex(TileType.RedWire3);
-                    wireState = WireState.State1;
-                }
-                else if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire2)
-                {
-                    UpdateIndex(TileType.RedWire3);
-                    wireState = WireState.State1;
-                }
-            }
-
-
-            // corner 2
-            pos = new Vector2(position.X + (1 * 32), position.Y);
-            tileX = tileMap.FindTile(pos).tileX;
-            tileY = tileMap.FindTile(pos).tileY;
-            chunkX = tileMap.FindTile(pos).chunkX;
-            chunkY = tileMap.FindTile(pos).chunkY;
-            if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire1)
-            {
-                pos = new Vector2(position.X, position.Y - (1 * 32));
-                tileX = tileMap.FindTile(pos).tileX;
-                tileY = tileMap.FindTile(pos).tileY;
-                chunkX = tileMap.FindTile(pos).chunkX;
-                chunkY = tileMap.FindTile(pos).chunkY;
-                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire1)
-                {
-                    UpdateIndex(TileType.RedWire3);
-                    wireState = WireState.State3;
-                }
-                else if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire2)
-                {
-                    UpdateIndex(TileType.RedWire3);
-                    wireState = WireState.State3;
-                }
-            }
-            else if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire2)
-            {
-                pos = new Vector2(position.X, position.Y - (1 * 32));
-                tileX = tileMap.FindTile(pos).tileX;
-                tileY = tileMap.FindTile(pos).tileY;
-                chunkX = tileMap.FindTile(pos).chunkX;
-                chunkY = tileMap.FindTile(pos).chunkY;
-                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire1)
-                {
-                    UpdateIndex(TileType.RedWire3);
-                    wireState = WireState.State3;
-                }
-                else if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire2)
-                {
-                    UpdateIndex(TileType.RedWire3);
-                    wireState = WireState.State3;
-                }
-            }
-
-
-            pos = new Vector2(position.X - (1 * 32), position.Y);
-            tileX = tileMap.FindTile(pos).tileX;
-            tileY = tileMap.FindTile(pos).tileY;
-            chunkX = tileMap.FindTile(pos).chunkX;
-            chunkY = tileMap.FindTile(pos).chunkY;
-            if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire1)
-            {
-                pos = new Vector2(position.X, position.Y - (1 * 32));
-                tileX = tileMap.FindTile(pos).tileX;
-                tileY = tileMap.FindTile(pos).tileY;
-                chunkX = tileMap.FindTile(pos).chunkX;
-
-                chunkY = tileMap.FindTile(pos).chunkY;
-                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire1)
-                {
-                    UpdateIndex(TileType.RedWire3);
-                    wireState = WireState.State2;
-                }
-                else if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire2)
-                {
-                    UpdateIndex(TileType.RedWire3);
-                    wireState = WireState.State2;
-                }
-            }
-            else if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire2)
-            {
-                pos = new Vector2(position.X, position.Y - (1 * 32));
-                tileX = tileMap.FindTile(pos).tileX;
-                tileY = tileMap.FindTile(pos).tileY;
-                chunkX = tileMap.FindTile(pos).chunkX;
-                chunkY = tileMap.FindTile(pos).chunkY;
-                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire1)
-                {
-                    UpdateIndex(TileType.RedWire3);
-                    wireState = WireState.State2;
-                }
-                else if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire2)
-                {
-                    UpdateIndex(TileType.RedWire3);
-                    wireState = WireState.State2;
-                }
-            }
-            #endregion
-
-            #region Up
-            // up
-            pos = new Vector2(position.X, position.Y - (1 * 32));
-            tileX = tileMap.FindTile(pos).tileX;
-            tileY = tileMap.FindTile(pos).tileY;
-            chunkX = tileMap.FindTile(pos).chunkX;
-            chunkY = tileMap.FindTile(pos).chunkY; 
-
-            if(tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire1)
-            {
-                if(tileType == TileType.RedWire1)
-                {
-                    tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].UpdateIndex(TileType.RedWire2);
-                    UpdateIndex(TileType.RedWire2);
-                    wireState = WireState.State1;
-                    tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].wireState = WireState.State1;
-                }
-            }
-            #endregion
-
-            #region Down
-            // down 
-            pos = new Vector2(position.X, position.Y + (1 * 32));
-            tileX = tileMap.FindTile(pos).tileX;
-            tileY = tileMap.FindTile(pos).tileY;
-            chunkX = tileMap.FindTile(pos).chunkX;
-            chunkY = tileMap.FindTile(pos).chunkY;
-            if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire2)
-            {
-                if (tileType == TileType.RedWire1)
-                {
-                    tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].UpdateIndex(TileType.RedWire2);
-                    UpdateIndex(TileType.RedWire2);
-                    wireState = WireState.State1;
-                    tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].wireState = WireState.State1;
-                }
-            }
-            #endregion
-
-            #region Left
-            // left
-            pos = new Vector2(position.X - (1 * 32), position.Y);
-            tileX = tileMap.FindTile(pos).tileX;
-            tileY = tileMap.FindTile(pos).tileY;
-            chunkX = tileMap.FindTile(pos).chunkX;
-            chunkY = tileMap.FindTile(pos).chunkY;
-            if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire2)
-            {
-
-                if(tileType == TileType.RedWire1)
-                {
-                    tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType = TileType.RedWire2;
-                    UpdateIndex(TileType.RedWire2);
-                    wireState = WireState.State2;
-                    tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].wireState = WireState.State2;
-                    UpdateIndex(TileType.RedWire2);
-
-                }
-            }
-            #endregion
-
-            #region Right
-            // right
-            pos = new Vector2(position.X + (1 * 32), position.Y);
-            tileX = tileMap.FindTile(pos).tileX;
-            tileY = tileMap.FindTile(pos).tileY;
-            chunkX = tileMap.FindTile(pos).chunkX;
-            chunkY = tileMap.FindTile(pos).chunkY;
-            if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire2)
-            {
-
-                if (tileType == TileType.RedWire1)
-                {
-                    tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType = TileType.RedWire2;
-                    UpdateIndex(TileType.RedWire2);
-                    wireState = WireState.State2;
-                    tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].wireState = WireState.State2;
-                    UpdateIndex(TileType.RedWire2);
-                }
-            }
-            #endregion
-
-            #region Cross
-            // Cross
-            pos = new Vector2(position.X + (1 * 32), position.Y);
-            tileX = tileMap.FindTile(pos).tileX;
-            tileY = tileMap.FindTile(pos).tileY;
-            chunkX = tileMap.FindTile(pos).chunkX;
-            chunkY = tileMap.FindTile(pos).chunkY;
-            if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire2)
-            {
-                pos = new Vector2(position.X, position.Y + (1 * 32));
-                tileX = tileMap.FindTile(pos).tileX;
-                tileY = tileMap.FindTile(pos).tileY;
-                chunkX = tileMap.FindTile(pos).chunkX;
-                chunkY = tileMap.FindTile(pos).chunkY;
-                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire2)
-                {
-                    pos = new Vector2(position.X, position.Y - (1 * 32));
-                    tileX = tileMap.FindTile(pos).tileX;
-                    tileY = tileMap.FindTile(pos).tileY;
-                    chunkX = tileMap.FindTile(pos).chunkX;
-                    chunkY = tileMap.FindTile(pos).chunkY;
-                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire2)
-                    {
-                        pos = new Vector2(position.X - (1 * 32), position.Y);
-                        tileX = tileMap.FindTile(pos).tileX;
-                        tileY = tileMap.FindTile(pos).tileY;
-                        chunkX = tileMap.FindTile(pos).chunkX;
-                        chunkY = tileMap.FindTile(pos).chunkY;
-
-                        if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire2)
-                        {
-                            UpdateIndex(TileType.RedWire4);
-                        }
-                    }
-                }
-            }
-            else if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire1)
-            {
-                pos = new Vector2(position.X, position.Y + (1 * 32));
-                tileX = tileMap.FindTile(pos).tileX;
-                tileY = tileMap.FindTile(pos).tileY;
-                chunkX = tileMap.FindTile(pos).chunkX;
-                chunkY = tileMap.FindTile(pos).chunkY;
-                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire1)
-                {
-                    pos = new Vector2(position.X, position.Y - (1 * 32));
-                    tileX = tileMap.FindTile(pos).tileX;
-                    tileY = tileMap.FindTile(pos).tileY;
-                    chunkX = tileMap.FindTile(pos).chunkX;
-                    chunkY = tileMap.FindTile(pos).chunkY;
-                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire1)
-                    {
-                        pos = new Vector2(position.X - (1 * 32), position.Y);
-                        tileX = tileMap.FindTile(pos).tileX;
-                        tileY = tileMap.FindTile(pos).tileY;
-                        chunkX = tileMap.FindTile(pos).chunkX;
-                        chunkY = tileMap.FindTile(pos).chunkY;
-
-                        if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == TileType.RedWire1)
-                        {
-                            UpdateIndex(TileType.RedWire4);
-                        }
-                    }
-                }
-            }
-
-            #endregion
-
-
+            return (degree * (float)Math.PI) / 180; 
+            
         }
 
         public void Draw(SpriteBatch spriteBatch, Player player)
@@ -1879,17 +1543,17 @@ namespace Factory_Game
                             }
                         case WireState.State2:
                             {
-                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 1.5708f, new Vector2(0, 31), SpriteEffects.None, 0f);
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, Rotation(90), new Vector2(0, 31), SpriteEffects.None, 0f);
                                 break;
                             }
                         case WireState.State3:
                             {
-                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 3.14159f, new Vector2(31, 31), SpriteEffects.None, 0f);
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, Rotation(180), new Vector2(31, 31), SpriteEffects.None, 0f);
                                 break;
                             }
                         case WireState.State4:
                             {
-                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 4.71238f, new Vector2(31, 0), SpriteEffects.None, 0f);
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, Rotation(270), new Vector2(31, 0), SpriteEffects.None, 0f);
                                 break;
                             }
                     }
@@ -1905,12 +1569,64 @@ namespace Factory_Game
                             }
                         case WireState.State2:
                             {
-                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 1.5708f, new Vector2(0, 31), SpriteEffects.None, 0f);
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, Rotation(90), new Vector2(0, 31), SpriteEffects.None, 0f);
                                 break;
                             }
                         case WireState.State3:
                             {
-                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 3.14159f, new Vector2(31, 31), SpriteEffects.None, 0f);
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, Rotation(180), new Vector2(31, 31), SpriteEffects.None, 0f);
+                                break;
+                            }
+                        case WireState.State4:
+                            {
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, Rotation(270), new Vector2(31, 0), SpriteEffects.None, 0f);
+                                break;
+                            }
+                    }
+                }
+                else if (tileType == TileType.RedWire3)
+                {
+                    switch (wireState)
+                    {
+                        case WireState.State1:
+                            {
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 0, new Vector2(0, 0), SpriteEffects.None, 0f);
+                                break;
+                            }
+                        case WireState.State2:
+                            {
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, Rotation(90), new Vector2(0, 31), SpriteEffects.None, 0f);
+                                break;
+                            }
+                        case WireState.State3:
+                            {
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, Rotation(180), new Vector2(31, 31), SpriteEffects.None, 0f);
+                                break;
+                            }
+                        case WireState.State4:
+                            {
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, Rotation(270), new Vector2(31, 0), SpriteEffects.None, 0f);
+                                break;
+                            }
+                    }
+                }
+                else if (tileType == TileType.RedWire4)
+                {
+                    switch (wireState)
+                    {
+                        case WireState.State1:
+                            {
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 0, new Vector2(0, 0), SpriteEffects.None, 0f);
+                                break;
+                            }
+                        case WireState.State2:
+                            {
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, Rotation(90), new Vector2(0, 31), SpriteEffects.None, 0f);
+                                break;
+                            }
+                        case WireState.State3:
+                            {
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, Rotation(180), new Vector2(31, 31), SpriteEffects.None, 0f);
                                 break;
                             }
                         case WireState.State4:
@@ -1920,7 +1636,7 @@ namespace Factory_Game
                             }
                     }
                 }
-                else if (tileType == TileType.RedWire3)
+                else if (tileType == TileType.RedWire5)
                 {
                     switch (wireState)
                     {

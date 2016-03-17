@@ -63,15 +63,15 @@ namespace Factory_Game
          //   inventory.AddToInventory(itemDatabase.items[19], 200);
          //   inventory.AddToInventory(itemDatabase.items[20], 200);
             inventory.AddToInventory(itemDatabase.items[21], 1000);
-         //   inventory.AddToInventory(itemDatabase.items[22], 200);
-         //   inventory.AddToInventory(itemDatabase.items[23], 200); 
+            inventory.AddToInventory(itemDatabase.items[22], 1000);
+            inventory.AddToInventory(itemDatabase.items[23], 1000); 
         }
         public void Update(GameTime gameTime, Game1 game)
         {
 
             keyboardState = Keyboard.GetState();
             Movement();
-
+            
             if (keyboardState.IsKeyDown(Keys.B) && oldKeboardState.IsKeyUp(Keys.B))
             {
                 canBreak = !canBreak;
@@ -89,7 +89,7 @@ namespace Factory_Game
                 position = startPos;
 
             }
-
+            
             inventory.Update(gameTime, game);
             MouseMovement(game.camera, game.tileMap);
             oldKeboardState = keyboardState; 

@@ -111,6 +111,7 @@
     <Compile Include="TileMap.cs" />
     <Compile Include="TileObject.cs" />
     <Compile Include="TileObjectManagement.cs" />
+    <Compile Include="Wire.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />
