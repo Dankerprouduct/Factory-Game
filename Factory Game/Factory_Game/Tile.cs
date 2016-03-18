@@ -77,7 +77,8 @@ namespace Factory_Game
             GoldWire2,
             GoldWire3,
             GoldWire4,
-            GoldWire5
+            GoldWire5,
+            MissingTile
         }
         public enum TileProperty
         {
@@ -338,6 +339,12 @@ namespace Factory_Game
                     {
                         tileType = TileType.GoldWire3;
                         tileProperty = TileProperty.CanPass;
+                        break;
+                    }
+                default:
+                    {
+                        tileType = TileType.MissingTile;
+                        tileProperty = TileProperty.CantPass;
                         break;
                     }
                 

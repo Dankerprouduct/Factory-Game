@@ -216,6 +216,13 @@ namespace Factory_Game
                     mapAttributes[x, y] = 0;
                 }
             }
+            for (int x = 0; x < width; x++)
+            {
+                for (int y = halfSize; y < height; y++)
+                {
+                    mapAttributes[x, y] = 5;
+                }
+            }
             int mapX = mapAttributes.GetLength(0) / 2;
             int mapY = mapAttributes.GetLength(1) / 2;
             playerStart = new Vector2(mapX * 32, mapY * 32 - 64);

@@ -246,7 +246,7 @@ namespace Factory_Game
                 default:
                     {
                         // put error block right here
-                        Console.WriteLine("Texture for " + tile.ToString() + " could not be found");
+                        //Console.WriteLine("Texture for " + tile.ToString() + " could not be found");
                         return new Rectangle(0, 32, 32, 32); 
 
                     }

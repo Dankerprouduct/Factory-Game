@@ -14,6 +14,7 @@ namespace Factory_Game
 
     public class Game1 : Microsoft.Xna.Framework.Game
     {
+        string version = "Alpha .17"; 
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         // base stats 40mb
@@ -22,7 +23,6 @@ namespace Factory_Game
         public int HEIGHT;
 
         public Player player;
-
         public TileMap tileMap;
         // 4200 1200
         public int[,] mapSize;
@@ -45,7 +45,7 @@ namespace Factory_Game
         Texture2D rectangleTexture;
         public Game1()
         {
-            
+            Window.Title = version; 
             HEIGHT = (WIDTH / 16) * 9;
             graphics = new GraphicsDeviceManager(this);
             graphics.PreferredBackBufferHeight = HEIGHT;
