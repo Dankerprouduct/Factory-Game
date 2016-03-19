@@ -12,6 +12,7 @@ namespace Factory_Game
         // energy = power x time 
         // Power(in watts) = Jouls/Second
         // A typical solar panal cell can convert 15% of the sun to electricity. That is about 150 watts
+        // 1000 watts on a sunny day
 
         public static float Watts(float joules)
         {
@@ -27,7 +28,8 @@ namespace Factory_Game
         /// <returns></returns>
         public static float Ressistance(float ressistance, float Watts)
         {
-            return ressistance * Watts;              
+            return ressistance * Watts;       
+                   
         }
     }
 }

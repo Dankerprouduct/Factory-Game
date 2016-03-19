@@ -583,6 +583,11 @@ namespace Factory_Game
         {
             chunks[chunkX, chunkY].tiles[x, y].DamageTile(ammount); 
         }
+        /// <summary>
+        /// Find Tile Chunk Index and Tile Index
+        /// </summary>
+        /// <param name="position"></param>
+        /// <returns>Coordinate</returns>
         public Coordinate FindTile(Vector2 position)
         {
             Coordinate coordinate; 
@@ -592,6 +597,27 @@ namespace Factory_Game
             coordinate.tileY = ((int)position.Y % 1024) / 32;
             return coordinate; 
         }
+        /// <summary>
+        /// Gives the Tile from Vector2
+        /// </summary>
+        /// <param name="position"></param>
+        /// <returns>Tile</returns>
+        public Tile GetTile(Vector2 position)
+        {
+            
+            int _tileX;
+            int _tileY;
+            int _chunkX;
+            int _chunkY;
+
+            _tileX = FindTile(position).tileX;
+            _tileY = FindTile(position).tileY;
+            _chunkX = FindTile(position).chunkX;
+            _chunkY = FindTile(position).chunkY;
+
+            return chunks[_chunkX, _chunkY].tiles[_tileX, _tileY]; 
+        }
+
         public void Draw(SpriteBatch spriteBatch, Player player)
         {
 

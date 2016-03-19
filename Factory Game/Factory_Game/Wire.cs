@@ -1406,5 +1406,560 @@ namespace Factory_Game
             #endregion
             #endregion
         }
+
+        public static void Current(Tile tile, TileMap tileMap)
+        {
+            Vector2 pos;
+            float ressistance; 
+            // State1 = 0
+            // State2 = 90
+            // State3 = 180 
+            // State4 = 270
+
+            // tile1 - my tile
+            // tile2 - sent tile
+
+            pos = tile.position;
+
+            
+            #region Red Wire
+
+            ressistance = .755f;
+
+            #region Up
+            // Up
+            pos = new Vector2(tile.position.X, tile.position.Y);
+            pos = new Vector2(pos.X, pos.Y - 32); 
+            
+            if(tileMap.GetTile(pos).tileType == Tile.TileType.RedWire1)
+            {
+                if(tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current); 
+                }
+            }
+            else if(tileMap.GetTile(pos).tileType == Tile.TileType.RedWire2)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+            else if(tileMap.GetTile(pos).tileType == Tile.TileType.RedWire3)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+            else if(tileMap.GetTile(pos).tileType == Tile.TileType.RedWire4)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+            else if(tileMap.GetTile(pos).tileType == Tile.TileType.RedWire5)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+
+            #endregion
+
+
+            #region Down
+            // Down
+            pos = new Vector2(tile.position.X, tile.position.Y);
+            pos = new Vector2(pos.X, pos.Y + 32);
+
+            if (tileMap.GetTile(pos).tileType == Tile.TileType.RedWire1)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+            else if (tileMap.GetTile(pos).tileType == Tile.TileType.RedWire2)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+            else if (tileMap.GetTile(pos).tileType == Tile.TileType.RedWire3)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+            else if (tileMap.GetTile(pos).tileType == Tile.TileType.RedWire4)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+            else if (tileMap.GetTile(pos).tileType == Tile.TileType.RedWire5)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+            #endregion
+
+            #region Right
+            // Right 
+            pos = new Vector2(tile.position.X, tile.position.Y);
+            pos = new Vector2(pos.X + 32, pos.Y);
+
+            if (tileMap.GetTile(pos).tileType == Tile.TileType.RedWire1)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+            else if (tileMap.GetTile(pos).tileType == Tile.TileType.RedWire2)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+            else if (tileMap.GetTile(pos).tileType == Tile.TileType.RedWire3)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+            else if (tileMap.GetTile(pos).tileType == Tile.TileType.RedWire4)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+            else if (tileMap.GetTile(pos).tileType == Tile.TileType.RedWire5)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+
+            #endregion
+
+
+            #region Left
+            //Left
+            pos = new Vector2(tile.position.X, tile.position.Y);
+            pos = new Vector2(pos.X - 32, pos.Y);
+
+            if (tileMap.GetTile(pos).tileType == Tile.TileType.RedWire1)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+            else if (tileMap.GetTile(pos).tileType == Tile.TileType.RedWire2)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+            else if (tileMap.GetTile(pos).tileType == Tile.TileType.RedWire3)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+            else if (tileMap.GetTile(pos).tileType == Tile.TileType.RedWire4)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+            else if (tileMap.GetTile(pos).tileType == Tile.TileType.RedWire5)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+
+            #endregion
+
+            #endregion
+
+            #region Green Wire
+
+            ressistance = .855f;
+
+            #region Up
+            // Up
+            pos = new Vector2(tile.position.X, tile.position.Y); 
+            pos = new Vector2(pos.X, pos.Y - 32);
+
+            if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire1)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire2)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire3)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire4)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire5)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+
+            #endregion
+
+
+            #region Down
+            // Down
+            pos = new Vector2(tile.position.X, tile.position.Y);
+            pos = new Vector2(pos.X, pos.Y + 32);
+
+            if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire1)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire2)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire3)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire4)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire5)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+            #endregion
+
+            #region Right
+            // Right 
+            pos = new Vector2(tile.position.X, tile.position.Y);
+            pos = new Vector2(pos.X + 32, pos.Y);
+
+            if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire1)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire2)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire3)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire4)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire5)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+
+            #endregion
+
+
+            #region Left
+            //Left
+            pos = new Vector2(tile.position.X, tile.position.Y);
+            pos = new Vector2(pos.X - 32, pos.Y);
+
+            if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire1)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire2)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire3)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire4)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire5)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+
+            #endregion
+
+            #endregion
+
+            #region Gold Wire
+
+            ressistance = .955f;
+
+            #region Up
+            // Up
+            
+            pos = new Vector2(tile.position.X, tile.position.Y - 32);
+
+            if (tileMap.GetTile(pos).tileType == Tile.TileType.GoldWire1)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GoldWire2)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GoldWire3)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GoldWire4)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GoldWire5)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+
+            #endregion
+
+
+            #region Down
+            // Down
+            pos = new Vector2(tile.position.X, tile.position.Y + 32);
+
+            if (tileMap.GetTile(pos).tileType == Tile.TileType.GoldWire1)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GoldWire2)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GoldWire3)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GoldWire4)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GoldWire5)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+            #endregion
+
+            #region Right
+            // Right 
+            pos = new Vector2(tile.position.X + 32, tile.position.Y);
+
+            if (tileMap.GetTile(pos).tileType == Tile.TileType.GoldWire1)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GoldWire2)
+            {
+
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GoldWire3)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GoldWire4)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GoldWire5)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+
+            #endregion
+
+
+            #region Left
+            //Left
+            pos = new Vector2(tile.position.X - 32, tile.position.Y);
+
+            if (tileMap.GetTile(pos).tileType == Tile.TileType.GoldWire1)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GoldWire2)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GoldWire3)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GoldWire4)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GoldWire5)
+            {
+                if (tileMap.GetTile(pos).current > tile.current)
+                {
+                    tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
+                }
+            }
+
+            #endregion
+
+            #endregion
+
+            
+
+
+        }
     }
 }

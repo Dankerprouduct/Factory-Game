@@ -14,7 +14,7 @@ namespace Factory_Game
 
     public class Game1 : Microsoft.Xna.Framework.Game
     {
-        string version = "Alpha .17"; 
+        string version = "Alpha .23"; 
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         // base stats 40mb
@@ -72,7 +72,7 @@ namespace Factory_Game
             spriteBatch = new SpriteBatch(GraphicsDevice);
                        
 
-            tileMap = new TileMap(mapSize, seed, true);
+            tileMap = new TileMap(mapSize, seed, false);
             tileMap.LoadContent(Content);
 
             player = new Player(tileMap.playerStart);

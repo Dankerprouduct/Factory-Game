@@ -77,12 +77,6 @@ namespace Factory_Game
                 canBreak = !canBreak;
                // inventory.AddToInventory(itemDatabase.items[11], 200);
             }
-            if (keyboardState.IsKeyDown(Keys.V) && oldKeboardState.IsKeyUp(Keys.V))
-            {
-                
-                 inventory.AddToInventory(itemDatabase.items[11], 200);
-                 inventory.AddToInventory(itemDatabase.items[6], 200);
-            }
             if (keyboardState.IsKeyDown(Keys.O) && oldKeboardState.IsKeyUp(Keys.O))
             {
                 velocity = Vector2.Zero; 
@@ -198,6 +192,17 @@ namespace Factory_Game
                 
                 if (worldPosition.X / 32< tileMap.chunks.GetLength(0) * 32 && worldPosition.X / 32 >= 0 && worldPosition.Y / 32 < tileMap.chunks.GetLength(1) * 32 && worldPosition.Y / 32 >= 0)
                 {
+                    if(keyboardState.IsKeyDown(Keys.C) && oldKeboardState.IsKeyUp(Keys.C))
+                    {
+                        Console.WriteLine("Current: " + tileMap.chunks[xCord, yCord].tiles[(((int)worldPosition.X % 1024) / 32), (((int)worldPosition.Y % 1024) / 32)].current);
+                        Console.WriteLine("Type: " + tileMap.chunks[xCord, yCord].tiles[(((int)worldPosition.X % 1024) / 32), (((int)worldPosition.Y % 1024) / 32)].tileType.ToString());
+                    }
+                    if (keyboardState.IsKeyDown(Keys.V) && oldKeboardState.IsKeyUp(Keys.V))
+                    {
+                        tileMap.chunks[xCord, yCord].tiles[(((int)worldPosition.X % 1024) / 32), (((int)worldPosition.Y % 1024) / 32)].current = 1000; 
+                        Console.WriteLine("Set Current 1000: " + tileMap.chunks[xCord, yCord].tiles[(((int)worldPosition.X % 1024) / 32), (((int)worldPosition.Y % 1024) / 32)].current);
+
+                    }
                     if (mouseState.RightButton == ButtonState.Pressed)
                     {
 

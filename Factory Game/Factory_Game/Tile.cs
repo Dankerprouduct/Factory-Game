@@ -18,6 +18,7 @@ namespace Factory_Game
         Rectangle bounds;
         float durability;
         bool draw = true;
+        public float current; 
 
         TimeSpan time = TimeSpan.FromMilliseconds(1000);
 
@@ -364,7 +365,7 @@ namespace Factory_Game
         {
             durability = 10;
             alive = true;
-
+            current = 0; 
             switch (tiType)
             {
                 case TileType.BlankTile:
@@ -802,25 +803,13 @@ namespace Factory_Game
         public void Update(GameTime gameTime, Player player, Game1 game, Chunk tileMap)
         {
 
-            if (tileType == TileType.RedWire1 || tileType == TileType.RedWire2 || tileType == TileType.RedWire3 || tileType == TileType.RedWire4 || tileType == TileType.RedWire5)
-            {
-                Wire.WireState(this, game.tileMap); 
-            }
-            if(tileType == TileType.GreenWire1 || tileType == TileType.GreenWire2 || tileType == TileType.GreenWire3 || tileType == TileType.GreenWire4 || tileType == TileType.GreenWire5)
-            {
-                Wire.WireState(this, game.tileMap); 
-            }
-            if (tileType == TileType.GoldWire1 || tileType == TileType.GoldWire2 || tileType == TileType.GoldWire3 || tileType == TileType.GoldWire4 || tileType == TileType.GoldWire5)
-            {
-                Wire.WireState(this, game.tileMap);
-            }
             if (alive)
             {
                 
                 if (draw)
                 {
 
-                    
+                    Wires(game); 
 
 
                     if (game.tileObjectManagement.tileObjects.Count > 0)
@@ -967,15 +956,30 @@ namespace Factory_Game
                 {
                     if (madeQuarry)
                     {
-                        if (lastTime + time < gameTime.TotalGameTime)
-                        {
-                            lastTime = gameTime.TotalGameTime;
-                        }
+                        
                         // comented
                         quarryDrill.Update(gameTime, game);
                     }
                 }
 
+            }
+        }
+        public void Wires(Game1 game)
+        {
+            if (tileType == TileType.RedWire1 || tileType == TileType.RedWire2 || tileType == TileType.RedWire3 || tileType == TileType.RedWire4 || tileType == TileType.RedWire5)
+            {
+                Wire.WireState(this, game.tileMap);
+                Wire.Current(this, game.tileMap);
+            }
+            if (tileType == TileType.GreenWire1 || tileType == TileType.GreenWire2 || tileType == TileType.GreenWire3 || tileType == TileType.GreenWire4 || tileType == TileType.GreenWire5)
+            {
+                Wire.WireState(this, game.tileMap);
+                Wire.Current(this, game.tileMap);
+            }
+            if (tileType == TileType.GoldWire1 || tileType == TileType.GoldWire2 || tileType == TileType.GoldWire3 || tileType == TileType.GoldWire4 || tileType == TileType.GoldWire5)
+            {
+                Wire.WireState(this, game.tileMap);
+                Wire.Current(this, game.tileMap);
             }
         }
 
@@ -1638,7 +1642,7 @@ namespace Factory_Game
                             }
                         case WireState.State4:
                             {
-                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 4.71238f, new Vector2(31, 0), SpriteEffects.None, 0f);
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, Rotation(270), new Vector2(31, 0), SpriteEffects.None, 0f);
                                 break;
                             }
                     }
@@ -1654,17 +1658,17 @@ namespace Factory_Game
                             }
                         case WireState.State2:
                             {
-                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 1.5708f, new Vector2(0, 31), SpriteEffects.None, 0f);
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, Rotation(90), new Vector2(0, 31), SpriteEffects.None, 0f);
                                 break;
                             }
                         case WireState.State3:
                             {
-                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 3.14159f, new Vector2(31, 31), SpriteEffects.None, 0f);
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, Rotation(180), new Vector2(31, 31), SpriteEffects.None, 0f);
                                 break;
                             }
                         case WireState.State4:
                             {
-                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 4.71238f, new Vector2(31, 0), SpriteEffects.None, 0f);
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, Rotation(270), new Vector2(31, 0), SpriteEffects.None, 0f);
                                 break;
                             }
                     }
@@ -1680,17 +1684,17 @@ namespace Factory_Game
                             }
                         case WireState.State2:
                             {
-                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 1.5708f, new Vector2(0, 31), SpriteEffects.None, 0f);
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, Rotation(90), new Vector2(0, 31), SpriteEffects.None, 0f);
                                 break;
                             }
                         case WireState.State3:
                             {
-                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 3.14159f, new Vector2(31, 31), SpriteEffects.None, 0f);
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, Rotation(180), new Vector2(31, 31), SpriteEffects.None, 0f);
                                 break;
                             }
                         case WireState.State4:
                             {
-                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 4.71238f, new Vector2(31, 0), SpriteEffects.None, 0f);
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, Rotation(270), new Vector2(31, 0), SpriteEffects.None, 0f);
                                 break;
                             }
                     }
@@ -1706,17 +1710,17 @@ namespace Factory_Game
                             }
                         case WireState.State2:
                             {
-                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 1.5708f, new Vector2(0, 31), SpriteEffects.None, 0f);
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, Rotation(90), new Vector2(0, 31), SpriteEffects.None, 0f);
                                 break;
                             }
                         case WireState.State3:
                             {
-                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 3.14159f, new Vector2(31, 31), SpriteEffects.None, 0f);
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, Rotation(180), new Vector2(31, 31), SpriteEffects.None, 0f);
                                 break;
                             }
                         case WireState.State4:
                             {
-                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 4.71238f, new Vector2(31, 0), SpriteEffects.None, 0f);
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, Rotation(270), new Vector2(31, 0), SpriteEffects.None, 0f);
                                 break;
                             }
                     }
@@ -1732,17 +1736,17 @@ namespace Factory_Game
                             }
                         case WireState.State2:
                             {
-                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 1.5708f, new Vector2(0, 31), SpriteEffects.None, 0f);
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, Rotation(90), new Vector2(0, 31), SpriteEffects.None, 0f);
                                 break;
                             }
                         case WireState.State3:
                             {
-                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 3.14159f, new Vector2(31, 31), SpriteEffects.None, 0f);
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, Rotation(180), new Vector2(31, 31), SpriteEffects.None, 0f);
                                 break;
                             }
                         case WireState.State4:
                             {
-                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 4.71238f, new Vector2(31, 0), SpriteEffects.None, 0f);
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, Rotation(270), new Vector2(31, 0), SpriteEffects.None, 0f);
                                 break;
                             }
                     }
@@ -1758,17 +1762,17 @@ namespace Factory_Game
                             }
                         case WireState.State2:
                             {
-                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 1.5708f, new Vector2(0, 31), SpriteEffects.None, 0f);
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, Rotation(90), new Vector2(0, 31), SpriteEffects.None, 0f);
                                 break;
                             }
                         case WireState.State3:
                             {
-                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 3.14159f, new Vector2(31, 31), SpriteEffects.None, 0f);
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, Rotation(180), new Vector2(31, 31), SpriteEffects.None, 0f);
                                 break;
                             }
                         case WireState.State4:
                             {
-                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 4.71238f, new Vector2(31, 0), SpriteEffects.None, 0f);
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, Rotation(270), new Vector2(31, 0), SpriteEffects.None, 0f);
                                 break;
                             }
                     }
@@ -1784,17 +1788,17 @@ namespace Factory_Game
                             }
                         case WireState.State2:
                             {
-                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 1.5708f, new Vector2(0, 31), SpriteEffects.None, 0f);
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, Rotation(90), new Vector2(0, 31), SpriteEffects.None, 0f);
                                 break;
                             }
                         case WireState.State3:
                             {
-                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 3.14159f, new Vector2(31, 31), SpriteEffects.None, 0f);
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, Rotation(180), new Vector2(31, 31), SpriteEffects.None, 0f);
                                 break;
                             }
                         case WireState.State4:
                             {
-                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 4.71238f, new Vector2(31, 0), SpriteEffects.None, 0f);
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, Rotation(270), new Vector2(31, 0), SpriteEffects.None, 0f);
                                 break;
                             }
                     }
@@ -1810,17 +1814,69 @@ namespace Factory_Game
                             }
                         case WireState.State2:
                             {
-                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 1.5708f, new Vector2(0, 31), SpriteEffects.None, 0f);
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, Rotation(90), new Vector2(0, 31), SpriteEffects.None, 0f);
                                 break;
                             }
                         case WireState.State3:
                             {
-                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 3.14159f, new Vector2(31, 31), SpriteEffects.None, 0f);
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, Rotation(180), new Vector2(31, 31), SpriteEffects.None, 0f);
                                 break;
                             }
                         case WireState.State4:
                             {
-                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 4.71238f, new Vector2(31, 0), SpriteEffects.None, 0f);
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, Rotation(270), new Vector2(31, 0), SpriteEffects.None, 0f);
+                                break;
+                            }
+                    }
+                }
+                else if (tileType == TileType.GoldWire4)
+                {
+                    switch (wireState)
+                    {
+                        case WireState.State1:
+                            {
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 0, new Vector2(0, 0), SpriteEffects.None, 0f);
+                                break;
+                            }
+                        case WireState.State2:
+                            {
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, Rotation(90), new Vector2(0, 31), SpriteEffects.None, 0f);
+                                break;
+                            }
+                        case WireState.State3:
+                            {
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, Rotation(180), new Vector2(31, 31), SpriteEffects.None, 0f);
+                                break;
+                            }
+                        case WireState.State4:
+                            {
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, Rotation(270), new Vector2(31, 0), SpriteEffects.None, 0f);
+                                break;
+                            }
+                    }
+                }
+                else if (tileType == TileType.GoldWire5)
+                {
+                    switch (wireState)
+                    {
+                        case WireState.State1:
+                            {
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, 0, new Vector2(0, 0), SpriteEffects.None, 0f);
+                                break;
+                            }
+                        case WireState.State2:
+                            {
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, Rotation(90), new Vector2(0, 31), SpriteEffects.None, 0f);
+                                break;
+                            }
+                        case WireState.State3:
+                            {
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, Rotation(180), new Vector2(31, 31), SpriteEffects.None, 0f);
+                                break;
+                            }
+                        case WireState.State4:
+                            {
+                                spriteBatch.Draw(texture, new Rectangle((int)position.X, (int)position.Y, 32, 32), sourceRectangle, Color.White, Rotation(270), new Vector2(31, 0), SpriteEffects.None, 0f);
                                 break;
                             }
                     }
