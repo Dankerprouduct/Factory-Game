@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Factory_Game.exe" size="99760">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Factory_Game.exe" size="100784">
       <assemblyIdentity name="Factory_Game" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>yxvlU91Odsn6ih3TtIng1eQPytQ=</dsig:DigestValue>
+        <dsig:DigestValue>0a4APb8UoxiDCo30c4yaT1KO/lk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -687,7 +687,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>45SP9qEFLDownZedhLoIdEOyTM8=</dsig:DigestValue>
+      <dsig:DigestValue>7Kdd6m8ODSO6D1VGzhVHX+Q+n/4=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\Tiles\UraniumBlock.xnb" size="4283">
@@ -733,6 +733,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
       <dsig:DigestValue>diNvdcDpDtGEMuMQIHpkKK3qVHc=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="TileData\Tile_SpriteSheet.txt" size="1417">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>/r6MFWNMWILEae0B6FJITrEsxro=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

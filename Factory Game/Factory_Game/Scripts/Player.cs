@@ -55,13 +55,13 @@ namespace Factory_Game
             texture = content.Load<Texture2D>("Sprites/TempPlayer");
             mouseTExture = content.Load<Texture2D>("Sprites/MouseSelection");
             inventory.LoadContent(content);
-         //   inventory.AddToInventory(itemDatabase.items[12], 200);
-         //   inventory.AddToInventory(itemDatabase.items[15], 200);
-         //   inventory.AddToInventory(itemDatabase.items[16], 200);
-         //   inventory.AddToInventory(itemDatabase.items[17], 200);
-         //   inventory.AddToInventory(itemDatabase.items[18], 200);
-         //   inventory.AddToInventory(itemDatabase.items[19], 200);
-         //   inventory.AddToInventory(itemDatabase.items[20], 200);
+            inventory.AddToInventory(itemDatabase.items[12], 200);
+            inventory.AddToInventory(itemDatabase.items[15], 200);
+            inventory.AddToInventory(itemDatabase.items[16], 200);
+            inventory.AddToInventory(itemDatabase.items[17], 200);
+            inventory.AddToInventory(itemDatabase.items[18], 200);
+            inventory.AddToInventory(itemDatabase.items[19], 200);
+            inventory.AddToInventory(itemDatabase.items[20], 200);
             inventory.AddToInventory(itemDatabase.items[21], 1000);
             inventory.AddToInventory(itemDatabase.items[22], 1000);
             inventory.AddToInventory(itemDatabase.items[23], 1000); 
@@ -192,7 +192,7 @@ namespace Factory_Game
                 
                 if (worldPosition.X / 32< tileMap.chunks.GetLength(0) * 32 && worldPosition.X / 32 >= 0 && worldPosition.Y / 32 < tileMap.chunks.GetLength(1) * 32 && worldPosition.Y / 32 >= 0)
                 {
-                    if(keyboardState.IsKeyDown(Keys.C) && oldKeboardState.IsKeyUp(Keys.C))
+                    if(keyboardState.IsKeyDown(Keys.E) && oldKeboardState.IsKeyUp(Keys.E))
                     {
                         Console.WriteLine("Current: " + tileMap.chunks[xCord, yCord].tiles[(((int)worldPosition.X % 1024) / 32), (((int)worldPosition.Y % 1024) / 32)].current);
                         Console.WriteLine("Type: " + tileMap.chunks[xCord, yCord].tiles[(((int)worldPosition.X % 1024) / 32), (((int)worldPosition.Y % 1024) / 32)].tileType.ToString());

@@ -18,8 +18,6 @@ namespace Factory_Game
             int chunkX;
             int chunkY;
 
-
-
             #region Red Wire
 
             #region Up
@@ -1405,19 +1403,13 @@ namespace Factory_Game
 
             #endregion
             #endregion
+
         }
 
         public static void Current(Tile tile, TileMap tileMap)
         {
             Vector2 pos;
             float ressistance; 
-            // State1 = 0
-            // State2 = 90
-            // State3 = 180 
-            // State4 = 270
-
-            // tile1 - my tile
-            // tile2 - sent tile
 
             pos = tile.position;
 

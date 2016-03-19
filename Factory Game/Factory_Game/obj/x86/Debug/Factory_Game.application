@@ -8,14 +8,14 @@
     <framework targetVersion="4.0" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="Factory_Game.exe.manifest" size="33558">
+    <dependentAssembly dependencyType="install" codebase="Factory_Game.exe.manifest" size="33948">
       <assemblyIdentity name="Factory_Game.exe" version="1.0.0.2" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="x86" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>I2R/CMQpG3fLWDdAKJVdfPakwXU=</dsig:DigestValue>
+        <dsig:DigestValue>NueVcOCP/wQwe3o3rnOi4zfLw5I=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

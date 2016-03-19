@@ -72,7 +72,7 @@ namespace Factory_Game
             spriteBatch = new SpriteBatch(GraphicsDevice);
                        
 
-            tileMap = new TileMap(mapSize, seed, false);
+            tileMap = new TileMap(mapSize, seed, true);
             tileMap.LoadContent(Content);
 
             player = new Player(tileMap.playerStart);

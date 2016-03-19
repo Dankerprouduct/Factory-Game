@@ -18,8 +18,8 @@ namespace Factory_Game
         Rectangle bounds;
         float durability;
         bool draw = true;
-        public float current; 
-
+        public float current;
+        bool updateTile; 
         TimeSpan time = TimeSpan.FromMilliseconds(1000);
 
         TimeSpan time2;
@@ -352,7 +352,7 @@ namespace Factory_Game
 
             }
             #endregion
-           sourceRectangle = Animation.SourceRect(tileType) ; 
+           sourceRectangle = Animation.SourceRect(tileType, "Tile_SpriteSheet") ; 
             
         }
         public void SetPosition(Vector2 pos)
@@ -639,6 +639,7 @@ namespace Factory_Game
                         madeItemPipe = false;
                         madeStorage = false;
                         madeQuarry = false;
+                        updateTile = true; 
                         break;
                     }
                 case TileType.RedWire2:
@@ -649,6 +650,7 @@ namespace Factory_Game
                         madeItemPipe = false;
                         madeStorage = false;
                         madeQuarry = false;
+                        updateTile = true;
                         break;
                     }
                 case TileType.RedWire3:
@@ -659,6 +661,7 @@ namespace Factory_Game
                         madeItemPipe = false;
                         madeStorage = false;
                         madeQuarry = false;
+                        updateTile = true;
                         break;
                     }
                 case TileType.RedWire4:
@@ -669,6 +672,7 @@ namespace Factory_Game
                         madeItemPipe = false;
                         madeStorage = false;
                         madeQuarry = false;
+                        updateTile = true;
                         break;
                     }
                 case TileType.RedWire5:
@@ -679,6 +683,7 @@ namespace Factory_Game
                         madeItemPipe = false;
                         madeStorage = false;
                         madeQuarry = false;
+                        updateTile = true;
                         break;
                     }
                 case TileType.GreenWire1:
@@ -689,6 +694,7 @@ namespace Factory_Game
                         madeItemPipe = false;
                         madeStorage = false;
                         madeQuarry = false;
+                        updateTile = true;
                         break;
                     }
                 case TileType.GreenWire2:
@@ -699,6 +705,7 @@ namespace Factory_Game
                         madeItemPipe = false;
                         madeStorage = false;
                         madeQuarry = false;
+                        updateTile = true;
                         break;
                     }
                 case TileType.GreenWire3:
@@ -709,6 +716,7 @@ namespace Factory_Game
                         madeItemPipe = false;
                         madeStorage = false;
                         madeQuarry = false;
+                        updateTile = true;
                         break;
                     }
                 case TileType.GreenWire4:
@@ -729,6 +737,7 @@ namespace Factory_Game
                         madeItemPipe = false;
                         madeStorage = false;
                         madeQuarry = false;
+                        updateTile = true;
                         break;
                     }
                 case TileType.GoldWire1:
@@ -749,6 +758,7 @@ namespace Factory_Game
                         madeItemPipe = false;
                         madeStorage = false;
                         madeQuarry = false;
+                        updateTile = true;
                         break;
                     }
                 case TileType.GoldWire3:
@@ -759,6 +769,7 @@ namespace Factory_Game
                         madeItemPipe = false;
                         madeStorage = false;
                         madeQuarry = false;
+                        updateTile = true;
                         break;
                     }
                 case TileType.GoldWire4:
@@ -769,6 +780,7 @@ namespace Factory_Game
                         madeItemPipe = false;
                         madeStorage = false;
                         madeQuarry = false;
+                        updateTile = true;
                         break;
                     }
                 case TileType.GoldWire5:
@@ -779,6 +791,7 @@ namespace Factory_Game
                         madeItemPipe = false;
                         madeStorage = false;
                         madeQuarry = false;
+                        updateTile = true;
                         break;
                     }
                  
@@ -786,10 +799,10 @@ namespace Factory_Game
 
             }
 
+            
+            sourceRectangle = Animation.SourceRect(tileType, "Tile_SpriteSheet");
 
-            sourceRectangle = Animation.SourceRect(tileType);
-            
-            
+
         }
 
         public void DamageTile(float amount)
@@ -809,7 +822,7 @@ namespace Factory_Game
                 if (draw)
                 {
 
-                    Wires(game); 
+                    Wires(game, gameTime); 
 
 
                     if (game.tileObjectManagement.tileObjects.Count > 0)
@@ -964,8 +977,9 @@ namespace Factory_Game
 
             }
         }
-        public void Wires(Game1 game)
+        public void Wires(Game1 game, GameTime gameTime)
         {
+            
             if (tileType == TileType.RedWire1 || tileType == TileType.RedWire2 || tileType == TileType.RedWire3 || tileType == TileType.RedWire4 || tileType == TileType.RedWire5)
             {
                 Wire.WireState(this, game.tileMap);
@@ -981,6 +995,7 @@ namespace Factory_Game
                 Wire.WireState(this, game.tileMap);
                 Wire.Current(this, game.tileMap);
             }
+            
         }
 
         public void TileEntityCollision(Game1 game)
@@ -1009,7 +1024,7 @@ namespace Factory_Game
             {
                 int offSet = 3; 
                 // 100
-                int searchRadius = 20; 
+                int searchRadius = 200; 
                 int height = 8;
                 inventory = new Inventory();
                 inventory.inventoryType = Inventory.InventoryType.StorageInventory;
