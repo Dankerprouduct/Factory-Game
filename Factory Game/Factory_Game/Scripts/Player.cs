@@ -9,13 +9,15 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
-
+using NLua; 
 namespace Factory_Game
 {
     public class Player : GameObject
     {
-      //  public float j = 1; 
+
+        //  public float j = 1; 
         // input
+        Lua lua; 
         KeyboardState keyboardState;
         KeyboardState oldKeboardState;
         
@@ -55,23 +57,26 @@ namespace Factory_Game
             texture = content.Load<Texture2D>("Sprites/TempPlayer");
             mouseTExture = content.Load<Texture2D>("Sprites/MouseSelection");
             inventory.LoadContent(content);
-            inventory.AddToInventory(itemDatabase.items[12], 200);
-            inventory.AddToInventory(itemDatabase.items[15], 200);
-            inventory.AddToInventory(itemDatabase.items[16], 200);
-            inventory.AddToInventory(itemDatabase.items[17], 200);
-            inventory.AddToInventory(itemDatabase.items[18], 200);
-            inventory.AddToInventory(itemDatabase.items[19], 200);
-            inventory.AddToInventory(itemDatabase.items[20], 200);
-            inventory.AddToInventory(itemDatabase.items[21], 1000);
-            inventory.AddToInventory(itemDatabase.items[22], 1000);
-            inventory.AddToInventory(itemDatabase.items[23], 1000); 
+          //  inventory.AddToInventory(itemDatabase.items[12], 200);
+           // inventory.AddToInventory(itemDatabase.items[15], 200);
+           // inventory.AddToInventory(itemDatabase.items[16], 200);
+          //  inventory.AddToInventory(itemDatabase.items[17], 200);
+          //  inventory.AddToInventory(itemDatabase.items[18], 200);
+          //  inventory.AddToInventory(itemDatabase.items[19], 200);
+          //  inventory.AddToInventory(itemDatabase.items[20], 200);
+          //  inventory.AddToInventory(itemDatabase.items[21], 1000);
+           // inventory.AddToInventory(itemDatabase.items[22], 1000);
+           // inventory.AddToInventory(itemDatabase.items[23], 1000); 
         }
         public void Update(GameTime gameTime, Game1 game)
         {
 
             keyboardState = Keyboard.GetState();
             Movement();
-            
+            if (keyboardState.IsKeyDown(Keys.Z) && oldKeboardState.IsKeyUp(Keys.Z))
+            {
+                CompileLua(); 
+            }
             if (keyboardState.IsKeyDown(Keys.B) && oldKeboardState.IsKeyUp(Keys.B))
             {
                 canBreak = !canBreak;
@@ -88,6 +93,31 @@ namespace Factory_Game
             MouseMovement(game.camera, game.tileMap);
             oldKeboardState = keyboardState; 
             
+        }
+        public void CompileLua()
+        {
+            lua = new Lua();
+            
+            try
+            {
+                lua.RegisterFunction("SetPosition", this, this.GetType().GetMethod("SetPosition"));
+                lua.RegisterFunction("AddToInventory", this, this.GetType().GetMethod("AddToInventory"));
+                lua.DoFile("LuaScripts/script.lua");
+
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Problem with Lua: " + ex.ToString()); 
+            }
+            Console.WriteLine((string)lua["myvar"]); 
+        }
+        public void SetPosition(double x, double y)
+        {
+            position = new Vector2((float)x, (float)y); 
+        }
+        public void AddToInventory(int id, int ammount)
+        {
+            inventory.AddToInventory(itemDatabase.items[id], ammount); 
         }
         void Movement()
         {

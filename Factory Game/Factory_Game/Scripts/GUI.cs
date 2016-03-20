@@ -48,7 +48,7 @@ namespace Factory_Game
 
         public void Update(GameTime gameTime, Player player, TileObjectManagement tileManagement, Game1 game)
         {
-            game1 = game1; 
+            
             keyboardState = Keyboard.GetState();
             if (keyboardState.IsKeyDown(Keys.L) && oldKeyboardState.IsKeyUp(Keys.L))
             {
@@ -75,7 +75,7 @@ namespace Factory_Game
                 }
                 catch(Exception ex)
                 {
-
+                    Console.WriteLine(ex.ToString()); 
                 }
                 tilePos = "Tile Position " + ((player.rect.X % 1024) / 32).ToString() + " " + (((player.rect.Y  % 1024) / 32) + 2).ToString();
                 entitys = "Entitys " + tileManagement.tileObjects.Count;

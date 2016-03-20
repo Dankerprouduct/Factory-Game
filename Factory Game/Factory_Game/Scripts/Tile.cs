@@ -962,7 +962,7 @@ namespace Factory_Game
                 {
                     index = 0;
                     tileType = TileType.BlankTile;
-                    sourceRectangle = Animation.SourceRect(tileType); 
+                    sourceRectangle = Animation.SourceRect(tileType, "Tile_SpriteSheet"); 
                 }
 
                 if (tileType == TileType.QuarryBlock)

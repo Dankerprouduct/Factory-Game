@@ -3,12 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Media;
+
 
 namespace Factory_Game
 {
@@ -16,10 +12,31 @@ namespace Factory_Game
     {
 
         private Rectangle size;
-        private Texture2D background; 
-        public GUIObject(Rectangle guiSize)
+        private Texture2D background;
+        SpriteFont spriteFont;
+        public GUIObject()
         {
-            size = guiSize; 
+             
+        }
+        public void GuiBox(Rectangle size, string text)
+        {
+            string[] strings = text.Split(' '); 
+            
+            for(int i = 0; i < strings.Length; i++)
+            {
+                int sum = 0; 
+                sum += (int)spriteFont.MeasureString(strings[i]).X; 
+
+                if(sum > size.Width)
+                {
+                    strings[i].Insert(i, "\n"); 
+                }
+            }
+        }
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
+
         }
     }
 }

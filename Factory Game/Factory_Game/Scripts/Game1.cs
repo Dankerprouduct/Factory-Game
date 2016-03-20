@@ -41,7 +41,7 @@ namespace Factory_Game
 
         public float _fps = 0;
         public int chunkWidth = 10;
-        public int chunkHeight = 10; 
+        public int chunkHeight = 10;
         Texture2D rectangleTexture;
         public Game1()
         {
@@ -72,7 +72,7 @@ namespace Factory_Game
             spriteBatch = new SpriteBatch(GraphicsDevice);
                        
 
-            tileMap = new TileMap(mapSize, seed, true);
+            tileMap = new TileMap(mapSize, seed, false);
             tileMap.LoadContent(Content);
 
             player = new Player(tileMap.playerStart);
@@ -141,7 +141,6 @@ namespace Factory_Game
 
 
             Rectangle r;
-            Rectangle rx;
             if (gui.showChunks)
             {
                 for (int x = (int)(player.position.X / 1024) - 1; x < (int)(player.position.X / 1024) + 2; x++)

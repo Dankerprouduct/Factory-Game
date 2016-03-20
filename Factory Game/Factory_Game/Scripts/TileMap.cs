@@ -28,7 +28,7 @@ namespace Factory_Game
         public Chunk[,] chunks; 
 
         ContentManager contentManager; 
-        public static int chunkRange = 2;
+
         public struct Coordinate
         {
             public int chunkX;
@@ -418,9 +418,6 @@ namespace Factory_Game
             keyboardState = Keyboard.GetState();
 
             oldKeyoardState = keyboardState;
-
-            int xStart;
-            int yStart;
             /// Current Chunk
             if (((int)game.player.position.X / 1024) < chunks.GetLength(0) && ((int)game.player.position.X / 1024) >= 0)
             {
