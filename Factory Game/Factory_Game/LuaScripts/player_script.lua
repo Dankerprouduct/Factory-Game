@@ -1,0 +1,5 @@
+StartPosition()
+AddToInventory(23, 500)
+AddToInventory(22, 500)
+AddToInventory(21, 500)
+AddToInventory(6, 100)

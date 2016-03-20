@@ -65,5 +65,6 @@ Content\TileObjects\GoldWire2Item.xnb
 Content\TileObjects\GreenWire2Item.xnb
 Content\TileObjects\RedWire2Item.xnb
 Content\Sprites\MouseSelection.xnb
-LuaScripts\script.lua
+LuaScripts\player_script.lua
 TileData\Tile_SpriteSheet.txt
+LuaScripts\tile_script.lua

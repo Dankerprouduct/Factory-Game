@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using NLua; 
 
 namespace Factory_Game
 {
@@ -27,8 +28,8 @@ namespace Factory_Game
 
         public Chunk[,] chunks; 
 
-        ContentManager contentManager; 
-
+        ContentManager contentManager;
+        Lua lua; 
         public struct Coordinate
         {
             public int chunkX;
@@ -38,10 +39,14 @@ namespace Factory_Game
              
         }
 
-        public TileMap(int[,] size, int sed, bool GenerateFlatWorld)
+        public TileMap(int[,] size, int sed)
         {
-            
-            generateFlatWorld = GenerateFlatWorld;
+            lua = new Lua();
+            lua.DoFile("LuaScripts/tile_script.lua");
+
+            generateFlatWorld = (bool)lua["FlatWorld"];
+
+
             seed = sed;
             //     mapSize = size;
             mapAttributes = size;
@@ -90,6 +95,7 @@ namespace Factory_Game
                 }
             }
 
+            lua = new Lua(); 
             MapGeneration(mapAttributes.GetLength(0), mapAttributes.GetLength(1));
 
             if (!generateFlatWorld)
@@ -112,29 +118,31 @@ namespace Factory_Game
             float[,] preGenMap = WhiteNoise(width, height);
 
             float[,] postGenMap = GeneratePerlinNoise(preGenMap, 6);
-
+            lua = new Lua(); 
+            lua.DoFile("LuaScripts/tile_script.lua"); 
 
             for (int x = 0; x < width; x++)
             {
                 for (int y = 0; y < height; y++)
                 {
-                    if (postGenMap[x, y] <= .3f && postGenMap[x, y] >= .0f)
+                    
+                    if (postGenMap[x, y] <= (float)((double)lua["BlankTileMax"]) && postGenMap[x, y] >= (float)((double)lua["BlankTileMin"]))
                     {
                         mapAttributes[x, y] = 0;
                     }
-                    if (postGenMap[x, y] <= .6f && postGenMap[x, y] >= .3f)
+                    if (postGenMap[x, y] <= (float)((double)lua["DryTile2Max"]) && postGenMap[x, y] >= (float)((double)lua["DryTile2Min"]))
                     {
                         mapAttributes[x, y] = 2;
-                        if (postGenMap[x, y] <= .4f && postGenMap[x, y] >= .3f)
+                        if (postGenMap[x, y] <= (float)((double)lua["DryTile3Max"]) && postGenMap[x, y] >= (float)((double)lua["DryTile3Max"]))
                         {
                             mapAttributes[x, y] = 3;
                         }
                     }
-                    if (postGenMap[x, y] <= .7f && postGenMap[x, y] >= .6f)
+                    if (postGenMap[x, y] <= (float)((double)lua["Granite1Max"]) && postGenMap[x, y] >= (float)((double)lua["Granite1Min"]))
                     {
                         mapAttributes[x, y] = 4;
                         // GenerateOre(x, y); 
-                        if (postGenMap[x, y] <= .65f && postGenMap[x, y] >= .6f)
+                        if (postGenMap[x, y] <= (float)((double)lua["Granite2Max"]) && postGenMap[x, y] >= (float)((double)lua["Granite2Min"]))
                         {
                             mapAttributes[x, y] = 5;
                             //  GenerateOre(x, y); 
@@ -151,6 +159,7 @@ namespace Factory_Game
             
 
         }
+
 
         void GenerateHills(int width, int height)
         {

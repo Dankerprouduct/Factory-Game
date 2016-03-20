@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Factory_Game.exe" size="100272">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Factory_Game.exe" size="100784">
       <assemblyIdentity name="Factory_Game" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>G4C78Q4Teb08UxEWKu2/2KRM1Ys=</dsig:DigestValue>
+        <dsig:DigestValue>ECvb29lZg0RFHwkGeBVCMn2WS/4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -759,13 +759,13 @@
       <dsig:DigestValue>diNvdcDpDtGEMuMQIHpkKK3qVHc=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="LuaScripts\script.lua" size="76">
+  <file name="LuaScripts\player_script.lua" size="114">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>hdNBeMtRDEOngDKWrCVJKw4iGLE=</dsig:DigestValue>
+      <dsig:DigestValue>10SBH6kojoZqpWgwyu30ZuOFTZY=</dsig:DigestValue>
     </hash>
   </file>
   <file name="TileData\Tile_SpriteSheet.txt" size="1417">

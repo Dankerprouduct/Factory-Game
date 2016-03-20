@@ -42,13 +42,12 @@ namespace Factory_Game
         public Player(Vector2 startPosition)
         {
             inventory = new Inventory();
-            inventory.inventoryType = Inventory.InventoryType.PlayerInventory; 
-            
-            position = startPosition;
+            inventory.inventoryType = Inventory.InventoryType.PlayerInventory;             
             startPos = startPosition; 
+
             // regular = 3 
             speed = 3;
-
+            
             
         }
         public void LoadContent(ContentManager content)
@@ -57,16 +56,8 @@ namespace Factory_Game
             texture = content.Load<Texture2D>("Sprites/TempPlayer");
             mouseTExture = content.Load<Texture2D>("Sprites/MouseSelection");
             inventory.LoadContent(content);
-          //  inventory.AddToInventory(itemDatabase.items[12], 200);
-           // inventory.AddToInventory(itemDatabase.items[15], 200);
-           // inventory.AddToInventory(itemDatabase.items[16], 200);
-          //  inventory.AddToInventory(itemDatabase.items[17], 200);
-          //  inventory.AddToInventory(itemDatabase.items[18], 200);
-          //  inventory.AddToInventory(itemDatabase.items[19], 200);
-          //  inventory.AddToInventory(itemDatabase.items[20], 200);
-          //  inventory.AddToInventory(itemDatabase.items[21], 1000);
-           // inventory.AddToInventory(itemDatabase.items[22], 1000);
-           // inventory.AddToInventory(itemDatabase.items[23], 1000); 
+
+            CompileLua();
         }
         public void Update(GameTime gameTime, Game1 game)
         {
@@ -102,7 +93,8 @@ namespace Factory_Game
             {
                 lua.RegisterFunction("SetPosition", this, this.GetType().GetMethod("SetPosition"));
                 lua.RegisterFunction("AddToInventory", this, this.GetType().GetMethod("AddToInventory"));
-                lua.DoFile("LuaScripts/script.lua");
+                lua.RegisterFunction("StartPosition", this, this.GetType().GetMethod("StartPosition"));
+                lua.DoFile("LuaScripts/player_script.lua");
 
             }
             catch(Exception ex)
@@ -114,6 +106,10 @@ namespace Factory_Game
         public void SetPosition(double x, double y)
         {
             position = new Vector2((float)x, (float)y); 
+        }
+        public void StartPosition()
+        {
+            position = startPos; 
         }
         public void AddToInventory(int id, int ammount)
         {

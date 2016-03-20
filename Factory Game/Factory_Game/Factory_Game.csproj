@@ -124,7 +124,7 @@
     <Content Include="GameThumbnail.png">
       <XnaPlatformSpecific>true</XnaPlatformSpecific>
     </Content>
-    <Content Include="LuaScripts\script.lua">
+    <Content Include="LuaScripts\player_script.lua">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="TileData\Tile_SpriteSheet.txt">
@@ -156,6 +156,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Factory_Game_TemporaryKey.pfx" />
+    <None Include="LuaScripts\tile_script.lua">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
