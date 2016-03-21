@@ -604,6 +604,24 @@
       <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Sprites\MouseSelection.xnb</Output>
       <Time>2016-03-16T12:07:02.3247667-04:00</Time>
     </Item>
+    <Item>
+      <Source>TileObjects\BatteryBlockItem.png</Source>
+      <Name>TileObjects\BatteryBlockItem</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\BatteryBlockItem.xnb</Output>
+      <Time>2016-03-20T12:13:48.69388-04:00</Time>
+    </Item>
+    <Item>
+      <Source>TileObjects\SolarPanelItem.png</Source>
+      <Name>TileObjects\SolarPanelItem</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\SolarPanelItem.xnb</Output>
+      <Time>2016-03-20T12:13:48.7284042-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{A25D0F17-3A46-413E-8515-09AA5AB8EAA2}</ContentProjectGUID>

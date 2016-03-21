@@ -17,10 +17,10 @@ namespace Factory_Game
         // alive - in renderbox
         public bool alive = true;
         Rectangle bounds;
-        float durability;
+        public float durability;
         bool draw = true;
         public float current;
-        bool updateTile; 
+
         TimeSpan time = TimeSpan.FromMilliseconds(1000);
 
         TimeSpan time2;
@@ -32,7 +32,8 @@ namespace Factory_Game
         public bool madeItemPipe; 
         public bool madeQuarry;
         public bool madeStorage;
-        public bool madeSmelter; 
+        public bool madeSmelter;
+        public bool madeSolarPanel; 
         public Item tempItem;
         public Rectangle sourceRectangle;
         public float light = 1; 
@@ -80,7 +81,9 @@ namespace Factory_Game
             GoldWire3,
             GoldWire4,
             GoldWire5,
-            MissingTile
+            MissingTile,
+            BatteryBlock,
+            SolarPanel
         }
         public enum TileProperty
         {
@@ -103,6 +106,7 @@ namespace Factory_Game
 
         public StorageTier storageTier; 
         public TileType tileType;
+
         public TileProperty tileProperty;
         public WireState wireState; 
 
@@ -110,7 +114,6 @@ namespace Factory_Game
 
         public Inventory inventory;
         public Inventory outPutInventory;
-       // ItemDatabase itemDatabase;
 
         public int xPos;
         public int yPos;
@@ -118,8 +121,10 @@ namespace Factory_Game
         public int localyPos;
         public int chunkX;
         public int chunkY; 
-        bool inInventory = false; 
-        
+        bool inInventory = false;
+
+        public Battery battery; 
+
         public Tile()
         {
             time2 = TimeSpan.FromMilliseconds(inventorySpeed);
@@ -353,7 +358,7 @@ namespace Factory_Game
 
             }
             #endregion
-           sourceRectangle = Animation.SourceRect(tileType, "Tile_SpriteSheet") ; 
+           sourceRectangle = Animation.SourceRect(tileType, "Tile_SpriteSheet", this) ; 
             
         }
         public void SetPosition(Vector2 pos)
@@ -366,446 +371,476 @@ namespace Factory_Game
         {
             durability = 10;
             alive = true;
-            current = 0; 
-            switch (tiType)
+            current = 0;
+
+
+            if (tiType != tileType)
             {
-                case TileType.BlankTile:
-                    {
-                        tileType = TileType.BlankTile;
-                        tileProperty = TileProperty.CanPass;
-                        index = 0;
-                        madeItemPipe = false;
-                        madeQuarry = false;
-                        madeStorage = false; 
-                        break;
-                    }
-                case TileType.DryTile1:
-                    {
-                        tileProperty = TileProperty.CantPass;
-                        tileType = TileType.DryTile1;
-                        index = 1;
-                        madeItemPipe = false;
-                        madeQuarry = false;
-                        madeStorage = false; 
-                        break;
-                    }
-                case TileType.DryTile2:
-                    {
-                        tileType = TileType.DryTile2;
-                        tileProperty = TileProperty.CantPass;
-                        index = 2;
-                        madeItemPipe = false;
-                        madeQuarry = false;
-                        madeStorage = false; 
-                        break;
-                    }
-                case TileType.DryTile3:
-                    {
-                        tileType = TileType.DryTile3;
-                        tileProperty = TileProperty.CantPass;
-                        index = 3;
-                        madeItemPipe = false;
-                        madeQuarry = false;
-                        madeStorage = false; 
-                        break;
-                    }
-                case TileType.Granite1:
-                    {
-                        tileType = TileType.Granite1;
-                        tileProperty = TileProperty.CantPass;
-                        index = 4;
-                        madeItemPipe = false;
-                        madeQuarry = false;
-                        madeStorage = false; 
-                        break;
-                    }
-                case TileType.Granite2:
-                    {
-                        tileType = TileType.Granite2;
-                        tileProperty = TileProperty.CantPass;
-                        index = 5;
-                        madeItemPipe = false;
-                        madeQuarry = false;
-                        madeStorage = false; 
-                        break;
-                    }
-                case TileType.Granite3:
-                    {
-                        tileType = TileType.Granite3;
-                        tileProperty = TileProperty.CantPass;
-                        index = 6;
-                        madeItemPipe = false;
-                        madeQuarry = false;
-                        madeStorage = false; 
-                        break;
-                    }
-                case TileType.Grass1:
-                    {
-                        tileType = TileType.Grass1;
-                        tileProperty = TileProperty.CantPass;
-                        index = 7;
-                        madeStorage = false;
-                        madeQuarry = false;
-                        madeItemPipe = false; 
+                //Console.WriteLine(tiType.ToString() + " " + tileType.ToString()); 
+                switch (tiType)
+                {
+                    case TileType.BlankTile:
+                        {
+                            tileType = TileType.BlankTile;
+                            tileProperty = TileProperty.CanPass;
+                            index = 0;
+                            madeItemPipe = false;
+                            madeQuarry = false;
+                            madeStorage = false;
+                            break;
+                        }
+                    case TileType.DryTile1:
+                        {
+                            tileProperty = TileProperty.CantPass;
+                            tileType = TileType.DryTile1;
+                            index = 1;
+                            madeItemPipe = false;
+                            madeQuarry = false;
+                            madeStorage = false;
+                            break;
+                        }
+                    case TileType.DryTile2:
+                        {
+                            tileType = TileType.DryTile2;
+                            tileProperty = TileProperty.CantPass;
+                            index = 2;
+                            madeItemPipe = false;
+                            madeQuarry = false;
+                            madeStorage = false;
+                            break;
+                        }
+                    case TileType.DryTile3:
+                        {
+                            tileType = TileType.DryTile3;
+                            tileProperty = TileProperty.CantPass;
+                            index = 3;
+                            madeItemPipe = false;
+                            madeQuarry = false;
+                            madeStorage = false;
+                            break;
+                        }
+                    case TileType.Granite1:
+                        {
+                            tileType = TileType.Granite1;
+                            tileProperty = TileProperty.CantPass;
+                            index = 4;
+                            madeItemPipe = false;
+                            madeQuarry = false;
+                            madeStorage = false;
+                            break;
+                        }
+                    case TileType.Granite2:
+                        {
+                            tileType = TileType.Granite2;
+                            tileProperty = TileProperty.CantPass;
+                            index = 5;
+                            madeItemPipe = false;
+                            madeQuarry = false;
+                            madeStorage = false;
+                            break;
+                        }
+                    case TileType.Granite3:
+                        {
+                            tileType = TileType.Granite3;
+                            tileProperty = TileProperty.CantPass;
+                            index = 6;
+                            madeItemPipe = false;
+                            madeQuarry = false;
+                            madeStorage = false;
+                            break;
+                        }
+                    case TileType.Grass1:
+                        {
+                            tileType = TileType.Grass1;
+                            tileProperty = TileProperty.CantPass;
+                            index = 7;
+                            madeStorage = false;
+                            madeQuarry = false;
+                            madeItemPipe = false;
 
-                        break;
-                    }
-                case TileType.Grass2:
-                    {
-                        tileType = TileType.Grass2;
-                        tileProperty = TileProperty.CantPass;
-                        index = 8;
-                        madeItemPipe = false;
-                        madeQuarry = false;
-                        madeStorage = false; 
-                        break;
-                    }
-                case TileType.Grass3:
-                    {
-                        tileType = TileType.Grass3;
-                        tileProperty = TileProperty.CantPass;
-                        index = 9;
-                        madeItemPipe = false;
-                        madeQuarry = false;
-                        madeStorage = false; 
+                            break;
+                        }
+                    case TileType.Grass2:
+                        {
+                            tileType = TileType.Grass2;
+                            tileProperty = TileProperty.CantPass;
+                            index = 8;
+                            madeItemPipe = false;
+                            madeQuarry = false;
+                            madeStorage = false;
+                            break;
+                        }
+                    case TileType.Grass3:
+                        {
+                            tileType = TileType.Grass3;
+                            tileProperty = TileProperty.CantPass;
+                            index = 9;
+                            madeItemPipe = false;
+                            madeQuarry = false;
+                            madeStorage = false;
 
-                        break;
-                    }
-                case TileType.ConstructionBlock:
-                    {
-                        tileType = TileType.ConstructionBlock;
-                        tileProperty = TileProperty.CanPass;
-                        index = 11;
-                        madeItemPipe = false;
-                        madeQuarry = false;
-                        madeStorage = false; 
+                            break;
+                        }
+                    case TileType.ConstructionBlock:
+                        {
+                            tileType = TileType.ConstructionBlock;
+                            tileProperty = TileProperty.CanPass;
+                            index = 11;
+                            madeItemPipe = false;
+                            madeQuarry = false;
+                            madeStorage = false;
 
-                        break;
-                    }
-                case TileType.MarkerBlock:
-                    {
-                        tileType = TileType.MarkerBlock;
-                        tileProperty = TileProperty.CanPass; 
-                        index = 12;
-                        madeItemPipe = false;
-                        madeStorage = false;
-                        madeQuarry = false; 
-                        break; 
-                    }
-                case TileType.ConstructionTube:
-                    {
-                        tileType = TileType.ConstructionTube;
-                        tileProperty = TileProperty.CanPass;
-                        index = 13;
-                        madeItemPipe = false;
-                        madeStorage = false;
-                        madeQuarry = false; 
-                        break; 
-                    }
-                case TileType.ConstructionDrillBit:
-                    {
-                        tileType = TileType.ConstructionDrillBit;
-                        tileProperty = TileProperty.CanPass; 
-                        index = 14;
-                        madeItemPipe = false;
-                        madeStorage = false;
-                        madeQuarry = false; 
-                        break; 
-                    }
-                case TileType.QuarryBlock:
-                    {
-                        tileType = TileType.QuarryBlock;
-                        tileProperty = TileProperty.CanPass; 
-                        index = 15;
-                        madeItemPipe = false;
-                        madeStorage = false;
-                        madeQuarry = false; 
-                        break;
-                    }
-                case TileType.ItemPipeNorth:
-                    {
-                        tileType = TileType.ItemPipeNorth;
-                        tileProperty = TileProperty.CanPass;
-                        index = 16;
-                        madeItemPipe = false;
-                        madeStorage = false;
-                        madeQuarry = false; 
-                        break;
-                    }
-                case TileType.ItemPipeEast:
-                    {
-                        tileType = TileType.ItemPipeEast;
-                        tileProperty = TileProperty.CanPass;
-                        index = 17;
-                        madeItemPipe = false;
-                        madeStorage = false;
-                        madeQuarry = false; 
-                        break;
-                    }
-                case TileType.ItemPipeSouth:
-                    {
-                        tileType = TileType.ItemPipeSouth;
-                        tileProperty = TileProperty.CanPass;
-                        index = 18;
-                        madeItemPipe = false;
-                        madeStorage = false;
-                        madeQuarry = false; 
-                        break; 
-                    }
-                case TileType.ItemPipeWest:
-                    {
-                        tileType = TileType.ItemPipeWest;
-                        tileProperty = TileProperty.CanPass;
-                        index = 19;
-                        madeItemPipe = false;
-                        madeStorage = false;
-                        madeQuarry = false; 
-                        break; 
-                    }
-                case TileType.StorageCrate:
-                    {
-                        tileType = TileType.StorageCrate;
-                        tileProperty = TileProperty.CanPass;
-                        index = 20;
-                        madeItemPipe = false;
-                        madeStorage = false;
-                        madeQuarry = false; 
-                        break; 
-                    }
-                case TileType.CoalBlock:
-                    {
-                        tileType = TileType.CoalBlock;
-                        tileProperty = TileProperty.CantPass;
-                        index = 21;
-                        madeItemPipe = false;
-                        madeStorage = false;
-                        madeQuarry = false; 
-                        break; 
-                    }
-                case TileType.CopperTile:
-                    {
-                        tileType = TileType.CopperTile;
-                        index = 22;
-                        tileProperty = TileProperty.CantPass; 
-                        madeItemPipe = false;
-                        madeStorage = false;
-                        madeQuarry = false; 
-                        break; 
-                    }
-                case TileType.IronBlock:
-                    {
-                        tileType = TileType.IronBlock;
-                        tileProperty = TileProperty.CantPass;
-                        index = 23;
-                        madeItemPipe = false;
-                        madeStorage = false;
-                        madeQuarry = false; 
-                        break;
-                    }
-                case TileType.Platform1:
-                    {
-                        tileType = TileType.Platform1;
-                        tileProperty = TileProperty.CantPass;
-                        index = 25;
-                        madeItemPipe = false;
-                        madeStorage = false;
-                        madeQuarry = false;
-                        break; 
-                    }
-                case TileType.SandTile:
-                    {
-                        tileType = TileType.SandTile;
-                        tileProperty = TileProperty.CantPass;
-                        index = 24;
-                        madeItemPipe = false;
-                        madeStorage = false;
-                        madeQuarry = false; 
-                        break; 
-                    }
-                case TileType.UraniumBlock:
-                    {
-                        tileType = TileType.UraniumBlock;
-                        tileProperty = TileProperty.CantPass;
-                        index = 26;
-                        madeItemPipe = false;
-                        madeStorage = false;
-                        madeQuarry = false; 
-                        break; 
-                    }
-                case TileType.RedWire1:
-                    {
-                        tileType = TileType.RedWire1;
-                        tileProperty = TileProperty.CanPass;
-                        index = 27;
-                        madeItemPipe = false;
-                        madeStorage = false;
-                        madeQuarry = false;
-                        updateTile = true; 
-                        break;
-                    }
-                case TileType.RedWire2:
-                    {
-                        tileType = TileType.RedWire2;
-                        tileProperty = TileProperty.CanPass;
-                        index = 28;
-                        madeItemPipe = false;
-                        madeStorage = false;
-                        madeQuarry = false;
-                        updateTile = true;
-                        break;
-                    }
-                case TileType.RedWire3:
-                    {
-                        tileType = TileType.RedWire3;
-                        tileProperty = TileProperty.CanPass;
-                        index = 29;
-                        madeItemPipe = false;
-                        madeStorage = false;
-                        madeQuarry = false;
-                        updateTile = true;
-                        break;
-                    }
-                case TileType.RedWire4:
-                    {
-                        tileType = TileType.RedWire4;
-                        tileProperty = TileProperty.CanPass;
-                        index = 30;
-                        madeItemPipe = false;
-                        madeStorage = false;
-                        madeQuarry = false;
-                        updateTile = true;
-                        break;
-                    }
-                case TileType.RedWire5:
-                    {
-                        tileType = TileType.RedWire5;
-                        tileProperty = TileProperty.CanPass;
-                        index = 31;
-                        madeItemPipe = false;
-                        madeStorage = false;
-                        madeQuarry = false;
-                        updateTile = true;
-                        break;
-                    }
-                case TileType.GreenWire1:
-                    {
-                        tileType = TileType.GreenWire1;
-                        tileProperty = TileProperty.CanPass;
-                        index = 32;
-                        madeItemPipe = false;
-                        madeStorage = false;
-                        madeQuarry = false;
-                        updateTile = true;
-                        break;
-                    }
-                case TileType.GreenWire2:
-                    {
-                        tileType = TileType.GreenWire2;
-                        tileProperty = TileProperty.CanPass;
-                        index = 33;
-                        madeItemPipe = false;
-                        madeStorage = false;
-                        madeQuarry = false;
-                        updateTile = true;
-                        break;
-                    }
-                case TileType.GreenWire3:
-                    {
-                        tileType = TileType.GreenWire3;
-                        tileProperty = TileProperty.CanPass;
-                        index = 34;
-                        madeItemPipe = false;
-                        madeStorage = false;
-                        madeQuarry = false;
-                        updateTile = true;
-                        break;
-                    }
-                case TileType.GreenWire4:
-                    {
-                        tileType = TileType.GreenWire4;
-                        tileProperty = TileProperty.CanPass;
-                        index = 35;
-                        madeItemPipe = false;
-                        madeStorage = false;
-                        madeQuarry = false;
-                        break;
-                    }
-                case TileType.GreenWire5:
-                    {
-                        tileType = TileType.GreenWire5;
-                        tileProperty = TileProperty.CanPass;
-                        index = 36; 
-                        madeItemPipe = false;
-                        madeStorage = false;
-                        madeQuarry = false;
-                        updateTile = true;
-                        break;
-                    }
-                case TileType.GoldWire1:
-                    {
-                        tileType = TileType.GoldWire1;
-                        tileProperty = TileProperty.CanPass;
-                        index = 37;
-                        madeItemPipe = false;
-                        madeStorage = false;
-                        madeQuarry = false;
-                        break;
-                    }
-                case TileType.GoldWire2:
-                    {
-                        tileType = TileType.GoldWire2;
-                        tileProperty = TileProperty.CanPass;
-                        index = 38;
-                        madeItemPipe = false;
-                        madeStorage = false;
-                        madeQuarry = false;
-                        updateTile = true;
-                        break;
-                    }
-                case TileType.GoldWire3:
-                    {
-                        tileType = TileType.GoldWire3;
-                        tileProperty = TileProperty.CanPass;
-                        index = 39;
-                        madeItemPipe = false;
-                        madeStorage = false;
-                        madeQuarry = false;
-                        updateTile = true;
-                        break;
-                    }
-                case TileType.GoldWire4:
-                    {
-                        tileType = TileType.GoldWire4;
-                        tileProperty = TileProperty.CanPass;
-                        index = 40;
-                        madeItemPipe = false;
-                        madeStorage = false;
-                        madeQuarry = false;
-                        updateTile = true;
-                        break;
-                    }
-                case TileType.GoldWire5:
-                    {
-                        tileType = TileType.GoldWire5;
-                        tileProperty = TileProperty.CanPass;
-                        index = 41;
-                        madeItemPipe = false;
-                        madeStorage = false;
-                        madeQuarry = false;
-                        updateTile = true;
-                        break;
-                    }
-                 
+                            break;
+                        }
+                    case TileType.MarkerBlock:
+                        {
+                            tileType = TileType.MarkerBlock;
+                            tileProperty = TileProperty.CanPass;
+                            index = 12;
+                            madeItemPipe = false;
+                            madeStorage = false;
+                            madeQuarry = false;
+                            break;
+                        }
+                    case TileType.ConstructionTube:
+                        {
+                            tileType = TileType.ConstructionTube;
+                            tileProperty = TileProperty.CanPass;
+                            index = 13;
+                            madeItemPipe = false;
+                            madeStorage = false;
+                            madeQuarry = false;
+                            break;
+                        }
+                    case TileType.ConstructionDrillBit:
+                        {
+                            tileType = TileType.ConstructionDrillBit;
+                            tileProperty = TileProperty.CanPass;
+                            index = 14;
+                            madeItemPipe = false;
+                            madeStorage = false;
+                            madeQuarry = false;
+                            break;
+                        }
+                    case TileType.QuarryBlock:
+                        {
+                            tileType = TileType.QuarryBlock;
+                            tileProperty = TileProperty.CanPass;
+                            index = 15;
+                            madeItemPipe = false;
+                            madeStorage = false;
+                            madeQuarry = false;
+                            break;
+                        }
+                    case TileType.ItemPipeNorth:
+                        {
+                            tileType = TileType.ItemPipeNorth;
+                            tileProperty = TileProperty.CanPass;
+                            index = 16;
+                            madeItemPipe = false;
+                            madeStorage = false;
+                            madeQuarry = false;
+                            break;
+                        }
+                    case TileType.ItemPipeEast:
+                        {
+                            tileType = TileType.ItemPipeEast;
+                            tileProperty = TileProperty.CanPass;
+                            index = 17;
+                            madeItemPipe = false;
+                            madeStorage = false;
+                            madeQuarry = false;
+                            break;
+                        }
+                    case TileType.ItemPipeSouth:
+                        {
+                            tileType = TileType.ItemPipeSouth;
+                            tileProperty = TileProperty.CanPass;
+                            index = 18;
+                            madeItemPipe = false;
+                            madeStorage = false;
+                            madeQuarry = false;
+                            break;
+                        }
+                    case TileType.ItemPipeWest:
+                        {
+                            tileType = TileType.ItemPipeWest;
+                            tileProperty = TileProperty.CanPass;
+                            index = 19;
+                            madeItemPipe = false;
+                            madeStorage = false;
+                            madeQuarry = false;
+                            break;
+                        }
+                    case TileType.StorageCrate:
+                        {
+                            tileType = TileType.StorageCrate;
+                            tileProperty = TileProperty.CanPass;
+                            index = 20;
+                            madeItemPipe = false;
+                            madeStorage = false;
+                            madeQuarry = false;
+                            break;
+                        }
+                    case TileType.CoalBlock:
+                        {
+                            tileType = TileType.CoalBlock;
+                            tileProperty = TileProperty.CantPass;
+                            index = 21;
+                            madeItemPipe = false;
+                            madeStorage = false;
+                            madeQuarry = false;
+                            break;
+                        }
+                    case TileType.CopperTile:
+                        {
+                            tileType = TileType.CopperTile;
+                            index = 22;
+                            tileProperty = TileProperty.CantPass;
+                            madeItemPipe = false;
+                            madeStorage = false;
+                            madeQuarry = false;
+                            break;
+                        }
+                    case TileType.IronBlock:
+                        {
+                            tileType = TileType.IronBlock;
+                            tileProperty = TileProperty.CantPass;
+                            index = 23;
+                            madeItemPipe = false;
+                            madeStorage = false;
+                            madeQuarry = false;
+                            break;
+                        }
+                    case TileType.Platform1:
+                        {
+                            tileType = TileType.Platform1;
+                            tileProperty = TileProperty.CantPass;
+                            index = 25;
+                            madeItemPipe = false;
+                            madeStorage = false;
+                            madeQuarry = false;
+                            break;
+                        }
+                    case TileType.SandTile:
+                        {
+                            tileType = TileType.SandTile;
+                            tileProperty = TileProperty.CantPass;
+                            index = 24;
+                            madeItemPipe = false;
+                            madeStorage = false;
+                            madeQuarry = false;
+                            break;
+                        }
+                    case TileType.UraniumBlock:
+                        {
+                            tileType = TileType.UraniumBlock;
+                            tileProperty = TileProperty.CantPass;
+                            index = 26;
+                            madeItemPipe = false;
+                            madeStorage = false;
+                            madeQuarry = false;
+                            break;
+                        }
+                    case TileType.RedWire1:
+                        {
+                            tileType = TileType.RedWire1;
+                            tileProperty = TileProperty.CanPass;
+                            index = 27;
+                            madeItemPipe = false;
+                            madeStorage = false;
+                            madeQuarry = false;
 
+                            break;
+                        }
+                    case TileType.RedWire2:
+                        {
+                            tileType = TileType.RedWire2;
+                            tileProperty = TileProperty.CanPass;
+                            index = 28;
+                            madeItemPipe = false;
+                            madeStorage = false;
+                            madeQuarry = false;
+
+                            break;
+                        }
+                    case TileType.RedWire3:
+                        {
+                            tileType = TileType.RedWire3;
+                            tileProperty = TileProperty.CanPass;
+                            index = 29;
+                            madeItemPipe = false;
+                            madeStorage = false;
+                            madeQuarry = false;
+
+                            break;
+                        }
+                    case TileType.RedWire4:
+                        {
+                            tileType = TileType.RedWire4;
+                            tileProperty = TileProperty.CanPass;
+                            index = 30;
+                            madeItemPipe = false;
+                            madeStorage = false;
+                            madeQuarry = false;
+
+                            break;
+                        }
+                    case TileType.RedWire5:
+                        {
+                            tileType = TileType.RedWire5;
+                            tileProperty = TileProperty.CanPass;
+                            index = 31;
+                            madeItemPipe = false;
+                            madeStorage = false;
+                            madeQuarry = false;
+
+                            break;
+                        }
+                    case TileType.GreenWire1:
+                        {
+                            tileType = TileType.GreenWire1;
+                            tileProperty = TileProperty.CanPass;
+                            index = 32;
+                            madeItemPipe = false;
+                            madeStorage = false;
+                            madeQuarry = false;
+
+                            break;
+                        }
+                    case TileType.GreenWire2:
+                        {
+                            tileType = TileType.GreenWire2;
+                            tileProperty = TileProperty.CanPass;
+                            index = 33;
+                            madeItemPipe = false;
+                            madeStorage = false;
+                            madeQuarry = false;
+
+                            break;
+                        }
+                    case TileType.GreenWire3:
+                        {
+                            tileType = TileType.GreenWire3;
+                            tileProperty = TileProperty.CanPass;
+                            index = 34;
+                            madeItemPipe = false;
+                            madeStorage = false;
+                            madeQuarry = false;
+
+                            break;
+                        }
+                    case TileType.GreenWire4:
+                        {
+                            tileType = TileType.GreenWire4;
+                            tileProperty = TileProperty.CanPass;
+                            index = 35;
+                            madeItemPipe = false;
+                            madeStorage = false;
+                            madeQuarry = false;
+                            break;
+                        }
+                    case TileType.GreenWire5:
+                        {
+                            tileType = TileType.GreenWire5;
+                            tileProperty = TileProperty.CanPass;
+                            index = 36;
+                            madeItemPipe = false;
+                            madeStorage = false;
+                            madeQuarry = false;
+
+                            break;
+                        }
+                    case TileType.GoldWire1:
+                        {
+                            tileType = TileType.GoldWire1;
+                            tileProperty = TileProperty.CanPass;
+                            index = 37;
+                            madeItemPipe = false;
+                            madeStorage = false;
+                            madeQuarry = false;
+                            break;
+                        }
+                    case TileType.GoldWire2:
+                        {
+                            tileType = TileType.GoldWire2;
+                            tileProperty = TileProperty.CanPass;
+                            index = 38;
+                            madeItemPipe = false;
+                            madeStorage = false;
+                            madeQuarry = false;
+
+                            break;
+                        }
+                    case TileType.GoldWire3:
+                        {
+                            tileType = TileType.GoldWire3;
+                            tileProperty = TileProperty.CanPass;
+                            index = 39;
+                            madeItemPipe = false;
+                            madeStorage = false;
+                            madeQuarry = false;
+
+                            break;
+                        }
+                    case TileType.GoldWire4:
+                        {
+                            tileType = TileType.GoldWire4;
+                            tileProperty = TileProperty.CanPass;
+                            index = 40;
+                            madeItemPipe = false;
+                            madeStorage = false;
+                            madeQuarry = false;
+
+                            break;
+                        }
+                    case TileType.GoldWire5:
+                        {
+                            tileType = TileType.GoldWire5;
+                            tileProperty = TileProperty.CanPass;
+                            index = 41;
+                            madeItemPipe = false;
+                            madeStorage = false;
+                            madeQuarry = false;
+
+                            break;
+                        }
+                    case TileType.BatteryBlock:
+                        {
+                            tileType = TileType.BatteryBlock;
+                            tileProperty = TileProperty.CantPass;
+                            index = 43;
+                            madeItemPipe = false;
+                            madeStorage = false;
+                            madeQuarry = false;
+                            break;
+                        }
+                    case TileType.SolarPanel:
+                        {
+                            tileType = TileType.SolarPanel;
+                            tileProperty = TileProperty.CantPass;
+                            index = 44;
+                            madeItemPipe = false;
+                            madeStorage = false;
+                            madeQuarry = false;
+                            break;
+                        }
+
+
+
+                }
+                sourceRectangle = Animation.SourceRect(tileType, "Tile_SpriteSheet", this);
 
             }
 
+        }
+        public void UpdateTile(Game1 game)
+        {
+            //   Wires(game);     
+            Console.WriteLine("Updating tile");
             
-            sourceRectangle = Animation.SourceRect(tileType, "Tile_SpriteSheet");
-
 
         }
-
         public void DamageTile(float amount)
         {
            // Console.WriteLine("Damaging Tiles"); 
@@ -822,9 +857,21 @@ namespace Factory_Game
                 
                 if (draw)
                 {
+                    if (durability <= 0)
+                    {
 
-                    Wires(game, gameTime); 
-
+                        // worldPosition = Vector2.Transform(position, Matrix.Invert(game.camera.rawTransform)); 
+                        game.tileObjectManagement.AddTileObject(new Vector2(position.X + (bounds.Width / 4), position.Y + (bounds.Height / 4)), tileType);
+                        alive = false;
+                    }
+                    else
+                    {
+                        Wires(game);
+                    }
+                    if (tileType == TileType.SolarPanel)
+                    {
+                        SolarPanel(game.tileMap); 
+                    }
 
                     if (game.tileObjectManagement.tileObjects.Count > 0)
                     {
@@ -906,16 +953,7 @@ namespace Factory_Game
                     
                     if (alive)
                     {
-                        if (durability <= 0)
-                        {
-
-                            // worldPosition = Vector2.Transform(position, Matrix.Invert(game.camera.rawTransform)); 
-                            game.tileObjectManagement.AddTileObject(new Vector2(position.X + (bounds.Width / 4), position.Y + (bounds.Height / 4)), tileType);
-
-                            alive = false;
-
-                            
-                        }
+                        
                         
                         if (madeStorage)
                         {
@@ -963,7 +1001,7 @@ namespace Factory_Game
                 {
                     index = 0;
                     tileType = TileType.BlankTile;
-                    sourceRectangle = Animation.SourceRect(tileType, "Tile_SpriteSheet"); 
+                    sourceRectangle = Animation.SourceRect(tileType, "Tile_SpriteSheet", this); 
                 }
 
                 if (tileType == TileType.QuarryBlock)
@@ -978,7 +1016,7 @@ namespace Factory_Game
 
             }
         }
-        public void Wires(Game1 game, GameTime gameTime)
+        public void Wires(Game1 game )
         {
             
             if (tileType == TileType.RedWire1 || tileType == TileType.RedWire2 || tileType == TileType.RedWire3 || tileType == TileType.RedWire4 || tileType == TileType.RedWire5)
@@ -1543,6 +1581,25 @@ namespace Factory_Game
             }
         }
         
+        public void SolarPanel(TileMap tileMap )
+        {
+            if (!madeSolarPanel)
+            {
+                battery = new Battery(500); 
+                madeSolarPanel = true; 
+            }
+            else
+            {
+                if(tileMap.GetTile(new Vector2(position.X, position.Y - 32)).tileType == TileType.BlankTile)
+                {
+                    // 1 watt per second
+                    battery.AddWatts(.016667f);
+                    current = battery.CurrentPower(); 
+                }
+                
+            }
+            
+        }
         #endregion 
 
 

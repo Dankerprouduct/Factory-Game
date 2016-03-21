@@ -164,6 +164,16 @@ namespace Factory_Game
                         texture = content.Load<Texture2D>("TileObjects/GoldWire2Item");
                         break;
                     }
+                case Tile.TileType.BatteryBlock:
+                    {
+                        texture = content.Load<Texture2D>("TileObjects/BatteryBlockItem");
+                        break;
+                    }
+                case Tile.TileType.SolarPanel:
+                    {
+                        texture = content.Load<Texture2D>("TileObjects/SolarPanelItem");
+                        break;
+                    }
 
 
 

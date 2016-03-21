@@ -218,3 +218,5 @@ C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\F
 C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\KopiLua.dll
 C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\LuaScripts\player_script.lua
 C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\LuaScripts\tile_script.lua
+C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\BatteryBlockItem.xnb
+C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\SolarPanelItem.xnb

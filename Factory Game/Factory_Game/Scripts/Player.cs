@@ -81,7 +81,7 @@ namespace Factory_Game
             }
             
             inventory.Update(gameTime, game);
-            MouseMovement(game.camera, game.tileMap);
+            MouseMovement(game.camera, game.tileMap, game);
             oldKeboardState = keyboardState; 
             
         }
@@ -201,7 +201,7 @@ namespace Factory_Game
         /// </summary>
         /// <param name="camera"></param>
         /// <param name="tileMap"></param>
-        void MouseMovement(Camera camera, TileMap tileMap)
+        void MouseMovement(Camera camera, TileMap tileMap, Game1 game)
         {
             mouseState = Mouse.GetState();
             mousePosition = new Vector2(mouseState.X, mouseState.Y);
@@ -222,6 +222,7 @@ namespace Factory_Game
                     {
                         Console.WriteLine("Current: " + tileMap.chunks[xCord, yCord].tiles[(((int)worldPosition.X % 1024) / 32), (((int)worldPosition.Y % 1024) / 32)].current);
                         Console.WriteLine("Type: " + tileMap.chunks[xCord, yCord].tiles[(((int)worldPosition.X % 1024) / 32), (((int)worldPosition.Y % 1024) / 32)].tileType.ToString());
+                        Console.WriteLine("Durability: " + tileMap.chunks[xCord, yCord].tiles[(((int)worldPosition.X % 1024) / 32), (((int)worldPosition.Y % 1024) / 32)].durability.ToString());
                     }
                     if (keyboardState.IsKeyDown(Keys.V) && oldKeboardState.IsKeyUp(Keys.V))
                     {
@@ -238,7 +239,21 @@ namespace Factory_Game
                             if (tileMap.chunks[xCord, yCord].tiles[(((int)worldPosition.X % 1024) / 32), (((int)worldPosition.Y % 1024) / 32)].index == 0)
                             {
                                 //tileMap.ChangeTile(xCord, yCord, inventory.inventory[inventory.selectedItem].item.tileType);
-                                tileMap.ChangeTile(xCord, yCord, (((int)worldPosition.X % 1024) / 32), (((int)worldPosition.Y % 1024) / 32), inventory.inventory[inventory.selectedItem].item.tileType); 
+                                tileMap.ChangeTile(xCord, yCord, (((int)worldPosition.X % 1024) / 32), (((int)worldPosition.Y % 1024) / 32), inventory.inventory[inventory.selectedItem].item.tileType);
+                                tileMap.chunks[xCord, yCord].tiles[(((int)worldPosition.X % 1024) / 32), (((int)worldPosition.Y % 1024) / 32)].UpdateTile(game);
+
+                                Vector2 pos = new Vector2(((int)worldPosition.X / 32) , ((int)worldPosition.Y / 32) + 32);
+                                tileMap.GetTile(pos).UpdateTile(game);
+
+                                pos = new Vector2(((int)worldPosition.X / 32), ((int)worldPosition.Y / 32) - 32);
+                                tileMap.GetTile(pos).UpdateTile(game);
+
+                                pos = new Vector2(((int)worldPosition.X / 32) +32, ((int)worldPosition.Y / 32));
+                                tileMap.GetTile(pos).UpdateTile(game);
+
+                                pos = new Vector2(((int)worldPosition.X / 32) - 32, ((int)worldPosition.Y / 32));
+                                tileMap.GetTile(pos).UpdateTile(game);
+
                                 inventory.RemoveItem(inventory.inventory[inventory.selectedItem].item);
                             } 
                         }
@@ -246,7 +261,7 @@ namespace Factory_Game
                     }
                     if (mouseState.LeftButton == ButtonState.Pressed)
                     {
-                        tileMap.DamageTile(xCord, yCord, (((int)worldPosition.X % 1024) / 32), (((int)worldPosition.Y % 1024) / 32), 10f);
+                        tileMap.DamageTile(xCord, yCord, (((int)worldPosition.X % 1024) / 32), (((int)worldPosition.Y % 1024) / 32), 10);
                     }
                 }
             }

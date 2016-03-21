@@ -14,7 +14,7 @@ namespace Factory_Game
 
     public class Game1 : Microsoft.Xna.Framework.Game
     {
-        string version = "Alpha .23"; 
+        string version = "Pre-Alpha .23"; 
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         // base stats 40mb

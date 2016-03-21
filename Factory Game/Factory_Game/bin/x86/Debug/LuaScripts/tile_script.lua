@@ -1,4 +1,3 @@
-durability = 10
 
 FlatWorld = true 
 

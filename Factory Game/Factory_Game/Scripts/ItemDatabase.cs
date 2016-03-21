@@ -34,8 +34,10 @@ namespace Factory_Game
             items.Add(new Item(Tile.TileType.ItemPipeWest, "Item Pipe", "ItemPipe facing West", 19,false, 500, content));
             items.Add(new Item(Tile.TileType.StorageCrate, "Storage Crate", "Item Storage Crate", 20,false, 500, content));
             items.Add(new Item(Tile.TileType.RedWire1, "Red Wire", "A High Ressistance Wire", 21, false, 500, content));
-            items.Add(new Item(Tile.TileType.GreenWire1, "Green Wir ", "A Medium Resistance Wire", 22, false, 500, content));
-            items.Add(new Item(Tile.TileType.GoldWire1, "Gold Wire", "A Low Ressistance Wire", 23, false, 500, content)); 
+            items.Add(new Item(Tile.TileType.GreenWire1, "Green Wire", "A Medium Resistance Wire", 22, false, 500, content));
+            items.Add(new Item(Tile.TileType.GoldWire1, "Gold Wire", "A Low Ressistance Wire", 23, false, 500, content));
+            items.Add(new Item(Tile.TileType.BatteryBlock, "Battery Block", "A block that holds power", 24, false, 500, content));
+            items.Add(new Item(Tile.TileType.SolarPanel, "Solar Panel", "A block that gets power from the sun", 25, false, 500, content)); 
         }
     }
 }

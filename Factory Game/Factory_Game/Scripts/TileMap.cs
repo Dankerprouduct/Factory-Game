@@ -589,6 +589,7 @@ namespace Factory_Game
         {
             chunks[chunkX, chunkY].tiles[x, y].DamageTile(ammount); 
         }
+
         /// <summary>
         /// Find Tile Chunk Index and Tile Index
         /// </summary>
