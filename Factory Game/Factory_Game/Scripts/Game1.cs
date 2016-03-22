@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using NLua; 
 
 namespace Factory_Game
 {
@@ -40,20 +41,33 @@ namespace Factory_Game
         public TileObjectManagement tileObjectManagement;
 
         public float _fps = 0;
-        public int chunkWidth = 10;
-        public int chunkHeight = 10;
+        public int chunkWidth;
+        public int chunkHeight;
         Texture2D rectangleTexture;
+        Lua lua; 
+
         public Game1()
         {
-            Window.Title = version; 
-            HEIGHT = (WIDTH / 16) * 9;
+            
+            
+            
             graphics = new GraphicsDeviceManager(this);
-            graphics.PreferredBackBufferHeight = HEIGHT;
-            graphics.PreferredBackBufferWidth = WIDTH;
+            
            // graphics.ToggleFullScreen(); 
             IsMouseVisible = true; 
             Content.RootDirectory = "Content";
-                       
+
+            lua = new Lua();
+            lua.DoFile("LuaScripts/world_properties.lua");
+            WIDTH = (int)((double)lua["windowSize"]);
+            chunkHeight = (int)((double)lua["chunkHeight"]);
+            chunkWidth = (int)((double)lua["chunkWidth"]);
+            version = (string)lua["version"];
+
+            Window.Title = version;
+            HEIGHT = (WIDTH / 16) * 9;
+            graphics.PreferredBackBufferHeight = HEIGHT;
+            graphics.PreferredBackBufferWidth = WIDTH;
         }
 
 

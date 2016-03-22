@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework; 
 
 namespace Factory_Game
 {
@@ -9,7 +10,8 @@ namespace Factory_Game
     {
 
         private int maxCapacity;
-        public float power; 
+        public float power;
+        public bool output; 
         /// <summary>
         /// Specify the max battery ammount
         /// </summary>
@@ -18,12 +20,18 @@ namespace Factory_Game
         {
             maxCapacity = cap; 
         }
-        
+        public void Output(bool io)
+        {
+            output = io; 
+        }
         public void AddWatts(float watt)
         {
-            if(power <= maxCapacity)
+            if (!output)
             {
-                power += Electricity.Ressistance(1, watt); 
+                if (power <= maxCapacity)
+                {
+                    power += Electricity.Ressistance(1, watt);
+                }
             }
         }
         public float RemoveWatts(float ammount)
@@ -62,6 +70,38 @@ namespace Factory_Game
             {
                 return false; 
             }
+        }
+        public void Update(Vector2 position, TileMap tileMap)
+        {
+            Vector2 pos = position;
+
+            // Down
+            pos = new Vector2(position.X, position.Y + 32);
+            if(tileMap.GetTile(pos).isWire == true)
+            {
+                AddWatts(tileMap.GetTile(pos).current); 
+            }
+
+            // Up
+            pos = new Vector2(position.X, position.Y - 32);
+            if (tileMap.GetTile(pos).isWire)
+            {
+                AddWatts(tileMap.GetTile(pos).current);
+            }
+
+            // left
+            pos = new Vector2(position.X - 32, position.Y );
+            if (tileMap.GetTile(pos).isWire)
+            {
+                AddWatts(tileMap.GetTile(pos).current);
+            }
+            // Right
+            pos = new Vector2(position.X + 32, position.Y);
+            if (tileMap.GetTile(pos).isWire)
+            {
+                AddWatts(tileMap.GetTile(pos).current);
+            }
+
         }
     }
 }

@@ -29,7 +29,8 @@ namespace Factory_Game
         public Chunk[,] chunks; 
 
         ContentManager contentManager;
-        Lua lua; 
+        Lua lua;
+        public TextureManager textureManager; 
         public struct Coordinate
         {
             public int chunkX;
@@ -46,7 +47,7 @@ namespace Factory_Game
 
             generateFlatWorld = (bool)lua["FlatWorld"];
 
-
+            textureManager = new TextureManager();
             seed = sed;
             //     mapSize = size;
             mapAttributes = size;
@@ -536,7 +537,7 @@ namespace Factory_Game
                 {
                     tile[x, y].position = nTilePosition[i];
                     tile[x,y].index = nTileValue[i];
-                    tile[x,y].Final();
+                    tile[x,y].Final(this);
                     i++; 
                 }
             }
@@ -573,13 +574,13 @@ namespace Factory_Game
             tile = null; 
 
         }
-        public void ChangeTile(int x, int y, Tile.TileType type)
+        public void ChangeTile(int x, int y, Tile.TileType type, TileMap tileMap)
         {
-            tile[x, y].UpdateIndex(type);
+            tile[x, y].UpdateIndex(type, tileMap);
         }
-        public void ChangeTile(int chunkX, int chunkY, int x, int y, Tile.TileType type)
+        public void ChangeTile(int chunkX, int chunkY, int x, int y, Tile.TileType type, TileMap tileMap)
         {
-            chunks[chunkX, chunkY].tiles[x, y].UpdateIndex(type); 
+            chunks[chunkX, chunkY].tiles[x, y].UpdateIndex(type, tileMap); 
         }
         public void DamageTile(int x, int y, float ammount)
         {

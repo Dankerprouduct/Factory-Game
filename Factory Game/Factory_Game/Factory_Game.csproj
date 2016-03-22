@@ -113,6 +113,7 @@
     <Compile Include="Scripts\QuarryDrill.cs" />
     <Compile Include="Scripts\QuarryManagement.cs" />
     <Compile Include="Scripts\RectangleExtensions.cs" />
+    <Compile Include="Scripts\TextureManager.cs" />
     <Compile Include="Scripts\Tile.cs" />
     <Compile Include="Scripts\TileMap.cs" />
     <Compile Include="Scripts\TileObject.cs" />
@@ -157,6 +158,9 @@
   <ItemGroup>
     <None Include="Factory_Game_TemporaryKey.pfx" />
     <None Include="LuaScripts\tile_script.lua">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="LuaScripts\world_properties.lua">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

@@ -33,7 +33,9 @@ namespace Factory_Game
         public bool madeQuarry;
         public bool madeStorage;
         public bool madeSmelter;
-        public bool madeSolarPanel; 
+        public bool madeSolarPanel;
+        public bool madeBattery;
+        public bool isWire; 
         public Item tempItem;
         public Rectangle sourceRectangle;
         public float light = 1; 
@@ -145,7 +147,7 @@ namespace Factory_Game
            // itemDatabase = new ItemDatabase(content); 
         }
 
-        public void Final() //This is where everything is finalized from tileMap
+        public void Final(TileMap tileMap) //This is where everything is finalized from tileMap
         {
             xPos = Convert.ToInt32(position.X / 32);
             yPos = Convert.ToInt32(position.Y / 32); 
@@ -358,8 +360,8 @@ namespace Factory_Game
 
             }
             #endregion
-           sourceRectangle = Animation.SourceRect(tileType, "Tile_SpriteSheet", this) ; 
-            
+            sourceRectangle = tileMap.textureManager.SourceRect(tileType); 
+           
         }
         public void SetPosition(Vector2 pos)
         {
@@ -367,12 +369,12 @@ namespace Factory_Game
             position = pos;
            // Console.WriteLine(position);
         }
-        public void UpdateIndex(TileType tiType) // This is where Tiles are updated if changed
+        public void UpdateIndex(TileType tiType, TileMap tileMap) // This is where Tiles are updated if changed
         {
             durability = 10;
             alive = true;
             current = 0;
-
+            isWire = false; 
 
             if (tiType != tileType)
             {
@@ -650,7 +652,7 @@ namespace Factory_Game
                             madeItemPipe = false;
                             madeStorage = false;
                             madeQuarry = false;
-
+                            isWire = true; 
                             break;
                         }
                     case TileType.RedWire2:
@@ -661,7 +663,7 @@ namespace Factory_Game
                             madeItemPipe = false;
                             madeStorage = false;
                             madeQuarry = false;
-
+                            isWire = true;
                             break;
                         }
                     case TileType.RedWire3:
@@ -672,7 +674,7 @@ namespace Factory_Game
                             madeItemPipe = false;
                             madeStorage = false;
                             madeQuarry = false;
-
+                            isWire = true; 
                             break;
                         }
                     case TileType.RedWire4:
@@ -683,7 +685,7 @@ namespace Factory_Game
                             madeItemPipe = false;
                             madeStorage = false;
                             madeQuarry = false;
-
+                            isWire = true; 
                             break;
                         }
                     case TileType.RedWire5:
@@ -694,7 +696,7 @@ namespace Factory_Game
                             madeItemPipe = false;
                             madeStorage = false;
                             madeQuarry = false;
-
+                            isWire = true; 
                             break;
                         }
                     case TileType.GreenWire1:
@@ -705,7 +707,7 @@ namespace Factory_Game
                             madeItemPipe = false;
                             madeStorage = false;
                             madeQuarry = false;
-
+                            isWire = true; 
                             break;
                         }
                     case TileType.GreenWire2:
@@ -716,7 +718,7 @@ namespace Factory_Game
                             madeItemPipe = false;
                             madeStorage = false;
                             madeQuarry = false;
-
+                            isWire = true; 
                             break;
                         }
                     case TileType.GreenWire3:
@@ -727,7 +729,7 @@ namespace Factory_Game
                             madeItemPipe = false;
                             madeStorage = false;
                             madeQuarry = false;
-
+                            isWire = true; 
                             break;
                         }
                     case TileType.GreenWire4:
@@ -738,6 +740,7 @@ namespace Factory_Game
                             madeItemPipe = false;
                             madeStorage = false;
                             madeQuarry = false;
+                            isWire = true; 
                             break;
                         }
                     case TileType.GreenWire5:
@@ -748,7 +751,7 @@ namespace Factory_Game
                             madeItemPipe = false;
                             madeStorage = false;
                             madeQuarry = false;
-
+                            isWire = true; 
                             break;
                         }
                     case TileType.GoldWire1:
@@ -759,6 +762,7 @@ namespace Factory_Game
                             madeItemPipe = false;
                             madeStorage = false;
                             madeQuarry = false;
+                            isWire = true; 
                             break;
                         }
                     case TileType.GoldWire2:
@@ -769,7 +773,7 @@ namespace Factory_Game
                             madeItemPipe = false;
                             madeStorage = false;
                             madeQuarry = false;
-
+                            isWire = true; 
                             break;
                         }
                     case TileType.GoldWire3:
@@ -780,7 +784,7 @@ namespace Factory_Game
                             madeItemPipe = false;
                             madeStorage = false;
                             madeQuarry = false;
-
+                            isWire = true; 
                             break;
                         }
                     case TileType.GoldWire4:
@@ -791,7 +795,7 @@ namespace Factory_Game
                             madeItemPipe = false;
                             madeStorage = false;
                             madeQuarry = false;
-
+                            isWire = true; 
                             break;
                         }
                     case TileType.GoldWire5:
@@ -802,6 +806,7 @@ namespace Factory_Game
                             madeItemPipe = false;
                             madeStorage = false;
                             madeQuarry = false;
+                            isWire = true; 
 
                             break;
                         }
@@ -829,8 +834,8 @@ namespace Factory_Game
 
 
                 }
-                sourceRectangle = Animation.SourceRect(tileType, "Tile_SpriteSheet", this);
-
+                sourceRectangle = tileMap.textureManager.SourceRect(tileType); 
+                
             }
 
         }
@@ -1101,14 +1106,14 @@ namespace Factory_Game
                     qTileY = game.tileMap.FindTile(position).tileY;
                     qChunkX = game.tileMap.FindTile(position).chunkX;
                     qChunkY = game.tileMap.FindTile(position).chunkY; 
-                    game.tileMap.chunks[qChunkX, qChunkY].tiles[qTileX + 1, qTileY].UpdateIndex(TileType.ConstructionBlock);
+                    game.tileMap.chunks[qChunkX, qChunkY].tiles[qTileX + 1, qTileY].UpdateIndex(TileType.ConstructionBlock, game.tileMap);
 
                     pos = new Vector2(position.X + (offSet * 32), position.Y);
                     qTileX = game.tileMap.FindTile(pos).tileX;
                     qTileY = game.tileMap.FindTile(pos).tileY; 
                     qChunkX = game.tileMap.FindTile(pos).chunkX;
                     qChunkY = game.tileMap.FindTile(pos).chunkY; 
-                    game.tileMap.chunks[qChunkX, qChunkY].tiles[qTileX, qTileY].UpdateIndex(TileType.ConstructionBlock);
+                    game.tileMap.chunks[qChunkX, qChunkY].tiles[qTileX, qTileY].UpdateIndex(TileType.ConstructionBlock, game.tileMap);
 
                     for (int y = 1; y < height; y++)
                     {
@@ -1117,14 +1122,14 @@ namespace Factory_Game
                         qTileY = game.tileMap.FindTile(pos).tileY;
                         qChunkX = game.tileMap.FindTile(pos).chunkX;
                         qChunkY = game.tileMap.FindTile(pos).chunkY; 
-                        game.tileMap.chunks[qChunkX, qChunkY].tiles[qTileX, qTileY].UpdateIndex(TileType.ConstructionBlock);
+                        game.tileMap.chunks[qChunkX, qChunkY].tiles[qTileX, qTileY].UpdateIndex(TileType.ConstructionBlock, game.tileMap);
 
                         pos = new Vector2(position.X + (offSet * 32), position.Y - (y * 32));
                         qTileX = game.tileMap.FindTile(pos).tileX;
                         qTileY = game.tileMap.FindTile(pos).tileY;
                         qChunkX = game.tileMap.FindTile(pos).chunkX;
                         qChunkY = game.tileMap.FindTile(pos).chunkY; 
-                        game.tileMap.chunks[qChunkX, qChunkY].tiles[qTileX, qTileY].UpdateIndex(TileType.ConstructionBlock);
+                        game.tileMap.chunks[qChunkX, qChunkY].tiles[qTileX, qTileY].UpdateIndex(TileType.ConstructionBlock, game.tileMap);
                     }
                      
                     for (int x = 0; x < offSet; x++)
@@ -1134,7 +1139,7 @@ namespace Factory_Game
                         qTileY = game.tileMap.FindTile(pos).tileY;
                         qChunkX = game.tileMap.FindTile(pos).chunkX;
                         qChunkY = game.tileMap.FindTile(pos).chunkY;
-                        game.tileMap.chunks[qChunkX, qChunkY].tiles[qTileX, qTileY].UpdateIndex(TileType.ConstructionBlock);
+                        game.tileMap.chunks[qChunkX, qChunkY].tiles[qTileX, qTileY].UpdateIndex(TileType.ConstructionBlock, game.tileMap);
                     }
 
                     // comented 
@@ -1585,7 +1590,8 @@ namespace Factory_Game
         {
             if (!madeSolarPanel)
             {
-                battery = new Battery(500); 
+                battery = new Battery(500);
+                battery.Output(true); 
                 madeSolarPanel = true; 
             }
             else
@@ -1599,6 +1605,20 @@ namespace Factory_Game
                 
             }
             
+        }
+
+        public void MakeBattery(TileMap tileMap)
+        {
+            if (!madeBattery)
+            {
+                battery = new Battery(20000);
+                battery.Output(true);  
+                madeBattery = true; 
+            }
+            else
+            {
+                battery.Update(position, tileMap); 
+            }
         }
         #endregion 
 

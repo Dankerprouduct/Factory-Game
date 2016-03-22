@@ -94,8 +94,10 @@ namespace Factory_Game
                 lua.RegisterFunction("SetPosition", this, this.GetType().GetMethod("SetPosition"));
                 lua.RegisterFunction("AddToInventory", this, this.GetType().GetMethod("AddToInventory"));
                 lua.RegisterFunction("StartPosition", this, this.GetType().GetMethod("StartPosition"));
-                lua.DoFile("LuaScripts/player_script.lua");
+                lua.RegisterFunction("SetPosition", this, GetType().GetMethod("SetPosition")); 
 
+                lua.DoFile("LuaScripts/player_script.lua");
+                gravity = (float)((double)lua["gravity"]); 
             }
             catch(Exception ex)
             {
@@ -239,22 +241,10 @@ namespace Factory_Game
                             if (tileMap.chunks[xCord, yCord].tiles[(((int)worldPosition.X % 1024) / 32), (((int)worldPosition.Y % 1024) / 32)].index == 0)
                             {
                                 //tileMap.ChangeTile(xCord, yCord, inventory.inventory[inventory.selectedItem].item.tileType);
-                                tileMap.ChangeTile(xCord, yCord, (((int)worldPosition.X % 1024) / 32), (((int)worldPosition.Y % 1024) / 32), inventory.inventory[inventory.selectedItem].item.tileType);
+                                tileMap.ChangeTile(xCord, yCord, (((int)worldPosition.X % 1024) / 32), (((int)worldPosition.Y % 1024) / 32), inventory.inventory[inventory.selectedItem].item.tileType, tileMap);
                                 tileMap.chunks[xCord, yCord].tiles[(((int)worldPosition.X % 1024) / 32), (((int)worldPosition.Y % 1024) / 32)].UpdateTile(game);
 
-                                Vector2 pos = new Vector2(((int)worldPosition.X / 32) , ((int)worldPosition.Y / 32) + 32);
-                                tileMap.GetTile(pos).UpdateTile(game);
 
-                                pos = new Vector2(((int)worldPosition.X / 32), ((int)worldPosition.Y / 32) - 32);
-                                tileMap.GetTile(pos).UpdateTile(game);
-
-                                pos = new Vector2(((int)worldPosition.X / 32) +32, ((int)worldPosition.Y / 32));
-                                tileMap.GetTile(pos).UpdateTile(game);
-
-                                pos = new Vector2(((int)worldPosition.X / 32) - 32, ((int)worldPosition.Y / 32));
-                                tileMap.GetTile(pos).UpdateTile(game);
-
-                                inventory.RemoveItem(inventory.inventory[inventory.selectedItem].item);
                             } 
                         }
 

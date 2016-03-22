@@ -21,7 +21,7 @@ namespace Factory_Game
         Game1 gme;
         float scale = 1f;
         float speed = .05f; 
-        public BoundingFrustum frustrum;
+
         public Camera(Viewport vPort)
         {
             view = vPort;
@@ -30,7 +30,7 @@ namespace Factory_Game
         public void Update(GameTime gameTime, Game1 game)
         {
             float speed = 1f;
-
+            scale = 1f;
             gme = game;
             center = new Vector2((game.player.position.X * scale - (game.player.CurrentBounds().Width / 2) - (game.WIDTH / 2)) * scale, (game.player.position.Y * scale - (game.player.CurrentBounds().Height / 2) - (game.HEIGHT / 2)) * scale);
 

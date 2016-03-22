@@ -70,3 +70,4 @@ Content\TileObjects\SolarPanelItem.xnb
 LuaScripts\player_script.lua
 TileData\Tile_SpriteSheet.txt
 LuaScripts\tile_script.lua
+LuaScripts\world_properties.lua
