@@ -3,18 +3,17 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
-
+using NLua;
 namespace Factory_Game
 {
     public class Tile
     {
         KeyboardState keyboardState;
-        KeyboardState oldKeyboardState; 
+        KeyboardState oldKeyboardState;
         //public List<Texture2D> tiles = new List<Texture2D>();
-        Texture2D texture; 
+        Texture2D texture;
         public Vector2 position;
         public int index;
-        // alive - in renderbox
         public bool alive = true;
         Rectangle bounds;
         public float durability;
@@ -24,32 +23,32 @@ namespace Factory_Game
         TimeSpan time = TimeSpan.FromMilliseconds(1000);
 
         TimeSpan time2;
-        public int inventorySpeed = 1500; 
+        public int inventorySpeed = 1500;
         TimeSpan lastTime;
-        Game1 game1; 
+        Game1 game1;
         QuarryDrill quarryDrill;
-        SpriteFont font; 
-        public bool madeItemPipe; 
+        SpriteFont font;
+        public bool madeItemPipe;
         public bool madeQuarry;
         public bool madeStorage;
         public bool madeSmelter;
         public bool madeSolarPanel;
         public bool madeBattery;
-        public bool isWire; 
+        public bool isWire;
         public Item tempItem;
         public Rectangle sourceRectangle;
-        public float light = 1; 
+        public float light = 1;
         public enum TileType
         {
-            BlankTile, 
+            BlankTile,
             DryTile1,
             DryTile2,
             DryTile3,
             Granite1,
             Granite2,
             Granite3,
-            Grass1, 
-            Grass2, 
+            Grass1,
+            Grass2,
             Grass3,
             Water,
             ConstructionBlock,
@@ -58,15 +57,15 @@ namespace Factory_Game
             ConstructionDrillBit,
             QuarryBlock,
             ItemPipeNorth,
-            ItemPipeEast, 
-            ItemPipeSouth, 
+            ItemPipeEast,
+            ItemPipeSouth,
             ItemPipeWest,
             StorageCrate,
             CoalBlock,
-            CopperTile, 
+            CopperTile,
             IronBlock,
             SandTile,
-            Platform1, 
+            Platform1,
             UraniumBlock,
             RedWire1,
             RedWire2,
@@ -85,7 +84,15 @@ namespace Factory_Game
             GoldWire5,
             MissingTile,
             BatteryBlock,
-            SolarPanel
+            SolarPanel,
+            StorageBL,
+            StorageBR ,
+            StorageMB,
+            StorageML,
+            StorageMR,
+            StorageMT,
+            StorageTL,
+            StorageTR,
         }
         public enum TileProperty
         {
@@ -95,7 +102,7 @@ namespace Factory_Game
         public enum StorageTier
         {
             Tier1,
-            Tier2, 
+            Tier2,
             Tier3
         }
         public enum WireState
@@ -106,11 +113,11 @@ namespace Factory_Game
             State4
         }
 
-        public StorageTier storageTier; 
+        public StorageTier storageTier;
         public TileType tileType;
 
         public TileProperty tileProperty;
-        public WireState wireState; 
+        public WireState wireState;
 
         ContentManager contentManager;
 
@@ -122,18 +129,18 @@ namespace Factory_Game
         public int localxPos;
         public int localyPos;
         public int chunkX;
-        public int chunkY; 
+        public int chunkY;
         bool inInventory = false;
 
-        public Battery battery; 
-
+        public Battery battery;
+        TileMap tMap; 
         public Tile()
         {
             time2 = TimeSpan.FromMilliseconds(inventorySpeed);
-            storageTier = new StorageTier(); 
-            tileProperty = new TileProperty(); 
+            storageTier = new StorageTier();
+            tileProperty = new TileProperty();
             tileType = new TileType();
-            wireState = new WireState(); 
+            wireState = new WireState();
             durability = 10;
 
         }
@@ -142,15 +149,16 @@ namespace Factory_Game
         {
             contentManager = content;
 
-            texture = content.Load<Texture2D>("Tiles/Tile_SpriteSheet"); 
+            texture = content.Load<Texture2D>("Tiles/Tile_SpriteSheet");
             font = content.Load<SpriteFont>("Fonts/Font2");
-           // itemDatabase = new ItemDatabase(content); 
+            // itemDatabase = new ItemDatabase(content); 
         }
 
         public void Final(TileMap tileMap) //This is where everything is finalized from tileMap
         {
+            tMap = tileMap;
             xPos = Convert.ToInt32(position.X / 32);
-            yPos = Convert.ToInt32(position.Y / 32); 
+            yPos = Convert.ToInt32(position.Y / 32);
             bounds = new Rectangle((int)position.X, (int)position.Y, 32, 32);
 
             #region // Tile Properties 
@@ -158,7 +166,7 @@ namespace Factory_Game
             {
                 case 0:
                     {
-                        alive = false; 
+                        alive = false;
                         tileType = TileType.BlankTile;
                         tileProperty = TileProperty.CanPass;
                         break;
@@ -168,13 +176,13 @@ namespace Factory_Game
 
                         tileType = TileType.DryTile1;
                         tileProperty = TileProperty.CantPass;
-                        break; 
+                        break;
                     }
                 case 2:
                     {
                         tileType = TileType.DryTile2;
                         tileProperty = TileProperty.CantPass;
-                        break; 
+                        break;
                     }
                 case 3:
                     {
@@ -192,7 +200,7 @@ namespace Factory_Game
                     {
                         tileType = TileType.Granite2;
                         tileProperty = TileProperty.CantPass;
-                        break; 
+                        break;
                     }
                 case 6:
                     {
@@ -215,7 +223,7 @@ namespace Factory_Game
                 case 9:
                     {
                         tileType = TileType.Grass3;
-                        tileProperty = TileProperty.CantPass; 
+                        tileProperty = TileProperty.CantPass;
                         break;
                     }
                 case 11:
@@ -251,14 +259,14 @@ namespace Factory_Game
                 case 19:
                     {
                         tileType = TileType.ItemPipeWest;
-                        tileProperty = TileProperty.CantPass; 
+                        tileProperty = TileProperty.CantPass;
                         break;
                     }
                 case 20:
                     {
                         tileType = TileType.StorageCrate;
                         tileProperty = TileProperty.CantPass;
-                        break; 
+                        break;
                     }
                 case 21:
                     {
@@ -270,31 +278,31 @@ namespace Factory_Game
                     {
                         tileType = TileType.CopperTile;
                         tileProperty = TileProperty.CantPass;
-                        break; 
+                        break;
                     }
                 case 23:
                     {
                         tileType = TileType.IronBlock;
                         tileProperty = TileProperty.CantPass;
-                        break; 
+                        break;
                     }
                 case 24:
                     {
                         tileType = TileType.SandTile;
                         tileProperty = TileProperty.CantPass;
-                        break; 
+                        break;
                     }
                 case 25:
                     {
                         tileType = TileType.Platform1;
                         tileProperty = TileProperty.CantPass;
-                        break; 
+                        break;
                     }
                 case 26:
                     {
                         tileType = TileType.UraniumBlock;
-                        tileProperty = TileProperty.CantPass; 
-                        break; 
+                        tileProperty = TileProperty.CantPass;
+                        break;
                     }
                 case 27:
                     {
@@ -356,26 +364,29 @@ namespace Factory_Game
                         tileProperty = TileProperty.CantPass;
                         break;
                     }
-                
+
 
             }
             #endregion
-            sourceRectangle = tileMap.textureManager.SourceRect(tileType); 
-           
+            sourceRectangle = tileMap.textureManager.SourceRect(tileType);
+
         }
         public void SetPosition(Vector2 pos)
         {
-            
+
             position = pos;
-           // Console.WriteLine(position);
+            // Console.WriteLine(position);
         }
-        public void UpdateIndex(TileType tiType, TileMap tileMap) // This is where Tiles are updated if changed
+        public void UpdateIndex(TileType tiType) // This is where Tiles are updated if changed
         {
             durability = 10;
             alive = true;
             current = 0;
-            isWire = false; 
-
+            isWire = false;
+            madeItemPipe = false;
+            madeQuarry = false;
+            madeStorage = false;
+            tileProperty = TileProperty.CantPass; 
             if (tiType != tileType)
             {
                 //Console.WriteLine(tiType.ToString() + " " + tileType.ToString()); 
@@ -579,6 +590,7 @@ namespace Factory_Game
                             tileType = TileType.StorageCrate;
                             tileProperty = TileProperty.CanPass;
                             index = 20;
+                            BuildStructure(); 
                             madeItemPipe = false;
                             madeStorage = false;
                             madeQuarry = false;
@@ -652,7 +664,7 @@ namespace Factory_Game
                             madeItemPipe = false;
                             madeStorage = false;
                             madeQuarry = false;
-                            isWire = true; 
+                            isWire = true;
                             break;
                         }
                     case TileType.RedWire2:
@@ -674,7 +686,7 @@ namespace Factory_Game
                             madeItemPipe = false;
                             madeStorage = false;
                             madeQuarry = false;
-                            isWire = true; 
+                            isWire = true;
                             break;
                         }
                     case TileType.RedWire4:
@@ -685,7 +697,7 @@ namespace Factory_Game
                             madeItemPipe = false;
                             madeStorage = false;
                             madeQuarry = false;
-                            isWire = true; 
+                            isWire = true;
                             break;
                         }
                     case TileType.RedWire5:
@@ -696,7 +708,7 @@ namespace Factory_Game
                             madeItemPipe = false;
                             madeStorage = false;
                             madeQuarry = false;
-                            isWire = true; 
+                            isWire = true;
                             break;
                         }
                     case TileType.GreenWire1:
@@ -707,7 +719,7 @@ namespace Factory_Game
                             madeItemPipe = false;
                             madeStorage = false;
                             madeQuarry = false;
-                            isWire = true; 
+                            isWire = true;
                             break;
                         }
                     case TileType.GreenWire2:
@@ -718,7 +730,7 @@ namespace Factory_Game
                             madeItemPipe = false;
                             madeStorage = false;
                             madeQuarry = false;
-                            isWire = true; 
+                            isWire = true;
                             break;
                         }
                     case TileType.GreenWire3:
@@ -729,7 +741,7 @@ namespace Factory_Game
                             madeItemPipe = false;
                             madeStorage = false;
                             madeQuarry = false;
-                            isWire = true; 
+                            isWire = true;
                             break;
                         }
                     case TileType.GreenWire4:
@@ -740,7 +752,7 @@ namespace Factory_Game
                             madeItemPipe = false;
                             madeStorage = false;
                             madeQuarry = false;
-                            isWire = true; 
+                            isWire = true;
                             break;
                         }
                     case TileType.GreenWire5:
@@ -751,7 +763,7 @@ namespace Factory_Game
                             madeItemPipe = false;
                             madeStorage = false;
                             madeQuarry = false;
-                            isWire = true; 
+                            isWire = true;
                             break;
                         }
                     case TileType.GoldWire1:
@@ -762,7 +774,7 @@ namespace Factory_Game
                             madeItemPipe = false;
                             madeStorage = false;
                             madeQuarry = false;
-                            isWire = true; 
+                            isWire = true;
                             break;
                         }
                     case TileType.GoldWire2:
@@ -773,7 +785,7 @@ namespace Factory_Game
                             madeItemPipe = false;
                             madeStorage = false;
                             madeQuarry = false;
-                            isWire = true; 
+                            isWire = true;
                             break;
                         }
                     case TileType.GoldWire3:
@@ -784,7 +796,7 @@ namespace Factory_Game
                             madeItemPipe = false;
                             madeStorage = false;
                             madeQuarry = false;
-                            isWire = true; 
+                            isWire = true;
                             break;
                         }
                     case TileType.GoldWire4:
@@ -795,7 +807,7 @@ namespace Factory_Game
                             madeItemPipe = false;
                             madeStorage = false;
                             madeQuarry = false;
-                            isWire = true; 
+                            isWire = true;
                             break;
                         }
                     case TileType.GoldWire5:
@@ -806,7 +818,7 @@ namespace Factory_Game
                             madeItemPipe = false;
                             madeStorage = false;
                             madeQuarry = false;
-                            isWire = true; 
+                            isWire = true;
 
                             break;
                         }
@@ -830,12 +842,53 @@ namespace Factory_Game
                             madeQuarry = false;
                             break;
                         }
+                    case TileType.StorageBL:
+                        {
+                            
+                            index = 45;
+                            break;
+                        }
+                    case TileType.StorageBR:
+                        {
+                            index = 46;
+                            break;
+                        }
+                    case TileType.StorageMB:
+                        {
+                            index = 47;
+                            break;
+                        }
+                    case TileType.StorageML:
+                        {
+                            index = 48;
+                            break;
+                        }
+                    case TileType.StorageMR:
+                        {
+                            index = 49; 
+                            break;
+                        }
+                    case TileType.StorageMT:
+                        {
+                            index = 50;
+                            break;
+                        }
+                    case TileType.StorageTL:
+                        {
+                            index = 51; 
+                            break;
+                        }
+                    case TileType.StorageTR:
+                        {
+                            index = 52; 
+                            break;
+                        }
 
 
 
                 }
-                sourceRectangle = tileMap.textureManager.SourceRect(tileType); 
-                
+                tileType = tiType; 
+                sourceRectangle = Animation.SourceRect(tileType, "Tile_SpriteSheet", this);
             }
 
         }
@@ -843,23 +896,23 @@ namespace Factory_Game
         {
             //   Wires(game);     
             Console.WriteLine("Updating tile");
-            
+
 
         }
         public void DamageTile(float amount)
         {
-           // Console.WriteLine("Damaging Tiles"); 
-            durability -= amount; 
+            // Console.WriteLine("Damaging Tiles"); 
+            durability -= amount;
         }
 
         #region  Updates
 
         public void Update(GameTime gameTime, Player player, Game1 game, Chunk tileMap)
         {
-
+            tMap = game.tileMap; 
             if (alive)
             {
-                
+
                 if (draw)
                 {
                     if (durability <= 0)
@@ -868,6 +921,7 @@ namespace Factory_Game
                         // worldPosition = Vector2.Transform(position, Matrix.Invert(game.camera.rawTransform)); 
                         game.tileObjectManagement.AddTileObject(new Vector2(position.X + (bounds.Width / 4), position.Y + (bounds.Height / 4)), tileType);
                         alive = false;
+                        current = 0;
                     }
                     else
                     {
@@ -875,8 +929,9 @@ namespace Factory_Game
                     }
                     if (tileType == TileType.SolarPanel)
                     {
-                        SolarPanel(game.tileMap); 
+                        SolarPanel(game.tileMap);
                     }
+
 
                     if (game.tileObjectManagement.tileObjects.Count > 0)
                     {
@@ -943,7 +998,7 @@ namespace Factory_Game
                             }
                         }
                     }
-                                       
+
                     if (game.quarryManagement.drills.Count > 0)
                     {
                         for (int i = 0; i < game.quarryManagement.drills.Count; i++)
@@ -955,11 +1010,11 @@ namespace Factory_Game
                         }
                     }
 
-                    
+
                     if (alive)
                     {
-                        
-                        
+
+
                         if (madeStorage)
                         {
                             inventory.Update(gameTime, game);
@@ -972,9 +1027,18 @@ namespace Factory_Game
                         {
                             Quarry(tileMap, gameTime, game);
                         }
-                        
+                        if (lastTime + time < gameTime.TotalGameTime)
+                        {
+                            if (tileType == TileType.BatteryBlock)
+                            {
+
+                                MakeBattery(game.tileMap);
+                            }
+                            lastTime = gameTime.TotalGameTime;
+                        }
                         if (lastTime + time2 < gameTime.TotalGameTime)
                         {
+
                             if (this.tileType == TileType.ItemPipeNorth)
                             {
                                 ItemPipe(tileMap, gameTime, game);
@@ -992,13 +1056,13 @@ namespace Factory_Game
                                 ItemPipe(tileMap, gameTime, game);
                             }
                         }
-                        
+
                         if (this.tileType == TileType.StorageCrate)
                         {
-                             
-                             ItemStorage(tileMap, gameTime, game);
+
+                            ItemStorage(tileMap, gameTime, game);
                         }
-                        
+
 
                     }
                 }
@@ -1006,24 +1070,23 @@ namespace Factory_Game
                 {
                     index = 0;
                     tileType = TileType.BlankTile;
-                    sourceRectangle = Animation.SourceRect(tileType, "Tile_SpriteSheet", this); 
+                    sourceRectangle = Animation.SourceRect(tileType, "Tile_SpriteSheet", this);
                 }
 
                 if (tileType == TileType.QuarryBlock)
                 {
                     if (madeQuarry)
                     {
-                        
-                        // comented
+
                         quarryDrill.Update(gameTime, game);
                     }
                 }
 
             }
         }
-        public void Wires(Game1 game )
+        public void Wires(Game1 game)
         {
-            
+
             if (tileType == TileType.RedWire1 || tileType == TileType.RedWire2 || tileType == TileType.RedWire3 || tileType == TileType.RedWire4 || tileType == TileType.RedWire5)
             {
                 Wire.WireState(this, game.tileMap);
@@ -1039,7 +1102,7 @@ namespace Factory_Game
                 Wire.WireState(this, game.tileMap);
                 Wire.Current(this, game.tileMap);
             }
-            
+
         }
 
         public void TileEntityCollision(Game1 game)
@@ -1047,7 +1110,7 @@ namespace Factory_Game
             // Tile Entities
             for (int i = 0; i < game.tileObjectManagement.tileObjects.Count; i++)
             {
-                
+
                 if (bounds.Intersects(game.tileObjectManagement.tileObjects[i].rect))
                 {
                     if (tileType != TileType.BlankTile || tileType != TileType.MarkerBlock || tileType != TileType.ConstructionBlock)
@@ -1057,18 +1120,18 @@ namespace Factory_Game
                         //  Console.WriteLine("i tried");
                     }
                 }
-                
+
 
             }
         }
-                                
+
         public void Quarry(Chunk chunk, GameTime gameTime, Game1 game)
         {
             if (!madeQuarry)
             {
-                int offSet = 3; 
+                int offSet = 3;
                 // 100
-                int searchRadius = 200; 
+                int searchRadius = 200;
                 int height = 8;
                 inventory = new Inventory();
                 inventory.inventoryType = Inventory.InventoryType.StorageInventory;
@@ -1078,7 +1141,7 @@ namespace Factory_Game
                 int qTileX;
                 int qTileY;
                 int qChunkX;
-                int qChunkY; 
+                int qChunkY;
                 #region 
 
                 if (chunk.tiles[localxPos + 1, localyPos].tileType == TileType.MarkerBlock)
@@ -1086,15 +1149,15 @@ namespace Factory_Game
                     Vector2 pos;
                     for (int i = 2; i < searchRadius; i++)
                     {
-                        pos = new Vector2(position.X + (i * 32), position.Y); 
+                        pos = new Vector2(position.X + (i * 32), position.Y);
                         qTileX = game.tileMap.FindTile(pos).tileX;
                         qTileY = game.tileMap.FindTile(pos).tileY;
                         qChunkX = game.tileMap.FindTile(pos).chunkX;
                         qChunkY = game.tileMap.FindTile(pos).chunkY;
-                        Console.WriteLine("Tile X: "+qTileX+" Tile Y:" + qTileY +" ChunkX:" + qChunkX + " ChunkY:"+ qChunkY);
+                        Console.WriteLine("Tile X: " + qTileX + " Tile Y:" + qTileY + " ChunkX:" + qChunkX + " ChunkY:" + qChunkY);
                         if (game.tileMap.chunks[qChunkX, qChunkY].tiles[qTileX, qTileY].tileType == TileType.MarkerBlock)
                         {
-                             
+
                             offSet = i;
                             i = searchRadius;
                             Console.WriteLine("Quarry Made");
@@ -1105,15 +1168,15 @@ namespace Factory_Game
                     qTileX = game.tileMap.FindTile(position).tileX;
                     qTileY = game.tileMap.FindTile(position).tileY;
                     qChunkX = game.tileMap.FindTile(position).chunkX;
-                    qChunkY = game.tileMap.FindTile(position).chunkY; 
-                    game.tileMap.chunks[qChunkX, qChunkY].tiles[qTileX + 1, qTileY].UpdateIndex(TileType.ConstructionBlock, game.tileMap);
+                    qChunkY = game.tileMap.FindTile(position).chunkY;
+                    game.tileMap.chunks[qChunkX, qChunkY].tiles[qTileX + 1, qTileY].UpdateIndex(TileType.ConstructionBlock);
 
                     pos = new Vector2(position.X + (offSet * 32), position.Y);
                     qTileX = game.tileMap.FindTile(pos).tileX;
-                    qTileY = game.tileMap.FindTile(pos).tileY; 
+                    qTileY = game.tileMap.FindTile(pos).tileY;
                     qChunkX = game.tileMap.FindTile(pos).chunkX;
-                    qChunkY = game.tileMap.FindTile(pos).chunkY; 
-                    game.tileMap.chunks[qChunkX, qChunkY].tiles[qTileX, qTileY].UpdateIndex(TileType.ConstructionBlock, game.tileMap);
+                    qChunkY = game.tileMap.FindTile(pos).chunkY;
+                    game.tileMap.chunks[qChunkX, qChunkY].tiles[qTileX, qTileY].UpdateIndex(TileType.ConstructionBlock);
 
                     for (int y = 1; y < height; y++)
                     {
@@ -1121,17 +1184,17 @@ namespace Factory_Game
                         qTileX = game.tileMap.FindTile(pos).tileX;
                         qTileY = game.tileMap.FindTile(pos).tileY;
                         qChunkX = game.tileMap.FindTile(pos).chunkX;
-                        qChunkY = game.tileMap.FindTile(pos).chunkY; 
-                        game.tileMap.chunks[qChunkX, qChunkY].tiles[qTileX, qTileY].UpdateIndex(TileType.ConstructionBlock, game.tileMap);
+                        qChunkY = game.tileMap.FindTile(pos).chunkY;
+                        game.tileMap.chunks[qChunkX, qChunkY].tiles[qTileX, qTileY].UpdateIndex(TileType.ConstructionBlock);
 
                         pos = new Vector2(position.X + (offSet * 32), position.Y - (y * 32));
                         qTileX = game.tileMap.FindTile(pos).tileX;
                         qTileY = game.tileMap.FindTile(pos).tileY;
                         qChunkX = game.tileMap.FindTile(pos).chunkX;
-                        qChunkY = game.tileMap.FindTile(pos).chunkY; 
-                        game.tileMap.chunks[qChunkX, qChunkY].tiles[qTileX, qTileY].UpdateIndex(TileType.ConstructionBlock, game.tileMap);
+                        qChunkY = game.tileMap.FindTile(pos).chunkY;
+                        game.tileMap.chunks[qChunkX, qChunkY].tiles[qTileX, qTileY].UpdateIndex(TileType.ConstructionBlock);
                     }
-                     
+
                     for (int x = 0; x < offSet; x++)
                     {
                         pos = new Vector2(position.X + ((1 + x) * 32), position.Y - (height * 32));
@@ -1139,7 +1202,7 @@ namespace Factory_Game
                         qTileY = game.tileMap.FindTile(pos).tileY;
                         qChunkX = game.tileMap.FindTile(pos).chunkX;
                         qChunkY = game.tileMap.FindTile(pos).chunkY;
-                        game.tileMap.chunks[qChunkX, qChunkY].tiles[qTileX, qTileY].UpdateIndex(TileType.ConstructionBlock, game.tileMap);
+                        game.tileMap.chunks[qChunkX, qChunkY].tiles[qTileX, qTileY].UpdateIndex(TileType.ConstructionBlock);
                     }
 
                     // comented 
@@ -1151,7 +1214,7 @@ namespace Factory_Game
                     position1 = new Vector2(position.X + (2 * 32), position.Y + (1 * 32));
                     position2 = new Vector2(position.X + ((offSet - 1) * 32), position.Y - (1 * 32));
 
-                    quarryDrill = new QuarryDrill(position1, position2, height, game, this); 
+                    quarryDrill = new QuarryDrill(position1, position2, height, game, this);
 
                     quarryDrill.LoadContent(contentManager);
                     game.quarryManagement.drills.Add(quarryDrill);
@@ -1159,20 +1222,20 @@ namespace Factory_Game
                 }
                 #endregion
 
-                
-                
+
+
             }
         }
-        
+
         public void ItemPipe(Chunk tileMap, GameTime gameTime, Game1 game)
         {
 
             if (!madeItemPipe)
             {
                 inventory = new Inventory();
-                inventory.inventoryType = Inventory.InventoryType.TubeInventory; 
-                inventory.LoadContent(contentManager); 
-                madeItemPipe = true; 
+                inventory.inventoryType = Inventory.InventoryType.TubeInventory;
+                inventory.LoadContent(contentManager);
+                madeItemPipe = true;
             }
 
             switch (tileType)
@@ -1192,7 +1255,7 @@ namespace Factory_Game
                         chunkx = game.tileMap.FindTile(pos).chunkX;
                         chunky = game.tileMap.FindTile(pos).chunkY;
 
-                        Tile checkedTile = game.tileMap.chunks[chunkx, chunky].tiles[tileX, tileY]; 
+                        Tile checkedTile = game.tileMap.chunks[chunkx, chunky].tiles[tileX, tileY];
                         if (checkedTile.tileType == TileType.QuarryBlock)
                         {
                             if (checkedTile.madeQuarry)
@@ -1231,7 +1294,7 @@ namespace Factory_Game
                                 }
                             }
                         }
-                        else if(checkedTile.tileType == TileType.StorageCrate)
+                        else if (checkedTile.tileType == TileType.StorageCrate)
                         {
                             if (checkedTile.madeStorage)
                             {
@@ -1266,7 +1329,7 @@ namespace Factory_Game
 
                         Tile checkedTile = game.tileMap.chunks[chunkx, chunky].tiles[tileX, tileY];
 
-                        if(checkedTile.tileType == TileType.QuarryBlock)
+                        if (checkedTile.tileType == TileType.QuarryBlock)
                         {
                             if (checkedTile.madeQuarry)
                             {
@@ -1283,7 +1346,7 @@ namespace Factory_Game
                                 }
                             }
                         }
-                        else if(checkedTile.tileType == TileType.ItemPipeEast)
+                        else if (checkedTile.tileType == TileType.ItemPipeEast)
                         {
                             if (checkedTile.madeItemPipe)
                             {
@@ -1300,7 +1363,7 @@ namespace Factory_Game
                                 }
                             }
                         }
-                        else if(checkedTile.tileType == TileType.StorageCrate)
+                        else if (checkedTile.tileType == TileType.StorageCrate)
                         {
                             if (checkedTile.madeStorage)
                             {
@@ -1317,7 +1380,7 @@ namespace Factory_Game
                                 }
                             }
                         }
-                        break; 
+                        break;
                     }
                 case TileType.ItemPipeSouth:
                     {
@@ -1335,8 +1398,8 @@ namespace Factory_Game
 
                         Tile checkedTile = game.tileMap.chunks[chunkx, chunky].tiles[tileX, tileY];
 
-                    
-                        if(checkedTile.tileType == TileType.QuarryBlock)
+
+                        if (checkedTile.tileType == TileType.QuarryBlock)
                         {
                             if (checkedTile.madeQuarry)
                             {
@@ -1354,7 +1417,7 @@ namespace Factory_Game
                                 }
                             }
                         }
-                        if(checkedTile.tileType == TileType.ItemPipeSouth)
+                        if (checkedTile.tileType == TileType.ItemPipeSouth)
                         {
                             if (checkedTile.madeItemPipe)
                             {
@@ -1371,7 +1434,7 @@ namespace Factory_Game
                                 }
                             }
                         }
-                        if(checkedTile.tileType == TileType.StorageCrate)
+                        if (checkedTile.tileType == TileType.StorageCrate)
                         {
                             if (checkedTile.madeStorage)
                             {
@@ -1424,7 +1487,7 @@ namespace Factory_Game
                                 }
                             }
                         }
-                        else if(checkedTile.tileType == TileType.ItemPipeWest)
+                        else if (checkedTile.tileType == TileType.ItemPipeWest)
                         {
                             if (checkedTile.madeItemPipe)
                             {
@@ -1441,7 +1504,7 @@ namespace Factory_Game
                                 }
                             }
                         }
-                        else if(checkedTile.tileType == TileType.StorageCrate)
+                        else if (checkedTile.tileType == TileType.StorageCrate)
                         {
                             if (checkedTile.madeStorage)
                             {
@@ -1458,11 +1521,11 @@ namespace Factory_Game
                                 }
                             }
                         }
-                        break; 
+                        break;
                     }
             }
         }
-        
+
         public void ItemStorage(Chunk tileMap, GameTime gameTime, Game1 game)
         {
             if (!madeStorage)
@@ -1471,8 +1534,8 @@ namespace Factory_Game
                 inventory.inventoryType = Inventory.InventoryType.StorageInventory;
                 inventory.LoadContent(contentManager);
                 inventory.inventoryType = Inventory.InventoryType.StorageInventory;
-                Console.WriteLine("Made storage"); 
-                madeStorage = true; 
+                Console.WriteLine("Made storage");
+                madeStorage = true;
             }
 
             Vector2 pos;
@@ -1585,26 +1648,26 @@ namespace Factory_Game
                 }
             }
         }
-        
-        public void SolarPanel(TileMap tileMap )
+
+        public void SolarPanel(TileMap tileMap)
         {
             if (!madeSolarPanel)
             {
                 battery = new Battery(500);
-                battery.Output(true); 
-                madeSolarPanel = true; 
+                battery.Output(false);
+                madeSolarPanel = true;
             }
             else
             {
-                if(tileMap.GetTile(new Vector2(position.X, position.Y - 32)).tileType == TileType.BlankTile)
+                if (tileMap.GetTile(new Vector2(position.X, position.Y - 32)).tileType == TileType.BlankTile)
                 {
                     // 1 watt per second
                     battery.AddWatts(.016667f);
-                    current = battery.CurrentPower(); 
+                    current = battery.CurrentPower();
                 }
-                
+
             }
-            
+
         }
 
         public void MakeBattery(TileMap tileMap)
@@ -1612,16 +1675,62 @@ namespace Factory_Game
             if (!madeBattery)
             {
                 battery = new Battery(20000);
-                battery.Output(true);  
-                madeBattery = true; 
+                battery.Output(false);
+                madeBattery = true;
             }
             else
             {
-                battery.Update(position, tileMap); 
+
+                battery.Update(position, tileMap);
+                current = battery.CurrentPower();
             }
         }
-        #endregion 
+        #endregion
 
+
+
+        public void BuildStructure()
+        {
+            Lua lua = new Lua();
+            lua.RegisterFunction("BuildTile", this, GetType().GetMethod("BuildTile"));
+            lua.RegisterFunction("GetXIndex", this, GetType().GetMethod("GetXIndex"));
+            lua.RegisterFunction("GetYIndex", this, GetType().GetMethod("GetYIndex"));
+            lua.DoString("structureType = 2");
+            lua.DoFile("LuaScripts/structure_data.lua"); 
+            
+
+        }
+
+        public void BuildTile(int x,  int y, int type)
+        {
+            Vector2 pos;
+            pos = new Vector2(position.X + (x * 32), position.Y + (y * 32));
+
+            
+
+            int tileX;
+            int tileY;
+            int chunkX;
+            int chunkY;
+
+            chunkX = tMap.FindTile(pos).chunkX;
+            chunkY = tMap.FindTile(pos).chunkY;
+            tileX = tMap.FindTile(pos).tileX;
+            tileY = tMap.FindTile(pos).tileY;
+
+            tMap.DamageTile(chunkX, chunkY, tileX, tileY, 100f);
+            tMap.GetTile(pos).UpdateIndex((TileType)type);
+        }
+
+        public int GetXIndex()
+        {
+            return (int)position.X;
+
+        }
+        public int GetYIndex()
+        {
+            return (int)position.Y; 
+        }
 
         public float Rotation(float degree)
         {

@@ -69,5 +69,6 @@ Content\TileObjects\BatteryBlockItem.xnb
 Content\TileObjects\SolarPanelItem.xnb
 LuaScripts\player_script.lua
 TileData\Tile_SpriteSheet.txt
+LuaScripts\structure_data.lua
 LuaScripts\tile_script.lua
 LuaScripts\world_properties.lua

@@ -1,6 +1,4 @@
 
-FlatWorld = true 
-
 -- This is where tile value are set when noise function runs
 -- Change Granite1 to 1 and 0 for granite world
 BlankTileMin= .3 --.3

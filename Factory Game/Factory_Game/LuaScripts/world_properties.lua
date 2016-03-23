@@ -1,7 +1,11 @@
 
 -- world properties
 version = "Pre-Alpha .26"
+
 windowSize = 1500 
 
-chunkWidth = 30
-chunkHeight = 30
+FlatWorld = false 
+worldSeed = 4210
+chunkWidth = 35
+chunkHeight = 5
+

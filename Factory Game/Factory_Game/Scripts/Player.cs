@@ -242,8 +242,7 @@ namespace Factory_Game
                             {
                                 //tileMap.ChangeTile(xCord, yCord, inventory.inventory[inventory.selectedItem].item.tileType);
                                 tileMap.ChangeTile(xCord, yCord, (((int)worldPosition.X % 1024) / 32), (((int)worldPosition.Y % 1024) / 32), inventory.inventory[inventory.selectedItem].item.tileType, tileMap);
-                                tileMap.chunks[xCord, yCord].tiles[(((int)worldPosition.X % 1024) / 32), (((int)worldPosition.Y % 1024) / 32)].UpdateTile(game);
-
+                                inventory.inventory[inventory.selectedItem].count--; 
 
                             } 
                         }

@@ -40,12 +40,12 @@ namespace Factory_Game
              
         }
 
-        public TileMap(int[,] size, int sed)
+        public TileMap(int[,] size, int sed, bool fltWorld)
         {
             lua = new Lua();
             lua.DoFile("LuaScripts/tile_script.lua");
 
-            generateFlatWorld = (bool)lua["FlatWorld"];
+            generateFlatWorld = fltWorld;
 
             textureManager = new TextureManager();
             seed = sed;
@@ -569,18 +569,18 @@ namespace Factory_Game
                     Console.WriteLine("Chunk Set");
                 }
             }
-
+            textureManager = null; 
             Console.WriteLine("Chunks Finished");
             tile = null; 
 
         }
         public void ChangeTile(int x, int y, Tile.TileType type, TileMap tileMap)
         {
-            tile[x, y].UpdateIndex(type, tileMap);
+            tile[x, y].UpdateIndex(type);
         }
         public void ChangeTile(int chunkX, int chunkY, int x, int y, Tile.TileType type, TileMap tileMap)
         {
-            chunks[chunkX, chunkY].tiles[x, y].UpdateIndex(type, tileMap); 
+            chunks[chunkX, chunkY].tiles[x, y].UpdateIndex(type); 
         }
         public void DamageTile(int x, int y, float ammount)
         {
@@ -625,6 +625,9 @@ namespace Factory_Game
 
             return chunks[_chunkX, _chunkY].tiles[_tileX, _tileY]; 
         }
+
+
+        
 
         public void Draw(SpriteBatch spriteBatch, Player player)
         {

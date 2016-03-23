@@ -29,7 +29,8 @@ namespace Factory_Game
         public int[,] mapSize;
         // 932480
         // 234561 spawns in flat plane
-        int seed = 3421; 
+        int seed;
+        bool flatWorld; 
 
         public Camera camera;
 
@@ -62,6 +63,8 @@ namespace Factory_Game
             WIDTH = (int)((double)lua["windowSize"]);
             chunkHeight = (int)((double)lua["chunkHeight"]);
             chunkWidth = (int)((double)lua["chunkWidth"]);
+            seed = (int)((double)lua["worldSeed"]);
+            flatWorld = (bool)lua["FlatWorld"]; 
             version = (string)lua["version"];
 
             Window.Title = version;
@@ -86,7 +89,7 @@ namespace Factory_Game
             spriteBatch = new SpriteBatch(GraphicsDevice);
                        
 
-            tileMap = new TileMap(mapSize, seed);
+            tileMap = new TileMap(mapSize, seed, flatWorld);
             tileMap.LoadContent(Content);
 
             player = new Player(tileMap.playerStart);
