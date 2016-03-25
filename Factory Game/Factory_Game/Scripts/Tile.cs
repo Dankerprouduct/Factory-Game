@@ -119,7 +119,7 @@ namespace Factory_Game
         public TileProperty tileProperty;
         public WireState wireState;
 
-        ContentManager contentManager;
+        public ContentManager contentManager;
 
         public Inventory inventory;
         public Inventory outPutInventory;
@@ -133,7 +133,8 @@ namespace Factory_Game
         bool inInventory = false;
 
         public Battery battery;
-        TileMap tMap; 
+        TileMap tMap;
+        Storage storage; 
         public Tile()
         {
             time2 = TimeSpan.FromMilliseconds(inventorySpeed);
@@ -590,7 +591,7 @@ namespace Factory_Game
                             tileType = TileType.StorageCrate;
                             tileProperty = TileProperty.CanPass;
                             index = 20;
-                            BuildStructure(); 
+                            // BuildStructure(); 
                             madeItemPipe = false;
                             madeStorage = false;
                             madeQuarry = false;
@@ -844,42 +845,50 @@ namespace Factory_Game
                         }
                     case TileType.StorageBL:
                         {
-                            
+                            tileProperty = TileProperty.CanPass;
                             index = 45;
                             break;
                         }
                     case TileType.StorageBR:
                         {
+                            tileProperty = TileProperty.CanPass;
                             index = 46;
                             break;
                         }
                     case TileType.StorageMB:
                         {
+                            tileProperty = TileProperty.CanPass; 
                             index = 47;
                             break;
                         }
                     case TileType.StorageML:
                         {
+                            tileProperty = TileProperty.CanPass;
                             index = 48;
                             break;
                         }
                     case TileType.StorageMR:
                         {
+                            tileProperty = TileProperty.CanPass;
                             index = 49; 
                             break;
                         }
                     case TileType.StorageMT:
                         {
+                            tileProperty = TileProperty.CanPass;
                             index = 50;
                             break;
                         }
                     case TileType.StorageTL:
                         {
+                            tileProperty = TileProperty.CanPass;
+
                             index = 51; 
                             break;
                         }
                     case TileType.StorageTR:
                         {
+                            tileProperty = TileProperty.CanPass;
                             index = 52; 
                             break;
                         }
@@ -977,7 +986,7 @@ namespace Factory_Game
                             if (keyboardState.IsKeyDown(Keys.F) && oldKeyboardState.IsKeyUp(Keys.F))
                             {
                                 inInventory = !inInventory;
-                                inventory.showInventory = !inventory.showInventory;
+                                //inventory.showInventory = !inventory.showInventory;
                                 if (inInventory)
                                 {
                                     player.tempTile = this;
@@ -993,7 +1002,7 @@ namespace Factory_Game
                         {
                             if (madeStorage)
                             {
-                                inventory.showInventory = false;
+                                //inventory.showInventory = false;
                                 //player.tempTile = null; 
                             }
                         }
@@ -1014,11 +1023,12 @@ namespace Factory_Game
                     if (alive)
                     {
 
-
+                        /*
                         if (madeStorage)
                         {
                             inventory.Update(gameTime, game);
                         }
+                        */
                         if (madeQuarry)
                         {
                             inventory.Update(gameTime, game);
@@ -1036,31 +1046,31 @@ namespace Factory_Game
                             }
                             lastTime = gameTime.TotalGameTime;
                         }
-                        if (lastTime + time2 < gameTime.TotalGameTime)
+                        if (lastTime + time < gameTime.TotalGameTime)
                         {
 
-                            if (this.tileType == TileType.ItemPipeNorth)
-                            {
-                                ItemPipe(tileMap, gameTime, game);
-                            }
-                            if (this.tileType == TileType.ItemPipeEast)
-                            {
-                                ItemPipe(tileMap, gameTime, game);
-                            }
-                            if (this.tileType == TileType.ItemPipeSouth)
-                            {
-                                ItemPipe(tileMap, gameTime, game);
-                            }
-                            if (this.tileType == TileType.ItemPipeWest)
-                            {
-                                ItemPipe(tileMap, gameTime, game);
-                            }
+                            
                         }
-
+                        if (this.tileType == TileType.ItemPipeNorth)
+                        {
+                            ItemPipe(tileMap, gameTime, game);
+                        }
+                        if (this.tileType == TileType.ItemPipeEast)
+                        {
+                            ItemPipe(tileMap, gameTime, game);
+                        }
+                        if (this.tileType == TileType.ItemPipeSouth)
+                        {
+                            ItemPipe(tileMap, gameTime, game);
+                        }
+                        if (this.tileType == TileType.ItemPipeWest)
+                        {
+                            ItemPipe(tileMap, gameTime, game);
+                        }
                         if (this.tileType == TileType.StorageCrate)
                         {
 
-                            ItemStorage(tileMap, gameTime, game);
+                               ItemStorage(tileMap, gameTime, game);
                         }
 
 
@@ -1530,14 +1540,24 @@ namespace Factory_Game
         {
             if (!madeStorage)
             {
+                /*
                 inventory = new Inventory();
                 inventory.inventoryType = Inventory.InventoryType.StorageInventory;
                 inventory.LoadContent(contentManager);
                 inventory.inventoryType = Inventory.InventoryType.StorageInventory;
                 Console.WriteLine("Made storage");
+                */
+                storage = new Storage(1, this, game.tileMap);
+                game.storageManagement.AddStorage(storage); 
                 madeStorage = true;
-            }
 
+            }
+            if (madeStorage)
+            {
+             //   storage.Update(game.tileMap); 
+            }
+            #region
+            /*
             Vector2 pos;
             pos = new Vector2(position.X, position.Y - (1 * 32));
             int tileX;
@@ -1647,6 +1667,8 @@ namespace Factory_Game
                     }
                 }
             }
+            */
+            #endregion
         }
 
         public void SolarPanel(TileMap tileMap)
@@ -2103,12 +2125,12 @@ namespace Factory_Game
                 {
                     if (madeStorage)
                     {
-                        inventory.Draw(spriteBatch, player); 
+                       // inventory.Draw(spriteBatch, player); 
                     }
                 }
                 if(this.tileType == TileType.ItemPipeNorth || tileType == TileType.ItemPipeEast || tileType == TileType.ItemPipeSouth || tileType == TileType.ItemPipeWest)
                 {
-                  //  inventory.Draw(spriteBatch, player); 
+                    inventory.Draw(spriteBatch, player); 
                 }
             }
         }

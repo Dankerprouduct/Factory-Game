@@ -18,9 +18,11 @@ namespace Factory_Game
         public List<TileObject> tileObjects = new List<TileObject>();
         ContentManager content;
         KeyboardState keyboardState;
+                                  
         public TileObjectManagement(Game1 game)
         {
             content = game.Content; 
+            
         }
 
         public void AddTileObject(Vector2 position, Tile.TileType type)

@@ -3,7 +3,7 @@ structureType = 1
 -- BuildTile(x, y, tiletype)
 if structureType == 1 then
 	
---	BuildTile(0,0,20)
+	BuildTile(0,0,20)
 	BuildTile(0, -1, 50)
 	BuildTile(0, 1, 47)
 	BuildTile(1,0, 49)

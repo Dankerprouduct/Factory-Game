@@ -40,7 +40,7 @@ namespace Factory_Game
 
         public QuarryManagement quarryManagement; 
         public TileObjectManagement tileObjectManagement;
-
+        public StorageManagement storageManagement; 
         public float _fps = 0;
         public int chunkWidth;
         public int chunkHeight;
@@ -96,6 +96,7 @@ namespace Factory_Game
             player.LoadContent(Content);
       
             tileObjectManagement = new TileObjectManagement(this);
+            storageManagement = new StorageManagement(); 
             quarryManagement = new QuarryManagement(); 
             gui.LoadContnent(Content, GraphicsDevice);
 
@@ -124,7 +125,7 @@ namespace Factory_Game
             {
                 tileObjectManagement.Update(gameTime, this);
             }
-            
+            storageManagement.Update(tileMap, this); 
             gui.Update(gameTime, player, tileObjectManagement, this); 
             tileMap.Update(gameTime, this);
             quarryManagement.Update(gameTime, this);

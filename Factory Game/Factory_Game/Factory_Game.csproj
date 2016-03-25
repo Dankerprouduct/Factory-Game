@@ -114,6 +114,7 @@
     <Compile Include="Scripts\QuarryManagement.cs" />
     <Compile Include="Scripts\RectangleExtensions.cs" />
     <Compile Include="Scripts\Storage.cs" />
+    <Compile Include="Scripts\StorageManagement.cs" />
     <Compile Include="Scripts\TextureManager.cs" />
     <Compile Include="Scripts\Tile.cs" />
     <Compile Include="Scripts\TileMap.cs" />
