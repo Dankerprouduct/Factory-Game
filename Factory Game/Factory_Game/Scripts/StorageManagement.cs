@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework.Graphics; 
 
 namespace Factory_Game
 {
@@ -22,7 +23,25 @@ namespace Factory_Game
             {
                 for (int i = 0; i < storages.Count; i++)
                 {
-                    storages[i].Update(tileMap, game);
+                    if (storages[i].alive)
+                    {
+                        storages[i].Update(tileMap, game);
+                    }
+                    else
+                    {
+                        storages.RemoveAt(i);
+                        Console.WriteLine("Removed Storage: " + i);
+                    }
+                }
+            }
+        }
+        public void Draw(SpriteBatch spriteBatch, Game1 game)
+        {
+            if(storages.Count > 0)
+            {
+                for(int i = 0; i < storages.Count; i++)
+                {
+                    storages[i].Draw(spriteBatch, game); 
                 }
             }
         }

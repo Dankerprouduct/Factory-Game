@@ -52,11 +52,7 @@ namespace Factory_Game
             width = 20;
             height = 1;
             inventoryCount = 0;
-            for (int i = 0; i < width * height; i++)
-            {
-                slots.Add(new ItemStack());
-                inventory.Add(new ItemStack());
-            }
+            
 
             maxInventoryCount = (width * height) * 500; 
 
@@ -74,13 +70,19 @@ namespace Factory_Game
 
             if (inventoryType == InventoryType.StorageInventory)
             {
-                width = 3;
-                height = 3;
+                width = 5;
+                height = 5;
             }
             else if(inventoryType == InventoryType.TubeInventory)
             {
                 width = 1;
                 height = 1; 
+            }
+
+            for (int i = 0; i < width * height; i++)
+            {
+                slots.Add(new ItemStack());
+                inventory.Add(new ItemStack());
             }
         }
         public void Update(GameTime gameTime, Game1 game)
@@ -245,21 +247,21 @@ namespace Factory_Game
                                     //Console.WriteLine(slots[i].item.tileName);
                                     Rectangle toolTipBox = new Rectangle(slotRect.X - 150 + 16, slotRect.Y - 325 , 300, 300);
                                     //spriteBatch.Draw(inventoryTexture, toolTipBox, Color.White);
-                                    spriteBatch.Draw(inventoryTexture, toolTipBox, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 50);
+                                    spriteBatch.Draw(inventoryTexture, toolTipBox, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0);
 
                                     //spriteBatch.DrawString(font, slots[i].item.tileName, new Vector2(toolTipBox.X, toolTipBox.Y), Color.White);
-                                    spriteBatch.DrawString(font, slots[i].item.tileName, new Vector2(toolTipBox.X, toolTipBox.Y), Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 51);
+                                    spriteBatch.DrawString(font, slots[i].item.tileName, new Vector2(toolTipBox.X, toolTipBox.Y), Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0);
 
                                     
-                                    spriteBatch.DrawString(font, slots[i].item.tileDescription, new Vector2(toolTipBox.X, toolTipBox.Y + 20), Color.White);
-                                    spriteBatch.DrawString(font, slots[i].item.tileDescription, new Vector2(toolTipBox.X, toolTipBox.Y + 20), Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 52); 
-
+                                    //spriteBatch.DrawString(font, slots[i].item.tileDescription, new Vector2(toolTipBox.X, toolTipBox.Y + 20), Color.White);
+                                    spriteBatch.DrawString(font, slots[i].item.tileDescription, new Vector2(toolTipBox.X, toolTipBox.Y + 20), Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1); 
+                                    
                                     if (mouseState.LeftButton == ButtonState.Pressed)
                                     {
                                         selectedItem = i; 
 
                                         selectedItem = i;
-
+                                        /*
                                         if (player.tempTile != null)
                                         {
                                             player.tempTile.inventory.AddToInventory(inventory[selectedItem].item, inventory[selectedItem].count);
@@ -269,8 +271,10 @@ namespace Factory_Game
                                                 RemoveItem(inventory[selectedItem].item);
                                             }
                                         }
+                                        */
 
                                     }
+                                    
 
 
                                 }
@@ -285,6 +289,7 @@ namespace Factory_Game
                 }
                 else if (inventoryType == InventoryType.StorageInventory)
                 {
+                    
                     int i = 0;
 
                     for (int y = 0; y < height; y++)
@@ -309,7 +314,8 @@ namespace Factory_Game
                                 {
                                     //Console.WriteLine(slots[i].item.tileName);
                                     Rectangle toolTipBox = new Rectangle(slotRect.X - 150 + 16, slotRect.Y - 325, 300, 300);
-                                    spriteBatch.Draw(inventoryTexture, toolTipBox, Color.White);
+                                    spriteBatch.Draw(inventoryTexture, toolTipBox, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, -10);
+                                    //spriteBatch.Draw(inventoryTexture, toolTipBox, Color.White);
                                     spriteBatch.DrawString(font, slots[i].item.tileName, new Vector2(toolTipBox.X, toolTipBox.Y), Color.White);
                                     spriteBatch.DrawString(font, slots[i].item.tileDescription, new Vector2(toolTipBox.X, toolTipBox.Y + 20), Color.White);
 

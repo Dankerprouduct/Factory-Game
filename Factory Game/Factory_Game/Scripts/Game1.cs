@@ -45,8 +45,8 @@ namespace Factory_Game
         public int chunkWidth;
         public int chunkHeight;
         Texture2D rectangleTexture;
-        Lua lua; 
-
+        Lua lua;
+        GUIObject guiObj; 
         public Game1()
         {
             
@@ -102,7 +102,10 @@ namespace Factory_Game
 
             rectangleTexture = new Texture2D(GraphicsDevice, 1, 1);
             rectangleTexture.SetData(new[] { Color.White });
-
+            guiObj = new GUIObject();
+            guiObj.LoadContent(Content);
+            guiObj.GuiBox(new Rectangle(50, 50, 200, 200), "This is a GUI test, hopfully it works "); 
+            
         }
         
         protected override void UnloadContent()
@@ -155,8 +158,8 @@ namespace Factory_Game
             }
 
             tileMap.Draw(spriteBatch, player);
-                    
 
+            
 
             Rectangle r;
             if (gui.showChunks)
@@ -180,11 +183,18 @@ namespace Factory_Game
 
             player.Draw(spriteBatch);
 
+            storageManagement.Draw(spriteBatch, this);
+
             spriteBatch.End();
 
             spriteBatch.Begin();
 
-            gui.Draw(spriteBatch); 
+
+
+            // HUD
+            gui.Draw(spriteBatch);
+
+            guiObj.Draw(spriteBatch); 
 
             spriteBatch.End();
             

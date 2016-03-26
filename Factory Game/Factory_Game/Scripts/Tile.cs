@@ -130,7 +130,7 @@ namespace Factory_Game
         public int localyPos;
         public int chunkX;
         public int chunkY;
-        bool inInventory = false;
+        public bool inInventory;
 
         public Battery battery;
         TileMap tMap;
@@ -387,7 +387,7 @@ namespace Factory_Game
             madeItemPipe = false;
             madeQuarry = false;
             madeStorage = false;
-            tileProperty = TileProperty.CantPass; 
+            //tileProperty = TileProperty.CantPass; 
             if (tiType != tileType)
             {
                 //Console.WriteLine(tiType.ToString() + " " + tileType.ToString()); 
@@ -1146,7 +1146,7 @@ namespace Factory_Game
                 inventory = new Inventory();
                 inventory.inventoryType = Inventory.InventoryType.StorageInventory;
                 inventory.LoadContent(contentManager);
-                inventory.inventoryType = Inventory.InventoryType.StorageInventory;
+                //inventory.inventoryType = Inventory.InventoryType.StorageInventory;
 
                 int qTileX;
                 int qTileY;
@@ -1670,7 +1670,10 @@ namespace Factory_Game
             */
             #endregion
         }
-
+        public Rectangle GetBounds()
+        {
+            return bounds; 
+        }
         public void SolarPanel(TileMap tileMap)
         {
             if (!madeSolarPanel)
