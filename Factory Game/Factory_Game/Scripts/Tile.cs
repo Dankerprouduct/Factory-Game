@@ -1145,7 +1145,7 @@ namespace Factory_Game
                 int height = 8;
                 inventory = new Inventory();
                 inventory.inventoryType = Inventory.InventoryType.StorageInventory;
-                inventory.LoadContent(contentManager);
+                inventory.LoadContent(contentManager, game);
                 //inventory.inventoryType = Inventory.InventoryType.StorageInventory;
 
                 int qTileX;
@@ -1244,7 +1244,7 @@ namespace Factory_Game
             {
                 inventory = new Inventory();
                 inventory.inventoryType = Inventory.InventoryType.TubeInventory;
-                inventory.LoadContent(contentManager);
+                inventory.LoadContent(contentManager, game);
                 madeItemPipe = true;
             }
 
@@ -1547,7 +1547,7 @@ namespace Factory_Game
                 inventory.inventoryType = Inventory.InventoryType.StorageInventory;
                 Console.WriteLine("Made storage");
                 */
-                storage = new Storage(1, this, game.tileMap);
+                storage = new Storage(1, this, game.tileMap, game);
                 game.storageManagement.AddStorage(storage); 
                 madeStorage = true;
 

@@ -24,9 +24,9 @@ namespace Factory_Game
         public List<ItemStack> inventory = new List<ItemStack>();
         public List<ItemStack> slots = new List<ItemStack>();
         Texture2D inventoryTexture;
-        int width;
-        int height;
-        int offSet = 5;
+        public int width;
+        public int height;
+        public int offSet = 5;
         public int inventoryCount;
         public int maxInventoryCount; 
         SpriteFont font;
@@ -36,7 +36,7 @@ namespace Factory_Game
         Vector2 mousePosition;
         Vector2 worldPosition;
         Point point;
-
+        GUIObject gui; 
         public enum InventoryType
         {
             PlayerInventory,
@@ -53,7 +53,7 @@ namespace Factory_Game
             height = 1;
             inventoryCount = 0;
             
-
+            
             maxInventoryCount = (width * height) * 500; 
 
             tileType = new Tile.TileType();
@@ -61,7 +61,7 @@ namespace Factory_Game
            // tileType = Tile.TileType.DryTile1;
 
         }
-        public void LoadContent(ContentManager content)
+        public void LoadContent(ContentManager content, Game1 game)
         {
             database = new ItemDatabase(content);
 
@@ -70,6 +70,9 @@ namespace Factory_Game
 
             if (inventoryType == InventoryType.StorageInventory)
             {
+                gui = new GUIObject(1, this);
+                game.guiManagement.AddGuiObjects(gui);
+                gui.LoadContent(content);
                 width = 5;
                 height = 5;
             }
@@ -84,6 +87,8 @@ namespace Factory_Game
                 slots.Add(new ItemStack());
                 inventory.Add(new ItemStack());
             }
+           
+            
         }
         public void Update(GameTime gameTime, Game1 game)
         {
@@ -102,13 +107,16 @@ namespace Factory_Game
             }
             if(inventoryType == InventoryType.StorageInventory)
             {
+                gui.inventoryGui = showInventory;
+                
+                gui.UpdateInventory(this);
                 PushToBottom(); 
             }
             else if(inventoryType == InventoryType.TubeInventory)
             {
                 PushToBottom(); 
             }
-
+            
             
             oldKeyboardState = keyboardState;
             oldMouseState = mouseState;
@@ -244,16 +252,13 @@ namespace Factory_Game
 
                                 if (slotRect.Contains(point))
                                 {
-                                    //Console.WriteLine(slots[i].item.tileName);
+
                                     Rectangle toolTipBox = new Rectangle(slotRect.X - 150 + 16, slotRect.Y - 325 , 300, 300);
-                                    //spriteBatch.Draw(inventoryTexture, toolTipBox, Color.White);
+
                                     spriteBatch.Draw(inventoryTexture, toolTipBox, null, Color.White, 0f, Vector2.Zero, SpriteEffects.None, 0);
 
-                                    //spriteBatch.DrawString(font, slots[i].item.tileName, new Vector2(toolTipBox.X, toolTipBox.Y), Color.White);
                                     spriteBatch.DrawString(font, slots[i].item.tileName, new Vector2(toolTipBox.X, toolTipBox.Y), Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0);
 
-                                    
-                                    //spriteBatch.DrawString(font, slots[i].item.tileDescription, new Vector2(toolTipBox.X, toolTipBox.Y + 20), Color.White);
                                     spriteBatch.DrawString(font, slots[i].item.tileDescription, new Vector2(toolTipBox.X, toolTipBox.Y + 20), Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1); 
                                     
                                     if (mouseState.LeftButton == ButtonState.Pressed)
@@ -261,17 +266,6 @@ namespace Factory_Game
                                         selectedItem = i; 
 
                                         selectedItem = i;
-                                        /*
-                                        if (player.tempTile != null)
-                                        {
-                                            player.tempTile.inventory.AddToInventory(inventory[selectedItem].item, inventory[selectedItem].count);
-
-                                            for (int ic = 0; ic < inventory[selectedItem].count; ic++)
-                                            {
-                                                RemoveItem(inventory[selectedItem].item);
-                                            }
-                                        }
-                                        */
 
                                     }
                                     
@@ -289,13 +283,15 @@ namespace Factory_Game
                 }
                 else if (inventoryType == InventoryType.StorageInventory)
                 {
-                    
+
+                    Console.WriteLine("kdill mee"); 
                     int i = 0;
 
                     for (int y = 0; y < height; y++)
                     {
                         for (int x = 0; x < width; x++)
                         {
+                            //sspriteBatch.Draw(inventoryTexture, new Rectangle((32 + offSet) + ((int)player.position.X - (width * 32) / 2), ((32 + offSet) + (int)player.position.Y - 192), (width + offSet) * 32, (height + offSet) * 32), Color.Black); 
                             Rectangle slotRect = new Rectangle(((32 + offSet) * x) + (int)player.position.X - (width * 32) / 2 , ((32 + offSet) * y) + (int)player.position.Y - 192, 32, 32);
 
                             slots[i] = inventory[i];
@@ -338,8 +334,10 @@ namespace Factory_Game
                             i++;
                         }
                     }
+                    
                 }
             }
+            
         }
     }
 }

@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Microsoft.Xna.Framework.Graphics; 
-
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework; 
 namespace Factory_Game
 {
     public class StorageManagement
@@ -17,7 +17,7 @@ namespace Factory_Game
         {
             storages.Add(str); 
         }
-        public void Update(TileMap tileMap, Game1 game)
+        public void Update(TileMap tileMap, Game1 game, GameTime gameTime)
         {
             if (storages.Count > 0)
             {
@@ -25,7 +25,7 @@ namespace Factory_Game
                 {
                     if (storages[i].alive)
                     {
-                        storages[i].Update(tileMap, game);
+                        storages[i].Update(tileMap, game, gameTime);
                     }
                     else
                     {

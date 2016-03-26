@@ -50,12 +50,12 @@ namespace Factory_Game
             
             
         }
-        public void LoadContent(ContentManager content)
+        public void LoadContent(ContentManager content, Game1 game)
         {
             itemDatabase = new ItemDatabase(content); 
             texture = content.Load<Texture2D>("Sprites/TempPlayer");
             mouseTExture = content.Load<Texture2D>("Sprites/MouseSelection");
-            inventory.LoadContent(content);
+            inventory.LoadContent(content, game);
 
             CompileLua();
         }

@@ -23,7 +23,7 @@ namespace Factory_Game
         /// Storaeg lvs are 1, 2 & 3
         /// </summary>
         /// <param name="storageLv"></param>
-        public Storage(int storageLv,Tile mTile, TileMap tMap)
+        public Storage(int storageLv,Tile mTile, TileMap tMap, Game1 game)
         {
             alive = true; 
             tile = mTile; 
@@ -32,7 +32,7 @@ namespace Factory_Game
             tileMap = tMap;
             inventory = new Inventory();
             inventory.inventoryType = Inventory.InventoryType.StorageInventory;
-            inventory.LoadContent(mTile.contentManager);
+            inventory.LoadContent(mTile.contentManager, game);
             //inventory.inventoryType = Inventory.InventoryType.StorageInventory;
             BuildStructure(); 
         }
@@ -68,13 +68,14 @@ namespace Factory_Game
 
             tileMap.GetTile(pos).durability = 0; 
         }
-        public void Update(TileMap tileMap, Game1 game)
+        public void Update(TileMap tileMap, Game1 game, GameTime gameTime)
         {
             PlayerInteraction(game); 
             if(inventory.inventoryCount > 0)
             {
                 Console.Write(inventory.inventory[0].item.tileName); 
             }
+            inventory.Update(gameTime, game); 
             if(game.tileMap.GetTile(tile.position).tileType != Tile.TileType.StorageCrate)
             {
                 DestroyTile(0, 0);
@@ -185,7 +186,7 @@ namespace Factory_Game
             if (showInventory)
             {
                 //Console.WriteLine("Drawing"); 
-                inventory.Draw(spriteBatch, game.player);
+               // inventory.Draw(spriteBatch, game.player);
             }
         }
     }

@@ -5,19 +5,38 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Input; 
 
 namespace Factory_Game
 {
-    class GUIObject
+    public class GUIObject
     {
 
         private Rectangle size;
         private Texture2D background;
-        SpriteFont spriteFont;
-        string text; 
-        public GUIObject()
+        private Texture2D inventoryTexture; 
+        SpriteFont font;
+        string text;
+
+
+        public bool inventoryGui;
+        Inventory inventory; 
+        public GUIObject(int type)
         {
+            if(type == 1)
+            {
+                inventoryGui = true; 
+            }
              
+        }
+        public GUIObject(int type, Inventory _inventory)
+        {
+            inventory = _inventory; 
+            if (type == 1)
+            {
+                inventoryGui = true;
+            }
+
         }
         public void GuiBox(Rectangle _size, string _text)
         {
@@ -27,7 +46,7 @@ namespace Factory_Game
             for (int i = 0; i < strings.Length; i++)
             {
                 
-                sum += (int)spriteFont.MeasureString(strings[i]).X; 
+                sum += (int)font.MeasureString(strings[i]).X; 
                 
                 if(sum > _size.Width)
                 {
@@ -49,15 +68,28 @@ namespace Factory_Game
                 Console.WriteLine(text); 
             }
         }
+        
         public void LoadContent(ContentManager _content)
         {
-            spriteFont = _content.Load<SpriteFont>("Fonts/Font1");
-            background = _content.Load<Texture2D>("Fonts/DarkGrayBack"); 
+            font = _content.Load<SpriteFont>("Fonts/Font1");
+            background = _content.Load<Texture2D>("Textures/BackgroundTexture2");
+
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(background, size, Color.White); 
-            spriteBatch.DrawString(spriteFont, text, new Vector2(size.X, size.Y), Color.White); 
+            spriteBatch.Draw(background, size, Color.Gray); 
+            spriteBatch.DrawString(font, text, new Vector2(size.X, size.Y), Color.White); 
+            
+        }
+        public void UpdateInventory(Inventory _inventory)
+        {
+            inventory = _inventory;
+
+        }
+        public void DrawInventory(SpriteBatch spriteBatch, Player player)
+        {
+            
+            inventory.Draw(spriteBatch, player); 
         }
     }
 }

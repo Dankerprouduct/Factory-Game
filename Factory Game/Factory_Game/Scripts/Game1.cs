@@ -40,7 +40,8 @@ namespace Factory_Game
 
         public QuarryManagement quarryManagement; 
         public TileObjectManagement tileObjectManagement;
-        public StorageManagement storageManagement; 
+        public StorageManagement storageManagement;
+        public GuiManagement guiManagement; 
         public float _fps = 0;
         public int chunkWidth;
         public int chunkHeight;
@@ -93,18 +94,19 @@ namespace Factory_Game
             tileMap.LoadContent(Content);
 
             player = new Player(tileMap.playerStart);
-            player.LoadContent(Content);
+            
       
             tileObjectManagement = new TileObjectManagement(this);
             storageManagement = new StorageManagement(); 
-            quarryManagement = new QuarryManagement(); 
+            quarryManagement = new QuarryManagement();
+            guiManagement = new GuiManagement(); 
             gui.LoadContnent(Content, GraphicsDevice);
 
+
+            player.LoadContent(Content, this);
             rectangleTexture = new Texture2D(GraphicsDevice, 1, 1);
             rectangleTexture.SetData(new[] { Color.White });
-            guiObj = new GUIObject();
-            guiObj.LoadContent(Content);
-            guiObj.GuiBox(new Rectangle(50, 50, 200, 200), "This is a GUI test, hopfully it works "); 
+
             
         }
         
@@ -128,7 +130,7 @@ namespace Factory_Game
             {
                 tileObjectManagement.Update(gameTime, this);
             }
-            storageManagement.Update(tileMap, this); 
+            storageManagement.Update(tileMap, this, gameTime); 
             gui.Update(gameTime, player, tileObjectManagement, this); 
             tileMap.Update(gameTime, this);
             quarryManagement.Update(gameTime, this);
@@ -184,7 +186,7 @@ namespace Factory_Game
             player.Draw(spriteBatch);
 
             storageManagement.Draw(spriteBatch, this);
-
+            guiManagement.Draw(spriteBatch, this);
             spriteBatch.End();
 
             spriteBatch.Begin();
@@ -194,7 +196,9 @@ namespace Factory_Game
             // HUD
             gui.Draw(spriteBatch);
 
-            guiObj.Draw(spriteBatch); 
+            
+
+            //guiObj.Draw(spriteBatch); 
 
             spriteBatch.End();
             

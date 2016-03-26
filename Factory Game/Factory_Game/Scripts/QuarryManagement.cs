@@ -43,7 +43,7 @@ namespace Factory_Game
                         qDrill.game2.tileMap.chunks[chunkX, chunkY].Update(gameTime, qDrill.game2.player, qDrill.game2);
                     }
                     #region // Loading All Tiles around drill
-
+                    qDrill.game2.tileMap.GetTile(qDrill.tile.position).Update(gameTime, gme.player, gme, gme.tileMap.chunks[chunkX, chunkY]); 
                     #endregion
             
 

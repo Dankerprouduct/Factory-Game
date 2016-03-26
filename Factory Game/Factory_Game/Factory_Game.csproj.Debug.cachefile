@@ -67,6 +67,7 @@ Content\TileObjects\RedWire2Item.xnb
 Content\Sprites\MouseSelection.xnb
 Content\TileObjects\BatteryBlockItem.xnb
 Content\TileObjects\SolarPanelItem.xnb
+Content\Textures\BackgroundTexture2.xnb
 LuaScripts\player_script.lua
 TileData\Tile_SpriteSheet.txt
 LuaScripts\structure_data.lua

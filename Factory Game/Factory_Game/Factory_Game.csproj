@@ -91,6 +91,7 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Scripts\GuiManagement.cs" />
     <Compile Include="Scripts\Animation.cs" />
     <Compile Include="Scripts\Battery.cs" />
     <Compile Include="Scripts\Camera.cs" />
