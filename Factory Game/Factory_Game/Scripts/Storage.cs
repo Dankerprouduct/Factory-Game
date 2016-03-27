@@ -55,7 +55,6 @@ namespace Factory_Game
 
         public void BuildTile(int x, int y, int type)
         {
-            Console.WriteLine(type); 
             Vector2 pos;
             pos = new Vector2(tile.position.X + (x * 32), tile.position.Y + (y * 32));
 
@@ -71,10 +70,6 @@ namespace Factory_Game
         public void Update(TileMap tileMap, Game1 game, GameTime gameTime)
         {
             PlayerInteraction(game); 
-            if(inventory.inventoryCount > 0)
-            {
-                Console.Write(inventory.inventory[0].item.tileName); 
-            }
             inventory.Update(gameTime, game); 
             if(game.tileMap.GetTile(tile.position).tileType != Tile.TileType.StorageCrate)
             {

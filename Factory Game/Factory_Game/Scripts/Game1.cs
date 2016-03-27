@@ -47,7 +47,7 @@ namespace Factory_Game
         public int chunkHeight;
         Texture2D rectangleTexture;
         Lua lua;
-        GUIObject guiObj; 
+
         public Game1()
         {
             
@@ -85,7 +85,7 @@ namespace Factory_Game
         
         protected override void LoadContent()
         {
-            keyboardState = new KeyboardState(); 
+            keyboardState = new KeyboardState();
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
                        

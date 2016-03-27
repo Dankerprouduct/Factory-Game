@@ -284,7 +284,6 @@ namespace Factory_Game
                 else if (inventoryType == InventoryType.StorageInventory)
                 {
 
-                    Console.WriteLine("kdill mee"); 
                     int i = 0;
 
                     for (int y = 0; y < height; y++)

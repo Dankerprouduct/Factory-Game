@@ -44,7 +44,9 @@ namespace Factory_Game
         int tileX2;
         int tileY2;
         int chunkY2;
-        int chunkX2; 
+        int chunkX2;
+
+        bool run; 
         public QuarryDrill(Vector2 pos1, Vector2 pos2, int hight, Game1 game, Tile mtile)
         {
             tileX = game.tileMap.FindTile(pos1).tileX;
@@ -82,27 +84,50 @@ namespace Factory_Game
         }
         public void Update(GameTime gameTime, Game1 game)
         {
-            //alive = tile.alive;
-            gameTime2 = gameTime;
-            game2 = game; 
-            if(lastTime + time < gameTime.TotalGameTime)
+            tile = game.tileMap.GetTile(tile.position); 
+            if(tile.current <= 0)
             {
-                position = Vector2.Lerp(position, quarryPositions[x, y], 1f);
-                x++;
-                if (x >= width)
-                {
-                    y++;
-                    x = 0;
-                    if(y >= height)
-                    {
-                        y = 0; 
-                    }
-                }
-
-                lastTime = gameTime.TotalGameTime;
-
+                run = false; 
             }
+            if(tile.current <= 100 && tile.current > 0)
+            {
+                time = TimeSpan.FromMilliseconds (1000);
+                run = true; 
+            }
+            if(tile.current <=200 && tile.current >= 100)
+            {
+                run = true; 
+                time = TimeSpan.FromMilliseconds(500); 
+            }
+            if(tile.current <= 300 && tile.current >= 200)
+            {
+                run = true;
+                time = TimeSpan.FromMilliseconds(250); 
+            }
+            gameTime2 = gameTime;
+            game2 = game;
+            if (run)
+            {
+                //alive = tile.alive;
+                
+                if (lastTime + time < gameTime.TotalGameTime)
+                {
+                    position = Vector2.Lerp(position, quarryPositions[x, y], 1f);
+                    x++;
+                    if (x >= width)
+                    {
+                        y++;
+                        x = 0;
+                        if (y >= height)
+                        {
+                            y = 0;
+                        }
+                    }
 
+                    lastTime = gameTime.TotalGameTime;
+
+                }
+            }
             rect = new Rectangle((int)position.X, (int)position.Y, drillTexture.Width, drillTexture.Height);
 
 

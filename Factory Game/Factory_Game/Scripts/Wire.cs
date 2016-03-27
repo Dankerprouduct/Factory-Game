@@ -30,7 +30,7 @@ namespace Factory_Game
                 tileY = tileMap.FindTile(pos).tileY;
                 chunkX = tileMap.FindTile(pos).chunkX;
                 chunkY = tileMap.FindTile(pos).chunkY;
-                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel )
                 {
                     pos = new Vector2(tile.position.X, tile.position.Y + (1 * 32));
                     tileX = tileMap.FindTile(pos).tileX;
@@ -1156,7 +1156,11 @@ namespace Factory_Game
                 
                // tile.current = tileMap.GetTile(pos).battery.CurrentPower();
             }
-
+            else if (tileMap.GetTile(pos).tileType == Tile.TileType.QuarryBlock)
+            {
+                
+                 tileMap.GetTile(pos).current = tile.current; 
+            }
             #endregion
 
 
@@ -1204,6 +1208,11 @@ namespace Factory_Game
             {
                 //tile.current = tileMap.GetTile(pos).battery.CurrentPower();
             }
+            else if (tileMap.GetTile(pos).tileType == Tile.TileType.QuarryBlock)
+            {
+
+                tileMap.GetTile(pos).current = tile.current;
+            }
             #endregion
 
             #region Right
@@ -1249,6 +1258,13 @@ namespace Factory_Game
             else if (tileMap.GetTile(pos).tileType == Tile.TileType.SolarPanel)
             {
                 tile.current = tileMap.GetTile(pos).battery.CurrentPower();
+            }
+            else if (tileMap.GetTile(pos).tileType == Tile.TileType.QuarryBlock)
+            {
+                
+                tileMap.GetTile(pos).current = tile.current;
+                //Console.WriteLine("Quarry Block " + tileMap.GetTile(pos).current);
+               // Console.WriteLine(tile.current); 
             }
             #endregion
 
@@ -1296,6 +1312,11 @@ namespace Factory_Game
             else if (tileMap.GetTile(pos).tileType == Tile.TileType.BatteryBlock)
             {
                 //tile.current = tileMap.GetTile(pos).battery.CurrentPower();
+            }
+            else if (tileMap.GetTile(pos).tileType == Tile.TileType.QuarryBlock)
+            {
+
+                tileMap.GetTile(pos).current = tile.current;
             }
             #endregion
 
@@ -1541,6 +1562,11 @@ namespace Factory_Game
             {
                 tile.current = tileMap.GetTile(pos).battery.CurrentPower();
             }
+            else if (tileMap.GetTile(pos).tileType == Tile.TileType.QuarryBlock)
+            {
+
+                tileMap.GetTile(pos).current = tile.current;
+            }
             #endregion
 
 
@@ -1586,6 +1612,11 @@ namespace Factory_Game
             else if (tileMap.GetTile(pos).tileType == Tile.TileType.SolarPanel)
             {
                 tile.current = tileMap.GetTile(pos).battery.CurrentPower();
+            }
+            else if (tileMap.GetTile(pos).tileType == Tile.TileType.QuarryBlock)
+            {
+
+                tileMap.GetTile(pos).current = tile.current;
             }
             #endregion
 
@@ -1633,6 +1664,11 @@ namespace Factory_Game
             {
                 tile.current = tileMap.GetTile(pos).battery.CurrentPower();
             }
+            else if (tileMap.GetTile(pos).tileType == Tile.TileType.QuarryBlock)
+            {
+
+                tileMap.GetTile(pos).current = tile.current;
+            }
             #endregion
 
 
@@ -1678,6 +1714,11 @@ namespace Factory_Game
             else if (tileMap.GetTile(pos).tileType == Tile.TileType.SolarPanel)
             {
                 tile.current = tileMap.GetTile(pos).battery.CurrentPower();
+            }
+            else if (tileMap.GetTile(pos).tileType == Tile.TileType.QuarryBlock)
+            {
+
+                tileMap.GetTile(pos).current = tile.current;
             }
             #endregion
 

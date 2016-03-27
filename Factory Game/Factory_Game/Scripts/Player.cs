@@ -123,7 +123,6 @@ namespace Factory_Game
             rect = new Rectangle((int)position.X, (int)position.Y, texture.Width, texture.Height);
             position += new Vector2((int)velocity.X, (int)velocity.Y);
 
-
             if(velocity.Y >= 20)
             {
                 velocity.Y = 20; 
@@ -136,7 +135,6 @@ namespace Factory_Game
             else if (keyboardState.IsKeyDown(Keys.A))
             {
                 velocity.X = -speed;
-
             }
             else
             {
