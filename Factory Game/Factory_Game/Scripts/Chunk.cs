@@ -59,6 +59,7 @@ namespace Factory_Game
                     }
                 }
             }
+            
            // Lighting(); 
         }
 
