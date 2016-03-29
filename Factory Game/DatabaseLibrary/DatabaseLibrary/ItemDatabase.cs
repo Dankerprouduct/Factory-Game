@@ -16,7 +16,7 @@ namespace Factory_Game
         public string name;
         public string description;
         int itemId;
-        bool smeltable;
+        bool canSmelt;
         int stackCount; 
     }
 }

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Factory_Game", "Factory Gam
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Factory_GameContent", "Factory Game\Factory_GameContent\Factory_GameContent.contentproj", "{A25D0F17-3A46-413E-8515-09AA5AB8EAA2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseLibrary", "Factory Game\DatabaseLibrary\DatabaseLibrary\DatabaseLibrary.csproj", "{69C50D22-8722-4668-807C-5F19A9B5A53A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -20,6 +22,10 @@ Global
 		{A25D0F17-3A46-413E-8515-09AA5AB8EAA2}.Debug|x86.ActiveCfg = Debug|x86
 		{A25D0F17-3A46-413E-8515-09AA5AB8EAA2}.Debug|x86.Build.0 = Debug|x86
 		{A25D0F17-3A46-413E-8515-09AA5AB8EAA2}.Release|x86.ActiveCfg = Release|x86
+		{69C50D22-8722-4668-807C-5F19A9B5A53A}.Debug|x86.ActiveCfg = Debug|x86
+		{69C50D22-8722-4668-807C-5F19A9B5A53A}.Debug|x86.Build.0 = Debug|x86
+		{69C50D22-8722-4668-807C-5F19A9B5A53A}.Release|x86.ActiveCfg = Release|x86
+		{69C50D22-8722-4668-807C-5F19A9B5A53A}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

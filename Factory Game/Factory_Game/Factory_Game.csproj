@@ -139,6 +139,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DatabaseLibrary\DatabaseLibrary\DatabaseLibrary.csproj">
+      <Project>{69c50d22-8722-4668-807c-5f19a9b5a53a}</Project>
+      <Name>DatabaseLibrary</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Factory_GameContent\Factory_GameContent.contentproj">
       <Name>Factory_GameContent</Name>
       <XnaReferenceType>Content</XnaReferenceType>

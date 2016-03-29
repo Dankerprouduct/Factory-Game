@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<XnaContent>
+  <!-- TODO: replace this Asset with your own XML asset data. -->
+  <Asset Type="System.String">
+    <Item>
+      <name>Blank Tile</name>
+      <description>"A blank Tile"</description>
+      <itemId>0000</itemId>
+      <canSmelt>false</canSmelt>
+      <stackCount>500</stackCount>
+    </Item>
+	
+    <Item>
+      <name>Dry Tile 1</name>
+      <description>Dry Tile</description>
+	  <itemId>0011</itemId>
+	  <canSmelt>true</canSmelt> 
+	  <stackCount>500</stackCount> 
+    </Item>
+	
+	<Item>
+	  <name>Dry Tile 2</name> 
+	  <description>Dry Tile</description> 
+	  <itemId>0012</itemId> 
+	  <canSmelt>true</canSmelt> 
+	  <stackCount>500</stackCount>
+	</Item>
+	
+	<Item>
+	  <name>Dry Tile 3</name> 
+	  <description>Dry Tile</description>
+	  <itemId>0013</itemId>
+	  <canSmelt>true</canSmelt>
+	  <stackCount>500</stackCount>
+	</Item>
+	
+	<Item>
+	  <name>Granite 1</name>
+	  <description>Granite</description>
+	  <itemId>0021</itemId> 
+	  <canSmelt>true</canSmelt> 
+	  <stackCount>500</stackCount> 
+	</Item>
+	
+	<Item>
+	  <name>Granite 2</name> 
+	  <description>Granite</description> 
+	  <itemId>0022</itemId> 
+	  <canSmelt>true</canSmelt>
+	  <stackCount>500</stackCount> 
+	</Item>
+	
+	<Item>
+	  <name>Granite 3</name> 
+	  <description>Granite</description>
+	  <itemId>0023</itemId> 
+	  <canSmelt>true</canSmelt>
+	  <stackCount>500</stackCount>
+	</Item>
+	
+	<Item> 
+	  <name>Grass 1</name> 
+	  <description>Grass</description> 
+	  <itemId>0031</itemId>
+	  <canSmelt>false</canSmelt> 
+	  <stackCount>500</stackCount> 
+	</Item> 
+	
+	<Item> 
+	  <name>Grass 2</name> 
+	  <description>Grass</description> 
+	  <itemId>0032</itemId> 
+	  <canSmelt>false</canSmelt> 
+	  <stackCount>500</stackCount> 
+	</Item> 
+	
+	<Item> 
+	  <name>Grass 3</name> 
+	  <description>Grass</description> 
+	  <itemId>0033</itemId> 
+	  <canSmelt>false</canSmelt> 
+	  <stackCount>500</stackCount>
+	</Item> 
+	
+	<Item> 
+	  <name>Water</name> 
+	  <description>Water</description>
+	  <itemId>0040</itemId> 
+	  <canSmelt>false</canSmelt> 
+	  <stackCount>500</stackCount> 
+	</Item>
+	
+	<Item>
+	  <name>Construction Block</name>
+	  <description>Construction</description> 
+	  <itemId>0051</itemId>
+	  <canSmelt>false</canSmelt>
+	  <stackCount>100</stackCount>
+	</Item>
+	
+	<Item> 
+	  <name>Marker Block</name> 
+	  <description>Used to designate machines</description> 
+	  <itemId>0052</itemId> 
+	  <canSmelt>false</canSmelt>
+	  <stackCount>500</stackCount> 
+	</Item> 
+    
+  <Item>
+    <name>Drill Bit</name>
+    <description>Drill Bit</description>
+    <itemId>0053</itemId>
+    <canSmelt>false</canSmelt>
+    <stackCount>500</stackCount>
+  </Item>
+	
+ <Item>
+   <name>Construction Tube</name>
+   <description>Construction Tube</description>
+   <itemId>0054</itemId>
+   <canSmelt>false</canSmelt>
+   <stackCount>500</stackCount>
+ </Item>
+ 
+ <Item>
+   <name>Quarry Block</name>
+   <description>Place next marker</description>
+   <itemId>0055</itemId>
+   <canSmelt>false</canSmelt>
+   <stackCount>500</stackCount>
+ </Item>
+ 
+ <Item>
+   <name>Item Pipe</name>
+   <description>North</description>
+   <itemId>0056</itemId>
+   <canSmelt>false</canSmelt>
+   <stackCount>500</stackCount>
+ </Item>
+ 
+ <Item> 
+   <name>Item Pipe</name>
+   <description>East</description>
+   <itemId>0057</itemId>
+   <canSmelt>false</canSmelt>
+   <stackCount>500</stackCount>
+ </Item>
+ 
+ <Item>
+   <name>Item Pipe</name>
+   <description>South</description>
+   <itemId>0058</itemId>
+   <canSmelt>false</canSmelt>
+   <stackCount>500</stackCount>
+ </Item>
+  
+ <Item> 
+   <name>Item Pipe</name>
+   <description>West</description>
+   <itemId>0059</itemId>
+   <canSmelt>false</canSmelt>
+   <stackCount>500</stackCount>
+ </Item>  
+    
+  <Item>
+    <name>Storage Crate</name>
+    <description>Item Storage Crate</description>
+    <itemId>0060</itemId>
+    <canSmelt>false</canSmelt>
+    <stackCount>500</stackCount>
+  </Item>
+    
+  <Item>
+    <name>Red Wire</name>
+    <description>A High resistance wire</description>
+    <itemId>0071</itemId>
+    <canSmelt>false</canSmelt>
+    <stackCount>500</stackCount>
+  </Item>
+    
+  <Item> 
+    <name>Green Wire</name>
+    <description>A Medium resistance wire</description>
+    <itemId>0072</itemId>
+    <canSmelt>false</canSmelt>
+    <stackCount>500</stackCount>
+  </Item>
+    
+  <Item> 
+    <name>Gold Wire</name>
+    <description>A Low ressistance Wire</description>
+    <itemId>0073</itemId>
+    <canSmelt>false</canSmelt>
+    <stackCount>500</stackCount>
+  </Item>
+    
+  <Item>
+    
+  </Item>
+
+  </Asset>
+</XnaContent>
