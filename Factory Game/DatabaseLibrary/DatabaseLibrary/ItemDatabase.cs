@@ -9,14 +9,14 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
-namespace Factory_Game
+namespace DatabaseLibrary
 {
     public class ItemDatabase
     {
         public string name;
         public string description;
-        int itemId;
-        bool canSmelt;
-        int stackCount; 
+        public int itemId;
+        public bool canSmelt;
+        public int stackCount; 
     }
 }

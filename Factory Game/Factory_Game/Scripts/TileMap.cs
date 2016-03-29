@@ -580,7 +580,8 @@ namespace Factory_Game
         }
         public void ChangeTile(int chunkX, int chunkY, int x, int y, Tile.TileType type, TileMap tileMap)
         {
-            chunks[chunkX, chunkY].tiles[x, y].UpdateIndex(type); 
+            chunks[chunkX, chunkY].tiles[x, y].UpdateIndex(type);
+
         }
         public void DamageTile(int x, int y, float ammount)
         {
@@ -588,7 +589,32 @@ namespace Factory_Game
         }
         public void DamageTile(int chunkX, int chunkY, int x, int y, float ammount)
         {
-            chunks[chunkX, chunkY].tiles[x, y].DamageTile(ammount); 
+            if(chunks[chunkX, chunkY].tiles[x, y].tileType != Tile.TileType.StorageTR)
+            {
+                if(chunks[chunkX, chunkY].tiles[x, y].tileType != Tile.TileType.StorageTL)
+                {
+                    if(chunks[chunkX, chunkY].tiles[x, y].tileType != Tile.TileType.StorageMT)
+                    {
+                        if(chunks[chunkX, chunkY].tiles[x, y].tileType != Tile.TileType.StorageMR)
+                        {
+                            if(chunks[chunkX, chunkY].tiles[x, y].tileType != Tile.TileType.StorageML)
+                            {
+                                if(chunks[chunkX, chunkY].tiles[x, y].tileType != Tile.TileType.StorageMB)
+                                {
+                                    if(chunks[chunkX, chunkY].tiles[x, y].tileType != Tile.TileType.StorageBR)
+                                    {
+                                        if(chunks[chunkX, chunkY].tiles[x, y].tileType != Tile.TileType.StorageBL)
+                                        {
+                                            chunks[chunkX, chunkY].tiles[x, y].DamageTile(ammount);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
         }
 
         /// <summary>

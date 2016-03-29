@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <XnaContent>
   <!-- TODO: replace this Asset with your own XML asset data. -->
-  <Asset Type="System.String">
+  <Asset Type="DatabaseLibrary.ItemDatabase[]">
+    
     <Item>
       <name>Blank Tile</name>
       <description>"A blank Tile"</description>
@@ -194,9 +195,6 @@
     <stackCount>500</stackCount>
   </Item>
     
-  <Item>
-    
-  </Item>
 
   </Asset>
 </XnaContent>

@@ -407,33 +407,6 @@
       <Time>2016-02-07T19:51:57.9089128-05:00</Time>
     </Item>
     <Item>
-      <Source>Fonts\Font1.spritefont</Source>
-      <Name>Fonts\Font1</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Fonts\Font1.xnb</Output>
-      <Time>2016-02-07T19:51:57.8606219-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Fonts\InventoryFont.spritefont</Source>
-      <Name>Fonts\InventoryFont</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Fonts\InventoryFont.xnb</Output>
-      <Time>2016-02-07T19:51:57.8836255-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Fonts\Font2.spritefont</Source>
-      <Name>Fonts\Font2</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Fonts\Font2.xnb</Output>
-      <Time>2016-02-07T19:51:57.8636236-05:00</Time>
-    </Item>
-    <Item>
       <Source>Tiles\StorageBL.png</Source>
       <Name>Tiles\StorageBL</Name>
       <Importer>TextureImporter</Importer>
@@ -513,15 +486,6 @@
       <Options>None</Options>
       <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\StorageTR.xnb</Output>
       <Time>2016-02-13T13:24:23.3183013-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Tiles\Tile_SpriteSheet.png</Source>
-      <Name>Tiles\Tile_SpriteSheet</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\Tile_SpriteSheet.xnb</Output>
-      <Time>2016-03-19T18:25:14.5784641-04:00</Time>
     </Item>
     <Item>
       <Source>TileObjects\TileObject_SpriteSheet.png</Source>
@@ -605,6 +569,15 @@
       <Time>2016-03-16T12:07:02.3247667-04:00</Time>
     </Item>
     <Item>
+      <Source>Tiles\Tile_SpriteSheet.png</Source>
+      <Name>Tiles\Tile_SpriteSheet</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\Tile_SpriteSheet.xnb</Output>
+      <Time>2016-03-19T18:25:14.5784641-04:00</Time>
+    </Item>
+    <Item>
       <Source>TileObjects\BatteryBlockItem.png</Source>
       <Name>TileObjects\BatteryBlockItem</Name>
       <Importer>TextureImporter</Importer>
@@ -630,6 +603,42 @@
       <Options>None</Options>
       <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Textures\BackgroundTexture2.xnb</Output>
       <Time>2016-03-26T15:31:37.6983747-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Fonts\Font1.spritefont</Source>
+      <Name>Fonts\Font1</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Fonts\Font1.xnb</Output>
+      <Time>2016-02-07T19:51:57.8606219-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Fonts\InventoryFont.spritefont</Source>
+      <Name>Fonts\InventoryFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Fonts\InventoryFont.xnb</Output>
+      <Time>2016-02-07T19:51:57.8836255-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Fonts\Font2.spritefont</Source>
+      <Name>Fonts\Font2</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Fonts\Font2.xnb</Output>
+      <Time>2016-02-07T19:51:57.8636236-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Xml\ItemDatabase.xml</Source>
+      <Name>Xml\ItemDatabase</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Xml\ItemDatabase.xnb</Output>
+      <Time>2016-03-29T08:39:20.6776504-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -667,6 +676,10 @@
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
         <Value>2011-09-01T17:22:30-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\DatabaseLibrary\DatabaseLibrary\bin\x86\Debug\DatabaseLibrary.dll</Key>
+        <Value>2016-03-29T08:38:47.2245887-04:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\WINDOWS\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>

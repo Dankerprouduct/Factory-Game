@@ -43,9 +43,6 @@ Content\Tiles\IronBlock.xnb
 Content\Tiles\Platform1.xnb
 Content\Tiles\SandTile1.xnb
 Content\Tiles\UraniumBlock.xnb
-Content\Fonts\Font1.xnb
-Content\Fonts\InventoryFont.xnb
-Content\Fonts\Font2.xnb
 Content\Tiles\StorageBL.xnb
 Content\Tiles\StorageBR.xnb
 Content\Tiles\StorageMB.xnb
@@ -55,7 +52,6 @@ Content\Tiles\StorageMR.xnb
 Content\Tiles\StorageMT.xnb
 Content\Tiles\StorageTL.xnb
 Content\Tiles\StorageTR.xnb
-Content\Tiles\Tile_SpriteSheet.xnb
 Content\TileObjects\TileObject_SpriteSheet.xnb
 Content\Tiles\WestTube.xnb
 Content\Tiles\SpriteSheet1.xnb
@@ -65,9 +61,14 @@ Content\TileObjects\GoldWire2Item.xnb
 Content\TileObjects\GreenWire2Item.xnb
 Content\TileObjects\RedWire2Item.xnb
 Content\Sprites\MouseSelection.xnb
+Content\Tiles\Tile_SpriteSheet.xnb
 Content\TileObjects\BatteryBlockItem.xnb
 Content\TileObjects\SolarPanelItem.xnb
 Content\Textures\BackgroundTexture2.xnb
+Content\Fonts\Font1.xnb
+Content\Fonts\InventoryFont.xnb
+Content\Fonts\Font2.xnb
+Content\Xml\ItemDatabase.xnb
 LuaScripts\player_script.lua
 TileData\Tile_SpriteSheet.txt
 LuaScripts\structure_data.lua
