@@ -55,14 +55,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Factory_Game.exe" size="119728">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Factory_Game.exe" size="119216">
       <assemblyIdentity name="Factory_Game" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>GuQOIBW9/XQi3Klq3lFsOE5CeEI=</dsig:DigestValue>
+        <dsig:DigestValue>BhSLARUyT+u9ItuFMw1dw+OUpkY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -780,13 +780,13 @@
       <dsig:DigestValue>uWQJzoQmmoFQbcCvsUuRmvECuTc=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Xml\ItemDatabase.xnb" size="1316">
+  <file name="Content\Xml\ItemDatabase.xnb" size="1350">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>3n/GSRRim4VA3IKFK5qFZRV6msw=</dsig:DigestValue>
+      <dsig:DigestValue>MqL8Zf4zWtNNdSkCF6IWpGja/oI=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Game.ico" size="4286">

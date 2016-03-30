@@ -195,6 +195,43 @@
     <stackCount>500</stackCount>
   </Item>
     
+  <Item> 
+    <name>Coal Block</name>
+    <description>Coal Block</description>
+    <itemId>0081</itemId>
+    <canSmelt>true</canSmelt>
+    <stackCount>500</stackCount>
+  </Item>
+    <!--
+  <Item>
+    <name>Copper Block</name>
+    <description>Copper Block</description>
+    <canSmelt>true</canSmelt>
+    <stackCount>500</stackCount>
+  </Item>
+    
+  <Item>
+    <name>Irom Block</name>
+    <description>Iron Block</description>
+    <canSmelt>true</canSmelt>
+    <stackCount>500</stackCount>
+  </Item>
+    
+  <Item>
+    <name>Sand Block</name>
+    <description>Sand Block</description>
+    <canSmelt>true</canSmelt>
+    <stackCount>500</stackCount>
+  </Item>
+    
+  <Item>
+    <name>Uranium Block</name>
+    <description>Uranium Block</description>
+    <canSmelt>true</canSmelt>
+    <stackCount>500</stackCount>
+  </Item>
+    
+    -->
 
   </Asset>
 </XnaContent>

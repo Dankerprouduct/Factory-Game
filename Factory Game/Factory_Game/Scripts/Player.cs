@@ -76,7 +76,6 @@ namespace Factory_Game
             if (keyboardState.IsKeyDown(Keys.O) && oldKeboardState.IsKeyUp(Keys.O))
             {
                 velocity = Vector2.Zero; 
-                position = startPos;
 
             }
             

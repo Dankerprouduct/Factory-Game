@@ -117,11 +117,13 @@ namespace Factory_Game
         void MapGeneration(int width, int height)
         {
             float[,] preGenMap = WhiteNoise(width, height);
+            lua = new Lua();
+            lua.DoFile("LuaScripts/world_properties.lua");
+            int octave = (int)(double)lua["octave"]; 
+            float[,] postGenMap = GeneratePerlinNoise(preGenMap, octave);
 
-            float[,] postGenMap = GeneratePerlinNoise(preGenMap, 6);
             lua = new Lua(); 
-            lua.DoFile("LuaScripts/tile_script.lua"); 
-
+            lua.DoFile("LuaScripts/tile_script.lua");
             for (int x = 0; x < width; x++)
             {
                 for (int y = 0; y < height; y++)
@@ -172,9 +174,11 @@ namespace Factory_Game
             double rand2 = randomizer.NextDouble() + 2;
             double rand3 = randomizer.NextDouble() + 3;
 
-            float peakheight = 25;
-            float flatness = 100.3234f;
-            int offset = 50;
+
+            lua.DoFile("LuaScripts/world_properties.lua");
+            float peakheight = (float)((double)lua["peak"]);
+            float flatness = (float)((double)lua["flatness"]);
+            int offset = (int)((double)lua["offset"]);
 
             //Generate basic terrain sine
             for (int x = 0; x < width; x++)
@@ -290,42 +294,7 @@ namespace Factory_Game
             return smoothNoise;
         }
 
-        float[,] GenerateSmoothNoise(float[,] baseNoise, int octave, int globalX, int globalY)
-        {
 
-
-            int width = baseNoise.GetLength(0);
-            int height = baseNoise.GetLength(1);
-
-            float[,] smoothNoise = new float[width, height];
-
-            int samplePeriod = 1 << octave;
-
-            float sampleFrequency = 1.0f / samplePeriod;
-
-            for (int x = 0; x < width; x++)
-            {
-                //Console.WriteLine(x); 
-                int sample1 = (x / samplePeriod) * samplePeriod;
-                int sample2 = (sample1 + samplePeriod) % width;
-                float horizonalBlend = (x - sample1) * sampleFrequency;
-
-                for (int y = 0; y < height; y++)
-                {
-                    int sampley1 = (y / samplePeriod) * samplePeriod;
-                    int sampley2 = (sampley1 + samplePeriod) % height;
-                    float verticleBlend = (y - sampley1) * sampleFrequency;
-
-
-                    float top = Interpolate(baseNoise[sample1, sampley1], baseNoise[sample2, sampley1], horizonalBlend);
-
-                    float bottotm = Interpolate(baseNoise[sample1, sampley2], baseNoise[sample2, sampley2], horizonalBlend);
-
-                    smoothNoise[x, y] = Interpolate(top, bottotm, verticleBlend);
-                }
-            }
-            return smoothNoise;
-        }
 
         float[,] GeneratePerlinNoise(float[,] baseNoise, int OctaveCount)
         {
@@ -335,7 +304,9 @@ namespace Factory_Game
             float[][,] smoothNoise = new float[OctaveCount][,];
 
 
-            float persistence = 0.5f;
+            lua.DoFile("LuaScripts/world_properties.lua");
+
+            float persistence = (float)((double)lua["persistence"]); 
 
             for (int i = 0; i < OctaveCount; i++)
             {
@@ -344,7 +315,7 @@ namespace Factory_Game
             }
 
             float[,] perlinNoise = new float[width, height];
-            float amplitude = 1;
+            float amplitude = (float)((double)lua["amplitude"]); 
             float totalAmp = 0.0f;
 
 
@@ -372,51 +343,7 @@ namespace Factory_Game
 
             return perlinNoise;
         }
-        float[,] GeneratePerlinNoise(float[,] baseNoise, int OctaveCount, int globalX, int GlobalY)
-        {
-            int width = baseNoise.GetLength(0);
-            int height = baseNoise.GetLength(1);
-
-            float[][,] smoothNoise = new float[OctaveCount][,];
-
-
-            float persistence = 0.5f;
-
-            for (int i = 0; i < OctaveCount; i++)
-            {
-                smoothNoise[i] = GenerateSmoothNoise(baseNoise, i, globalX, GlobalY);
-
-            }
-
-            float[,] perlinNoise = new float[width, height];
-            float amplitude = 1;
-            float totalAmp = 0.0f;
-
-
-            for (int octave = OctaveCount - 1; octave > 0; octave--)
-            {
-                amplitude *= persistence;
-                totalAmp += amplitude;
-
-                for (int x = globalX; x < width * globalX; x++)
-                {
-                    for (int y = GlobalY; y < height * GlobalY; y++)
-                    {
-                        perlinNoise[x, y] += smoothNoise[octave][x, y] * amplitude;
-                    }
-                }
-            }
-
-            for (int x = globalX; x < width * globalX; x++)
-            {
-                for (int y = GlobalY; y < height * GlobalY; y++)
-                {
-                    perlinNoise[x, y] /= totalAmp;
-                }
-            }
-
-            return perlinNoise;
-        }
+        
         float Interpolate(float x0, float x1, float alpha)
         {
             return x0 * (1 - alpha) + alpha * x1;
