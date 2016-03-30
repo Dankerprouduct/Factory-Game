@@ -134,7 +134,8 @@ namespace Factory_Game
 
         public Battery battery;
         TileMap tMap;
-        Storage storage; 
+        Storage storage;
+        public string name; 
         public Tile()
         {
             time2 = TimeSpan.FromMilliseconds(inventorySpeed);
@@ -900,6 +901,11 @@ namespace Factory_Game
                 sourceRectangle = Animation.SourceRect(tileType, "Tile_SpriteSheet", this);
             }
 
+        }
+        public void UpdateIndex(int id)
+        {
+
+            sourceRectangle = Animation.SourceRect(id, "Tile_SpriteSheet", this);
         }
         public void UpdateTile(Game1 game)
         {

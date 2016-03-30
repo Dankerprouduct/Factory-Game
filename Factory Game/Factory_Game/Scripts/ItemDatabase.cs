@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using DatabaseLibrary; 
 namespace Factory_Game
 {
     public class ItemDatabase
@@ -39,5 +39,12 @@ namespace Factory_Game
             items.Add(new Item(Tile.TileType.BatteryBlock, "Battery Block", "A block that holds power", 24, false, 500, content));
             items.Add(new Item(Tile.TileType.SolarPanel, "Solar Panel", "A block that gets power from the sun", 25, false, 500, content)); 
         }
+
+        public void Databse(ContentManager content)
+        {
+            DatabaseLibrary.ItemDatabase[] dItems = content.Load<DatabaseLibrary.ItemDatabase[]>("ItemDatabase");
+        }
+
+        
     }
 }
