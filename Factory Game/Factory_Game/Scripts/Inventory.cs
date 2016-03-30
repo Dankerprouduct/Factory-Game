@@ -152,7 +152,7 @@ namespace Factory_Game
 
                     if (item != null)
                     {
-                        if (inventory[i].item.tileType == item.tileType && inventory[i].count < 500)
+                        if (inventory[i].item.itemID == item.itemID && inventory[i].count < 500)
                         {
                             inventory[i].count++;
                             inventoryCount++; 
@@ -161,11 +161,11 @@ namespace Factory_Game
                         else if (inventory[i].item.tileName == null)
                         {
 
-                            for (int j = 0; j < database.items.Count; j++)
+                            for (int j = 0; j < database.items.Length; j++)
                             {
-                                if (database.items[j].tileType == item.tileType)
+                                if (database.items[j].itemId == item.itemID)
                                 {
-                                    inventory[i].item = database.items[j];
+                                    inventory[i].item = database.Item(j); 
                                     inventoryCount++; 
                                     break;
                                 }

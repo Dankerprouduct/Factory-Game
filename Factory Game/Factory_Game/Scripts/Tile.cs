@@ -902,10 +902,10 @@ namespace Factory_Game
             }
 
         }
-        public void UpdateIndex(int id)
+        public void UpdateIndex(int id, ContentManager content)
         {
 
-            sourceRectangle = Animation.SourceRect(id, "Tile_SpriteSheet", this);
+            sourceRectangle = Animation.SourceRect(id, "Tile_SpriteSheet", content);
         }
         public void UpdateTile(Game1 game)
         {

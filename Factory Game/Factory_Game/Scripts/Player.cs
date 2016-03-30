@@ -114,7 +114,7 @@ namespace Factory_Game
         }
         public void AddToInventory(int id, int ammount)
         {
-            inventory.AddToInventory(itemDatabase.items[id], ammount); 
+            inventory.AddToInventory(itemDatabase.Item(id), ammount); 
         }
         void Movement()
         {

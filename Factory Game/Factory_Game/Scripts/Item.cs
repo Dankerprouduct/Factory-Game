@@ -179,6 +179,16 @@ namespace Factory_Game
 
             }
         }
+        public Item(string name, string description, int id, bool smelt, int stackCount)
+        {
+            tileName = name;
+            tileDescription = description;
+            itemID = id;
+            sValue = 1;
+            stackMaxCount = stackCount;
+            canSmelt = smelt;
+
+        }
 
     }
 }

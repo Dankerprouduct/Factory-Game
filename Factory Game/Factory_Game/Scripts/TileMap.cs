@@ -30,7 +30,8 @@ namespace Factory_Game
 
         ContentManager contentManager;
         Lua lua;
-        public TextureManager textureManager; 
+        public TextureManager textureManager;
+        public ItemDatabase itemDatabase; 
         public struct Coordinate
         {
             public int chunkX;
@@ -75,6 +76,7 @@ namespace Factory_Game
         public void LoadContent(ContentManager content)
         {
             contentManager = content;
+            itemDatabase = new ItemDatabase(content); 
             chunks = new Chunk[mapAttributes.GetLength(0) / 32, mapAttributes.GetLength(1) / 32];
             for (int x = 0; x < mapAttributes.GetLength(0) / 32; x++)
             {
