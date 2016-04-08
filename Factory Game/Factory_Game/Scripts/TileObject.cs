@@ -42,10 +42,12 @@ namespace Factory_Game
             DatabaseLibrary.ItemDatabase[] items;
             items = content.Load<DatabaseLibrary.ItemDatabase[]>("Xml/ItemDatabase");
 
+            
             for (int i = 0; i < items.Length; i++)
             {
                 if (items[i].itemId == id)
                 {
+                    item = new Item(items[i].name, items[i].description, id, items[i].canSmelt, items[i].stackCount, content); 
                     sourceRect = Animation.SourceRect(id, "TileObjectSpriteSheet", content);
                     break;
                 }
