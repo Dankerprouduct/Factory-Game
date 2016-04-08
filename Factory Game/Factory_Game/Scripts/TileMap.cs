@@ -30,7 +30,8 @@ namespace Factory_Game
 
         ContentManager contentManager;
         Lua lua;
-        public TextureManager textureManager; 
+        public TextureManager textureManager;
+        public ItemDatabase itemDatabase; 
         public struct Coordinate
         {
             public int chunkX;
@@ -47,7 +48,7 @@ namespace Factory_Game
 
             generateFlatWorld = fltWorld;
 
-            textureManager = new TextureManager();
+            
             seed = sed;
             //     mapSize = size;
             mapAttributes = size;
@@ -74,7 +75,9 @@ namespace Factory_Game
 
         public void LoadContent(ContentManager content)
         {
+            textureManager = new TextureManager(content);
             contentManager = content;
+            itemDatabase = new ItemDatabase(content); 
             chunks = new Chunk[mapAttributes.GetLength(0) / 32, mapAttributes.GetLength(1) / 32];
             for (int x = 0; x < mapAttributes.GetLength(0) / 32; x++)
             {
@@ -107,7 +110,9 @@ namespace Factory_Game
             {
                 GennerateFlatWorld(mapAttributes.GetLength(0), mapAttributes.GetLength(1));
             }
+            
             Final();
+
         }
 
 
@@ -135,19 +140,19 @@ namespace Factory_Game
                     }
                     if (postGenMap[x, y] <= (float)((double)lua["DryTile2Max"]) && postGenMap[x, y] >= (float)((double)lua["DryTile2Min"]))
                     {
-                        mapAttributes[x, y] = 2;
+                        mapAttributes[x, y] = 12;
                         if (postGenMap[x, y] <= (float)((double)lua["DryTile3Max"]) && postGenMap[x, y] >= (float)((double)lua["DryTile3Max"]))
                         {
-                            mapAttributes[x, y] = 3;
+                            mapAttributes[x, y] = 13;
                         }
                     }
                     if (postGenMap[x, y] <= (float)((double)lua["Granite1Max"]) && postGenMap[x, y] >= (float)((double)lua["Granite1Min"]))
                     {
-                        mapAttributes[x, y] = 4;
+                        mapAttributes[x, y] = 21;
                         // GenerateOre(x, y); 
                         if (postGenMap[x, y] <= (float)((double)lua["Granite2Max"]) && postGenMap[x, y] >= (float)((double)lua["Granite2Min"]))
                         {
-                            mapAttributes[x, y] = 5;
+                            mapAttributes[x, y] = 22;
                             //  GenerateOre(x, y); 
 
                         }
@@ -207,7 +212,7 @@ namespace Factory_Game
                     if (y == Math.Abs(terrainContour[x]) && mapAttributes[x, y] != 0)
                     {
                         // sets grass
-                        mapAttributes[x, y] = 7;
+                        mapAttributes[x, y] = 31;
                     }
 
                     if (y == Math.Abs(terrainContour[x]) && x == mapAttributes.GetLength(0) / 2)
@@ -234,7 +239,7 @@ namespace Factory_Game
             {
                 for (int y = halfSize; y < height; y++)
                 {
-                    mapAttributes[x, y] = 5;
+                    mapAttributes[x, y] = 23;
                 }
             }
             int mapX = mapAttributes.GetLength(0) / 2;
@@ -493,7 +498,7 @@ namespace Factory_Game
                     chunks[x, y].SetChunkPosition(x, y);
                     chunks[x, y].SetChunks(tempChunk);
 
-                    Console.WriteLine("Chunk Set");
+                    //Console.WriteLine("Chunk Set");
                 }
             }
             textureManager = null; 
@@ -508,6 +513,11 @@ namespace Factory_Game
         public void ChangeTile(int chunkX, int chunkY, int x, int y, Tile.TileType type, TileMap tileMap)
         {
             chunks[chunkX, chunkY].tiles[x, y].UpdateIndex(type);
+
+        }
+        public void ChangeTile(int chunkX, int chunkY, int x, int y, int id, TileMap tileMap)
+        {
+            chunks[chunkX, chunkY].tiles[x, y].UpdateIndex(id, contentManager);
 
         }
         public void DamageTile(int x, int y, float ammount)

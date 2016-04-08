@@ -134,7 +134,8 @@ namespace Factory_Game
 
         public Battery battery;
         TileMap tMap;
-        Storage storage; 
+        Storage storage;
+        public string name; 
         public Tile()
         {
             time2 = TimeSpan.FromMilliseconds(inventorySpeed);
@@ -172,193 +173,130 @@ namespace Factory_Game
                         tileProperty = TileProperty.CanPass;
                         break;
                     }
-                case 1:
+                case 11:
                     {
 
                         tileType = TileType.DryTile1;
                         tileProperty = TileProperty.CantPass;
                         break;
                     }
-                case 2:
+                case 12:
                     {
                         tileType = TileType.DryTile2;
                         tileProperty = TileProperty.CantPass;
                         break;
                     }
-                case 3:
+                case 13:
                     {
                         tileType = TileType.DryTile3;
                         tileProperty = TileProperty.CantPass;
                         break;
                     }
-                case 4:
+                case 21:
                     {
                         tileType = TileType.Granite1;
                         tileProperty = TileProperty.CantPass;
                         break;
                     }
-                case 5:
+                case 22:
                     {
                         tileType = TileType.Granite2;
                         tileProperty = TileProperty.CantPass;
                         break;
                     }
-                case 6:
+                case 23:
                     {
                         tileType = TileType.Granite3;
                         tileProperty = TileProperty.CantPass;
                         break;
                     }
-                case 7:
+                case 31:
                     {
                         tileType = TileType.Grass1;
                         tileProperty = TileProperty.CantPass;
                         break;
                     }
-                case 8:
+                case 32:
                     {
                         tileType = TileType.Grass2;
                         tileProperty = TileProperty.CantPass;
                         break;
                     }
-                case 9:
+                case 33:
                     {
                         tileType = TileType.Grass3;
                         tileProperty = TileProperty.CantPass;
                         break;
                     }
-                case 11:
+                case 51:
                     {
                         tileType = TileType.ConstructionBlock;
                         tileProperty = TileProperty.CantPass;
                         break;
                     }
-                case 12:
+                case 52:
                     {
                         tileType = TileType.MarkerBlock;
                         tileProperty = TileProperty.CantPass;
                         break;
                     }
-                case 16:
+                case 56:
                     {
                         tileType = TileType.ItemPipeNorth;
                         tileProperty = TileProperty.CantPass;
                         break;
                     }
-                case 17:
+                case 57:
                     {
                         tileType = TileType.ItemPipeEast;
                         tileProperty = TileProperty.CantPass;
                         break;
                     }
-                case 18:
+                case 58:
                     {
                         tileType = TileType.ItemPipeSouth;
                         tileProperty = TileProperty.CantPass;
                         break;
                     }
-                case 19:
+                case 59:
                     {
                         tileType = TileType.ItemPipeWest;
                         tileProperty = TileProperty.CantPass;
                         break;
                     }
-                case 20:
+                case 60:
                     {
                         tileType = TileType.StorageCrate;
                         tileProperty = TileProperty.CantPass;
                         break;
                     }
-                case 21:
+                case 81:
                     {
                         tileType = TileType.CoalBlock;
                         tileProperty = TileProperty.CantPass;
                         break;
                     }
-                case 22:
-                    {
-                        tileType = TileType.CopperTile;
-                        tileProperty = TileProperty.CantPass;
-                        break;
-                    }
-                case 23:
-                    {
-                        tileType = TileType.IronBlock;
-                        tileProperty = TileProperty.CantPass;
-                        break;
-                    }
-                case 24:
-                    {
-                        tileType = TileType.SandTile;
-                        tileProperty = TileProperty.CantPass;
-                        break;
-                    }
-                case 25:
-                    {
-                        tileType = TileType.Platform1;
-                        tileProperty = TileProperty.CantPass;
-                        break;
-                    }
-                case 26:
-                    {
-                        tileType = TileType.UraniumBlock;
-                        tileProperty = TileProperty.CantPass;
-                        break;
-                    }
-                case 27:
+                case 71:
                     {
                         tileType = TileType.RedWire1;
                         tileProperty = TileProperty.CanPass;
                         break;
                     }
-                case 28:
-                    {
-                        tileType = TileType.RedWire2;
-                        tileProperty = TileProperty.CanPass;
-                        break;
-                    }
-                case 29:
-                    {
-                        tileType = TileType.RedWire3;
-                        tileProperty = TileProperty.CanPass;
-                        break;
-                    }
-                case 30:
+
+                case 72:
                     {
                         tileType = TileType.GreenWire1;
                         tileProperty = TileProperty.CanPass;
                         break;
                     }
-                case 31:
-                    {
-                        tileType = TileType.GreenWire2;
-                        tileProperty = TileProperty.CanPass;
-                        break;
-                    }
-                case 32:
-                    {
-                        tileType = TileType.GreenWire3;
-                        tileProperty = TileProperty.CanPass;
-                        break;
-                    }
-                case 33:
-                    {
-                        tileType = TileType.GoldWire1;
-                        tileProperty = TileProperty.CanPass;
-                        break;
-                    }
-                case 34:
+
+                case 73:
                     {
                         tileType = TileType.GoldWire2;
                         tileProperty = TileProperty.CanPass;
                         break;
                     }
-                case 35:
-                    {
-                        tileType = TileType.GoldWire3;
-                        tileProperty = TileProperty.CanPass;
-                        break;
-                    }
+
                 default:
                     {
                         tileType = TileType.MissingTile;
@@ -369,7 +307,7 @@ namespace Factory_Game
 
             }
             #endregion
-            sourceRectangle = tileMap.textureManager.SourceRect(tileType);
+            sourceRectangle = tileMap.textureManager.SourceRect(index);
 
         }
         public void SetPosition(Vector2 pos)
@@ -897,9 +835,21 @@ namespace Factory_Game
 
                 }
                 tileType = tiType; 
-                sourceRectangle = Animation.SourceRect(tileType, "Tile_SpriteSheet", this);
+                sourceRectangle = Animation.SourceRect(index, "Tile_SpriteSheet", contentManager);
             }
 
+        }
+        public void UpdateIndex(int id, ContentManager content)
+        {
+            durability = 10;
+            alive = true;
+            current = 0;
+            isWire = false;
+            madeItemPipe = false;
+            madeQuarry = false;
+            madeStorage = false;
+            index = id; 
+            sourceRectangle = Animation.SourceRect(id, "Tile_SpriteSheet", content);
         }
         public void UpdateTile(Game1 game)
         {
@@ -928,7 +878,7 @@ namespace Factory_Game
                     {
 
                         // worldPosition = Vector2.Transform(position, Matrix.Invert(game.camera.rawTransform)); 
-                        game.tileObjectManagement.AddTileObject(new Vector2(position.X + (bounds.Width / 4), position.Y + (bounds.Height / 4)), tileType);
+                        game.tileObjectManagement.AddTileObject(new Vector2(position.X + (bounds.Width / 4), position.Y + (bounds.Height / 4)), index);
                         alive = false;
                         current = 0;
                     }
@@ -1080,7 +1030,7 @@ namespace Factory_Game
                 {
                     index = 0;
                     tileType = TileType.BlankTile;
-                    sourceRectangle = Animation.SourceRect(tileType, "Tile_SpriteSheet", this);
+                    sourceRectangle = Animation.SourceRect(0000, "Tile_SpriteSheet", contentManager);
                 }
 
                 if (tileType == TileType.QuarryBlock)
@@ -1721,9 +1671,8 @@ namespace Factory_Game
             lua.RegisterFunction("GetXIndex", this, GetType().GetMethod("GetXIndex"));
             lua.RegisterFunction("GetYIndex", this, GetType().GetMethod("GetYIndex"));
             lua.DoString("structureType = 2");
-            lua.DoFile("LuaScripts/structure_data.lua"); 
+            lua.DoFile("LuaScripts/structure_data.lua");
             
-
         }
 
         public void BuildTile(int x,  int y, int type)
@@ -2111,11 +2060,10 @@ namespace Factory_Game
                 else
                 {
                     spriteBatch.Draw(texture, position, sourceRectangle, Color.White);
+                   // spriteBatch.Draw(texture, position, Color.White); 
                 }
                 #endregion
-                // spriteBatch.Draw()
-                //Console.WriteLine("Drawing!"); 
-                //spriteBatch.DrawString(font, (position.X / 32).ToString(), position, Color.White); 
+
                 if (this.tileType == TileType.QuarryBlock)
                 {
                     if (madeQuarry)

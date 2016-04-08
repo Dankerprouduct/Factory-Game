@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Microsoft.Xna.Framework; 
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 
 namespace Factory_Game
 {
@@ -10,34 +11,42 @@ namespace Factory_Game
     {
         public struct TextureSource
         {
-            public Tile.TileType type;
+            public int id; 
             public Rectangle source; 
         }
         public List<TextureSource> sources;
 
 
-        public TextureManager()
+        public TextureManager(ContentManager content)
         {
-            sources = new List<TextureSource>(); 
+            sources = new List<TextureSource>();
 
-            foreach(Tile.TileType type in Enum.GetValues(typeof(Tile.TileType)))
+            DatabaseLibrary.ItemDatabase[] items = content.Load<DatabaseLibrary.ItemDatabase[]>("Xml/ItemDatabase"); 
+            
+
+
+            foreach(DatabaseLibrary.ItemDatabase item in items)
             {
-                TextureSource tSource;
-                tSource.type = type; 
-                tSource.source = Animation.SourceRect(type, "Tile_SpriteSheet");
-                sources.Add(tSource); 
+                
+                TextureSource source = new TextureSource();
+                source.id = item.itemId;
+                source.source = Animation.SourceRect(item.itemId, "Tile_SpriteSheet", content);
+                Console.WriteLine(source.source);
+                sources.Add(source); 
             }
         }
         
-        public Rectangle SourceRect(Tile.TileType type)
+        public Rectangle SourceRect(int id)
         {
             for(int i = 0; i < sources.Count; i++)
             {
-                if(sources[i].type == type)
+                if(sources[i].id == id)
                 {
+                    //return new Rectangle(160, 0, 32, 32);
                     return sources[i].source; 
                 }
             }
+            Console.WriteLine("Couldnt find source"); 
             return Rectangle.Empty; 
         }
         

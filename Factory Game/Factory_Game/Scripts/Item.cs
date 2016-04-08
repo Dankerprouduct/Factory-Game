@@ -4,12 +4,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using Microsoft.Xna.Framework; 
 
 namespace Factory_Game
 {
     public class Item
     {
+        
         public Tile.TileType tileType;
         public string tileName;
         public string tileDescription;
@@ -17,7 +18,9 @@ namespace Factory_Game
         public Texture2D texture;
         public int sValue;
         public int stackMaxCount;
-        public bool canSmelt; 
+        public bool canSmelt;
+        public Rectangle sourceRect; 
+
         public Item()
         {
             sValue = 0; 
@@ -178,6 +181,17 @@ namespace Factory_Game
 
 
             }
+        }
+        public Item(string name, string description, int id, bool smelt, int stackCount, ContentManager content)
+        {
+            sourceRect = Animation.SourceRect(id, "TileObjectSpriteSheet", content);
+            texture = content.Load<Texture2D>("TileObjects/TileObjectSpriteSheet");
+            tileName = name;
+            tileDescription = description;
+            itemID = id;
+            sValue = 1;
+            stackMaxCount = stackCount;
+            canSmelt = smelt;
         }
 
     }
