@@ -211,7 +211,7 @@ namespace Factory_Game
         {
             for (int i = 0; i < inventory.Count; i++)
             {
-                if (inventory[i].item.tileType == item.tileType)
+                if (inventory[i].item.itemID == item.itemID)
                 {
                     if (inventory[i].count >= 0)
                     {

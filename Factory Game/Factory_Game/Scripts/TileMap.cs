@@ -515,6 +515,11 @@ namespace Factory_Game
             chunks[chunkX, chunkY].tiles[x, y].UpdateIndex(type);
 
         }
+        public void ChangeTile(int chunkX, int chunkY, int x, int y, int id, TileMap tileMap)
+        {
+            chunks[chunkX, chunkY].tiles[x, y].UpdateIndex(id, contentManager);
+
+        }
         public void DamageTile(int x, int y, float ammount)
         {
             tile[x, y].DamageTile(ammount);

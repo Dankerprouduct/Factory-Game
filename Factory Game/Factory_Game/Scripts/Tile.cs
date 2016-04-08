@@ -841,7 +841,14 @@ namespace Factory_Game
         }
         public void UpdateIndex(int id, ContentManager content)
         {
-
+            durability = 10;
+            alive = true;
+            current = 0;
+            isWire = false;
+            madeItemPipe = false;
+            madeQuarry = false;
+            madeStorage = false;
+            index = id; 
             sourceRectangle = Animation.SourceRect(id, "Tile_SpriteSheet", content);
         }
         public void UpdateTile(Game1 game)

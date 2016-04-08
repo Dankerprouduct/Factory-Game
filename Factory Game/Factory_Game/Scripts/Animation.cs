@@ -78,7 +78,6 @@ namespace Factory_Game
                             if (items[curId].name + "Item"  == s)
                             {
                                 sr.Close();
-                                Console.WriteLine("Got Tile Object " + items[i].name + " for " + s );
 
                                 return new Rectangle(Convert.ToInt32(rectData[3]), Convert.ToInt32(rectData[4]), Convert.ToInt32(rectData[5]), Convert.ToInt32(rectData[6]));
                             }
