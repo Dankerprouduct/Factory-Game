@@ -9,12 +9,18 @@ namespace Factory_Game
     public class ItemDatabase
     {
         //public List<Item> items = new List<Item>(); 
+        ContentManager content;
         public DatabaseLibrary.ItemDatabase[] items; 
-        public ItemDatabase(ContentManager content)
+        public ItemDatabase(ContentManager _content)
         {
-            
+            content = _content;
             items = content.Load<DatabaseLibrary.ItemDatabase[]>("Xml/ItemDatabase");
 
+            for(int i = 0; i < items.Length; i++)
+            {
+                //Console.WriteLine(items[i].name + "\n       " + items[i].itemId); 
+            }
+            
         }
         public Item Item(int id)
         {
@@ -22,11 +28,11 @@ namespace Factory_Game
             {
                 if(items[i].itemId == id)
                 {
-                    return new Item(items[id].name, items[id].description, id, items[id].canSmelt, items[id].stackCount);
+                    return new Item(items[i].name, items[i].description, items[i].itemId, items[i].canSmelt, items[i].stackCount, content);
                 }
                 
             }
-            return new Factory_Game.Item(); 
+            return new Item(); 
             
         }
 

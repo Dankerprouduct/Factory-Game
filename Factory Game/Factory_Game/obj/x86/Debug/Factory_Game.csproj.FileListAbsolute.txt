@@ -204,7 +204,6 @@ C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\F
 C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\StorageTL.xnb
 C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\StorageTR.xnb
 C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\Tile_SpriteSheet.xnb
-C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\TileObject_SpriteSheet.xnb
 C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\WestTube.xnb
 C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Tiles\SpriteSheet1.xnb
 C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\Content\RectangleTexture.xnb
@@ -226,3 +225,5 @@ C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\F
 C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Xml\ItemDatabase.xnb
 C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\DatabaseLibrary.dll
 C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\DatabaseLibrary.pdb
+C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\TileData\TileObjectSpriteSheet.txt
+C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\TileObjectSpriteSheet.xnb

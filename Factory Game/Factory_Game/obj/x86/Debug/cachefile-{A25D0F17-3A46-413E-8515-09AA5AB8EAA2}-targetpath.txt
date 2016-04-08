@@ -52,7 +52,6 @@ Content\Tiles\StorageMR.xnb
 Content\Tiles\StorageMT.xnb
 Content\Tiles\StorageTL.xnb
 Content\Tiles\StorageTR.xnb
-Content\TileObjects\TileObject_SpriteSheet.xnb
 Content\Tiles\WestTube.xnb
 Content\Tiles\SpriteSheet1.xnb
 Content\RectangleTexture.xnb
@@ -69,3 +68,4 @@ Content\Fonts\Font1.xnb
 Content\Fonts\InventoryFont.xnb
 Content\Fonts\Font2.xnb
 Content\Xml\ItemDatabase.xnb
+Content\TileObjects\TileObjectSpriteSheet.xnb

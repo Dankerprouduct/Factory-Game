@@ -488,15 +488,6 @@
       <Time>2016-02-13T13:24:23.3183013-05:00</Time>
     </Item>
     <Item>
-      <Source>TileObjects\TileObject_SpriteSheet.png</Source>
-      <Name>TileObjects\TileObject_SpriteSheet</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\TileObject_SpriteSheet.xnb</Output>
-      <Time>2016-02-29T07:23:46.6281637-05:00</Time>
-    </Item>
-    <Item>
       <Source>Tiles\WestTube.png</Source>
       <Name>Tiles\WestTube</Name>
       <Importer>TextureImporter</Importer>
@@ -638,7 +629,16 @@
       <Processor>PassThroughProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Xml\ItemDatabase.xnb</Output>
-      <Time>2016-03-30T17:58:49.7793024-04:00</Time>
+      <Time>2016-04-05T12:37:21.4925435-04:00</Time>
+    </Item>
+    <Item>
+      <Source>TileObjects\TileObjectSpriteSheet.png</Source>
+      <Name>TileObjects\TileObjectSpriteSheet</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\TileObjectSpriteSheet.xnb</Output>
+      <Time>2016-04-05T12:12:29.8662573-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

@@ -14,4 +14,6 @@ gravity = .25
 --AddToInventory(12, 500)
 --AddToInventory(21, 500)
 --AddToInventory(25, 500)
---AddToInventory(23, 500)
+AddToInventory(21, 500)
+AddToInventory(32, 200)
+AddToInventory(33, 100)

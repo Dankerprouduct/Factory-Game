@@ -25,9 +25,9 @@ namespace Factory_Game
             
         }
 
-        public void AddTileObject(Vector2 position, Tile.TileType type)
+        public void AddTileObject(Vector2 position, int id)
         {
-            tileObjects.Add(new TileObject(position, type));
+            tileObjects.Add(new TileObject(position, id));
             foreach(TileObject tO in tileObjects)
             {
                 tO.LoadContent(content); 

@@ -359,13 +359,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TileObjects\TileObject_SpriteSheet.png">
-      <Name>TileObject_SpriteSheet</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Tiles\WestTube.png">
       <Name>WestTube</Name>
       <Importer>TextureImporter</Importer>
@@ -454,6 +447,13 @@
       <Name>ItemDatabase</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="TileObjects\TileObjectSpriteSheet.png">
+      <Name>TileObjectSpriteSheet</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />

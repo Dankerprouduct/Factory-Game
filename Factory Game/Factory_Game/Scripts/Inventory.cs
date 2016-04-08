@@ -142,30 +142,35 @@ namespace Factory_Game
 
         public void AddToInventory(Item item, int ammount)
         {
-
+             Console.WriteLine(item.tileName + " added");
+            Console.WriteLine(item.itemID); 
             for (int a = 0; a < ammount; a++)
             {
                 for (int i = 0; i < inventory.Count; i++)
                 {
 
                     ////////////////////
-
+                    
                     if (item != null)
                     {
+                        // TODO: <500 should be item.stackmax 
                         if (inventory[i].item.itemID == item.itemID && inventory[i].count < 500)
-                        {
+                        { 
                             inventory[i].count++;
                             inventoryCount++; 
                             break;
                         }
                         else if (inventory[i].item.tileName == null)
                         {
-
+                            
                             for (int j = 0; j < database.items.Length; j++)
                             {
+                               // Console.WriteLine(database.Item(j).itemID + " " + item.itemID);
                                 if (database.items[j].itemId == item.itemID)
                                 {
-                                    inventory[i].item = database.Item(j); 
+                                    Console.WriteLine("Waah");
+                                    inventory[i].item = item;
+                                    
                                     inventoryCount++; 
                                     break;
                                 }
@@ -246,7 +251,7 @@ namespace Factory_Game
                             if (slots[i].item.tileName != null)
                             {
                                  spriteBatch.Draw(slots[i].item.texture, new Vector2(slotRect.X + (slotRect.Width / 4),
-                                    slotRect.Y + (slotRect.Height / 4)), Color.White);
+                                    slotRect.Y + (slotRect.Height / 4)), slots[i].item.sourceRect, Color.White);
                                 spriteBatch.DrawString(font, slots[i].count.ToString(), new Vector2(slotRect.X, slotRect.Y), Color.White);
 
 
@@ -301,7 +306,7 @@ namespace Factory_Game
 
 
                                 spriteBatch.Draw(slots[i].item.texture, new Vector2(slotRect.X + (slotRect.Width / 4),
-                                        slotRect.Y + (slotRect.Height / 4)), Color.White);
+                                    slotRect.Y + (slotRect.Height / 4)), slots[i].item.sourceRect, Color.White);
                                 spriteBatch.DrawString(font, slots[i].count.ToString(), new Vector2(slotRect.X, slotRect.Y), Color.White);
 
 

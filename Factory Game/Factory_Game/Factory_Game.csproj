@@ -134,6 +134,9 @@
     <Content Include="LuaScripts\player_script.lua">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="TileData\TileObjectSpriteSheet.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="TileData\Tile_SpriteSheet.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

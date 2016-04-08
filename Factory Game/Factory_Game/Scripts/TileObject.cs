@@ -16,37 +16,47 @@ namespace Factory_Game
     {
         public Vector2 position;
         Texture2D objectTexture;
-        public Tile.TileType type;
-        Rectangle tileBounds;
+        public Rectangle sourceRect;
         public Rectangle rect;
+        
         public bool alive;
         public Vector2 velocity;
         float currentTime = 0;
         int counter = 1;
         float countDuration = 25f;
         ItemDatabase dataBase;
-        Item item; 
-        public TileObject(Vector2 pos, Tile.TileType typ)
+        Item item;
+        int id; 
+        public TileObject(Vector2 pos, int idex)
         {
             
-            position = pos; 
-            type = typ;
+            position = pos;
+            id = idex; 
             alive = true;
 
         }
         public void LoadContent(ContentManager content)
         {
             dataBase = new ItemDatabase(content);
-            objectTexture = content.Load<Texture2D>("TileObjects/GoldWire2Item");
+            objectTexture = content.Load<Texture2D>("TileObjects/TileObjectSpriteSheet");
+            DatabaseLibrary.ItemDatabase[] items;
+            items = content.Load<DatabaseLibrary.ItemDatabase[]>("Xml/ItemDatabase");
 
+            for (int i = 0; i < items.Length; i++)
+            {
+                if (items[i].itemId == id)
+                {
+                    sourceRect = Animation.SourceRect(id, "TileObjectSpriteSheet", content);
+                    break;
+                }
 
-        
-            rect = new Rectangle((int)position.X, (int)position.Y, objectTexture.Width, objectTexture.Height); 
+            }
+            rect = new Rectangle((int)position.X, (int)position.Y,16, 16); 
         }
 
         public void Update(GameTime gameTime, Player player, QuarryManagement management)
         {
-            rect = new Rectangle((int)position.X, (int)position.Y, objectTexture.Width, objectTexture.Height);
+            rect = new Rectangle((int)position.X, (int)position.Y, 16, 16);
             position += velocity; 
             int i = 1;
             velocity.Y += i * .15f;
@@ -90,7 +100,7 @@ namespace Factory_Game
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(objectTexture, position, Color.White);
+            spriteBatch.Draw(objectTexture, position, sourceRect, Color.White);
             
             
         }

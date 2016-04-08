@@ -27,8 +27,8 @@ namespace Factory_Game
         }
         public void SetChunks(Tile[,] chunk)
         {
-            Console.WriteLine(chunkX);
-            Console.WriteLine(chunkY); 
+            //Console.WriteLine(chunkX);
+            //Console.WriteLine(chunkY); 
 
             for (int x = 0; x < 32; x++)
             {

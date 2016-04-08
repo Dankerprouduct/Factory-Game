@@ -55,14 +55,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Factory_Game.exe" size="116656">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Factory_Game.exe" size="116144">
       <assemblyIdentity name="Factory_Game" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>IasBYklD59zy6+8Hh/Ei1X5grLA=</dsig:DigestValue>
+        <dsig:DigestValue>8bBtfVGf/h+sPYxLXlwFqOSSt44=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -411,13 +411,13 @@
       <dsig:DigestValue>KW+J0oUld/VZFWzAd2ihBfmVpVc=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\TileObjects\TileObject_SpriteSheet.xnb" size="20667">
+  <file name="Content\TileObjects\TileObjectSpriteSheet.xnb" size="28859">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>pkpieJ2njcJW/0OB1jwlo21evbg=</dsig:DigestValue>
+      <dsig:DigestValue>mOWuroEEXWHjUGxYOmMFyk9r56o=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Content\TileObjects\WestTubeItem.xnb" size="1211">
@@ -780,13 +780,13 @@
       <dsig:DigestValue>uWQJzoQmmoFQbcCvsUuRmvECuTc=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Xml\ItemDatabase.xnb" size="1350">
+  <file name="Content\Xml\ItemDatabase.xnb" size="1323">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>MqL8Zf4zWtNNdSkCF6IWpGja/oI=</dsig:DigestValue>
+      <dsig:DigestValue>UJ3/kwdUVvyfxJca2SCXbWkY8GE=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Game.ico" size="4286">
@@ -807,13 +807,13 @@
       <dsig:DigestValue>diNvdcDpDtGEMuMQIHpkKK3qVHc=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="LuaScripts\player_script.lua" size="350">
+  <file name="LuaScripts\player_script.lua" size="396">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>Bbv91YtWh6HYdHme1TOHp3M+8UQ=</dsig:DigestValue>
+      <dsig:DigestValue>9B685ScQHyHbKQVN+nvnSd/1vSI=</dsig:DigestValue>
     </hash>
   </file>
   <file name="TileData\Tile_SpriteSheet.txt" size="1417">
@@ -823,6 +823,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
       <dsig:DigestValue>/r6MFWNMWILEae0B6FJITrEsxro=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="TileData\TileObjectSpriteSheet.txt" size="663">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>IrUdOVCeNNmGCaG5HLENQ0VNngA=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

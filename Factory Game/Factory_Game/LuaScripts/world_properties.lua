@@ -6,7 +6,7 @@ windowSize = 1500
 
 FlatWorld = false
  
-worldSeed = 444445522478
+worldSeed = 0
 
 -- normals 
 -- octave: 6
