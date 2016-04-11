@@ -269,6 +269,10 @@ namespace Factory_Game
         {
             UpdateIndex(id, contentManager); 
         }
+        public void UpdateIndex(int id, TileMap tileMap)
+        {
+            sourceRectangle = tileMap.textureManager.SourceRect(id); 
+        }
         public void UpdateTile(Game1 game)
         {
             //   Wires(game);     

@@ -501,7 +501,7 @@ namespace Factory_Game
                     //Console.WriteLine("Chunk Set");
                 }
             }
-            textureManager = null; 
+            
             Console.WriteLine("Chunks Finished");
             tile = null; 
 

@@ -54,7 +54,7 @@ namespace Factory_Game
 
                             if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 71 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 72 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 73 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 74 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 75 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                             {
-                                tile.UpdateIndex(74);
+                                tile.UpdateIndex(74, tileMap);
                                 return;
                             }
                         }
@@ -89,7 +89,7 @@ namespace Factory_Game
                         chunkY = tileMap.FindTile(pos).chunkY;
                         if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 71 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 72 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 73 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 74 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 75 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                         {
-                            tile.UpdateIndex(75);
+                            tile.UpdateIndex(75, tileMap);
                             tile.wireState = Tile.WireState.State1;
                             return;
                         }
@@ -121,7 +121,7 @@ namespace Factory_Game
                         chunkY = tileMap.FindTile(pos).chunkY;
                         if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 71 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 72 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 73 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 74 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 75 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                         {
-                            tile.UpdateIndex(75);
+                            tile.UpdateIndex(75, tileMap);
                             tile.wireState = Tile.WireState.State3;
                             return;
                         }
@@ -152,7 +152,7 @@ namespace Factory_Game
                         chunkY = tileMap.FindTile(pos).chunkY;
                         if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 71 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 72 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 73 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 74 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 75 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                         {
-                            tile.UpdateIndex(75);
+                            tile.UpdateIndex(75, tileMap);
                             tile.wireState = Tile.WireState.State2;
                             return;
                         }
@@ -184,7 +184,7 @@ namespace Factory_Game
                         chunkY = tileMap.FindTile(pos).chunkY;
                         if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 71 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 72 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 73 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 74 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 75 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                         {
-                            tile.UpdateIndex(75);
+                            tile.UpdateIndex(75, tileMap);
                             tile.wireState = Tile.WireState.State4;
                             return;
                         }
@@ -210,7 +210,7 @@ namespace Factory_Game
                     chunkY = tileMap.FindTile(pos).chunkY;
                     if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 71 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 72 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 73 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 74 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 75 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                     {
-                        tile.UpdateIndex(73);
+                        tile.UpdateIndex(73, tileMap);
                         tile.wireState = Tile.WireState.State4;
                         return;
                     }
@@ -233,7 +233,7 @@ namespace Factory_Game
                     chunkY = tileMap.FindTile(pos).chunkY;
                     if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 71 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 72 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 73 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 74 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 75 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                     {
-                        tile.UpdateIndex(73);
+                        tile.UpdateIndex(73, tileMap);
                         tile.wireState = Tile.WireState.State1;
                         return;
                     }
@@ -254,7 +254,7 @@ namespace Factory_Game
                     chunkY = tileMap.FindTile(pos).chunkY;
                     if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 71 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 72 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 73 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 74 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 75 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                     {
-                        tile.UpdateIndex(73);
+                        tile.UpdateIndex(73, tileMap);
                         tile.wireState = Tile.WireState.State3;
                         return;
                     }
@@ -276,7 +276,7 @@ namespace Factory_Game
                     chunkY = tileMap.FindTile(pos).chunkY;
                     if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 71 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 72 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 73 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 74 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 75 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                     {
-                        tile.UpdateIndex(73);
+                        tile.UpdateIndex(73, tileMap);
                         tile.wireState = Tile.WireState.State2;
                         return;
                     }
@@ -299,7 +299,7 @@ namespace Factory_Game
                     {
 
 
-                        tile.UpdateIndex(72);
+                        tile.UpdateIndex(72, tileMap);
                         tile.wireState = Tile.WireState.State1;
                         return;
                     }
@@ -317,7 +317,7 @@ namespace Factory_Game
                 {
                     if (tile.index == 71)
                     {
-                        tile.UpdateIndex(72);
+                        tile.UpdateIndex(72, tileMap);
                         tile.wireState = Tile.WireState.State1;
                         return;
                     }
@@ -337,7 +337,7 @@ namespace Factory_Game
                     if (tile.index == 71)
                     {
                         //   tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index = 72;
-                        tile.UpdateIndex(72);
+                        tile.UpdateIndex(72, tileMap);
                         tile.wireState = Tile.WireState.State2;
                         //  tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].wireState = Tile.WireState.State2;
                         //  tile.UpdateIndex(72);
@@ -359,7 +359,7 @@ namespace Factory_Game
                     if (tile.index == 71)
                     {
                         //  tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index = 72;
-                        tile.UpdateIndex(72);
+                        tile.UpdateIndex(72,tileMap);
                         tile.wireState = Tile.WireState.State2;
                         //   tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].wireState = Tile.WireState.State2;
                        // tile.UpdateIndex(72, tileMap);
@@ -413,7 +413,7 @@ namespace Factory_Game
 
                             if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 81 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 82 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 83 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 84 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 85 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                             {
-                                tile.UpdateIndex(84);
+                                tile.UpdateIndex(84, tileMap);
                                 return;
                             }
                         }
@@ -448,7 +448,7 @@ namespace Factory_Game
                         chunkY = tileMap.FindTile(pos).chunkY;
                         if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 81 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 82 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 83 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 84 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 85 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                         {
-                            tile.UpdateIndex(85);
+                            tile.UpdateIndex(85, tileMap);
                             tile.wireState = Tile.WireState.State1;
                             return;
                         }
@@ -480,7 +480,7 @@ namespace Factory_Game
                         chunkY = tileMap.FindTile(pos).chunkY;
                         if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 81 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 82 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 83 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 84 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 85 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                         {
-                            tile.UpdateIndex(85);
+                            tile.UpdateIndex(85, tileMap);
                             tile.wireState = Tile.WireState.State3;
                             return;
                         }
@@ -511,7 +511,7 @@ namespace Factory_Game
                         chunkY = tileMap.FindTile(pos).chunkY;
                         if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 81 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 82 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 83 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 84 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 85 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                         {
-                            tile.UpdateIndex(85);
+                            tile.UpdateIndex(85, tileMap);
                             tile.wireState = Tile.WireState.State2;
                             return;
                         }
@@ -543,7 +543,7 @@ namespace Factory_Game
                         chunkY = tileMap.FindTile(pos).chunkY;
                         if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 81 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 82 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 83 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 84 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 85 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                         {
-                            tile.UpdateIndex(85);
+                            tile.UpdateIndex(85, tileMap);
                             tile.wireState = Tile.WireState.State4;
                             return;
                         }
@@ -569,7 +569,7 @@ namespace Factory_Game
                     chunkY = tileMap.FindTile(pos).chunkY;
                     if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 81 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 82 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 83 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 84 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 85 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                     {
-                        tile.UpdateIndex(83);
+                        tile.UpdateIndex(83, tileMap);
                         tile.wireState = Tile.WireState.State4;
                         return;
                     }
@@ -592,7 +592,7 @@ namespace Factory_Game
                     chunkY = tileMap.FindTile(pos).chunkY;
                     if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 81 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 82 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 83 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 84 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 85 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                     {
-                        tile.UpdateIndex(83);
+                        tile.UpdateIndex(83, tileMap);
                         tile.wireState = Tile.WireState.State1;
                         return;
                     }
@@ -613,7 +613,7 @@ namespace Factory_Game
                     chunkY = tileMap.FindTile(pos).chunkY;
                     if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 81 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 82 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 83 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 84 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 85 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                     {
-                        tile.UpdateIndex(83);
+                        tile.UpdateIndex(83, tileMap);
                         tile.wireState = Tile.WireState.State3;
                         return;
                     }
@@ -635,7 +635,7 @@ namespace Factory_Game
                     chunkY = tileMap.FindTile(pos).chunkY;
                     if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 81 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 82 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 83 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 84 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 85 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                     {
-                        tile.UpdateIndex(83);
+                        tile.UpdateIndex(83, tileMap);
                         tile.wireState = Tile.WireState.State2;
                         return;
                     }
@@ -658,7 +658,7 @@ namespace Factory_Game
                     {
 
 
-                        tile.UpdateIndex(82);
+                        tile.UpdateIndex(82, tileMap);
                         tile.wireState = Tile.WireState.State1;
                         return;
                     }
@@ -676,7 +676,7 @@ namespace Factory_Game
                 {
                     if (tile.index == 81)
                     {
-                        tile.UpdateIndex(82);
+                        tile.UpdateIndex(82, tileMap);
                         tile.wireState = Tile.WireState.State1;
                         return;
                     }
@@ -696,7 +696,7 @@ namespace Factory_Game
                     if (tile.index == 81)
                     {
                         //   tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index = 82;
-                        tile.UpdateIndex(82);
+                        tile.UpdateIndex(82, tileMap);
                         tile.wireState = Tile.WireState.State2;
                         //  tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].wireState = Tile.WireState.State2;
                         //  tile.UpdateIndex(82);
@@ -718,7 +718,7 @@ namespace Factory_Game
                     if (tile.index == 81)
                     {
                         //  tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index = 82;
-                        tile.UpdateIndex(82);
+                        tile.UpdateIndex(82, tileMap);
                         tile.wireState = Tile.WireState.State2;
                         //   tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].wireState = Tile.WireState.State2;
                      //   tile.UpdateIndex(82);
@@ -771,7 +771,7 @@ namespace Factory_Game
 
                             if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 91 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 92 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 93 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 94 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 95 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                             {
-                                tile.UpdateIndex(94);
+                                tile.UpdateIndex(94, tileMap);
                                 return;
                             }
                         }
@@ -806,7 +806,7 @@ namespace Factory_Game
                         chunkY = tileMap.FindTile(pos).chunkY;
                         if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 91 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 92 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 93 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 94 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 95 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                         {
-                            tile.UpdateIndex(95);
+                            tile.UpdateIndex(95, tileMap);
                             tile.wireState = Tile.WireState.State1;
                             return;
                         }
@@ -838,7 +838,7 @@ namespace Factory_Game
                         chunkY = tileMap.FindTile(pos).chunkY;
                         if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 91 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 92 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 93 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 94 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 95 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                         {
-                            tile.UpdateIndex(95);
+                            tile.UpdateIndex(95, tileMap);
                             tile.wireState = Tile.WireState.State3;
                             return;
                         }
@@ -869,7 +869,7 @@ namespace Factory_Game
                         chunkY = tileMap.FindTile(pos).chunkY;
                         if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 91 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 92 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 93 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 94 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 95 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                         {
-                            tile.UpdateIndex(95);
+                            tile.UpdateIndex(95, tileMap);
                             tile.wireState = Tile.WireState.State2;
                             return;
                         }
@@ -901,7 +901,7 @@ namespace Factory_Game
                         chunkY = tileMap.FindTile(pos).chunkY;
                         if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 91 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 92 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 93 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 94 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 95 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                         {
-                            tile.UpdateIndex(95);
+                            tile.UpdateIndex(95, tileMap);
                             tile.wireState = Tile.WireState.State4;
                             return;
                         }
@@ -927,7 +927,7 @@ namespace Factory_Game
                     chunkY = tileMap.FindTile(pos).chunkY;
                     if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 91 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 92 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 93 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 94 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 95 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                     {
-                        tile.UpdateIndex(93);
+                        tile.UpdateIndex(93, tileMap);
                         tile.wireState = Tile.WireState.State4;
                         return;
                     }
@@ -950,7 +950,7 @@ namespace Factory_Game
                     chunkY = tileMap.FindTile(pos).chunkY;
                     if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 91 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 92 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 93 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 94 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 95 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                     {
-                        tile.UpdateIndex(93);
+                        tile.UpdateIndex(93, tileMap);
                         tile.wireState = Tile.WireState.State1;
                         return;
                     }
@@ -971,7 +971,7 @@ namespace Factory_Game
                     chunkY = tileMap.FindTile(pos).chunkY;
                     if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 91 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 92 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 93 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 94 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 95 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                     {
-                        tile.UpdateIndex(93);
+                        tile.UpdateIndex(93, tileMap);
                         tile.wireState = Tile.WireState.State3;
                         return;
                     }
@@ -993,7 +993,7 @@ namespace Factory_Game
                     chunkY = tileMap.FindTile(pos).chunkY;
                     if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 91 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 92 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 93 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 94 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 95 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                     {
-                        tile.UpdateIndex(93);
+                        tile.UpdateIndex(93, tileMap);
                         tile.wireState = Tile.WireState.State2;
                         return;
                     }
@@ -1016,7 +1016,7 @@ namespace Factory_Game
                     {
 
 
-                        tile.UpdateIndex(92);
+                        tile.UpdateIndex(92, tileMap);
                         tile.wireState = Tile.WireState.State1;
                         return;
                     }
@@ -1034,7 +1034,7 @@ namespace Factory_Game
                 {
                     if (tile.index == 91)
                     {
-                        tile.UpdateIndex(92);
+                        tile.UpdateIndex(92, tileMap);
                         tile.wireState = Tile.WireState.State1;
                         return;
                     }
@@ -1054,7 +1054,7 @@ namespace Factory_Game
                     if (tile.index == 91)
                     {
                         //   tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index = 92;
-                        tile.UpdateIndex(92);
+                        tile.UpdateIndex(92, tileMap);
                         tile.wireState = Tile.WireState.State2;
                         //  tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].wireState = Tile.WireState.State2;
                         //  tile.UpdateIndex(92);
@@ -1076,7 +1076,7 @@ namespace Factory_Game
                     if (tile.index == 91)
                     {
                         //  tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index = 92;
-                        tile.UpdateIndex(92);
+                        tile.UpdateIndex(92, tileMap);
                         tile.wireState = Tile.WireState.State2;
                         //   tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].wireState = Tile.WireState.State2;
                        // tile.UpdateIndex(92);

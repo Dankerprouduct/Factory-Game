@@ -114,7 +114,30 @@ namespace Factory_Game
         }
         public void AddToInventory(int id, int ammount)
         {
-            inventory.AddToInventory(itemDatabase.Item(id), ammount); 
+            int[] redWire = { 71, 72, 73, 74, 75};
+            int[] greenWire = {81, 82, 83, 84, 85};
+            int[] goldWire = {91, 92, 93, 94, 95};
+            
+            for (int i = 0; i < 5; i++)
+            {
+                if(redWire[i] == id)
+                {
+                    inventory.AddToInventory(itemDatabase.Item(72), ammount);
+                    return; 
+                }
+                if(greenWire[i] == id)
+                {
+                    inventory.AddToInventory(itemDatabase.Item(82), ammount);
+                    return;
+                }
+                if(goldWire[i] == id)
+                {
+                    inventory.AddToInventory(itemDatabase.Item(92), ammount);
+                    return; 
+                }
+            }
+            
+            inventory.AddToInventory(itemDatabase.Item(id), ammount);
         }
         void Movement()
         {
