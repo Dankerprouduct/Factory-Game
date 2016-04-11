@@ -380,8 +380,7 @@
     <canSmelt>true</canSmelt>
     <stackCount>500</stackCount>
   </Item>
-  
-  
+
     <!--
   <Item>
     <name>Copper Block</name>

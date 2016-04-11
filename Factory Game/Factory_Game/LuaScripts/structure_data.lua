@@ -3,15 +3,15 @@ structureType = 1
 -- BuildTile(x, y, tiletype)
 if structureType == 1 then
 	
-	BuildTile(0,0,20)
-	BuildTile(0, -1, 50)
-	BuildTile(0, 1, 47)
-	BuildTile(1,0, 49)
-	BuildTile(-1, 0, 48)
-	BuildTile(1,1, 46)
-	BuildTile(-1, 1, 45)
-	BuildTile(-1, -1, 51)
-	BuildTile(1, -1, 52)
+	BuildTile(0,0,60)
+	BuildTile(0, -1, 63)
+	BuildTile(0, 1, 66)
+	BuildTile(1,0, 64)
+	BuildTile(-1, 0, 65)
+	BuildTile(1,1, 67)
+	BuildTile(-1, 1, 68)
+	BuildTile(-1, -1, 62)
+	BuildTile(1, -1, 61)
 	
 	end
 

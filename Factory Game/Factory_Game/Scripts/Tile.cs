@@ -273,13 +273,6 @@ namespace Factory_Game
         {
             sourceRectangle = tileMap.textureManager.SourceRect(id); 
         }
-        public void UpdateTile(Game1 game)
-        {
-            //   Wires(game);     
-            Console.WriteLine("Updating tile");
-
-
-        }
         public void DamageTile(float amount)
         {
             // Console.WriteLine("Damaging Tiles"); 
@@ -298,8 +291,6 @@ namespace Factory_Game
                 {
                     if (durability <= 0)
                     {
-
-                        // worldPosition = Vector2.Transform(position, Matrix.Invert(game.camera.rawTransform)); 
                         game.tileObjectManagement.AddTileObject(new Vector2(position.X + (bounds.Width / 4), position.Y + (bounds.Height / 4)), index);
                         alive = false;
                         current = 0;
@@ -308,14 +299,11 @@ namespace Factory_Game
                     {
                         Wires(game);
                     }
-
-                    
                     
                     if (index == 150)
                     {
                         SolarPanel(game.tileMap);
-                    }
-                    
+                    }                    
 
                     if (game.tileObjectManagement.tileObjects.Count > 0)
                     {
