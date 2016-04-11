@@ -28,7 +28,7 @@ namespace Factory_Game
             
             foreach (QuarryDrill qDrill in drills)
             {
-                if (qDrill.tile.tileType == Tile.TileType.QuarryBlock)
+                if (qDrill.tile.index == 55)
                 {
 
                     // comented 
@@ -51,7 +51,7 @@ namespace Factory_Game
             }
             for(int i = 0; i < drills.Count; i++)
             {
-                if (drills[i].tile.tileType != Tile.TileType.QuarryBlock)
+                if (drills[i].tile.index != 55)
                 {
                     drills.RemoveAt(i);
 
@@ -63,7 +63,7 @@ namespace Factory_Game
         {
             foreach (QuarryDrill qDrill in drills)
             {
-                if (qDrill.tile.tileType == Tile.TileType.QuarryBlock)
+                if (qDrill.tile.index == 55)
                 {
                     qDrill.tile.Draw(spriteBatch, gme.player);
                 }

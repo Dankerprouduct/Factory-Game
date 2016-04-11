@@ -506,15 +506,7 @@ namespace Factory_Game
             tile = null; 
 
         }
-        public void ChangeTile(int x, int y, Tile.TileType type, TileMap tileMap)
-        {
-            tile[x, y].UpdateIndex(type);
-        }
-        public void ChangeTile(int chunkX, int chunkY, int x, int y, Tile.TileType type, TileMap tileMap)
-        {
-            chunks[chunkX, chunkY].tiles[x, y].UpdateIndex(type);
 
-        }
         public void ChangeTile(int chunkX, int chunkY, int x, int y, int id, TileMap tileMap)
         {
             chunks[chunkX, chunkY].tiles[x, y].UpdateIndex(id, contentManager);
@@ -526,21 +518,21 @@ namespace Factory_Game
         }
         public void DamageTile(int chunkX, int chunkY, int x, int y, float ammount)
         {
-            if(chunks[chunkX, chunkY].tiles[x, y].tileType != Tile.TileType.StorageTR)
+            if(chunks[chunkX, chunkY].tiles[x, y].index != 61)
             {
-                if(chunks[chunkX, chunkY].tiles[x, y].tileType != Tile.TileType.StorageTL)
+                if(chunks[chunkX, chunkY].tiles[x, y].index != 62)
                 {
-                    if(chunks[chunkX, chunkY].tiles[x, y].tileType != Tile.TileType.StorageMT)
+                    if(chunks[chunkX, chunkY].tiles[x, y].index != 63)
                     {
-                        if(chunks[chunkX, chunkY].tiles[x, y].tileType != Tile.TileType.StorageMR)
+                        if(chunks[chunkX, chunkY].tiles[x, y].index != 64)
                         {
-                            if(chunks[chunkX, chunkY].tiles[x, y].tileType != Tile.TileType.StorageML)
+                            if(chunks[chunkX, chunkY].tiles[x, y].index != 65)
                             {
-                                if(chunks[chunkX, chunkY].tiles[x, y].tileType != Tile.TileType.StorageMB)
+                                if(chunks[chunkX, chunkY].tiles[x, y].index != 66)
                                 {
-                                    if(chunks[chunkX, chunkY].tiles[x, y].tileType != Tile.TileType.StorageBR)
+                                    if(chunks[chunkX, chunkY].tiles[x, y].index != 67)
                                     {
-                                        if(chunks[chunkX, chunkY].tiles[x, y].tileType != Tile.TileType.StorageBL)
+                                        if(chunks[chunkX, chunkY].tiles[x, y].index != 68)
                                         {
                                             chunks[chunkX, chunkY].tiles[x, y].DamageTile(ammount);
                                         }
