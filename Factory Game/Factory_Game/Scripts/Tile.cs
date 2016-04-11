@@ -527,7 +527,7 @@ namespace Factory_Game
                 int qChunkY;
                 #region 
 
-                if (chunk.tiles[localxPos + 1, localyPos].index == 55)
+                if (chunk.tiles[localxPos + 1, localyPos].index == 52)
                 {
                     Vector2 pos;
                     for (int i = 2; i < searchRadius; i++)
@@ -538,7 +538,7 @@ namespace Factory_Game
                         qChunkX = game.tileMap.FindTile(pos).chunkX;
                         qChunkY = game.tileMap.FindTile(pos).chunkY;
                         Console.WriteLine("Tile X: " + qTileX + " Tile Y:" + qTileY + " ChunkX:" + qChunkX + " ChunkY:" + qChunkY);
-                        if (game.tileMap.chunks[qChunkX, qChunkY].tiles[qTileX, qTileY].index == 55)
+                        if (game.tileMap.chunks[qChunkX, qChunkY].tiles[qTileX, qTileY].index == 52)
                         {
 
                             offSet = i;

@@ -62,7 +62,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>SBDD4sqQ38/6p7Lnp2xyWrVgOBQ=</dsig:DigestValue>
+        <dsig:DigestValue>0gcbq52Lg6ZJzCohUexk+p0m4hU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -807,13 +807,13 @@
       <dsig:DigestValue>diNvdcDpDtGEMuMQIHpkKK3qVHc=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="LuaScripts\player_script.lua" size="396">
+  <file name="LuaScripts\player_script.lua" size="472">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>9B685ScQHyHbKQVN+nvnSd/1vSI=</dsig:DigestValue>
+      <dsig:DigestValue>QdZsadt+9iUXpwOy1wyOgDCkzjA=</dsig:DigestValue>
     </hash>
   </file>
   <file name="TileData\Tile_SpriteSheet.txt" size="1417">

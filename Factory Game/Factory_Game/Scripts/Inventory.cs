@@ -151,8 +151,8 @@ namespace Factory_Game
                     
                     if (item != null)
                     {
-                        // TODO: <500 should be item.stackmax 
-                        if (inventory[i].item.itemID == item.itemID && inventory[i].count < 500)
+                        
+                        if (inventory[i].item.itemID == item.itemID && inventory[i].count < item.stackMaxCount)
                         { 
                             inventory[i].count++;
                             inventoryCount++; 
