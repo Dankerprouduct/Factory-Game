@@ -19,7 +19,6 @@ namespace Factory_Game
         
         KeyboardState keyboardState;
         KeyboardState oldKeyboardState;
-        public Tile.TileType tileType;
         public bool showInventory;
         public List<ItemStack> inventory = new List<ItemStack>();
         public List<ItemStack> slots = new List<ItemStack>();
@@ -56,7 +55,6 @@ namespace Factory_Game
             
             maxInventoryCount = (width * height) * 500; 
 
-            tileType = new Tile.TileType();
             selectedItem = 0;
            // tileType = Tile.TileType.DryTile1;
 
@@ -301,7 +299,7 @@ namespace Factory_Game
                             slots[i] = inventory[i];
 
                             spriteBatch.Draw(inventoryTexture, slotRect, Color.White);
-                            if (slots[i].item.tileName != null && slots[i].item.tileType != Tile.TileType.BlankTile)
+                            if (slots[i].item.tileName != null && slots[i].item.itemID != 0)
                             {
 
 

@@ -92,6 +92,22 @@
 	</Item>
 	
 	<Item>
+	  <name>BatteryBlock</name>
+	  <description>Construction</description> 
+	  <itemId>0050</itemId>
+	  <canSmelt>false</canSmelt>
+	  <stackCount>100</stackCount>
+	</Item>
+	
+	<Item>
+	  <name>SolarPanel</name>
+	  <description>Construction</description> 
+	  <itemId>00150</itemId>
+	  <canSmelt>false</canSmelt>
+	  <stackCount>100</stackCount>
+	</Item>
+	
+	<Item>
 	  <name>ConstructionBlock</name>
 	  <description>Construction</description> 
 	  <itemId>0051</itemId>
@@ -170,30 +186,192 @@
     <canSmelt>false</canSmelt>
     <stackCount>500</stackCount>
   </Item>
-    
+  
   <Item>
-    <name>RedWire</name>
-    <description>A High resistance wire</description>
+    <name>StorageTR</name>
+    <description>Item Storage Crate</description>
+    <itemId>0061</itemId>
+    <canSmelt>false</canSmelt>
+    <stackCount>500</stackCount>
+  </Item>
+
+  <Item>
+    <name>StorageTL</name>
+    <description>Item Storage Crate</description>
+    <itemId>0062</itemId>
+    <canSmelt>false</canSmelt>
+    <stackCount>500</stackCount>
+  </Item>
+  
+  <Item>
+    <name>StorageMT</name>
+    <description>Item Storage Crate</description>
+    <itemId>0063</itemId>
+    <canSmelt>false</canSmelt>
+    <stackCount>500</stackCount>
+  </Item>
+  
+  <Item>
+    <name>StorageMR</name>
+    <description>Item Storage Crate</description>
+    <itemId>0064</itemId>
+    <canSmelt>false</canSmelt>
+    <stackCount>500</stackCount>
+  </Item>
+  
+  <Item>
+    <name>StorageML</name>
+    <description>Item Storage Crate</description>
+    <itemId>0065</itemId>
+    <canSmelt>false</canSmelt>
+    <stackCount>500</stackCount>
+  </Item>
+  
+  <Item>
+    <name>StorageMB</name>
+    <description>Item Storage Crate</description>
+    <itemId>0066</itemId>
+    <canSmelt>false</canSmelt>
+    <stackCount>500</stackCount>
+  </Item>
+  
+  <Item>
+    <name>StorageBR</name>
+    <description>Item Storage Crate</description>
+    <itemId>0067</itemId>
+    <canSmelt>false</canSmelt>
+    <stackCount>500</stackCount>
+  </Item>
+  
+  <Item>
+    <name>StorageBL</name>
+    <description>Item Storage Crate</description>
+    <itemId>0068</itemId>
+    <canSmelt>false</canSmelt>
+    <stackCount>500</stackCount>
+  </Item>
+  
+  <Item>
+    <name>RedWire1</name>
+    <description>A High resistance wire (RedWire1)</description>
     <itemId>0071</itemId>
     <canSmelt>false</canSmelt>
     <stackCount>500</stackCount>
   </Item>
     
-  <Item> 
-    <name>GreenWire</name>
-    <description>A Medium resistance wire</description>
+  <Item>
+    <name>RedWire2</name>
+    <description>A High resistance wire (RedWire2)</description>
     <itemId>0072</itemId>
+    <canSmelt>false</canSmelt>
+    <stackCount>500</stackCount>
+  </Item>
+ 
+  <Item>
+    <name>RedWire3</name>
+    <description>A High resistance wire (RedWire3)</description>
+    <itemId>0073</itemId>
+    <canSmelt>false</canSmelt>
+    <stackCount>500</stackCount>
+  </Item>
+  
+  <Item>
+    <name>RedWire4</name>
+    <description>A High resistance wire (RedWire4)</description>
+    <itemId>0074</itemId>
+    <canSmelt>false</canSmelt>
+    <stackCount>500</stackCount>
+  </Item>
+
+  <Item>
+    <name>RedWire5</name>
+    <description>A High resistance wire (RedWire5)</description>
+    <itemId>0075</itemId>
+    <canSmelt>false</canSmelt>
+    <stackCount>500</stackCount>
+  </Item>  
+	
+  <Item> 
+    <name>GreenWire1</name>
+    <description>A Medium resistance wire (GreenWire1)</description>
+    <itemId>0081</itemId>
     <canSmelt>false</canSmelt>
     <stackCount>500</stackCount>
   </Item>
     
   <Item> 
-    <name>GoldWire</name>
-    <description>A Low ressistance Wire</description>
-    <itemId>0073</itemId>
+    <name>GreenWire2</name>
+    <description>A Medium resistance wire (GreenWire2)</description>
+    <itemId>0082</itemId>
     <canSmelt>false</canSmelt>
     <stackCount>500</stackCount>
   </Item>
+    
+  <Item> 
+    <name>GreenWire3</name>
+    <description>A Medium resistance wire (GreenWire3)</description>
+    <itemId>0083</itemId>
+    <canSmelt>false</canSmelt>
+    <stackCount>500</stackCount>
+  </Item>
+    
+  <Item> 
+    <name>GreenWire4</name>
+    <description>A Medium resistance wire (GreenWire4)</description>
+    <itemId>0084</itemId>
+    <canSmelt>false</canSmelt>
+    <stackCount>500</stackCount>
+  </Item>
+    
+  <Item> 
+    <name>GreenWire5</name>
+    <description>A Medium resistance wire (GreenWire5)</description>
+    <itemId>0085</itemId>
+    <canSmelt>false</canSmelt>
+    <stackCount>500</stackCount>
+  </Item>  
+	
+  <Item> 
+    <name>GoldWire1</name>
+    <description>A Low ressistance Wire (GoldWire1)</description>
+    <itemId>91</itemId>
+    <canSmelt>false</canSmelt>
+    <stackCount>500</stackCount>
+  </Item>
+  
+   <Item> 
+    <name>GoldWire2</name>
+    <description>A Low ressistance Wire (GoldWire2)</description>
+    <itemId>92</itemId>
+    <canSmelt>false</canSmelt>
+    <stackCount>500</stackCount>
+  </Item>
+  
+   <Item> 
+    <name>GoldWire3</name>
+    <description>A Low ressistance Wire (GoldWire3)</description>
+    <itemId>93</itemId>
+    <canSmelt>false</canSmelt>
+    <stackCount>500</stackCount>
+  </Item>
+  
+  <Item> 
+    <name>GoldWire4</name>
+    <description>A Low ressistance Wire (GoldWire4)</description>
+    <itemId>94</itemId>
+    <canSmelt>false</canSmelt>
+    <stackCount>500</stackCount>
+  </Item>
+  
+  <Item> 
+    <name>GoldWire5</name>
+    <description>A Low ressistance Wire (GoldWire5)</description>
+    <itemId>95</itemId>
+    <canSmelt>false</canSmelt>
+    <stackCount>500</stackCount>
+  </Item>
+  
+  
     
   <Item> 
     <name>CoalBlock</name>
@@ -202,6 +380,8 @@
     <canSmelt>true</canSmelt>
     <stackCount>500</stackCount>
   </Item>
+  
+  
     <!--
   <Item>
     <name>Copper Block</name>

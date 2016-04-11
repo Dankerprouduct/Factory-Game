@@ -58,7 +58,7 @@ namespace Factory_Game
             Vector2 pos;
             pos = new Vector2(tile.position.X + (x * 32), tile.position.Y + (y * 32));
 
-            tileMap.GetTile(pos).UpdateIndex((Tile.TileType)type);
+            tileMap.GetTile(pos).UpdateIndex(type);
         }
         public void DestroyTile(int x, int y)
         {
@@ -71,7 +71,7 @@ namespace Factory_Game
         {
             PlayerInteraction(game); 
             inventory.Update(gameTime, game); 
-            if(game.tileMap.GetTile(tile.position).tileType != Tile.TileType.StorageCrate)
+            if(game.tileMap.GetTile(tile.position).index != 60)
             {
                 DestroyTile(0, 0);
                 DestroyTile(1, 0);
@@ -87,7 +87,7 @@ namespace Factory_Game
             Vector2 pos = tile.position;
             // X+
             pos = new Vector2(tile.position.X + (2 * 32), tile.position.Y);
-            if (game.tileMap.GetTile(pos).tileType == Tile.TileType.ItemPipeWest)
+            if (game.tileMap.GetTile(pos).index == 59)
             {
                 if (game.tileMap.GetTile(pos).inventory != null)
                 {
@@ -102,7 +102,7 @@ namespace Factory_Game
 
             // X- 
             pos = new Vector2(tile.position.X - (2 * 32), tile.position.Y);
-            if (tileMap.GetTile(pos).tileType == Tile.TileType.ItemPipeEast)
+            if (tileMap.GetTile(pos).index == 57)
             {
                 if (game.tileMap.GetTile(pos).inventory != null)
                 {
@@ -116,7 +116,7 @@ namespace Factory_Game
 
             // Y+
             pos = new Vector2(tile.position.X, tile.position.Y - (2 * 32));
-            if (tileMap.GetTile(pos).tileType == Tile.TileType.ItemPipeSouth)
+            if (tileMap.GetTile(pos).index == 58)
             {
                 if (game.tileMap.GetTile(pos).inventory != null)
                 {
@@ -130,7 +130,7 @@ namespace Factory_Game
 
             // Y- 
             pos = new Vector2(tile.position.X, tile.position.Y + (2 * 32));
-            if (tileMap.GetTile(pos).tileType == Tile.TileType.ItemPipeEast)
+            if (tileMap.GetTile(pos).index == 57)
             {
                 if (game.tileMap.GetTile(pos).inventory != null)
                 {

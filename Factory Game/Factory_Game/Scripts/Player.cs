@@ -220,7 +220,7 @@ namespace Factory_Game
                     if(keyboardState.IsKeyDown(Keys.E) && oldKeboardState.IsKeyUp(Keys.E))
                     {
                         Console.WriteLine("Current: " + tileMap.chunks[xCord, yCord].tiles[(((int)worldPosition.X % 1024) / 32), (((int)worldPosition.Y % 1024) / 32)].current);
-                        Console.WriteLine("Type: " + tileMap.chunks[xCord, yCord].tiles[(((int)worldPosition.X % 1024) / 32), (((int)worldPosition.Y % 1024) / 32)].tileType.ToString());
+                        Console.WriteLine("Type: " + tileMap.chunks[xCord, yCord].tiles[(((int)worldPosition.X % 1024) / 32), (((int)worldPosition.Y % 1024) / 32)].index.ToString());
                         Console.WriteLine("Durability: " + tileMap.chunks[xCord, yCord].tiles[(((int)worldPosition.X % 1024) / 32), (((int)worldPosition.Y % 1024) / 32)].durability.ToString());
                     }
                     if (keyboardState.IsKeyDown(Keys.V) && oldKeboardState.IsKeyUp(Keys.V))

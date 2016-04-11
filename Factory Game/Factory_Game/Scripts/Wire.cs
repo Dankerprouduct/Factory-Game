@@ -18,8 +18,8 @@ namespace Factory_Game
             int chunkX;
             int chunkY;
 
-            if (tile.tileType == Tile.TileType.RedWire1 || tile.tileType == Tile.TileType.RedWire2 || tile.tileType == Tile.TileType.RedWire3 || tile.tileType == Tile.TileType.RedWire4 ||
-                tile.tileType == Tile.TileType.RedWire5)
+            if (tile.index == 71 || tile.index == 72 || tile.index == 73 || tile.index == 74 ||
+                tile.index == 75)
             {
                 #region Red Wire
 
@@ -30,21 +30,21 @@ namespace Factory_Game
                 tileY = tileMap.FindTile(pos).tileY;
                 chunkX = tileMap.FindTile(pos).chunkX;
                 chunkY = tileMap.FindTile(pos).chunkY;
-                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel )
+                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 71 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 72 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 73 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 74 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 75 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150 )
                 {
                     pos = new Vector2(tile.position.X, tile.position.Y + (1 * 32));
                     tileX = tileMap.FindTile(pos).tileX;
                     tileY = tileMap.FindTile(pos).tileY;
                     chunkX = tileMap.FindTile(pos).chunkX;
                     chunkY = tileMap.FindTile(pos).chunkY;
-                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 71 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 72 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 73 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 74 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 75 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                     {
                         pos = new Vector2(tile.position.X, tile.position.Y - (1 * 32));
                         tileX = tileMap.FindTile(pos).tileX;
                         tileY = tileMap.FindTile(pos).tileY;
                         chunkX = tileMap.FindTile(pos).chunkX;
                         chunkY = tileMap.FindTile(pos).chunkY;
-                        if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                        if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 71 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 72 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 73 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 74 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 75 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                         {
                             pos = new Vector2(tile.position.X - (1 * 32), tile.position.Y);
                             tileX = tileMap.FindTile(pos).tileX;
@@ -52,9 +52,9 @@ namespace Factory_Game
                             chunkX = tileMap.FindTile(pos).chunkX;
                             chunkY = tileMap.FindTile(pos).chunkY;
 
-                            if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                            if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 71 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 72 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 73 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 74 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 75 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                             {
-                                tile.UpdateIndex(Tile.TileType.RedWire4);
+                                tile.UpdateIndex(74);
                                 return;
                             }
                         }
@@ -72,7 +72,7 @@ namespace Factory_Game
                 chunkX = tileMap.FindTile(pos).chunkX;
                 chunkY = tileMap.FindTile(pos).chunkY;
 
-                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 71 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 72 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 73 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 74 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 75 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                 {
                     pos = new Vector2(tile.position.X + (1 * 32), tile.position.Y);
                     tileX = tileMap.FindTile(pos).tileX;
@@ -80,16 +80,16 @@ namespace Factory_Game
                     chunkX = tileMap.FindTile(pos).chunkX;
                     chunkY = tileMap.FindTile(pos).chunkY;
 
-                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 71 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 72 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 73 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 74 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 75 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                     {
                         pos = new Vector2(tile.position.X - (1 * 32), tile.position.Y);
                         tileX = tileMap.FindTile(pos).tileX;
                         tileY = tileMap.FindTile(pos).tileY;
                         chunkX = tileMap.FindTile(pos).chunkX;
                         chunkY = tileMap.FindTile(pos).chunkY;
-                        if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                        if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 71 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 72 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 73 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 74 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 75 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                         {
-                            tile.UpdateIndex(Tile.TileType.RedWire5);
+                            tile.UpdateIndex(75);
                             tile.wireState = Tile.WireState.State1;
                             return;
                         }
@@ -104,7 +104,7 @@ namespace Factory_Game
                 chunkX = tileMap.FindTile(pos).chunkX;
                 chunkY = tileMap.FindTile(pos).chunkY;
 
-                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 71 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 72 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 73 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 74 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 75 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                 {
                     pos = new Vector2(tile.position.X + (1 * 32), tile.position.Y);
                     tileX = tileMap.FindTile(pos).tileX;
@@ -112,16 +112,16 @@ namespace Factory_Game
                     chunkX = tileMap.FindTile(pos).chunkX;
                     chunkY = tileMap.FindTile(pos).chunkY;
 
-                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 71 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 72 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 73 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 74 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 75 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                     {
                         pos = new Vector2(tile.position.X - (1 * 32), tile.position.Y);
                         tileX = tileMap.FindTile(pos).tileX;
                         tileY = tileMap.FindTile(pos).tileY;
                         chunkX = tileMap.FindTile(pos).chunkX;
                         chunkY = tileMap.FindTile(pos).chunkY;
-                        if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                        if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 71 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 72 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 73 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 74 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 75 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                         {
-                            tile.UpdateIndex(Tile.TileType.RedWire5);
+                            tile.UpdateIndex(75);
                             tile.wireState = Tile.WireState.State3;
                             return;
                         }
@@ -135,7 +135,7 @@ namespace Factory_Game
                 chunkX = tileMap.FindTile(pos).chunkX;
                 chunkY = tileMap.FindTile(pos).chunkY;
 
-                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 71 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 72 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 73 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 74 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 75 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                 {
                     pos = new Vector2(tile.position.X, tile.position.Y + (1 * 32));
                     tileX = tileMap.FindTile(pos).tileX;
@@ -143,16 +143,16 @@ namespace Factory_Game
                     chunkX = tileMap.FindTile(pos).chunkX;
                     chunkY = tileMap.FindTile(pos).chunkY;
 
-                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 71 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 72 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 73 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 74 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 75 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                     {
                         pos = new Vector2(tile.position.X, tile.position.Y - (1 * 32));
                         tileX = tileMap.FindTile(pos).tileX;
                         tileY = tileMap.FindTile(pos).tileY;
                         chunkX = tileMap.FindTile(pos).chunkX;
                         chunkY = tileMap.FindTile(pos).chunkY;
-                        if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                        if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 71 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 72 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 73 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 74 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 75 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                         {
-                            tile.UpdateIndex(Tile.TileType.RedWire5);
+                            tile.UpdateIndex(75);
                             tile.wireState = Tile.WireState.State2;
                             return;
                         }
@@ -167,7 +167,7 @@ namespace Factory_Game
                 chunkX = tileMap.FindTile(pos).chunkX;
                 chunkY = tileMap.FindTile(pos).chunkY;
 
-                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 71 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 72 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 73 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 74 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 75 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                 {
                     pos = new Vector2(tile.position.X, tile.position.Y + (1 * 32));
                     tileX = tileMap.FindTile(pos).tileX;
@@ -175,16 +175,16 @@ namespace Factory_Game
                     chunkX = tileMap.FindTile(pos).chunkX;
                     chunkY = tileMap.FindTile(pos).chunkY;
 
-                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 71 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 72 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 73 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 74 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 75 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                     {
                         pos = new Vector2(tile.position.X, tile.position.Y - (1 * 32));
                         tileX = tileMap.FindTile(pos).tileX;
                         tileY = tileMap.FindTile(pos).tileY;
                         chunkX = tileMap.FindTile(pos).chunkX;
                         chunkY = tileMap.FindTile(pos).chunkY;
-                        if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                        if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 71 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 72 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 73 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 74 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 75 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                         {
-                            tile.UpdateIndex(Tile.TileType.RedWire5);
+                            tile.UpdateIndex(75);
                             tile.wireState = Tile.WireState.State4;
                             return;
                         }
@@ -201,16 +201,16 @@ namespace Factory_Game
                 tileY = tileMap.FindTile(pos).tileY;
                 chunkX = tileMap.FindTile(pos).chunkX;
                 chunkY = tileMap.FindTile(pos).chunkY;
-                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 71 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 72 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 73 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 74 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 75 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                 {
                     pos = new Vector2(tile.position.X, tile.position.Y + (1 * 32));
                     tileX = tileMap.FindTile(pos).tileX;
                     tileY = tileMap.FindTile(pos).tileY;
                     chunkX = tileMap.FindTile(pos).chunkX;
                     chunkY = tileMap.FindTile(pos).chunkY;
-                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 71 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 72 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 73 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 74 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 75 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                     {
-                        tile.UpdateIndex(Tile.TileType.RedWire3);
+                        tile.UpdateIndex(73);
                         tile.wireState = Tile.WireState.State4;
                         return;
                     }
@@ -223,7 +223,7 @@ namespace Factory_Game
                 tileY = tileMap.FindTile(pos).tileY;
                 chunkX = tileMap.FindTile(pos).chunkX;
                 chunkY = tileMap.FindTile(pos).chunkY;
-                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 71 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 72 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 73 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 74 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 75 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                 {
                     pos = new Vector2(tile.position.X, tile.position.Y + (1 * 32));
                     tileX = tileMap.FindTile(pos).tileX;
@@ -231,9 +231,9 @@ namespace Factory_Game
                     chunkX = tileMap.FindTile(pos).chunkX;
 
                     chunkY = tileMap.FindTile(pos).chunkY;
-                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 71 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 72 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 73 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 74 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 75 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                     {
-                        tile.UpdateIndex(Tile.TileType.RedWire3);
+                        tile.UpdateIndex(73);
                         tile.wireState = Tile.WireState.State1;
                         return;
                     }
@@ -245,16 +245,16 @@ namespace Factory_Game
                 tileY = tileMap.FindTile(pos).tileY;
                 chunkX = tileMap.FindTile(pos).chunkX;
                 chunkY = tileMap.FindTile(pos).chunkY;
-                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 71 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 72 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 73 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 74 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 75 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                 {
                     pos = new Vector2(tile.position.X, tile.position.Y - (1 * 32));
                     tileX = tileMap.FindTile(pos).tileX;
                     tileY = tileMap.FindTile(pos).tileY;
                     chunkX = tileMap.FindTile(pos).chunkX;
                     chunkY = tileMap.FindTile(pos).chunkY;
-                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 71 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 72 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 73 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 74 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 75 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                     {
-                        tile.UpdateIndex(Tile.TileType.RedWire3);
+                        tile.UpdateIndex(73);
                         tile.wireState = Tile.WireState.State3;
                         return;
                     }
@@ -266,7 +266,7 @@ namespace Factory_Game
                 tileY = tileMap.FindTile(pos).tileY;
                 chunkX = tileMap.FindTile(pos).chunkX;
                 chunkY = tileMap.FindTile(pos).chunkY;
-                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 71 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 72 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 73 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 74 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 75 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                 {
                     pos = new Vector2(tile.position.X, tile.position.Y - (1 * 32));
                     tileX = tileMap.FindTile(pos).tileX;
@@ -274,9 +274,9 @@ namespace Factory_Game
                     chunkX = tileMap.FindTile(pos).chunkX;
 
                     chunkY = tileMap.FindTile(pos).chunkY;
-                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 71 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 72 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 73 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 74 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 75 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                     {
-                        tile.UpdateIndex(Tile.TileType.RedWire3);
+                        tile.UpdateIndex(73);
                         tile.wireState = Tile.WireState.State2;
                         return;
                     }
@@ -293,13 +293,13 @@ namespace Factory_Game
                 chunkX = tileMap.FindTile(pos).chunkX;
                 chunkY = tileMap.FindTile(pos).chunkY;
 
-                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 71 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 72 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 73 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 74 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 75 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                 {
-                    if (tile.tileType == Tile.TileType.RedWire1)
+                    if (tile.index == 71)
                     {
 
 
-                        tile.UpdateIndex(Tile.TileType.RedWire2);
+                        tile.UpdateIndex(72);
                         tile.wireState = Tile.WireState.State1;
                         return;
                     }
@@ -313,11 +313,11 @@ namespace Factory_Game
                 tileY = tileMap.FindTile(pos).tileY;
                 chunkX = tileMap.FindTile(pos).chunkX;
                 chunkY = tileMap.FindTile(pos).chunkY;
-                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 71 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 72 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 73 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 74 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 75 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                 {
-                    if (tile.tileType == Tile.TileType.RedWire1)
+                    if (tile.index == 71)
                     {
-                        tile.UpdateIndex(Tile.TileType.RedWire2);
+                        tile.UpdateIndex(72);
                         tile.wireState = Tile.WireState.State1;
                         return;
                     }
@@ -331,16 +331,16 @@ namespace Factory_Game
                 tileY = tileMap.FindTile(pos).tileY;
                 chunkX = tileMap.FindTile(pos).chunkX;
                 chunkY = tileMap.FindTile(pos).chunkY;
-                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 71 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 72 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 73 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 74 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 75 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                 {
 
-                    if (tile.tileType == Tile.TileType.RedWire1)
+                    if (tile.index == 71)
                     {
-                        //   tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType = Tile.TileType.RedWire2;
-                        tile.UpdateIndex(Tile.TileType.RedWire2);
+                        //   tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index = 72;
+                        tile.UpdateIndex(72);
                         tile.wireState = Tile.WireState.State2;
                         //  tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].wireState = Tile.WireState.State2;
-                        //  tile.UpdateIndex(Tile.TileType.RedWire2);
+                        //  tile.UpdateIndex(72);
                         return;
                     }
                 }
@@ -353,16 +353,16 @@ namespace Factory_Game
                 tileY = tileMap.FindTile(pos).tileY;
                 chunkX = tileMap.FindTile(pos).chunkX;
                 chunkY = tileMap.FindTile(pos).chunkY;
-                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.RedWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 71 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 72 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 73 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 74 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 75 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                 {
 
-                    if (tile.tileType == Tile.TileType.RedWire1)
+                    if (tile.index == 71)
                     {
-                        //  tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType = Tile.TileType.RedWire2;
-                        tile.UpdateIndex(Tile.TileType.RedWire2);
+                        //  tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index = 72;
+                        tile.UpdateIndex(72);
                         tile.wireState = Tile.WireState.State2;
                         //   tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].wireState = Tile.WireState.State2;
-                       // tile.UpdateIndex(Tile.TileType.RedWire2, tileMap);
+                       // tile.UpdateIndex(72, tileMap);
                         return;
                     }
                 }
@@ -376,8 +376,8 @@ namespace Factory_Game
 
                 #endregion
             }
-            else if (tile.tileType == Tile.TileType.GreenWire1 || tile.tileType == Tile.TileType.GreenWire2 || tile.tileType == Tile.TileType.GreenWire3 || tile.tileType == Tile.TileType.GreenWire4 ||
-                tile.tileType == Tile.TileType.GreenWire5)
+            else if (tile.index == 81 || tile.index == 82 || tile.index == 83 || tile.index == 84 ||
+                tile.index == 85)
             {
 
                 #region Green Wire
@@ -389,21 +389,21 @@ namespace Factory_Game
                 tileY = tileMap.FindTile(pos).tileY;
                 chunkX = tileMap.FindTile(pos).chunkX;
                 chunkY = tileMap.FindTile(pos).chunkY;
-                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 81 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 82 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 83 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 84 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 85 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                 {
                     pos = new Vector2(tile.position.X, tile.position.Y + (1 * 32));
                     tileX = tileMap.FindTile(pos).tileX;
                     tileY = tileMap.FindTile(pos).tileY;
                     chunkX = tileMap.FindTile(pos).chunkX;
                     chunkY = tileMap.FindTile(pos).chunkY;
-                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 81 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 82 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 83 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 84 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 85 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                     {
                         pos = new Vector2(tile.position.X, tile.position.Y - (1 * 32));
                         tileX = tileMap.FindTile(pos).tileX;
                         tileY = tileMap.FindTile(pos).tileY;
                         chunkX = tileMap.FindTile(pos).chunkX;
                         chunkY = tileMap.FindTile(pos).chunkY;
-                        if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                        if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 81 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 82 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 83 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 84 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 85 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                         {
                             pos = new Vector2(tile.position.X - (1 * 32), tile.position.Y);
                             tileX = tileMap.FindTile(pos).tileX;
@@ -411,9 +411,9 @@ namespace Factory_Game
                             chunkX = tileMap.FindTile(pos).chunkX;
                             chunkY = tileMap.FindTile(pos).chunkY;
 
-                            if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                            if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 81 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 82 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 83 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 84 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 85 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                             {
-                                tile.UpdateIndex(Tile.TileType.GreenWire4);
+                                tile.UpdateIndex(84);
                                 return;
                             }
                         }
@@ -431,7 +431,7 @@ namespace Factory_Game
                 chunkX = tileMap.FindTile(pos).chunkX;
                 chunkY = tileMap.FindTile(pos).chunkY;
 
-                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 81 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 82 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 83 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 84 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 85 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                 {
                     pos = new Vector2(tile.position.X + (1 * 32), tile.position.Y);
                     tileX = tileMap.FindTile(pos).tileX;
@@ -439,16 +439,16 @@ namespace Factory_Game
                     chunkX = tileMap.FindTile(pos).chunkX;
                     chunkY = tileMap.FindTile(pos).chunkY;
 
-                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 81 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 82 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 83 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 84 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 85 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                     {
                         pos = new Vector2(tile.position.X - (1 * 32), tile.position.Y);
                         tileX = tileMap.FindTile(pos).tileX;
                         tileY = tileMap.FindTile(pos).tileY;
                         chunkX = tileMap.FindTile(pos).chunkX;
                         chunkY = tileMap.FindTile(pos).chunkY;
-                        if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                        if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 81 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 82 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 83 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 84 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 85 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                         {
-                            tile.UpdateIndex(Tile.TileType.GreenWire5);
+                            tile.UpdateIndex(85);
                             tile.wireState = Tile.WireState.State1;
                             return;
                         }
@@ -463,7 +463,7 @@ namespace Factory_Game
                 chunkX = tileMap.FindTile(pos).chunkX;
                 chunkY = tileMap.FindTile(pos).chunkY;
 
-                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 81 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 82 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 83 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 84 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 85 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                 {
                     pos = new Vector2(tile.position.X + (1 * 32), tile.position.Y);
                     tileX = tileMap.FindTile(pos).tileX;
@@ -471,16 +471,16 @@ namespace Factory_Game
                     chunkX = tileMap.FindTile(pos).chunkX;
                     chunkY = tileMap.FindTile(pos).chunkY;
 
-                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 81 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 82 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 83 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 84 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 85 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                     {
                         pos = new Vector2(tile.position.X - (1 * 32), tile.position.Y);
                         tileX = tileMap.FindTile(pos).tileX;
                         tileY = tileMap.FindTile(pos).tileY;
                         chunkX = tileMap.FindTile(pos).chunkX;
                         chunkY = tileMap.FindTile(pos).chunkY;
-                        if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                        if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 81 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 82 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 83 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 84 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 85 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                         {
-                            tile.UpdateIndex(Tile.TileType.GreenWire5);
+                            tile.UpdateIndex(85);
                             tile.wireState = Tile.WireState.State3;
                             return;
                         }
@@ -494,7 +494,7 @@ namespace Factory_Game
                 chunkX = tileMap.FindTile(pos).chunkX;
                 chunkY = tileMap.FindTile(pos).chunkY;
 
-                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 81 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 82 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 83 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 84 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 85 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                 {
                     pos = new Vector2(tile.position.X, tile.position.Y + (1 * 32));
                     tileX = tileMap.FindTile(pos).tileX;
@@ -502,16 +502,16 @@ namespace Factory_Game
                     chunkX = tileMap.FindTile(pos).chunkX;
                     chunkY = tileMap.FindTile(pos).chunkY;
 
-                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 81 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 82 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 83 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 84 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 85 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                     {
                         pos = new Vector2(tile.position.X, tile.position.Y - (1 * 32));
                         tileX = tileMap.FindTile(pos).tileX;
                         tileY = tileMap.FindTile(pos).tileY;
                         chunkX = tileMap.FindTile(pos).chunkX;
                         chunkY = tileMap.FindTile(pos).chunkY;
-                        if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                        if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 81 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 82 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 83 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 84 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 85 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                         {
-                            tile.UpdateIndex(Tile.TileType.GreenWire5);
+                            tile.UpdateIndex(85);
                             tile.wireState = Tile.WireState.State2;
                             return;
                         }
@@ -526,7 +526,7 @@ namespace Factory_Game
                 chunkX = tileMap.FindTile(pos).chunkX;
                 chunkY = tileMap.FindTile(pos).chunkY;
 
-                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 81 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 82 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 83 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 84 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 85 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                 {
                     pos = new Vector2(tile.position.X, tile.position.Y + (1 * 32));
                     tileX = tileMap.FindTile(pos).tileX;
@@ -534,16 +534,16 @@ namespace Factory_Game
                     chunkX = tileMap.FindTile(pos).chunkX;
                     chunkY = tileMap.FindTile(pos).chunkY;
 
-                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 81 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 82 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 83 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 84 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 85 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                     {
                         pos = new Vector2(tile.position.X, tile.position.Y - (1 * 32));
                         tileX = tileMap.FindTile(pos).tileX;
                         tileY = tileMap.FindTile(pos).tileY;
                         chunkX = tileMap.FindTile(pos).chunkX;
                         chunkY = tileMap.FindTile(pos).chunkY;
-                        if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                        if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 81 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 82 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 83 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 84 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 85 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                         {
-                            tile.UpdateIndex(Tile.TileType.GreenWire5);
+                            tile.UpdateIndex(85);
                             tile.wireState = Tile.WireState.State4;
                             return;
                         }
@@ -560,16 +560,16 @@ namespace Factory_Game
                 tileY = tileMap.FindTile(pos).tileY;
                 chunkX = tileMap.FindTile(pos).chunkX;
                 chunkY = tileMap.FindTile(pos).chunkY;
-                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 81 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 82 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 83 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 84 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 85 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                 {
                     pos = new Vector2(tile.position.X, tile.position.Y + (1 * 32));
                     tileX = tileMap.FindTile(pos).tileX;
                     tileY = tileMap.FindTile(pos).tileY;
                     chunkX = tileMap.FindTile(pos).chunkX;
                     chunkY = tileMap.FindTile(pos).chunkY;
-                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 81 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 82 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 83 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 84 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 85 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                     {
-                        tile.UpdateIndex(Tile.TileType.GreenWire3);
+                        tile.UpdateIndex(83);
                         tile.wireState = Tile.WireState.State4;
                         return;
                     }
@@ -582,7 +582,7 @@ namespace Factory_Game
                 tileY = tileMap.FindTile(pos).tileY;
                 chunkX = tileMap.FindTile(pos).chunkX;
                 chunkY = tileMap.FindTile(pos).chunkY;
-                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 81 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 82 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 83 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 84 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 85 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                 {
                     pos = new Vector2(tile.position.X, tile.position.Y + (1 * 32));
                     tileX = tileMap.FindTile(pos).tileX;
@@ -590,9 +590,9 @@ namespace Factory_Game
                     chunkX = tileMap.FindTile(pos).chunkX;
 
                     chunkY = tileMap.FindTile(pos).chunkY;
-                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 81 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 82 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 83 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 84 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 85 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                     {
-                        tile.UpdateIndex(Tile.TileType.GreenWire3);
+                        tile.UpdateIndex(83);
                         tile.wireState = Tile.WireState.State1;
                         return;
                     }
@@ -604,16 +604,16 @@ namespace Factory_Game
                 tileY = tileMap.FindTile(pos).tileY;
                 chunkX = tileMap.FindTile(pos).chunkX;
                 chunkY = tileMap.FindTile(pos).chunkY;
-                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 81 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 82 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 83 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 84 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 85 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                 {
                     pos = new Vector2(tile.position.X, tile.position.Y - (1 * 32));
                     tileX = tileMap.FindTile(pos).tileX;
                     tileY = tileMap.FindTile(pos).tileY;
                     chunkX = tileMap.FindTile(pos).chunkX;
                     chunkY = tileMap.FindTile(pos).chunkY;
-                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 81 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 82 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 83 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 84 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 85 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                     {
-                        tile.UpdateIndex(Tile.TileType.GreenWire3);
+                        tile.UpdateIndex(83);
                         tile.wireState = Tile.WireState.State3;
                         return;
                     }
@@ -625,7 +625,7 @@ namespace Factory_Game
                 tileY = tileMap.FindTile(pos).tileY;
                 chunkX = tileMap.FindTile(pos).chunkX;
                 chunkY = tileMap.FindTile(pos).chunkY;
-                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 81 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 82 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 83 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 84 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 85 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                 {
                     pos = new Vector2(tile.position.X, tile.position.Y - (1 * 32));
                     tileX = tileMap.FindTile(pos).tileX;
@@ -633,9 +633,9 @@ namespace Factory_Game
                     chunkX = tileMap.FindTile(pos).chunkX;
 
                     chunkY = tileMap.FindTile(pos).chunkY;
-                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 81 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 82 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 83 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 84 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 85 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                     {
-                        tile.UpdateIndex(Tile.TileType.GreenWire3);
+                        tile.UpdateIndex(83);
                         tile.wireState = Tile.WireState.State2;
                         return;
                     }
@@ -652,13 +652,13 @@ namespace Factory_Game
                 chunkX = tileMap.FindTile(pos).chunkX;
                 chunkY = tileMap.FindTile(pos).chunkY;
 
-                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 81 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 82 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 83 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 84 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 85 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                 {
-                    if (tile.tileType == Tile.TileType.GreenWire1)
+                    if (tile.index == 81)
                     {
 
 
-                        tile.UpdateIndex(Tile.TileType.GreenWire2);
+                        tile.UpdateIndex(82);
                         tile.wireState = Tile.WireState.State1;
                         return;
                     }
@@ -672,11 +672,11 @@ namespace Factory_Game
                 tileY = tileMap.FindTile(pos).tileY;
                 chunkX = tileMap.FindTile(pos).chunkX;
                 chunkY = tileMap.FindTile(pos).chunkY;
-                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 81 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 82 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 83 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 84 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 85 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                 {
-                    if (tile.tileType == Tile.TileType.GreenWire1)
+                    if (tile.index == 81)
                     {
-                        tile.UpdateIndex(Tile.TileType.GreenWire2);
+                        tile.UpdateIndex(82);
                         tile.wireState = Tile.WireState.State1;
                         return;
                     }
@@ -690,16 +690,16 @@ namespace Factory_Game
                 tileY = tileMap.FindTile(pos).tileY;
                 chunkX = tileMap.FindTile(pos).chunkX;
                 chunkY = tileMap.FindTile(pos).chunkY;
-                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 81 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 82 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 83 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 84 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 85 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                 {
 
-                    if (tile.tileType == Tile.TileType.GreenWire1)
+                    if (tile.index == 81)
                     {
-                        //   tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType = Tile.TileType.GreenWire2;
-                        tile.UpdateIndex(Tile.TileType.GreenWire2);
+                        //   tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index = 82;
+                        tile.UpdateIndex(82);
                         tile.wireState = Tile.WireState.State2;
                         //  tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].wireState = Tile.WireState.State2;
-                        //  tile.UpdateIndex(Tile.TileType.GreenWire2);
+                        //  tile.UpdateIndex(82);
                         return;
                     }
                 }
@@ -712,16 +712,16 @@ namespace Factory_Game
                 tileY = tileMap.FindTile(pos).tileY;
                 chunkX = tileMap.FindTile(pos).chunkX;
                 chunkY = tileMap.FindTile(pos).chunkY;
-                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GreenWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 81 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 82 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 83 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 84 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 85 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                 {
 
-                    if (tile.tileType == Tile.TileType.GreenWire1)
+                    if (tile.index == 81)
                     {
-                        //  tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType = Tile.TileType.GreenWire2;
-                        tile.UpdateIndex(Tile.TileType.GreenWire2);
+                        //  tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index = 82;
+                        tile.UpdateIndex(82);
                         tile.wireState = Tile.WireState.State2;
                         //   tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].wireState = Tile.WireState.State2;
-                     //   tile.UpdateIndex(Tile.TileType.GreenWire2);
+                     //   tile.UpdateIndex(82);
                         return;
                     }
                 }
@@ -735,8 +735,8 @@ namespace Factory_Game
 
                 #endregion
             }
-            else if (tile.tileType == Tile.TileType.GoldWire1 || tile.tileType == Tile.TileType.GoldWire2 || tile.tileType == Tile.TileType.GoldWire3 || tile.tileType == Tile.TileType.GoldWire4 ||
-                tile.tileType == Tile.TileType.GoldWire5)
+            else if (tile.index == 91 || tile.index == 92 || tile.index == 93 || tile.index == 94 ||
+                tile.index == 95)
             {
                 #region Gold Wire
 
@@ -747,21 +747,21 @@ namespace Factory_Game
                 tileY = tileMap.FindTile(pos).tileY;
                 chunkX = tileMap.FindTile(pos).chunkX;
                 chunkY = tileMap.FindTile(pos).chunkY;
-                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 91 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 92 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 93 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 94 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 95 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                 {
                     pos = new Vector2(tile.position.X, tile.position.Y + (1 * 32));
                     tileX = tileMap.FindTile(pos).tileX;
                     tileY = tileMap.FindTile(pos).tileY;
                     chunkX = tileMap.FindTile(pos).chunkX;
                     chunkY = tileMap.FindTile(pos).chunkY;
-                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 91 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 92 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 93 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 94 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 95 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                     {
                         pos = new Vector2(tile.position.X, tile.position.Y - (1 * 32));
                         tileX = tileMap.FindTile(pos).tileX;
                         tileY = tileMap.FindTile(pos).tileY;
                         chunkX = tileMap.FindTile(pos).chunkX;
                         chunkY = tileMap.FindTile(pos).chunkY;
-                        if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                        if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 91 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 92 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 93 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 94 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 95 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                         {
                             pos = new Vector2(tile.position.X - (1 * 32), tile.position.Y);
                             tileX = tileMap.FindTile(pos).tileX;
@@ -769,9 +769,9 @@ namespace Factory_Game
                             chunkX = tileMap.FindTile(pos).chunkX;
                             chunkY = tileMap.FindTile(pos).chunkY;
 
-                            if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                            if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 91 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 92 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 93 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 94 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 95 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                             {
-                                tile.UpdateIndex(Tile.TileType.GoldWire4);
+                                tile.UpdateIndex(94);
                                 return;
                             }
                         }
@@ -789,7 +789,7 @@ namespace Factory_Game
                 chunkX = tileMap.FindTile(pos).chunkX;
                 chunkY = tileMap.FindTile(pos).chunkY;
 
-                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 91 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 92 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 93 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 94 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 95 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                 {
                     pos = new Vector2(tile.position.X + (1 * 32), tile.position.Y);
                     tileX = tileMap.FindTile(pos).tileX;
@@ -797,16 +797,16 @@ namespace Factory_Game
                     chunkX = tileMap.FindTile(pos).chunkX;
                     chunkY = tileMap.FindTile(pos).chunkY;
 
-                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 91 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 92 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 93 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 94 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 95 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                     {
                         pos = new Vector2(tile.position.X - (1 * 32), tile.position.Y);
                         tileX = tileMap.FindTile(pos).tileX;
                         tileY = tileMap.FindTile(pos).tileY;
                         chunkX = tileMap.FindTile(pos).chunkX;
                         chunkY = tileMap.FindTile(pos).chunkY;
-                        if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                        if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 91 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 92 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 93 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 94 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 95 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                         {
-                            tile.UpdateIndex(Tile.TileType.GoldWire5);
+                            tile.UpdateIndex(95);
                             tile.wireState = Tile.WireState.State1;
                             return;
                         }
@@ -821,7 +821,7 @@ namespace Factory_Game
                 chunkX = tileMap.FindTile(pos).chunkX;
                 chunkY = tileMap.FindTile(pos).chunkY;
 
-                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 91 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 92 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 93 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 94 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 95 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                 {
                     pos = new Vector2(tile.position.X + (1 * 32), tile.position.Y);
                     tileX = tileMap.FindTile(pos).tileX;
@@ -829,16 +829,16 @@ namespace Factory_Game
                     chunkX = tileMap.FindTile(pos).chunkX;
                     chunkY = tileMap.FindTile(pos).chunkY;
 
-                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 91 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 92 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 93 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 94 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 95 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                     {
                         pos = new Vector2(tile.position.X - (1 * 32), tile.position.Y);
                         tileX = tileMap.FindTile(pos).tileX;
                         tileY = tileMap.FindTile(pos).tileY;
                         chunkX = tileMap.FindTile(pos).chunkX;
                         chunkY = tileMap.FindTile(pos).chunkY;
-                        if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                        if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 91 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 92 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 93 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 94 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 95 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                         {
-                            tile.UpdateIndex(Tile.TileType.GoldWire5);
+                            tile.UpdateIndex(95);
                             tile.wireState = Tile.WireState.State3;
                             return;
                         }
@@ -852,7 +852,7 @@ namespace Factory_Game
                 chunkX = tileMap.FindTile(pos).chunkX;
                 chunkY = tileMap.FindTile(pos).chunkY;
 
-                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 91 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 92 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 93 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 94 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 95 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                 {
                     pos = new Vector2(tile.position.X, tile.position.Y + (1 * 32));
                     tileX = tileMap.FindTile(pos).tileX;
@@ -860,16 +860,16 @@ namespace Factory_Game
                     chunkX = tileMap.FindTile(pos).chunkX;
                     chunkY = tileMap.FindTile(pos).chunkY;
 
-                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 91 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 92 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 93 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 94 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 95 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                     {
                         pos = new Vector2(tile.position.X, tile.position.Y - (1 * 32));
                         tileX = tileMap.FindTile(pos).tileX;
                         tileY = tileMap.FindTile(pos).tileY;
                         chunkX = tileMap.FindTile(pos).chunkX;
                         chunkY = tileMap.FindTile(pos).chunkY;
-                        if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                        if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 91 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 92 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 93 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 94 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 95 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                         {
-                            tile.UpdateIndex(Tile.TileType.GoldWire5);
+                            tile.UpdateIndex(95);
                             tile.wireState = Tile.WireState.State2;
                             return;
                         }
@@ -884,7 +884,7 @@ namespace Factory_Game
                 chunkX = tileMap.FindTile(pos).chunkX;
                 chunkY = tileMap.FindTile(pos).chunkY;
 
-                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 91 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 92 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 93 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 94 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 95 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                 {
                     pos = new Vector2(tile.position.X, tile.position.Y + (1 * 32));
                     tileX = tileMap.FindTile(pos).tileX;
@@ -892,16 +892,16 @@ namespace Factory_Game
                     chunkX = tileMap.FindTile(pos).chunkX;
                     chunkY = tileMap.FindTile(pos).chunkY;
 
-                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 91 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 92 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 93 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 94 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 95 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                     {
                         pos = new Vector2(tile.position.X, tile.position.Y - (1 * 32));
                         tileX = tileMap.FindTile(pos).tileX;
                         tileY = tileMap.FindTile(pos).tileY;
                         chunkX = tileMap.FindTile(pos).chunkX;
                         chunkY = tileMap.FindTile(pos).chunkY;
-                        if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                        if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 91 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 92 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 93 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 94 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 95 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                         {
-                            tile.UpdateIndex(Tile.TileType.GoldWire5);
+                            tile.UpdateIndex(95);
                             tile.wireState = Tile.WireState.State4;
                             return;
                         }
@@ -918,16 +918,16 @@ namespace Factory_Game
                 tileY = tileMap.FindTile(pos).tileY;
                 chunkX = tileMap.FindTile(pos).chunkX;
                 chunkY = tileMap.FindTile(pos).chunkY;
-                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 91 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 92 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 93 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 94 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 95 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                 {
                     pos = new Vector2(tile.position.X, tile.position.Y + (1 * 32));
                     tileX = tileMap.FindTile(pos).tileX;
                     tileY = tileMap.FindTile(pos).tileY;
                     chunkX = tileMap.FindTile(pos).chunkX;
                     chunkY = tileMap.FindTile(pos).chunkY;
-                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 91 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 92 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 93 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 94 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 95 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                     {
-                        tile.UpdateIndex(Tile.TileType.GoldWire3);
+                        tile.UpdateIndex(93);
                         tile.wireState = Tile.WireState.State4;
                         return;
                     }
@@ -940,7 +940,7 @@ namespace Factory_Game
                 tileY = tileMap.FindTile(pos).tileY;
                 chunkX = tileMap.FindTile(pos).chunkX;
                 chunkY = tileMap.FindTile(pos).chunkY;
-                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 91 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 92 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 93 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 94 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 95 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                 {
                     pos = new Vector2(tile.position.X, tile.position.Y + (1 * 32));
                     tileX = tileMap.FindTile(pos).tileX;
@@ -948,9 +948,9 @@ namespace Factory_Game
                     chunkX = tileMap.FindTile(pos).chunkX;
 
                     chunkY = tileMap.FindTile(pos).chunkY;
-                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 91 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 92 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 93 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 94 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 95 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                     {
-                        tile.UpdateIndex(Tile.TileType.GoldWire3);
+                        tile.UpdateIndex(93);
                         tile.wireState = Tile.WireState.State1;
                         return;
                     }
@@ -962,16 +962,16 @@ namespace Factory_Game
                 tileY = tileMap.FindTile(pos).tileY;
                 chunkX = tileMap.FindTile(pos).chunkX;
                 chunkY = tileMap.FindTile(pos).chunkY;
-                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 91 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 92 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 93 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 94 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 95 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                 {
                     pos = new Vector2(tile.position.X, tile.position.Y - (1 * 32));
                     tileX = tileMap.FindTile(pos).tileX;
                     tileY = tileMap.FindTile(pos).tileY;
                     chunkX = tileMap.FindTile(pos).chunkX;
                     chunkY = tileMap.FindTile(pos).chunkY;
-                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 91 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 92 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 93 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 94 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 95 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                     {
-                        tile.UpdateIndex(Tile.TileType.GoldWire3);
+                        tile.UpdateIndex(93);
                         tile.wireState = Tile.WireState.State3;
                         return;
                     }
@@ -983,7 +983,7 @@ namespace Factory_Game
                 tileY = tileMap.FindTile(pos).tileY;
                 chunkX = tileMap.FindTile(pos).chunkX;
                 chunkY = tileMap.FindTile(pos).chunkY;
-                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 91 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 92 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 93 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 94 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 95 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                 {
                     pos = new Vector2(tile.position.X, tile.position.Y - (1 * 32));
                     tileX = tileMap.FindTile(pos).tileX;
@@ -991,9 +991,9 @@ namespace Factory_Game
                     chunkX = tileMap.FindTile(pos).chunkX;
 
                     chunkY = tileMap.FindTile(pos).chunkY;
-                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                    if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 91 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 92 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 93 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 94 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 95 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                     {
-                        tile.UpdateIndex(Tile.TileType.GoldWire3);
+                        tile.UpdateIndex(93);
                         tile.wireState = Tile.WireState.State2;
                         return;
                     }
@@ -1010,13 +1010,13 @@ namespace Factory_Game
                 chunkX = tileMap.FindTile(pos).chunkX;
                 chunkY = tileMap.FindTile(pos).chunkY;
 
-                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 91 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 92 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 93 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 94 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 95 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                 {
-                    if (tile.tileType == Tile.TileType.GoldWire1)
+                    if (tile.index == 91)
                     {
 
 
-                        tile.UpdateIndex(Tile.TileType.GoldWire2);
+                        tile.UpdateIndex(92);
                         tile.wireState = Tile.WireState.State1;
                         return;
                     }
@@ -1030,11 +1030,11 @@ namespace Factory_Game
                 tileY = tileMap.FindTile(pos).tileY;
                 chunkX = tileMap.FindTile(pos).chunkX;
                 chunkY = tileMap.FindTile(pos).chunkY;
-                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 91 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 92 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 93 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 94 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 95 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                 {
-                    if (tile.tileType == Tile.TileType.GoldWire1)
+                    if (tile.index == 91)
                     {
-                        tile.UpdateIndex(Tile.TileType.GoldWire2);
+                        tile.UpdateIndex(92);
                         tile.wireState = Tile.WireState.State1;
                         return;
                     }
@@ -1048,16 +1048,16 @@ namespace Factory_Game
                 tileY = tileMap.FindTile(pos).tileY;
                 chunkX = tileMap.FindTile(pos).chunkX;
                 chunkY = tileMap.FindTile(pos).chunkY;
-                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 91 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 92 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 93 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 94 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 95 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                 {
 
-                    if (tile.tileType == Tile.TileType.GoldWire1)
+                    if (tile.index == 91)
                     {
-                        //   tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType = Tile.TileType.GoldWire2;
-                        tile.UpdateIndex(Tile.TileType.GoldWire2);
+                        //   tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index = 92;
+                        tile.UpdateIndex(92);
                         tile.wireState = Tile.WireState.State2;
                         //  tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].wireState = Tile.WireState.State2;
-                        //  tile.UpdateIndex(Tile.TileType.GoldWire2);
+                        //  tile.UpdateIndex(92);
                         return;
                     }
                 }
@@ -1070,16 +1070,16 @@ namespace Factory_Game
                 tileY = tileMap.FindTile(pos).tileY;
                 chunkX = tileMap.FindTile(pos).chunkX;
                 chunkY = tileMap.FindTile(pos).chunkY;
-                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire1 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire2 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire3 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire4 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.GoldWire5 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.BatteryBlock || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType == Tile.TileType.SolarPanel)
+                if (tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 91 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 92 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 93 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 94 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 95 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 50 || tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index == 150)
                 {
 
-                    if (tile.tileType == Tile.TileType.GoldWire1)
+                    if (tile.index == 91)
                     {
-                        //  tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].tileType = Tile.TileType.GoldWire2;
-                        tile.UpdateIndex(Tile.TileType.GoldWire2);
+                        //  tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].index = 92;
+                        tile.UpdateIndex(92);
                         tile.wireState = Tile.WireState.State2;
                         //   tileMap.chunks[chunkX, chunkY].tiles[tileX, tileY].wireState = Tile.WireState.State2;
-                       // tile.UpdateIndex(Tile.TileType.GoldWire2);
+                       // tile.UpdateIndex(92);
                         return;
                     }
                 }
@@ -1116,47 +1116,47 @@ namespace Factory_Game
             pos = new Vector2(pos.X, pos.Y - 32);
 
             
-            if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire1)
+            if (tileMap.GetTile(pos).index == 81)
             {
                 if(tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current); 
                 }
             }
-            else if(tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire2)
+            else if(tileMap.GetTile(pos).index == 82)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if(tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire3)
+            else if(tileMap.GetTile(pos).index == 83)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if(tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire4)
+            else if(tileMap.GetTile(pos).index == 84)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if(tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire5)
+            else if(tileMap.GetTile(pos).index == 85)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.BatteryBlock)
+            else if (tileMap.GetTile(pos).index == 50)
             {
                 
                // tile.current = tileMap.GetTile(pos).battery.CurrentPower();
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.QuarryBlock)
+            else if (tileMap.GetTile(pos).index ==55)
             {
                 
                  tileMap.GetTile(pos).current = tile.current; 
@@ -1169,46 +1169,46 @@ namespace Factory_Game
             pos = new Vector2(tile.position.X, tile.position.Y);
             pos = new Vector2(pos.X, pos.Y + 32);
 
-            if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire1)
+            if (tileMap.GetTile(pos).index == 81)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire2)
+            else if (tileMap.GetTile(pos).index == 82)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire3)
+            else if (tileMap.GetTile(pos).index == 83)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire4)
+            else if (tileMap.GetTile(pos).index == 84)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire5)
+            else if (tileMap.GetTile(pos).index == 85)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.BatteryBlock)
+            else if (tileMap.GetTile(pos).index == 50)
             {
                 //tile.current = tileMap.GetTile(pos).battery.CurrentPower();
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.QuarryBlock)
+            else if (tileMap.GetTile(pos).index ==55)
             {
 
                 tileMap.GetTile(pos).current = tile.current;
@@ -1220,46 +1220,46 @@ namespace Factory_Game
             pos = new Vector2(tile.position.X, tile.position.Y);
             pos = new Vector2(pos.X + 32, pos.Y);
 
-            if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire1)
+            if (tileMap.GetTile(pos).index == 81)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire2)
+            else if (tileMap.GetTile(pos).index == 82)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire3)
+            else if (tileMap.GetTile(pos).index == 83)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire4)
+            else if (tileMap.GetTile(pos).index == 84)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire5)
+            else if (tileMap.GetTile(pos).index == 85)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.SolarPanel)
+            else if (tileMap.GetTile(pos).index == 150)
             {
                 tile.current = tileMap.GetTile(pos).battery.CurrentPower();
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.QuarryBlock)
+            else if (tileMap.GetTile(pos).index ==55)
             {
                 
                 tileMap.GetTile(pos).current = tile.current;
@@ -1274,46 +1274,46 @@ namespace Factory_Game
             pos = new Vector2(tile.position.X, tile.position.Y);
             pos = new Vector2(pos.X - 32, pos.Y);
 
-            if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire1)
+            if (tileMap.GetTile(pos).index == 81)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire2)
+            else if (tileMap.GetTile(pos).index == 82)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire3)
+            else if (tileMap.GetTile(pos).index == 83)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire4)
+            else if (tileMap.GetTile(pos).index == 84)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire5)
+            else if (tileMap.GetTile(pos).index == 85)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.BatteryBlock)
+            else if (tileMap.GetTile(pos).index == 50)
             {
                 //tile.current = tileMap.GetTile(pos).battery.CurrentPower();
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.QuarryBlock)
+            else if (tileMap.GetTile(pos).index ==55)
             {
 
                 tileMap.GetTile(pos).current = tile.current;
@@ -1331,42 +1331,42 @@ namespace Factory_Game
             pos = new Vector2(tile.position.X, tile.position.Y); 
             pos = new Vector2(pos.X, pos.Y - 32);
 
-            if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire1)
+            if (tileMap.GetTile(pos).index == 81)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire2)
+            else if (tileMap.GetTile(pos).index == 82)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire3)
+            else if (tileMap.GetTile(pos).index == 83)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire4)
+            else if (tileMap.GetTile(pos).index == 84)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire5)
+            else if (tileMap.GetTile(pos).index == 85)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.BatteryBlock)
+            else if (tileMap.GetTile(pos).index == 50)
             {
                 //tile.current = tileMap.GetTile(pos).battery.CurrentPower();
             }
@@ -1378,42 +1378,42 @@ namespace Factory_Game
             pos = new Vector2(tile.position.X, tile.position.Y);
             pos = new Vector2(pos.X, pos.Y + 32);
 
-            if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire1)
+            if (tileMap.GetTile(pos).index == 81)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire2)
+            else if (tileMap.GetTile(pos).index == 82)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire3)
+            else if (tileMap.GetTile(pos).index == 83)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire4)
+            else if (tileMap.GetTile(pos).index == 84)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire5)
+            else if (tileMap.GetTile(pos).index == 85)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.BatteryBlock)
+            else if (tileMap.GetTile(pos).index == 50)
             {
                 //tile.current = tileMap.GetTile(pos).battery.CurrentPower();
             }
@@ -1424,42 +1424,42 @@ namespace Factory_Game
             pos = new Vector2(tile.position.X, tile.position.Y);
             pos = new Vector2(pos.X + 32, pos.Y);
 
-            if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire1)
+            if (tileMap.GetTile(pos).index == 81)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire2)
+            else if (tileMap.GetTile(pos).index == 82)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire3)
+            else if (tileMap.GetTile(pos).index == 83)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire4)
+            else if (tileMap.GetTile(pos).index == 84)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire5)
+            else if (tileMap.GetTile(pos).index == 85)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.SolarPanel)
+            else if (tileMap.GetTile(pos).index == 150)
             {
                 tile.current = tileMap.GetTile(pos).battery.CurrentPower();
             }
@@ -1471,42 +1471,42 @@ namespace Factory_Game
             pos = new Vector2(tile.position.X, tile.position.Y);
             pos = new Vector2(pos.X - 32, pos.Y);
 
-            if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire1)
+            if (tileMap.GetTile(pos).index == 81)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire2)
+            else if (tileMap.GetTile(pos).index == 82)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire3)
+            else if (tileMap.GetTile(pos).index == 83)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire4)
+            else if (tileMap.GetTile(pos).index == 84)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GreenWire5)
+            else if (tileMap.GetTile(pos).index == 85)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.BatteryBlock)
+            else if (tileMap.GetTile(pos).index == 50)
             {
                // tile.current = tileMap.GetTile(pos).battery.CurrentPower();
             }
@@ -1523,46 +1523,46 @@ namespace Factory_Game
             
             pos = new Vector2(tile.position.X, tile.position.Y - 32);
 
-            if (tileMap.GetTile(pos).tileType == Tile.TileType.GoldWire1)
+            if (tileMap.GetTile(pos).index == 91)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GoldWire2)
+            else if (tileMap.GetTile(pos).index == 92)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GoldWire3)
+            else if (tileMap.GetTile(pos).index == 93)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GoldWire4)
+            else if (tileMap.GetTile(pos).index == 94)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GoldWire5)
+            else if (tileMap.GetTile(pos).index == 95)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.SolarPanel)
+            else if (tileMap.GetTile(pos).index == 150)
             {
                 tile.current = tileMap.GetTile(pos).battery.CurrentPower();
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.QuarryBlock)
+            else if (tileMap.GetTile(pos).index ==55)
             {
 
                 tileMap.GetTile(pos).current = tile.current;
@@ -1574,46 +1574,46 @@ namespace Factory_Game
             // Down
             pos = new Vector2(tile.position.X, tile.position.Y + 32);
 
-            if (tileMap.GetTile(pos).tileType == Tile.TileType.GoldWire1)
+            if (tileMap.GetTile(pos).index == 91)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GoldWire2)
+            else if (tileMap.GetTile(pos).index == 92)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GoldWire3)
+            else if (tileMap.GetTile(pos).index == 93)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GoldWire4)
+            else if (tileMap.GetTile(pos).index == 94)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GoldWire5)
+            else if (tileMap.GetTile(pos).index == 95)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.SolarPanel)
+            else if (tileMap.GetTile(pos).index == 150)
             {
                 tile.current = tileMap.GetTile(pos).battery.CurrentPower();
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.QuarryBlock)
+            else if (tileMap.GetTile(pos).index ==55)
             {
 
                 tileMap.GetTile(pos).current = tile.current;
@@ -1624,14 +1624,14 @@ namespace Factory_Game
             // Right 
             pos = new Vector2(tile.position.X + 32, tile.position.Y);
 
-            if (tileMap.GetTile(pos).tileType == Tile.TileType.GoldWire1)
+            if (tileMap.GetTile(pos).index == 91)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GoldWire2)
+            else if (tileMap.GetTile(pos).index == 92)
             {
 
                 if (tileMap.GetTile(pos).current > tile.current)
@@ -1639,32 +1639,32 @@ namespace Factory_Game
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GoldWire3)
+            else if (tileMap.GetTile(pos).index == 93)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GoldWire4)
+            else if (tileMap.GetTile(pos).index == 94)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GoldWire5)
+            else if (tileMap.GetTile(pos).index == 95)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.SolarPanel)
+            else if (tileMap.GetTile(pos).index == 150)
             {
                 tile.current = tileMap.GetTile(pos).battery.CurrentPower();
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.QuarryBlock)
+            else if (tileMap.GetTile(pos).index ==55)
             {
 
                 tileMap.GetTile(pos).current = tile.current;
@@ -1676,46 +1676,46 @@ namespace Factory_Game
             //Left
             pos = new Vector2(tile.position.X - 32, tile.position.Y);
 
-            if (tileMap.GetTile(pos).tileType == Tile.TileType.GoldWire1)
+            if (tileMap.GetTile(pos).index == 91)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GoldWire2)
+            else if (tileMap.GetTile(pos).index == 92)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GoldWire3)
+            else if (tileMap.GetTile(pos).index == 93)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GoldWire4)
+            else if (tileMap.GetTile(pos).index == 94)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.GoldWire5)
+            else if (tileMap.GetTile(pos).index == 95)
             {
                 if (tileMap.GetTile(pos).current > tile.current)
                 {
                     tile.current = Electricity.Ressistance(ressistance, tileMap.GetTile(pos).current);
                 }
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.SolarPanel)
+            else if (tileMap.GetTile(pos).index == 150)
             {
                 tile.current = tileMap.GetTile(pos).battery.CurrentPower();
             }
-            else if (tileMap.GetTile(pos).tileType == Tile.TileType.QuarryBlock)
+            else if (tileMap.GetTile(pos).index ==55)
             {
 
                 tileMap.GetTile(pos).current = tile.current;
