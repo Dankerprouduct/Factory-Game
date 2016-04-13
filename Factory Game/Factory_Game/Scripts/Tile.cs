@@ -303,6 +303,7 @@ namespace Factory_Game
                     if (index == 150)
                     {
                         SolarPanel(game.tileMap);
+                        
                     }                    
 
                     if (game.tileObjectManagement.tileObjects.Count > 0)
@@ -385,7 +386,7 @@ namespace Factory_Game
 
                     if (alive)
                     {
-
+                        
                         /*
                         if (madeStorage)
                         {
