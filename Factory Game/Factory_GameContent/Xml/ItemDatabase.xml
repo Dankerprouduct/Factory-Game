@@ -148,7 +148,7 @@
  </Item>
  
  <Item>
-   <name>ItemPipe</name>
+   <name>ItemPipeNorth</name>
    <description>North</description>
    <itemId>0056</itemId>
    <canSmelt>false</canSmelt>
@@ -156,7 +156,7 @@
  </Item>
  
  <Item> 
-   <name>ItemPipe</name>
+   <name>ItemPipeEast</name>
    <description>East</description>
    <itemId>0057</itemId>
    <canSmelt>false</canSmelt>
@@ -164,7 +164,7 @@
  </Item>
  
  <Item>
-   <name>ItemPipe</name>
+   <name>ItemPipSouth</name>
    <description>South</description>
    <itemId>0058</itemId>
    <canSmelt>false</canSmelt>
@@ -172,7 +172,7 @@
  </Item>
   
  <Item> 
-   <name>ItemPipe</name>
+   <name>ItemPipeWest</name>
    <description>West</description>
    <itemId>0059</itemId>
    <canSmelt>false</canSmelt>

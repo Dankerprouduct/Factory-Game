@@ -55,14 +55,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Factory_Game.exe" size="111536">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Factory_Game.exe" size="113072">
       <assemblyIdentity name="Factory_Game" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>bxXWVvk5pSVWvoAKbwpYzgQJcBI=</dsig:DigestValue>
+        <dsig:DigestValue>Vx7otLJSxJlqfaNPm6A+NGzY96g=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -780,13 +780,13 @@
       <dsig:DigestValue>uWQJzoQmmoFQbcCvsUuRmvECuTc=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Xml\ItemDatabase.xnb" size="2456">
+  <file name="Content\Xml\ItemDatabase.xnb" size="2473">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>lcn7lq1a5K/raJwvDSmot9d4e+s=</dsig:DigestValue>
+      <dsig:DigestValue>pziVyKK70GuiQ1+OK/9afEw3m58=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Game.ico" size="4286">
@@ -807,13 +807,13 @@
       <dsig:DigestValue>diNvdcDpDtGEMuMQIHpkKK3qVHc=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="LuaScripts\player_script.lua" size="468">
+  <file name="LuaScripts\player_script.lua" size="566">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>9EpretHB3DE+3DGTIi4Hwcv/Iz0=</dsig:DigestValue>
+      <dsig:DigestValue>Kaj/BkWuNVpGPGBk/UYDvYpMe94=</dsig:DigestValue>
     </hash>
   </file>
   <file name="TileData\Tile_SpriteSheet.txt" size="1417">

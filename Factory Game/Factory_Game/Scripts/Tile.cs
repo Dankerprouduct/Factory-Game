@@ -262,7 +262,8 @@ namespace Factory_Game
             madeItemPipe = false;
             madeQuarry = false;
             madeStorage = false;
-            index = id; 
+            index = id;
+            
             sourceRectangle = Animation.SourceRect(id, "Tile_SpriteSheet", content);
         }
         public void UpdateIndex(int id)
@@ -286,7 +287,7 @@ namespace Factory_Game
             tMap = game.tileMap; 
             if (alive)
             {
-
+                
                 if (draw)
                 {
                     if (durability <= 0)
@@ -418,21 +419,29 @@ namespace Factory_Game
 
                             
                         }
+                        // north
                         if (index == 56)
                         {
-                            ItemPipe(tileMap, gameTime, game);
+                            //ItemPipe(tileMap, gameTime, game);
+                            Factory_Game.ItemPipe.GetItem(2, this, game); 
                         }
+                        // east
                         if (index == 57)
                         {
-                            ItemPipe(tileMap, gameTime, game);
+                            //ItemPipe(tileMap, gameTime, game);
+                            Factory_Game.ItemPipe.GetItem(3, this, game); 
                         }
+                        // south
                         if (index == 58)
                         {
-                            ItemPipe(tileMap, gameTime, game);
+                            //ItemPipe(tileMap, gameTime, game);
+                            Factory_Game.ItemPipe.GetItem(1, this, game); 
                         }
+                        // west 
                         if (index == 59)
                         {
-                            ItemPipe(tileMap, gameTime, game);
+                            //ItemPipe(tileMap, gameTime, game);
+                            Factory_Game.ItemPipe.GetItem(4, this, game); 
                         }
                         if (index == 60)
                         {
@@ -902,13 +911,13 @@ namespace Factory_Game
         {
             if (!madeStorage)
             {
-                /*
+                
                 inventory = new Inventory();
                 inventory.inventoryType = Inventory.InventoryType.StorageInventory;
-                inventory.LoadContent(contentManager);
+                inventory.LoadContent(contentManager, game);
                 inventory.inventoryType = Inventory.InventoryType.StorageInventory;
                 Console.WriteLine("Made storage");
-                */
+                
                 storage = new Storage(1, this, game.tileMap, game);
                 game.storageManagement.AddStorage(storage); 
                 madeStorage = true;
@@ -1432,7 +1441,7 @@ namespace Factory_Game
                 }
                 if(index == 56 || index == 57 || index == 58 || index == 59)
                 {
-                    inventory.Draw(spriteBatch, player); 
+                 //   inventory.Draw(spriteBatch, player); 
                 }
             }
         }

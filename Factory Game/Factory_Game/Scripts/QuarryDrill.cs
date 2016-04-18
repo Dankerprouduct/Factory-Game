@@ -104,6 +104,7 @@ namespace Factory_Game
                 run = true;
                 time = TimeSpan.FromMilliseconds(250); 
             }
+            time = TimeSpan.FromMilliseconds(50); 
             gameTime2 = gameTime;
             game2 = game;
             if (run)

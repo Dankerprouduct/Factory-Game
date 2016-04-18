@@ -1,8 +1,8 @@
 
 -- world properties
-version = "Pre-Alpha .33"
+version = "Pre-Alpha .36"
 
-windowSize = 1500 
+windowSize = 1200 
 
 FlatWorld = false
  
@@ -32,4 +32,3 @@ octave=6
 -- keep in mind that chunks are multiplied by 32
 chunkWidth = 20
 chunkHeight = 10
-

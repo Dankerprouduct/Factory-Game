@@ -106,6 +106,7 @@
     <Compile Include="Scripts\Inventory.cs" />
     <Compile Include="Scripts\Item.cs" />
     <Compile Include="Scripts\ItemDatabase.cs" />
+    <Compile Include="Scripts\ItemPipe.cs" />
     <Compile Include="Scripts\ItemStack.cs" />
     <Compile Include="Scripts\Noise.cs" />
     <Compile Include="Scripts\Physics.cs" />
