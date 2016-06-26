@@ -17,6 +17,8 @@ namespace Factory_Game
         /// <param name="direction"></param>
         /// <param name="tile"></param>
         /// <param name="game1"></param>
+        
+        
         public static void GetItem(int direction, Tile tile, Game1 game1)
         {
             Game1 game = game1; 
@@ -53,6 +55,25 @@ namespace Factory_Game
                                         }
                                     }
                                 }
+                                if (nTile.index == 55)
+                                {
+                                    if (nTile.madeQuarry)
+                                    {
+                                        if (nTile.inventory.inventoryCount > 0)
+                                        {
+                                            if (nTile.inventory.inventory[0].item.tileName != null)
+                                            {
+                                                if (tile.inventory.inventoryCount < tile.inventory.maxInventoryCount)
+                                                {
+                                                    tile.inventory.AddToInventory(nTile.inventory.inventory[0].item, 1);
+                                                    nTile.inventory.RemoveItem(nTile.inventory.inventory[0].item);
+                                                    return;
+                                                }
+
+                                            }
+                                        }
+                                    }
+                                }
                             }
                         }
                         break;
@@ -75,6 +96,25 @@ namespace Factory_Game
                                             tile.inventory.AddToInventory(nTile.inventory.inventory[0].item, 1);
                                             nTile.inventory.RemoveItem(nTile.inventory.inventory[0].item);
                                             return;
+                                        }
+                                    }
+                                }
+                            }
+                            if (nTile.index == 55)
+                            {
+                                if (nTile.madeQuarry)
+                                {
+                                    if (nTile.inventory.inventoryCount > 0)
+                                    {
+                                        if (nTile.inventory.inventory[0].item.tileName != null)
+                                        {
+                                            if (tile.inventory.inventoryCount < tile.inventory.maxInventoryCount)
+                                            {
+                                                tile.inventory.AddToInventory(nTile.inventory.inventory[0].item, 1);
+                                                nTile.inventory.RemoveItem(nTile.inventory.inventory[0].item);
+                                                return;
+                                            }
+
                                         }
                                     }
                                 }
@@ -104,6 +144,25 @@ namespace Factory_Game
                                     }
                                 }
                             }
+                            if (nTile.index == 55)
+                            {
+                                if (nTile.madeQuarry)
+                                {
+                                    if (nTile.inventory.inventoryCount > 0)
+                                    {
+                                        if (nTile.inventory.inventory[0].item.tileName != null)
+                                        {
+                                            if (tile.inventory.inventoryCount < tile.inventory.maxInventoryCount)
+                                            {
+                                                tile.inventory.AddToInventory(nTile.inventory.inventory[0].item, 1);
+                                                nTile.inventory.RemoveItem(nTile.inventory.inventory[0].item);
+                                                return;
+                                            }
+
+                                        }
+                                    }
+                                }
+                            }
                         }
                         break;
                     }
@@ -129,7 +188,28 @@ namespace Factory_Game
                                     }
                                 }
                             }
+
+                            if (nTile.index == 55)
+                            {
+                                if (nTile.madeQuarry)
+                                {
+                                    if (nTile.inventory.inventoryCount > 0)
+                                    {
+                                        if (nTile.inventory.inventory[0].item.tileName != null)
+                                        {
+                                            if (tile.inventory.inventoryCount < tile.inventory.maxInventoryCount)
+                                            {
+                                                tile.inventory.AddToInventory(nTile.inventory.inventory[0].item, 1);
+                                                nTile.inventory.RemoveItem(nTile.inventory.inventory[0].item);
+                                                return;
+                                            }
+
+                                        }
+                                    }
+                                }
+                            }
                         }
+                        
                         break;
                     }
             }

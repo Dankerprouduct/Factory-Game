@@ -64,11 +64,11 @@ Content\Tiles\Tile_SpriteSheet.xnb
 Content\TileObjects\BatteryBlockItem.xnb
 Content\TileObjects\SolarPanelItem.xnb
 Content\Textures\BackgroundTexture2.xnb
+Content\TileObjects\TileObjectSpriteSheet.xnb
 Content\Fonts\Font1.xnb
 Content\Fonts\InventoryFont.xnb
 Content\Fonts\Font2.xnb
 Content\Xml\ItemDatabase.xnb
-Content\TileObjects\TileObjectSpriteSheet.xnb
 LuaScripts\player_script.lua
 TileData\TileObjectSpriteSheet.txt
 TileData\Tile_SpriteSheet.txt

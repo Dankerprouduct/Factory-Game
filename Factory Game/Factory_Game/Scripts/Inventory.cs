@@ -140,7 +140,7 @@ namespace Factory_Game
 
         public void AddToInventory(Item item, int ammount)
         {
-             Console.WriteLine(item.tileName + " added");
+            // Console.WriteLine(item.tileName + " added");
             Console.WriteLine(item.itemID); 
             for (int a = 0; a < ammount; a++)
             {
@@ -166,7 +166,7 @@ namespace Factory_Game
                                // Console.WriteLine(database.Item(j).itemID + " " + item.itemID);
                                 if (database.items[j].itemId == item.itemID)
                                 {
-                                    Console.WriteLine("Waah");
+                                    //Console.WriteLine("Waah");
                                     inventory[i].item = item;
                                     
                                     inventoryCount++; 

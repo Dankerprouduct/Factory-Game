@@ -422,24 +422,52 @@ namespace Factory_Game
                         // north
                         if (index == 56)
                         {
+                            if (!madeItemPipe)
+                            {
+                                inventory = new Inventory();
+                                inventory.inventoryType = Inventory.InventoryType.TubeInventory;
+                                inventory.LoadContent(contentManager, game);
+                                madeItemPipe = true;
+                            }
                             //ItemPipe(tileMap, gameTime, game);
                             Factory_Game.ItemPipe.GetItem(2, this, game); 
                         }
                         // east
                         if (index == 57)
                         {
+                            if (!madeItemPipe)
+                            {
+                                inventory = new Inventory();
+                                inventory.inventoryType = Inventory.InventoryType.TubeInventory;
+                                inventory.LoadContent(contentManager, game);
+                                madeItemPipe = true;
+                            }
                             //ItemPipe(tileMap, gameTime, game);
                             Factory_Game.ItemPipe.GetItem(3, this, game); 
                         }
                         // south
                         if (index == 58)
                         {
+                            if (!madeItemPipe)
+                            {
+                                inventory = new Inventory();
+                                inventory.inventoryType = Inventory.InventoryType.TubeInventory;
+                                inventory.LoadContent(contentManager, game);
+                                madeItemPipe = true;
+                            }
                             //ItemPipe(tileMap, gameTime, game);
                             Factory_Game.ItemPipe.GetItem(1, this, game); 
                         }
                         // west 
                         if (index == 59)
                         {
+                            if (!madeItemPipe)
+                            {
+                                inventory = new Inventory();
+                                inventory.inventoryType = Inventory.InventoryType.TubeInventory;
+                                inventory.LoadContent(contentManager, game);
+                                madeItemPipe = true;
+                            }
                             //ItemPipe(tileMap, gameTime, game);
                             Factory_Game.ItemPipe.GetItem(4, this, game); 
                         }
@@ -607,7 +635,7 @@ namespace Factory_Game
 
             }
         }
-
+        
         public void ItemPipe(Chunk tileMap, GameTime gameTime, Game1 game)
         {
 

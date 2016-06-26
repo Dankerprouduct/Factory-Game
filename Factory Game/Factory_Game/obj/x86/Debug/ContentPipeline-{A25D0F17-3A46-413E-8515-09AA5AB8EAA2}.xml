@@ -596,6 +596,15 @@
       <Time>2016-03-26T15:31:37.6983747-04:00</Time>
     </Item>
     <Item>
+      <Source>TileObjects\TileObjectSpriteSheet.png</Source>
+      <Name>TileObjects\TileObjectSpriteSheet</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\TileObjectSpriteSheet.xnb</Output>
+      <Time>2016-04-08T14:58:51.9443849-04:00</Time>
+    </Item>
+    <Item>
       <Source>Fonts\Font1.spritefont</Source>
       <Name>Fonts\Font1</Name>
       <Importer>FontDescriptionImporter</Importer>
@@ -630,15 +639,6 @@
       <Options>None</Options>
       <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\Content\Xml\ItemDatabase.xnb</Output>
       <Time>2016-04-18T18:21:03.0181837-04:00</Time>
-    </Item>
-    <Item>
-      <Source>TileObjects\TileObjectSpriteSheet.png</Source>
-      <Name>TileObjects\TileObjectSpriteSheet</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\Factory_Game\bin\x86\Debug\Content\TileObjects\TileObjectSpriteSheet.xnb</Output>
-      <Time>2016-04-08T14:58:51.9443849-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -679,7 +679,7 @@
       </Assembly>
       <Assembly>
         <Key>C:\Users\David\Documents\Visual Studio 2015\Projects\Factory-Game\Factory Game\DatabaseLibrary\DatabaseLibrary\bin\x86\Debug\DatabaseLibrary.dll</Key>
-        <Value>2016-03-29T08:38:47.2245887-04:00</Value>
+        <Value>2016-06-24T10:28:44.2306795-04:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\WINDOWS\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>

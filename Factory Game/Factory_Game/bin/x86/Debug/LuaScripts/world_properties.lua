@@ -4,7 +4,7 @@ version = "Pre-Alpha .36"
 
 windowSize = 1200 
 
-FlatWorld = false
+FlatWorld = true
  
 worldSeed = 0
 

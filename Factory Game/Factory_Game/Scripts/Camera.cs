@@ -32,7 +32,7 @@ namespace Factory_Game
             float speed = 1f;
             scale = 1f;
             gme = game;
-            center = new Vector2((game.player.position.X * scale - (game.player.CurrentBounds().Width / 2) - (game.WIDTH / 2)) * scale, (game.player.position.Y * scale - (game.player.CurrentBounds().Height / 2) - (game.HEIGHT / 2)) * scale);
+            center = new Vector2((game.player.position.X - (game.player.CurrentBounds().Width / 2) - (game.WIDTH / 2)) , (game.player.position.Y - (game.player.CurrentBounds().Height / 2) - (game.HEIGHT / 2)));
 
             transform = Matrix.Lerp(transform, rawTransform, speed);
 
