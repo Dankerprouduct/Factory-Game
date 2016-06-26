@@ -38,7 +38,7 @@ namespace Factory_Game
         {
             keyboardState = Keyboard.GetState();
 
-            if(game._fps < 15)
+            if(game._fps < 0)
             {
                 if(tileObjects.Count > 0)
                 {

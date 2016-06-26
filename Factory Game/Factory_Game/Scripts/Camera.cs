@@ -29,10 +29,11 @@ namespace Factory_Game
         }
         public void Update(GameTime gameTime, Game1 game)
         {
-            float speed = 1f;
+            speed = 1f;
             scale = 1f;
             gme = game;
-            center = new Vector2((game.player.position.X - (game.player.CurrentBounds().Width / 2) - (game.WIDTH / 2)) , (game.player.position.Y - (game.player.CurrentBounds().Height / 2) - (game.HEIGHT / 2)));
+            center = new Vector2((game.player.position.X - (game.player.CurrentBounds().Width / 2) - (game.WIDTH / 2)) * scale,
+                (game.player.position.Y - (game.player.CurrentBounds().Height / 2) - (game.HEIGHT / 2)) * scale);
 
             transform = Matrix.Lerp(transform, rawTransform, speed);
 

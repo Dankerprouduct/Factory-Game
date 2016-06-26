@@ -26,8 +26,8 @@ namespace Factory_Game
         int mapCount = 0;
         public Vector2 playerStart;
 
-        public Chunk[,] chunks; 
-
+        public Chunk[,] chunks;
+        ChunkPos[,] loadedChunks; 
         ContentManager contentManager;
         Lua lua;
         public TextureManager textureManager;
@@ -43,12 +43,13 @@ namespace Factory_Game
 
         public TileMap(int[,] size, int sed, bool fltWorld)
         {
+
             lua = new Lua();
             lua.DoFile("LuaScripts/tile_script.lua");
 
             generateFlatWorld = fltWorld;
 
-            
+            loadedChunks = new ChunkPos[3, 3];
             seed = sed;
             //     mapSize = size;
             mapAttributes = size;
@@ -57,6 +58,8 @@ namespace Factory_Game
             tile = new Tile[size.GetLength(0), size.GetLength(1)];
             // chunks.Add(new Chunk()); 
             MapGeneration(size.GetLength(0), size.GetLength(1));
+
+            
         }
 
        
@@ -355,17 +358,39 @@ namespace Factory_Game
         }
         #endregion
 
+        struct ChunkPos
+        {
+            public int X;
+            public int Y; 
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="gameTime"></param>
+        /// <param name="game"></param>
         public void Update(GameTime gameTime, Game1 game)
         {
             keyboardState = Keyboard.GetState();
 
             oldKeyoardState = keyboardState;
+           // Console.WriteLine(loadedChunks); 
+            for(int x = 0; x < loadedChunks.GetLength(0); x++)
+            {
+                for(int y = 0; y < loadedChunks.GetLength(1); y++)
+                {
+                    Console.WriteLine(loadedChunks[x, y].X + " " + loadedChunks[x, y].Y); 
+                }
+            }
             /// Current Chunk
             if (((int)game.player.position.X / 1024) < chunks.GetLength(0) && ((int)game.player.position.X / 1024) >= 0)
             {
                 if (((int)game.player.position.Y / 1024) < chunks.GetLength(1) && ((int)game.player.position.Y / 1024) >= 0)
                 {
                     chunks[((int)game.player.position.X / 1024), ((int)game.player.position.Y / 1024)].Update(gameTime, game.player, game);
+                    ChunkPos cPos = new ChunkPos();
+                    cPos.X = ((int)game.player.position.X / 1024);
+                    cPos.Y = ((int)game.player.position.Y / 1024);
+                    loadedChunks[1, 1] = cPos; 
                     // Console.WriteLine(((int)player.position.X / 1024) +" "+ ((int)player.position.Y / 1024));
                 }
 
@@ -378,6 +403,10 @@ namespace Factory_Game
                 {
                     chunks[((int)game.player.position.X / 1024) - 1, ((int)game.player.position.Y / 1024)].Update(gameTime, game.player, game);
                     // Console.WriteLine( (int)(player.position.X / 1024) - 1+ " "+ ((int)player.position.Y / 1024));
+                    ChunkPos cPos = new ChunkPos();
+                    cPos.X = ((int)game.player.position.X / 1024) - 1;
+                    cPos.Y = ((int)game.player.position.Y / 1024);
+                    loadedChunks[0, 1] = cPos;
                 }
 
             }
@@ -388,6 +417,10 @@ namespace Factory_Game
                 {
                     chunks[((int)game.player.position.X / 1024) + 1, ((int)game.player.position.Y / 1024)].Update(gameTime,game.player, game);
                     //Console.WriteLine(((int)player.position.X / 1024) + 1 +" "+ ((int)player.position.Y / 1024));
+                    ChunkPos cPos = new ChunkPos();
+                    cPos.X = ((int)game.player.position.X / 1024) + 1 ;
+                    cPos.Y = ((int)game.player.position.Y / 1024);
+                    loadedChunks[2, 1] = cPos;
                 }
 
             }
@@ -398,6 +431,10 @@ namespace Factory_Game
                 {
                     chunks[((int)game.player.position.X / 1024), ((int)game.player.position.Y / 1024) + 1].Update(gameTime, game.player, game);
                     //Console.WriteLine(((int)player.position.X / 1024)  + " " + ((int)player.position.Y / 1024) + 1
+                    ChunkPos cPos = new ChunkPos();
+                    cPos.X = ((int)game.player.position.X / 1024);
+                    cPos.Y = ((int)game.player.position.Y / 1024) + 1;
+                    loadedChunks[1, 2] = cPos;
                 }
 
             }
@@ -407,7 +444,10 @@ namespace Factory_Game
                 if (((int)game.player.position.Y / 1024) - 1 < chunks.GetLength(1) && ((int)game.player.position.Y / 1024) - 1 >= 0)
                 {
                     chunks[((int)game.player.position.X / 1024), ((int)game.player.position.Y / 1024) - 1].Update(gameTime, game.player, game);
-
+                    ChunkPos cPos = new ChunkPos();
+                    cPos.X = ((int)game.player.position.X / 1024);
+                    cPos.Y = ((int)game.player.position.Y / 1024) - 1;
+                    loadedChunks[1, 0] = cPos;
                 }
 
             }
@@ -418,6 +458,11 @@ namespace Factory_Game
                 if (((int)game.player.position.Y / 1024) + 1 < chunks.GetLength(1) && ((int)game.player.position.Y / 1024) + 1 >= 0)
                 {
                     chunks[((int)game.player.position.X / 1024) + 1, ((int)game.player.position.Y / 1024) + 1].Update(gameTime, game.player, game);
+
+                    ChunkPos cPos = new ChunkPos();
+                    cPos.X = ((int)game.player.position.X / 1024) + 1;
+                    cPos.Y = ((int)game.player.position.Y / 1024) + 1;
+                    loadedChunks[2, 2] = cPos;
                 }
 
             }
@@ -427,6 +472,11 @@ namespace Factory_Game
                 if (((int)game.player.position.Y / 1024) - 1 < chunks.GetLength(1) && ((int)game.player.position.Y / 1024) - 1 >= 0)
                 {
                     chunks[((int)game.player.position.X / 1024) - 1, ((int)game.player.position.Y / 1024) - 1].Update(gameTime, game.player, game);
+
+                    ChunkPos cPos = new ChunkPos();
+                    cPos.X = ((int)game.player.position.X / 1024) - 1;
+                    cPos.Y = ((int)game.player.position.Y / 1024) - 1;
+                    loadedChunks[0, 0] = cPos;
                 }
 
             }
@@ -436,6 +486,11 @@ namespace Factory_Game
                 if (((int)game.player.position.Y / 1024) - 1 < chunks.GetLength(1) && ((int)game.player.position.Y / 1024) - 1 >= 0)
                 {
                     chunks[((int)game.player.position.X / 1024) + 1, ((int)game.player.position.Y / 1024) - 1].Update(gameTime, game.player, game);
+
+                    ChunkPos cPos = new ChunkPos();
+                    cPos.X = ((int)game.player.position.X / 1024) + 1;
+                    cPos.Y = ((int)game.player.position.Y / 1024) - 1;
+                    loadedChunks[2, 0] = cPos;
                 }
 
             }
@@ -445,6 +500,10 @@ namespace Factory_Game
                 if (((int)game.player.position.Y / 1024) + 1 < chunks.GetLength(1) && ((int)game.player.position.Y / 1024) + 1 >= 0)
                 {
                     chunks[((int)game.player.position.X / 1024) - 1, ((int)game.player.position.Y / 1024) + 1].Update(gameTime, game.player, game);
+                    ChunkPos cPos = new ChunkPos();
+                    cPos.X = ((int)game.player.position.X / 1024) - 1;
+                    cPos.Y = ((int)game.player.position.Y / 1024) + 1;
+                    loadedChunks[0, 2] = cPos;
                 }
 
             }
@@ -503,8 +562,9 @@ namespace Factory_Game
             }
             
             Console.WriteLine("Chunks Finished");
-            tile = null; 
+            tile = null;
 
+          //  ChunkLighting();
         }
 
         public void ChangeTile(int chunkX, int chunkY, int x, int y, int id, TileMap tileMap)
@@ -580,9 +640,56 @@ namespace Factory_Game
 
             return chunks[_chunkX, _chunkY].tiles[_tileX, _tileY]; 
         }
+        int lightLevel = 10; 
+        void ChunkLighting()
+        {
+            for(int chunkX = 0; chunkX < loadedChunks.GetLength(0); chunkX++)
+            {
+                for(int chunkY = 0; chunkY < loadedChunks.GetLength(1); chunkY++)
+                {
+                    for(int x = 0; x < chunks[loadedChunks[chunkX, chunkY].X, loadedChunks[chunkX, chunkY].Y].tiles.GetLength(0); x++)
+                    {
+                        for (int y = 0; y < chunks[loadedChunks[chunkX, chunkY].X, loadedChunks[chunkX, chunkY].Y].tiles.GetLength(0); y++)
+                        {
+                            UpdateLights(chunks[loadedChunks[chunkX, chunkY].X, loadedChunks[chunkX, chunkY].Y].tiles[x, y].xPos,
+                                chunks[loadedChunks[chunkX, chunkY].X, loadedChunks[chunkX, chunkY].Y].tiles[x, y].yPos, 10);
+;                        }
+                    }
+                }
+            }
+        }
+        void UpdateLights(int X, int Y, int lightlevel)
+        {
+            NeighbourUpdate(X, Y - 1, lightLevel - 1);
+            NeighbourUpdate(X, Y + 1, lightLevel - 1);
+            NeighbourUpdate(X - 1, Y, lightLevel - 1);
+            NeighbourUpdate(X + 1, Y, lightLevel - 1);
+        }
+        void NeighbourUpdate(int A, int B, int lightlevel)
+        {
+            
+            for (int chunkX = 0; chunkX < loadedChunks.GetLength(0); chunkX++)
+            {
+                for (int chunkY = 0; chunkY < loadedChunks.GetLength(1); chunkY++)
+                {
+                    
+                    for (int x = 0; x < chunks[loadedChunks[chunkX, chunkY].X, loadedChunks[chunkX, chunkY].Y].tiles.GetLength(0); x++)
+                    {
+                        for (int y = 0; y < chunks[loadedChunks[chunkX, chunkY].X, loadedChunks[chunkX, chunkY].Y].tiles.GetLength(0); y++)
+                        {
+                            if (lightLevel > chunks[loadedChunks[chunkX, chunkY].X, loadedChunks[chunkX, chunkY].Y].tiles[x, y].light)
+                            {
+                                chunks[loadedChunks[chunkX, chunkY].X, loadedChunks[chunkX, chunkY].Y].tiles[A, B].light = lightLevel;
+                                UpdateLights(A, B, lightLevel);
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
 
 
-        
 
         public void Draw(SpriteBatch spriteBatch, Player player)
         {

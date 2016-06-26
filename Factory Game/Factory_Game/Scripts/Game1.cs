@@ -37,7 +37,7 @@ namespace Factory_Game
         GUI gui = new GUI();
 
         KeyboardState keyboardState;
-
+        KeyboardState oldKeyboardState; 
         public QuarryManagement quarryManagement; 
         public TileObjectManagement tileObjectManagement;
         public StorageManagement storageManagement;
@@ -48,6 +48,7 @@ namespace Factory_Game
         Texture2D rectangleTexture;
         Lua lua;
 
+        bool pause; 
         public Game1()
         {
             
@@ -73,7 +74,7 @@ namespace Factory_Game
             graphics.PreferredBackBufferHeight = HEIGHT;
             graphics.PreferredBackBufferWidth = WIDTH;
         }
-
+        
 
         protected override void Initialize()
         {
@@ -119,24 +120,32 @@ namespace Factory_Game
         {
 
             keyboardState = Keyboard.GetState();
+
+            
             if (keyboardState.IsKeyDown(Keys.Escape))
             {
                 this.Exit();
             }
-
-            camera.Update(gameTime, this); 
-            player.Update(gameTime, this);
-            if (tileObjectManagement.tileObjects.Count > 0)
+            if (keyboardState.IsKeyDown(Keys.P) && oldKeyboardState.IsKeyUp(Keys.P))
             {
-                tileObjectManagement.Update(gameTime, this);
+                pause = !pause; 
             }
-            storageManagement.Update(tileMap, this, gameTime); 
-            gui.Update(gameTime, player, tileObjectManagement, this); 
-            tileMap.Update(gameTime, this);
-            quarryManagement.Update(gameTime, this);
+            if (!pause)
+            {
+                camera.Update(gameTime, this);
+                player.Update(gameTime, this);
+                if (tileObjectManagement.tileObjects.Count > 0)
+                {
+                    tileObjectManagement.Update(gameTime, this);
+                }
+                storageManagement.Update(tileMap, this, gameTime);
+                gui.Update(gameTime, player, tileObjectManagement, this);
+                tileMap.Update(gameTime, this);
+                quarryManagement.Update(gameTime, this);
 
+            }
 
-            
+            oldKeyboardState = keyboardState; 
             base.Update(gameTime);
         }
         
@@ -172,7 +181,7 @@ namespace Factory_Game
                     {
 
                         r = new Rectangle(x * 1024, y * 1024, 1024, 1024);
-                        int bw = 1; // Border width
+                        int bw = 5; // Border width
                         spriteBatch.Draw(rectangleTexture, new Rectangle(r.Left, r.Top, bw, r.Height), Color.Red); // Left
                         spriteBatch.Draw(rectangleTexture, new Rectangle(r.Right, r.Top, bw, r.Height), Color.Red); // Right
                         spriteBatch.Draw(rectangleTexture, new Rectangle(r.Left, r.Top, r.Width, bw), Color.Red); // Top

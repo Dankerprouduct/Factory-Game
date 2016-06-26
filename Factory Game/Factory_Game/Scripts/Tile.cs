@@ -37,7 +37,7 @@ namespace Factory_Game
         public bool isWire;
         public Item tempItem;
         public Rectangle sourceRectangle;
-        public float light = 1;
+        public float light = 10;
 
         public enum TileProperty
         {
@@ -79,7 +79,7 @@ namespace Factory_Game
         public Battery battery;
         TileMap tMap;
         Storage storage;
-        public string name; 
+        public string name;
         public Tile()
         {
             time2 = TimeSpan.FromMilliseconds(inventorySpeed);
@@ -1148,7 +1148,7 @@ namespace Factory_Game
                 }
                 else
                 {
-                    spriteBatch.Draw(texture, position, sourceRectangle, Color.White);
+                    spriteBatch.Draw(texture, position, sourceRectangle, Color.White * light);
                    // spriteBatch.Draw(texture, position, Color.White); 
                 }
                 #endregion
