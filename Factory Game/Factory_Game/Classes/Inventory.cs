@@ -268,8 +268,6 @@ namespace Factory_Game
                                     {
                                         selectedItem = i; 
 
-                                        selectedItem = i;
-
                                     }
                                     
 

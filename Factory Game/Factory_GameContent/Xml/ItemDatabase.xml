@@ -164,7 +164,7 @@
  </Item>
  
  <Item>
-   <name>ItemPipSouth</name>
+   <name>ItemPipeSouth</name>
    <description>South</description>
    <itemId>0058</itemId>
    <canSmelt>false</canSmelt>

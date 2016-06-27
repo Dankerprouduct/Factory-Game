@@ -62,7 +62,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>3/PiBJhbQp2ETyNpAxc4cOe0OgM=</dsig:DigestValue>
+        <dsig:DigestValue>2RUSJPMacz2SjlEQXHnkQ0g5lfY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -780,13 +780,13 @@
       <dsig:DigestValue>uWQJzoQmmoFQbcCvsUuRmvECuTc=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Content\Xml\ItemDatabase.xnb" size="2473">
+  <file name="Content\Xml\ItemDatabase.xnb" size="2474">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>pziVyKK70GuiQ1+OK/9afEw3m58=</dsig:DigestValue>
+      <dsig:DigestValue>abf1+g45Pjozff9maxFdQd32E24=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Game.ico" size="4286">
@@ -825,13 +825,13 @@
       <dsig:DigestValue>/r6MFWNMWILEae0B6FJITrEsxro=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="TileData\TileObjectSpriteSheet.txt" size="663">
+  <file name="TileData\TileObjectSpriteSheet.txt" size="679">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>IrUdOVCeNNmGCaG5HLENQ0VNngA=</dsig:DigestValue>
+      <dsig:DigestValue>4IYEFS9BZSPEUXCWSkotAeoUHao=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>
