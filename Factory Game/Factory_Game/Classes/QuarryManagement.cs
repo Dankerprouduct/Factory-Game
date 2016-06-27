@@ -40,7 +40,7 @@ namespace Factory_Game
                     chunkY = qDrill.game2.tileMap.FindTile(qDrill.position).chunkY;
                     if (chunkX < qDrill.game2.chunkWidth && chunkY < qDrill.game2.chunkHeight)
                     {
-                        qDrill.game2.tileMap.chunks[chunkX, chunkY].Update(gameTime, qDrill.game2.player, qDrill.game2);
+                        //qDrill.game2.tileMap.chunks[chunkX, chunkY].Update(gameTime, qDrill.game2.player, qDrill.game2);
                     }
                     #region // Loading All Tiles around drill
                     qDrill.game2.tileMap.GetTile(qDrill.tile.position).Update(gameTime, gme.player, gme, gme.tileMap.chunks[chunkX, chunkY]); 
