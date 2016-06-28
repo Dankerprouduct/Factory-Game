@@ -14,7 +14,8 @@ namespace Factory_Game
         int chunkX;
         int chunkY; 
         public Tile[,] tiles;
-        Texture2D light; 
+        Texture2D light;
+        int lightLevel = 7; 
         public Chunk()
         {
             
@@ -43,8 +44,9 @@ namespace Factory_Game
                 }
             }
 
-         //   Console.WriteLine("Built Chunk" + chunkX + " " + chunkY); 
-
+            
+            // Finished building chunk, you can do whatever you want beneath this
+            // Lighting();
         }
         public void Update(GameTime gameTime, Player player, Game1 game)
         {
@@ -63,6 +65,33 @@ namespace Factory_Game
            // Lighting(); 
         }
 
+        void Lighting()
+        {
+            for(int x = 0; x < tiles.GetLength(0); x++)
+            {
+                for(int y = 0; y < tiles.GetLength(1); y++)
+                {
+                   UpdateLights(x, y, lightLevel); 
+                }
+            }
+        }
+
+        void UpdateLights(int X, int Y, int lightlevel)
+        {
+            NeighbourUpdate(X, Y - 1, lightLevel - 1);
+            NeighbourUpdate(X, Y + 1, lightLevel - 1);
+            NeighbourUpdate(X - 1, Y, lightLevel - 1);
+            NeighbourUpdate(X + 1, Y, lightLevel - 1);
+
+            
+        }
+        void NeighbourUpdate(int X, int Y, int lightLevel)
+        {
+            if(lightLevel > tiles[X, Y].light)
+            {
+                tiles[X, Y].light = lightLevel; 
+            }
+        }
         public void Draw(SpriteBatch spriteBatch, Player player)
         {
             for(int x = 0; x < tiles.GetLength(0); x++)

@@ -640,57 +640,7 @@ namespace Factory_Game
 
             return chunks[_chunkX, _chunkY].tiles[_tileX, _tileY]; 
         }
-        int lightLevel = 10; 
-        void ChunkLighting()
-        {
-            for(int chunkX = 0; chunkX < loadedChunks.GetLength(0); chunkX++)
-            {
-                for(int chunkY = 0; chunkY < loadedChunks.GetLength(1); chunkY++)
-                {
-                    for(int x = 0; x < chunks[loadedChunks[chunkX, chunkY].X, loadedChunks[chunkX, chunkY].Y].tiles.GetLength(0); x++)
-                    {
-                        for (int y = 0; y < chunks[loadedChunks[chunkX, chunkY].X, loadedChunks[chunkX, chunkY].Y].tiles.GetLength(0); y++)
-                        {
-                            UpdateLights(chunks[loadedChunks[chunkX, chunkY].X, loadedChunks[chunkX, chunkY].Y].tiles[x, y].xPos,
-                                chunks[loadedChunks[chunkX, chunkY].X, loadedChunks[chunkX, chunkY].Y].tiles[x, y].yPos, 10);
-;                        }
-                    }
-                }
-            }
-        }
-        void UpdateLights(int X, int Y, int lightlevel)
-        {
-            NeighbourUpdate(X, Y - 1, lightLevel - 1);
-            NeighbourUpdate(X, Y + 1, lightLevel - 1);
-            NeighbourUpdate(X - 1, Y, lightLevel - 1);
-            NeighbourUpdate(X + 1, Y, lightLevel - 1);
-        }
-        void NeighbourUpdate(int A, int B, int lightlevel)
-        {
-            
-            for (int chunkX = 0; chunkX < loadedChunks.GetLength(0); chunkX++)
-            {
-                for (int chunkY = 0; chunkY < loadedChunks.GetLength(1); chunkY++)
-                {
-                    
-                    for (int x = 0; x < chunks[loadedChunks[chunkX, chunkY].X, loadedChunks[chunkX, chunkY].Y].tiles.GetLength(0); x++)
-                    {
-                        for (int y = 0; y < chunks[loadedChunks[chunkX, chunkY].X, loadedChunks[chunkX, chunkY].Y].tiles.GetLength(0); y++)
-                        {
-                            if (lightLevel > chunks[loadedChunks[chunkX, chunkY].X, loadedChunks[chunkX, chunkY].Y].tiles[x, y].light)
-                            {
-                                chunks[loadedChunks[chunkX, chunkY].X, loadedChunks[chunkX, chunkY].Y].tiles[A, B].light = lightLevel;
-                                UpdateLights(A, B, lightLevel);
-                            }
-                        }
-                    }
-                }
-            }
-
-        }
-
-
-
+        
         public void Draw(SpriteBatch spriteBatch, Player player)
         {
 
